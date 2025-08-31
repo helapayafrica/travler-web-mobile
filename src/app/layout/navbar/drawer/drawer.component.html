@@ -1,0 +1,85 @@
+<ng-template #content let-offcanvas>
+  <div
+    style="z-index: 9999"
+    class="offcanvas-header" data-bs-theme="dark">
+    <!-- <h4 class="offcanvas-title" id="offcanvas-basic-title">Navigation</h4> -->
+     <app-shared-logo/>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="offcanvas.dismiss('Cross click')"></button>
+  </div>
+  <div class="offcanvas-body py-0">
+    <div class="vstack rounded gap-2">
+      <a class="nav-link" (click)="offcanvas.dismiss()" routerLink="/">
+       Book Ticket
+      </a>
+<!--      <a class="nav-link" (click)="offcanvas.dismiss()" routerLink="/contact" >-->
+<!--       Contact us-->
+<!--      </a>-->
+<!--      <a class="nav-link" (click)="offcanvas.dismiss()" routerLink="/about" >-->
+<!--       About Iabiri-->
+<!--      </a>-->
+<!--      <a class="nav-link" (click)="offcanvas.dismiss()" routerLink="/blogs" routerLinkActive="active">-->
+<!--        Blog-->
+<!--      </a>-->
+
+
+
+      <a *ngIf="!loggedIn" class="nav-link" (click)="offcanvas.dismiss()" routerLink="/signup">
+        <i class="bi bi-person me-2"></i>
+        Sign up
+      </a>
+      <a *ngIf="!loggedIn"  class="nav-link" (click)="offcanvas.dismiss()" routerLink="/login">
+        Sign in
+      </a>
+
+
+      <a *ngIf="loggedIn && isAgent"  class="nav-link" (click)="offcanvas.dismiss()" routerLink="/user-profile/dashboard">
+        Dashboard
+      </a>
+      <a *ngIf="loggedIn"  class="nav-link" (click)="offcanvas.dismiss()" routerLink="/user-profile/bookings">
+        Bookings
+      </a>
+      <a *ngIf="loggedIn"  class="nav-link"  (click)="offcanvas.dismiss()" routerLink="/user-profile/wallet">
+        Wallet
+    </a>
+      <a *ngIf="loggedIn"  class="nav-link" (click)="offcanvas.dismiss()" routerLink="/user-profile/account">
+        My Account
+    </a>
+      <a *ngIf="loggedIn"  class="nav-link" (click)="offcanvas.dismiss()" routerLink="/user-profile/change-password">
+        Change Password
+    </a>
+
+
+      <a *ngIf="loggedIn && isAgent"  class="nav-link" (click)="offcanvas.dismiss()" routerLink="/user-profile/user-list">
+        Users List
+      </a>
+
+      <div class="dropdown-divider"></div>
+      <a *ngIf="loggedIn"  class="text-danger nav-link" (click)="logout();offcanvas.dismiss();">
+        Logout
+      </a>
+
+
+
+
+    </div>
+  </div>
+</ng-template>
+
+<!-- <button
+  class="btn btn-outline-light"
+  aria-controls="offcanvasNavbar"
+  aria-label="Toggle navigation"
+  (click)="open(content)">
+  <i class="bi bi-menu-app me-2"></i>
+  <span>Menu</span>
+</button> -->
+
+<button class="menu-btn" aria-controls="offcanvasNavbar" aria-label="Toggle navigation"
+  (click)="open(content)">
+  <i class="bi bi-list fs-5"></i>
+  <!-- <span> Menu</span> -->
+</button>

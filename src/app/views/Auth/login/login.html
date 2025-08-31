@@ -1,1 +1,120 @@
-<p>login works!</p>
+<div class="container">
+  <div class="card shadow">
+    <!-- Logo + Header -->
+    <div class="card-header m-0">
+      <div class="text-center">
+        <img src="assets/top-logo-cropped.png" width="180px" height="auto" alt="">
+      </div>
+      <h3 class="text-center mb-2 fw-bold">Log in</h3>
+    </div>
+
+    <div class="card-body">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <!-- Code -->
+          <div class="mt-2 col-4">
+            <div class="d-flex flex-column gap-1">
+              <label for="code">Code</label>
+              <p-select
+                [options]="codes"
+                formControlName="country_code"
+                id="code"
+                optionLabel="label"
+                placeholder="Select Code"
+                class="w-100">
+              </p-select>
+              <small *ngIf="loginForm.get('country_code')?.touched && loginForm.get('country_code')?.errors?.['required']"
+                     class="text-danger">
+                Code is required
+              </small>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="mt-2 col-8">
+            <div class="d-flex flex-column gap-1">
+              <label for="phone">Phone Number</label>
+              <input
+                id="phone"
+                type="tel"
+                formControlName="phone_number"
+                pInputText
+                class="w-100"
+                inputmode="tel"
+                placeholder="e.g. 700 123456"
+                pattern="^\+?[0-9\s\-]{7,15}$"/>
+
+              <small *ngIf="loginForm.get('phone_number')?.touched && loginForm.get('phone_number')?.errors?.['required']"
+                     class="text-danger">
+                Phone number is required
+              </small>
+            </div>
+          </div>
+
+
+          <!-- Password -->
+          <div class="mt-2 col-12">
+            <div class="d-flex flex-column gap-1">
+              <label for="password">Password</label>
+              <p-password
+                formControlName="password"
+                inputId="password"
+                [feedback]="false"
+                [toggleMask]="true"
+                inputStyleClass="w-100">
+              </p-password>
+              <small *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']"
+                     class="text-danger">
+                Password is required
+              </small>
+              <small *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['minlength']"
+                     class="text-danger">
+                Password must be at least 6 characters
+              </small>
+            </div>
+          </div>
+
+          <!-- Remember Me + Forgot password -->
+          <div class="mt-3 row">
+            <div class="col">
+              <p-checkbox inputId="rememberMe" formControlName="rememberMe" binary="true"></p-checkbox>
+              <label for="rememberMe" class="ms-1">Remember me</label>
+            </div>
+            <div class="col text-end">
+              <a href="#" class="text-decoration-none">Forgot password?</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit button -->
+        <div class="col-12 mt-3">
+          <button
+            type="submit"
+            class="w-100 rounded-pill p-2 bg-primary text-white"
+            >
+<!--            [disabled]="loginForm.invalid || isSubmitting"-->
+            <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm me-2"></span>
+            {{ isSubmitting ? 'Logging in...' : 'Sign In' }}
+          </button>
+        </div>
+
+        <!-- Divider -->
+        <div class="d-flex align-items-center py-4">
+          <hr class="flex-grow-1">
+          <span class="px-3 text-secondary" style="font-size: 10px;">OR CONTINUE WITH</span>
+          <hr class="flex-grow-1">
+        </div>
+
+        <!-- Signup link -->
+        <div class="text-center">
+          <p class="mb-0">
+            Don’t have an account?
+            <a
+              style="cursor: pointer;"
+              routerLink="/sign-up" class="text-decoration-none">Sign up</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

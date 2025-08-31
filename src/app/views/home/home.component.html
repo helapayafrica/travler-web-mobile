@@ -1,0 +1,96 @@
+<!--<div>-->
+<!--  <app-hero-section ></app-hero-section>-->
+
+<!--  &lt;!&ndash;<app-how-to-book ></app-how-to-book>&ndash;&gt;-->
+<!--  <app-home-coupons ></app-home-coupons>-->
+<!--  <app-home-testimonials ></app-home-testimonials>-->
+
+<!--  <app-blog-section ></app-blog-section>-->
+
+<!--  <app-how-to-book-text ></app-how-to-book-text>-->
+
+<!--  &lt;!&ndash; <app-home-hero ></app-home-hero> &ndash;&gt;-->
+<!--  &lt;!&ndash;<app-analytics ></app-analytics>&ndash;&gt;-->
+<!--  &lt;!&ndash;<app-home-guides ></app-home-guides>&ndash;&gt;-->
+<!--  &lt;!&ndash;<app-home-discover ></app-home-discover>&ndash;&gt;-->
+<!--  <app-home-partners ></app-home-partners>-->
+
+<!--  <app-faqs-->
+
+<!--   ></app-faqs>-->
+<!--  &lt;!&ndash;<app-home-top-routes ></app-home-top-routes>&ndash;&gt;-->
+<!--  <app-apps ></app-apps>-->
+
+
+
+<!--</div>-->
+
+<!-- Hero Section -->
+<div class="component-container">
+  <app-generic-skeleton
+    *ngIf="loadingStates.heroSection"
+    [config]="skeletonConfigs.hero">
+  </app-generic-skeleton>
+  <app-hero-section
+    *ngIf="!loadingStates.heroSection">
+  </app-hero-section>
+</div>
+
+<!-- Coupons Section -->
+<div class="component-container">
+  <app-generic-skeleton
+    *ngIf="loadingStates.coupons"
+    [config]="skeletonConfigs.coupons">
+  </app-generic-skeleton>
+  <app-home-coupons
+    *ngIf="!loadingStates.coupons">
+  </app-home-coupons>
+</div>
+
+<!-- Testimonials Section -->
+<div class="component-container">
+  <app-generic-skeleton
+    *ngIf="loadingStates.testimonials"
+    [config]="skeletonConfigs.testimonials">
+  </app-generic-skeleton>
+  <app-home-testimonials
+    *ngIf="!loadingStates.testimonials">
+  </app-home-testimonials>
+</div>
+
+
+
+
+<!-- Partners Section -->
+<div class="component-container">
+  <app-generic-skeleton
+    *ngIf="loadingStates.partners"
+    [config]="skeletonConfigs.partners">
+  </app-generic-skeleton>
+  <app-home-partners
+    *ngIf="!loadingStates.partners">
+  </app-home-partners>
+</div>
+
+<!-- FAQs Section -->
+<div class="component-container">
+  <app-generic-skeleton
+    *ngIf="loadingStates.faqs"
+    [config]="skeletonConfigs.faqs">
+  </app-generic-skeleton>
+  <app-faqs
+    *ngIf="!loadingStates.faqs">
+  </app-faqs>
+</div>
+
+<!-- Apps Section -->
+<div class="component-container">
+  <app-generic-skeleton
+    *ngIf="loadingStates.apps"
+    [config]="skeletonConfigs.apps">
+  </app-generic-skeleton>
+  <app-apps
+    *ngIf="!loadingStates.apps">
+  </app-apps>
+</div>
+

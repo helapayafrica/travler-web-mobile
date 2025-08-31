@@ -1,0 +1,53 @@
+.offcanvas-header, .offcanvas-body {
+  background-color: black;
+  color: white;
+}
+
+.btn-close {
+  color: var(--bs-white);
+  border: none;
+  background-color: transparent;
+  font-size: 1.1rem;
+  &:hover,
+    &:focus {
+      color: #ED211F;
+    }
+}
+
+.nav-link {
+  padding: .5rem 1rem;
+  border-radius: var(--bs-border-radius);
+  color: white;
+  font-size: 1rem;
+  transition: ease-in-out 0.2s;
+
+  &:hover,
+  &:focus {
+    background-color: white;
+    font-weight: bolder;
+    font-size: 1.1rem;
+    color: #ED211F;
+    border-right: #ED211F 1px solid;
+    border-radius: 4px;
+    margin: 0;
+  }
+}
+
+.menu-btn {
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  transition: ease-in-out 0.3s;
+  &:hover,
+  &:focus {
+    // background-color: var(--bs-primary-bg-subtle);
+    background-color: #ED211F;
+    color: white;
+  }
+}

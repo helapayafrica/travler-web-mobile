@@ -1,0 +1,48 @@
+.text-danger {
+  color: #dc3545;
+}
+
+h2 {
+  color: #333;
+  font-size: 1.75rem;
+}
+
+li {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.container-fluid {
+  background-color: #fff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.accordion {
+  max-width: 700px;
+}
+
+.accordion-item {
+  border: none;
+  background-color: white;
+  gap: 2rem;
+}
+
+.accordion-button {
+  padding: 0.6rem 0.5rem;
+}
+.accordion-button:focus, .accordion-button:active, .accordion-button:not(.collapsed) {
+  background-color: #EFEFEF;
+  color: #FF725E;
+  font-weight: bold;
+}
+
+.route {
+  border-bottom: 1px #cdcdcd solid;
+  width: 1200px;
+  max-width: 40%;
+}/*# sourceMappingURL=top-routes.component.css.map */

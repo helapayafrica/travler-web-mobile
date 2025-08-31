@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+  --font-size: 1rem;
+}
+
+.card {
+  max-width: 500px;
+  padding: 16px;
+  border: lightgray 1px solid !important;
+}
+

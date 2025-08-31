@@ -1,0 +1,99 @@
+//.navbar {
+//  padding: .2rem;
+//  background-color:black;
+//  box-shadow: var(--bs-box-shadow-lg);
+//  transition: all ease-in-out 0.3s;
+//}
+//
+//.nav-link:not(.btn), .navbar-brand {
+//  color: var(--bs-white);
+//  transition: all ease-in-out 0.3s;
+//
+//  &:hover, &:focus {
+//    color: var(--bs-primary);
+//  }
+//
+//}
+//
+//
+//.navbar-nav .nav-link.active {
+//  color: red !important;
+//  font-weight: bold;
+//}
+//
+//.btn {
+//  &:hover, &:focus {
+//    color: var(--bs-white);
+//  }
+//}
+//
+//.nav-expanded {
+//  padding-top: .5rem;
+//  padding-bottom: .5rem;
+//}
+
+//*{
+//  outline: 1px solid purple;
+//}
+.nav-link{
+  color: #2c2c2c;
+  font-weight: 600;
+  font-size: var(--font-size);
+  line-height: 1.5rem;
+  padding: 0.5rem 0;
+}
+.active {
+  color : #EE2F2D;
+  font-weight:700
+}
+a{
+  margin:  0;
+  padding : 0
+}
+
+.account-btn {
+  padding: 0.5rem 1.5rem;
+  color: white;
+  border-radius: 50rem;
+  background-color: black;
+  font-size: var(--font-size);
+}
+.icon {
+  font-size: 1.5rem;
+  color: white;
+  background-color: black;
+  padding: 0.5rem;
+  border-radius: 100%;
+}
+
+
+
+.icon {
+  height: 40px;
+  /* Set consistent height */
+  display: flex;
+
+}
+
+.icon {
+  width: 40px;
+height: 40px;
+align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+}
+
+.icon:hover {
+  color: white;
+}
+
+.nav-position{
+  position: absolute;
+  min-width: 100%;
+  //min-width:100vh;
+  top: 20px;
+  //right: 10px;
+  z-index: 600;
+}

@@ -1,0 +1,67 @@
+<!--<div class="container my-5">-->
+<!--    &lt;!&ndash; Section Title &ndash;&gt;-->
+<!--    <div class="text-center mb-4">-->
+<!--      <h2 class="fw-bold">THE NUMBERS ARE GROWING!</h2>-->
+<!--    </div>-->
+<!--  -->
+<!--    &lt;!&ndash; Stats Section &ndash;&gt;-->
+<!--    <div class="row justify-content-center text-center">-->
+<!--  -->
+<!--      &lt;!&ndash; Stat 1: Operators &ndash;&gt;-->
+<!--      <div class="col-12 col-md-4 mb-4">-->
+<!--        <div class="stats-card">-->
+<!--          <div class="stats-icon pink">-->
+<!--            <img src="assets/buses.png" alt="Operators">-->
+<!--          </div>-->
+<!--          <p class="stats-label">OPERATORS</p>-->
+<!--          <h3 class="stats-value text-danger">30+</h3>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--  -->
+<!--      &lt;!&ndash; Stat 2: Tickets Sold &ndash;&gt;-->
+<!--      <div class="col-12 col-md-4 mb-4">-->
+<!--        <div class="stats-card">-->
+<!--          <div class="stats-icon green">-->
+<!--            <img src="assets/tickets.png" alt="Tickets Sold">-->
+<!--          </div>-->
+<!--          <p class="stats-label">TICKETS SOLD</p>-->
+<!--          <h3 class="stats-value text-success">5M+</h3>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--  -->
+<!--      &lt;!&ndash; Stat 3: Operational Countries &ndash;&gt;-->
+<!--      <div class="col-12 col-md-4 mb-4">-->
+<!--        <div class="stats-card">-->
+<!--          <div class="stats-icon blue">-->
+<!--            <img src="assets/customers.png" alt="Operational Countries">-->
+<!--          </div>-->
+<!--          <p class="stats-label">OPERATIONAL COUNTRIES</p>-->
+<!--          <h3 class="stats-value text-primary">4</h3>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--  -->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--<div>-->
+
+<div
+  class="d-flex flex-column justify-content-center align-items-center rounded-4 text-center"
+  [ngStyle]="{
+    'background-color': colorImage.bgColor,
+    'color': colorImage.color,
+    width: '250px',
+    height: '250px'
+  }"
+>
+
+  <i [class]="colorImage.icon + '  display-1 mb-3'"></i>
+<!--  <img [src]="colorImage.icon" class="img-fluid" style="width: 100px; height: 100px;">-->
+
+
+  <h1 class="fw-bold display-5 p-0 m-0">
+    {{ colorImage.stat }}<span class="fs-5 fw-bold">+</span>
+  </h1>
+
+  <p class="lead m-0 p-0 lead">{{ colorImage.text }}</p>
+</div>

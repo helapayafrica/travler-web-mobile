@@ -1,0 +1,47 @@
+.hero-img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.gradient-box {
+  background-image: linear-gradient(to bottom, #f8d0ca 0%, #fadbe0 35%, #f9e7f0 65%, #ffffff 100%);
+  border-radius: 1rem;
+}
+
+.icon-box {
+  background-color: #fff;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #cdcdcd;
+  border-radius: 0.3rem;
+  color: #cdcdcd;
+}
+
+@media (min-width: 576px) {
+  .hero-img {
+    max-width: 200px;
+  }
+  .icon-box {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+}
+@media (min-width: 992px) {
+  .hero-img {
+    max-width: 280px;
+  }
+  .icon-box {
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+}
+.text-color {
+  color: red;
+  font-weight: 900;
+}/*# sourceMappingURL=guides.component.css.map */

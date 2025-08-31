@@ -1,0 +1,71 @@
+<!--<div class="container mx-auto section">-->
+<!--  <div class="row section-title">-->
+<!--    <div class="col-12 text-center">-->
+<!--      <h2>Top Routes</h2>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="row">-->
+<!--    <ng-container *ngFor="let group of routeGroups">-->
+<!--      <div class="col-md">-->
+<!--        <h5 class="text-danger mb-3">{{ group.title }}</h5>-->
+<!--        <ul class="list-unstyled">-->
+<!--          <li *ngFor="let route of group.routes" class="mb-2">-->
+<!--            {{ route.origin }} - {{ route.destination }}-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      </div>-->
+<!--    </ng-container>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="container rounded-4 my-5   border border-2">
+  <div class="row justify-content-center">
+    <div
+      style="border-radius: 1rem  0 0  1rem"
+      class="col-12 col-md-6 bg-white p-3 ">
+      <div class="d-flex flex-column gap-3">
+        <h2 class="fw-bold text-center fs-4">
+          More Routes,More Choices
+        </h2>
+        <div class="d-flex flex-column gap-1 ">
+           <div class="accordion" id="accordionExample">
+          <div *ngFor="let group of routeGroups; let i = index" class="accordion-item">
+            <h2 class="accordion-header" [id]="'heading' + i">
+              <button class="accordion-button collapsed" type="button"
+                      [attr.data-bs-toggle]="'collapse'"
+                      [attr.data-bs-target]="'#collapse' + i"
+                      [attr.aria-expanded]="false"
+                      [attr.aria-controls]="'collapse' + i">
+                <i class="bi bi-patch-check me-2  fs-4 fw-bold"></i> <span
+                class="fw-medium lead">{{ group.title }}</span>
+              </button>
+            </h2>
+            <div [id]="'collapse' + i" class="accordion-collapse collapse"
+                 [attr.aria-labelledby]="'heading' + i" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <p *ngFor="let route of group.routes" class="fw-medium fs-6 route ms-4">
+                  To {{ route.destination }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 p-3">
+      <div class="d-flex flex-column justify-content-around align-items-center">
+        <div>
+          <h4 class="fw-bold mb-3 text-center">The Numbers are growing</h4>
+          <div class="mt-2">
+            <app-analytics></app-analytics>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

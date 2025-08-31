@@ -1,0 +1,60 @@
+.nav-link {
+  color: black;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  padding: 0.5rem 0;
+}
+
+.active {
+  color: #EE2F2D;
+  font-weight: 700;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+}
+
+.account-btn {
+  padding: 0.35rem 1.5rem;
+  color: white;
+  border-radius: 50rem;
+  background-color: black;
+  font-size: 1rem;
+}
+
+.icon {
+  font-size: 1.5rem;
+  color: white;
+  background-color: black;
+  padding: 0.5rem;
+  border-radius: 100%;
+}
+
+.icon {
+  height: 40px;
+  /* Set consistent height */
+  display: flex;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+}
+
+.icon:hover {
+  color: white;
+}
+
+.nav-position {
+  position: absolute;
+  min-width: 100%;
+  top: 20px;
+  z-index: 50;
+}/*# sourceMappingURL=navbar.component.css.map */
