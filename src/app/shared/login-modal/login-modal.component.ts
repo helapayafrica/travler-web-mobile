@@ -73,9 +73,12 @@ export class LoginModalComponent {
   }
 
   openModal() {
+    console.log("MOdal Open")
     if (!this.modalInstance) {
       this.modalInstance = new Modal(this.loginModal.nativeElement);
     }
+    console.log("MOdal Open 2")
+
     this.modalInstance.show();
   }
 

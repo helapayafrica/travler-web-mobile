@@ -215,8 +215,8 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   calculateTotalPrice(): string {
-    console.log('Calculating total price for selected seats:');
-    console.log(this.priceList);
+    // console.log('Calculating total price for selected seats:');
+    // console.log(this.priceList);
 
     if (!this.priceList || !this.selectedSeats?.length) {
       return '0';
@@ -243,7 +243,9 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
 
   async proceedToCheckout(): Promise<void> {
     if (this.type === 'onward') {
+      console.log("Reaching  Here")
       this.bookingService.setConfig('pickup', this.boardingForm.value);
+      console.log("Fererererere")
       await this.bookingService.saveOutward();
       this.loginModalService.openModal();
     } else {
@@ -492,7 +494,6 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
       `${hours}h ${minutes}m ${seconds}s`;
   }
 
-
   ngOnDestroy() {
     if (this.timerInterval) {
       clearInterval(this.timerInterval);
@@ -509,7 +510,7 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
   resultComponent = inject(ResultsComponent)
 
   closeIsOpenView() {
-    console.log('[cLOSED}')
+    console.log('[cLOSED]')
     this.resultComponent.closeView()
   }
 
