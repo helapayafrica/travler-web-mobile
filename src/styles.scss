@@ -1,10 +1,558 @@
-:root{
-  --font-size: 1rem;
+//:root{
+//  --font-size: 1rem;
+//
+//  /* 🌞 Secondary Color Scale (Amber-like) */
+//  --secondary-color-100: hsl(40, 100%, 96%);
+//  --secondary-color-200: hsl(40, 100%, 89%);
+//  --secondary-color-300: hsl(40, 99%, 78%);
+//  --secondary-color-400: hsl(40, 98%, 67%);
+//  --secondary-color-500: hsl(40, 98%, 57%);
+//  --secondary-color-600: hsl(40, 90%, 46%);
+//  --secondary-color-700: hsl(40, 85%, 36%);
+//  --secondary-color-800: hsl(40, 80%, 26%);
+//  --secondary-color-900: hsl(40, 75%, 18%);
+//
+//  /* 🌿 Primary Color Scale (Earthy Green) */
+//  --primary-color-100: hsl(110, 40%, 95%);
+//  --primary-color-200: hsl(110, 39%, 87%);
+//  --primary-color-300: hsl(110, 39%, 73%);
+//  --primary-color-400: hsl(110, 39%, 56%);
+//  --primary-color-500: hsl(110, 38%, 41%);
+//  --primary-color-600: hsl(110, 38%, 33%);
+//  --primary-color-700: hsl(110, 38%, 25%);
+//  --primary-color-800: hsl(110, 37%, 17%);
+//  --primary-color-900: hsl(110, 36%, 12%);
+//
+//  /* ⚪ Grays (Neutral grayscale) */
+//  --gray-50:  hsl(0, 0%, 98%);
+//  --gray-100: hsl(0, 0%, 95%);
+//  --gray-200: hsl(0, 0%, 85%);
+//  --gray-300: hsl(0, 0%, 75%);
+//  --gray-400: hsl(0, 0%, 60%);
+//  --gray-500: hsl(0, 0%, 45%);
+//  --gray-600: hsl(0, 0%, 30%);
+//  --gray-700: hsl(0, 0%, 20%);
+//  --gray-800: hsl(0, 0%, 13%);
+//  --gray-900: hsl(0, 0%, 8%);
+//
+//}
+//
+//.card {
+//  max-width: 500px;
+//  padding: 16px;
+//  border: lightgray 1px solid !important;
+//}
+//
+
+
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+
+//Variables ===================================================================
+
+//@import "variables";
+
+// Background ==================================================================
+.text-bg-primary {
+  background-color: $primary !important;
+  color: white;
 }
 
-.card {
-  max-width: 500px;
-  padding: 16px;
-  border: lightgray 1px solid !important;
+
+// Buttons =====================================================================
+
+.btn {
+  &:focus,
+  &:active,
+  &:active:focus,
+  &.active:focus {
+    outline: none;
+  }
+
+  &-primary {
+    color: #fff;
+    background-color: $primary;
+    border-color: $primary;
+
+    &:hover,
+    &:focus {
+      background-color: $primary;
+      border-color: $primary;
+      outline: 0;
+      box-shadow: 0 0 0 0.25rem #d4e4cb;
+
+      &:disabled {
+        cursor: not-allowed;
+      }
+    }
+
+    &:disabled {
+      background-color: var(--bs-gray-300);
+      color: var(--bs-black);
+      border-color: var(--bs-gray-300);
+      cursor: not-allowed;
+    }
+  }
+
+  &-outline-primary {
+    border-color: $primary;
+    color: $primary;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $primary !important;
+      border-color: $primary !important;
+      outline: 0;
+      box-shadow: 0 0 0 0.25rem #d4e4cb !important;
+    }
+  }
+
+  &-secondary {
+    background-color: $white;
+    border-color: #ccc;
+    color: $gray-900;
+
+    &:hover {
+      background-color: $gray-300;
+      border-color: $gray-500;
+      color: $gray-900;
+    }
+
+    &.disabled {
+      background-color: $white;
+      border-color: lighten(#ccc, 5%);
+      color: lighten($gray-900, 5%);
+    }
+  }
+
+  &-warning {
+    color: $white;
+  }
+
+  &-link {
+    color: $primary;
+  }
+
+  &-primary:focus {
+    box-shadow: 0 0 5px lighten($primary, 10%);
+  }
+
+  &-secondary:focus {
+    box-shadow: 0 0 5px $gray-400;
+  }
+
+  &-success:focus {
+    box-shadow: 0 0 5px lighten($success, 10%);
+  }
+
+  &-info:focus {
+    box-shadow: 0 0 5px lighten($info, 10%);
+  }
+
+  &-warning:focus {
+    box-shadow: 0 0 5px lighten($warning, 10%);
+  }
+
+  &-danger:focus {
+    box-shadow: 0 0 5px lighten($danger, 10%);
+  }
+
+  &.disabled:focus {
+    box-shadow: none;
+  }
 }
+
+// Typography ==================================================================
+
+// Tables ======================================================================
+
+.table .thead-dark th {
+  background-color: $secondary;
+  border-color: $table-border-color;
+}
+
+// Forms =======================================================================
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #bad0ad;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem #d4e4cb;
+}
+
+.form-check-input {
+  &:checked {
+    background-color: $primary;
+    border-color: $primary;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.25rem #d4e4cb;
+  }
+}
+
+// Navs ========================================================================
+
+.nav-tabs {
+
+  .nav-link,
+  .nav-link.active {
+    border-width: 0 0 1px 0;
+  }
+
+  .nav-link:hover,
+  .nav-link.active,
+  .nav-link.active:hover,
+  .nav-link.active:focus {
+    border-bottom: 1px solid $primary;
+  }
+
+  .nav-item + .nav-item {
+    margin-left: 0;
+  }
+}
+
+.breadcrumb {
+  &-item.active {
+    color: $gray-700;
+  }
+}
+
+// Indicators ==================================================================
+
+.badge {
+  padding-bottom: 0.4em;
+
+  &-secondary,
+  &-warning {
+    color: $white;
+  }
+}
+
+// Progress bars ===============================================================
+
+.progress {
+  height: 8px;
+}
+
+// Containers ==================================================================
+
+.list-group {
+
+  &-item {
+    color: rgba(255, 255, 255, 0.8);
+
+    &.active,
+    &:hover,
+    &:focus {
+      color: #fff;
+    }
+
+    &.active {
+      font-weight: bold;
+
+      &:hover {
+        background-color: $list-group-hover-bg;
+      }
+    }
+
+    &.disabled:hover {
+      color: $list-group-disabled-color;
+    }
+  }
+}
+
+// Section =====================================================================
+
+.section {
+  padding-top:5rem;
+
+  .section-title h4{
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: $primary;
+  }
+
+  .section-title {
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: $primary;
+  }
+}
+
+/// Text =======================================================================
+
+.text-primary {
+  color: $primary !important;
+}
+
+/// Card =======================================================================
+
+.card {
+  border: none;
+  box-shadow: var(--bs-box-shadow-sm);
+
+  .card-header, .card-footer {
+    background: transparent;
+  }
+}
+
+/// Background =================================================================
+
+.bg-primary {
+  background-color: $primary !important;
+}
+
+/// Border =====================================================================
+
+.border-primary {
+  border-color: $primary !important;
+}
+
+/// Links =====================================================================
+a {
+  color: $primary;
+}
+
+/*:root {*/
+/*--primary-color-100: #FEF7E7;*/
+/*--primary-color-200: #FDF0D0;*/
+/*--primary-color-400: #FACC5B;*/
+/*--primary-color-500: #F9B716;*/
+/*--primary-color-600: #C79211;*/
+/*--primary-color-800: #634908;*/
+/*--primary-color-900: #4A3606;*/
+
+/*--secondary-color-100: #f1e7eb;*/
+/*--secondary-color-200: #EAD2DE;*/
+/*--secondary-color-400: #B8628C;*/
+/*--secondary-color-500: #9A205B;*/
+/*--secondary-color-600: #7B1948;*/
+/*--secondary-color-800: #3D0C24;*/
+/*--secondary-color-900: #2E091B;*/
+/*}*/
+:root {
+  /* 🌞 Secondary Color Scale (Amber-like) */
+  --secondary-color-100: hsl(40, 100%, 96%);
+  --secondary-color-200: hsl(40, 100%, 89%);
+  --secondary-color-300: hsl(40, 99%, 78%);
+  --secondary-color-400: hsl(40, 98%, 67%);
+  --secondary-color-500: hsl(40, 98%, 57%);
+  --secondary-color-600: hsl(40, 90%, 46%);
+  --secondary-color-700: hsl(40, 85%, 36%);
+  --secondary-color-800: hsl(40, 80%, 26%);
+  --secondary-color-900: hsl(40, 75%, 18%);
+
+  /* 🌿 Primary Color Scale (Earthy Green) */
+  --primary-color-100: hsl(110, 40%, 95%);
+  --primary-color-200: hsl(110, 39%, 87%);
+  --primary-color-300: hsl(110, 39%, 73%);
+  --primary-color-400: hsl(110, 39%, 56%);
+  --primary-color-500: hsl(110, 38%, 41%);
+  --primary-color-600: hsl(110, 38%, 33%);
+  --primary-color-700: hsl(110, 38%, 25%);
+  --primary-color-800: hsl(110, 37%, 17%);
+  --primary-color-900: hsl(110, 36%, 12%);
+
+  /* ⚪ Grays (Neutral grayscale) */
+  --gray-50:  hsl(0, 0%, 98%);
+  --gray-100: hsl(0, 0%, 95%);
+  --gray-200: hsl(0, 0%, 85%);
+  --gray-300: hsl(0, 0%, 75%);
+  --gray-400: hsl(0, 0%, 60%);
+  --gray-500: hsl(0, 0%, 45%);
+  --gray-600: hsl(0, 0%, 30%);
+  --gray-700: hsl(0, 0%, 20%);
+  --gray-800: hsl(0, 0%, 13%);
+  --gray-900: hsl(0, 0%, 8%);
+
+  ///* --primary-orange-peachy */
+  //  --peachy-orange-color-200: hsl(27, 90%, 92%);
+  //  --peachy-orange-color-300: hsl(27, 89%, 86%);
+  //  --peachy-orange-color-400: hsl(27, 85%, 72%);
+  //
+  //  /* --primary-amber */
+  //  --amber-color-200: hsl(33, 97%, 85%);
+  //  --amber-color-300: hsl(33, 96%, 70%);
+  //  --amber-color-400: hsl(33, 94%, 56%);
+  //
+  //  /* --primary-rosy */
+  //  --rosy-color-200: hsl(6, 60%, 93%);
+  //  --rosy-color-300: hsl(6, 58%, 87%);
+  //  --rosy-color-400: hsl(6, 55%, 74%);
+  //
+  //  /* --primary-sky */
+  //  --sky-color-200: hsl(209, 78%, 96%);
+  //  --sky-color-300: hsl(209, 77%, 92%);
+  //  --sky-color-400: hsl(209, 75%, 80%);
+  /* --primary-orange-peachy (soft earthy orange) */
+  --peachy-orange-color-200: hsl(27, 40%, 94%);
+  --peachy-orange-color-300: hsl(27, 38%, 84%);
+  --peachy-orange-color-400: hsl(27, 36%, 72%);
+
+  /* --primary-amber (warm sand tone) */
+  --amber-color-200: hsl(33, 40%, 94%);
+  --amber-color-300: hsl(33, 38%, 84%);
+  --amber-color-400: hsl(33, 36%, 72%);
+
+  /* --primary-rosy (dusty rose) */
+  --rosy-color-200: hsl(6, 35%, 94%);
+  --rosy-color-300: hsl(6, 32%, 84%);
+  --rosy-color-400: hsl(6, 30%, 72%);
+
+  /* --primary-sky (soft gray-blue) */
+  --sky-color-200: hsl(209, 30%, 95%);
+  --sky-color-300: hsl(209, 28%, 85%);
+  --sky-color-400: hsl(209, 26%, 74%);
+
+  --bs-primary: var(--primary-color-400);
+
+  --font-size : 0.875rem;
+}
+
+
+
+html, body { height: 100%; }
+body { margin: 0 }
+@font-face {
+  font-family: "regular";
+  src: url('assets/fonts/AvenirNextLTPro-Regular.ttf');
+}
+
+@font-face {
+  font-family: "medium";
+  src: url('assets/fonts/AvenirNextLTPro-Demi.ttf');
+}
+
+@font-face {
+  font-family: "bold";
+  src: url('assets/fonts/AvenirNextLTPro-Bold.ttf');
+}
+
+*  {
+  //font-family: "regular" !important;
+  font-family: "Inter", "regular";
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.material-icons {
+  font-family: 'Material Icons' !important;
+}
+.app-container {
+  min-height: 75vh; /* Full viewport height */
+}
+
+body{
+  //background-color: var(--gray-50);
+  background-color: #fffffc;
+}
+
+/*Hide Scrollbar but keep functionality*/
+.hide-scrollbar ::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.lead {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+*{
+  //font-size: 0.875rem;
+ font-size: var(--font-size);
+}
+//Slider
+//////////////////////////////////////
+.ngx-slider .ngx-slider-pointer {
+  /* width: 32px; */
+  /* height: 32px; */
+  /* top: -14px; */
+  /* background-color: #0db9f0; */
+  width: 14px !important;
+  height: 14px !important;
+  top: -6px !important;
+  background-color: var(--primary-color-500) !important;
+}
+
+
+/* styles.css | http://localhost:4200/styles.css */
+
+.ngx-slider .ngx-slider-pointer {
+  /* top: -3px !important; */
+
+}
+
+/* Inline | http://localhost:4200/search */
+
+.ngx-slider .ngx-slider-selection {
+  /* background: #0db9f0; */
+  background-color: var(--primary-color-700) !important;
+}
+
+
+/* Inline | http://localhost:4200/search */
+
+.ngx-slider .ngx-slider-bubble {
+  /* font-size: 16px; */
+  font-size: 12px;
+  font-weight: 400;
+}
+
+
+.dropdown-menu {
+  background-color: white;
+  border-radius: 0.5rem;
+  border: 1px solid var(--secondary-color-200);
+  //box-shadow: 0 0.125rem 1rem rgba(0, 0, 0, 0.15);
+  min-width:250px;
+  font-weight: 600;
+  color: var(--gray-900);
+  font-size: 1rem;
+}
+
+.dropdown-item.active {
+  background-color: var(--primary-color-500);
+  color: #fff;
+}
+
+
+
+
+
+
+
+/* styles.scss or a global stylesheet */
+//:host ::ng-deep .p-inputtext {
+//  font-family: inherit;
+//  font-feature-settings: inherit;
+//  font-size: 16px; /* overrides 1rem */
+//  font-weight: 600;
+//  color: #333; /* new color */
+//  background: #f5f5f5; /* new background */
+//  padding-block: var(--p-inputtext-padding-y);
+//  padding-inline: 12px; /* replaces padding-inline var */
+//  border: 1px solid #888; /* replaces var border color */
+//  transition: background var(--p-inputtext-transition-duration),
+//  color var(--p-inputtext-transition-duration),
+//  border-color var(--p-inputtext-transition-duration),
+//  outline-color var(--p-inputtext-transition-duration),
+//  box-shadow var(--p-inputtext-transition-duration);
+//  appearance: none;
+//  border-radius: var(--p-inputtext-border-radius);
+//  outline-color: transparent;
+//  box-shadow: var(--p-inputtext-shadow);
+//  padding: 4px; /* final padding override */
+//}
 

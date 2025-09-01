@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import {BackendService} from '../../../../services/backend';
+import {Carousel, CarouselResponsiveOptions} from 'primeng/carousel';
+import {PrimeTemplate} from 'primeng/api';
 
 
 interface Offer {
@@ -67,6 +69,8 @@ interface FAQ {
     CommonModule,
     FormsModule,
     RouterModule,
+    Carousel,
+    PrimeTemplate,
   ],
   templateUrl: './coupons.component.html',
   styleUrl: './coupons.component.scss',
@@ -365,6 +369,25 @@ export class CouponsComponent implements OnInit {
       code: 'WKND100',
       image: '/assets/images/TrvlerBanners-04.png',
     },
+  ];
+
+
+responsiveOptions = [
+    {
+      breakpoint: '1199px',
+      numVisible: 0,
+      numScroll: 0
+    },
+    {
+      breakpoint: '991px',
+      numVisible: 0,
+      numScroll: 1
+    },
+    {
+      breakpoint: '767px',
+      numVisible: 1.3,
+      numScroll: 1
+    }
   ];
 
 

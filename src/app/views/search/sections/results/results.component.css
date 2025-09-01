@@ -1,0 +1,46 @@
+.tab-content {
+  border-top: none;
+}
+
+.nav-tabs .nav-item .nav-link {
+  color: white;
+  font-weight: bold;
+  border: none;
+  text-align: center;
+}
+
+.nav-tabs .nav-item .nav-link {
+  background-color: #EF9A9A;
+}
+
+.nav-tabs .nav-item .nav-link.active {
+  background-color: #E53935;
+  color: white;
+}
+
+.tab-pane {
+  padding: 10px;
+  text-align: center;
+  background-color: white;
+  color: black;
+}
+
+.nav-tabs .nav-link {
+  border-radius: 0 !important; /* Remove border radius */
+}
+
+.modify-btn {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+h6 {
+  font-size: 16px !important;
+  color: red;
+  font-weight: 900;
+}/*# sourceMappingURL=results.component.css.map */

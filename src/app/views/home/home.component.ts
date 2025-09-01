@@ -12,7 +12,7 @@ import {AnimateOnScroll} from 'primeng/animateonscroll';
 import { animate, style, group, useAnimation, keyframes, animation, query, stagger } from "@angular/animations";
 
 import {GenericSkeletonComponent} from '../../shared/skeleton/home-generic-skeleton';
-import {NgIf} from '@angular/common';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-view-home',
@@ -23,9 +23,8 @@ import {NgIf} from '@angular/common';
     CouponsComponent,
     AppsComponent,
     HeroSectionComponent,
-    FAQSComponent,
     GenericSkeletonComponent,
-    NgIf,
+    CommonModule
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

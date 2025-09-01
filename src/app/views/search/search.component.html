@@ -1,0 +1,19 @@
+<div>
+  <div class="search-section">
+    <div class="py-4 container">
+      <app-shared-search></app-shared-search>
+<!--      <hr>-->
+<!--      <app-search-filters></app-search-filters>-->
+    </div>
+  </div>
+
+  <div class="search-results-section">
+    <div class="container py-3">
+      <div class="row">
+        <div class="col-12">
+          <app-search-results [data]="buses"></app-search-results>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,374 @@
+ /* Improved bus-seat-selector.component.scss */
+
+ // Variables
+ $vip: #ff9800;
+ $vip-dark: #f57c00;
+ $normal: #2196F3;
+ $normal-dark: #1976D2;
+ $bclass: #4CAF50;
+ $bclass-dark: #388E3C;
+ $danger: #dc3545;
+ $gray: #495057;
+
+ // Base styles
+ .bus-container {
+  .bus-layout {
+    margin: 20px auto;
+    // transform: rotate(90deg);
+    position: relative;
+    width: 100%;
+    min-height: 320px;
+    //overflow: visible;
+    transition: transform 0.3s ease;
+    // background: blue
+  }
+
+  .seat {
+    position: absolute;
+    border: none;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 0.8rem;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 12px 0;
+
+    &.vip {
+      background: $vip;
+
+      &:hover:not(:disabled) {
+        background: $vip-dark;
+      }
+    }
+
+    &.normal {
+      background: $normal;
+
+      &:hover:not(:disabled) {
+        background: $normal-dark;
+      }
+    }
+
+    &.bclass {
+      background: $bclass;
+
+      &:hover:not(:disabled) {
+        background: $bclass-dark;
+      }
+    }
+
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+    }
+
+    &.selected {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 2px white, 0 0 0 4px $bclass;
+
+      &::after {
+        content: '✓';
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background: $bclass;
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        font-size: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid white;
+      }
+    }
+
+    &:disabled {
+      background: $danger !important;
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+
+  .driver-section, .door-section {
+    position: absolute;
+    border-radius: 8px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $gray;
+    font-size: 0.8rem;
+    margin: 12px 0;
+
+    i {
+      font-size: 1.5rem;
+      margin-bottom: 4px;
+    }
+  }
+
+  .steering-wheel {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    font-size: 1.5rem;
+    color: $gray;
+  }
+
+  .seat-legend-container {
+    .seat-legend {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      margin-right: 8px;
+
+      &.vip {
+        background: $vip;
+      }
+
+      &.normal {
+        background: $normal;
+      }
+
+      &.bclass {
+        background: $bclass;
+      }
+
+      &.unavailable {
+        background: $danger;
+        position: relative;
+
+      }
+    }
+  }
+ }
+
+ .loading-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+  z-index: 1;
+ }
+
+ .orientation-message {
+  position: absolute;
+  top: -40px;
+  width: 100%;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 5px;
+  border-radius: 4px;
+  z-index: 2;
+ }
+
+ // Media queries - organized from smallest to largest
+ // Mobile portrait
+ @media only screen and (min-width: 320px) and (max-width: 400px) {
+  .bus-container {
+    .bus-layout {
+      transform: rotate(90deg);
+      transform-origin: center center;
+      //min-height: 400px !important;
+      height: auto;
+      margin: 60px auto;
+      max-width: 90%;
+      //overflowy: visible;
+    }
+
+    .seat-legend-container {
+      display: flex !important;
+      justify-content: center;
+      margin-top: 18rem !important;
+
+      .d-flex {
+        gap: 1rem !important;
+      }
+    }
+  }
+ }
+
+ @media only screen and (min-width: 401px) and (max-width: 600px) {
+  .bus-container {
+    .bus-layout {
+      transform: rotate(90deg);
+      transform-origin: center center;
+      //min-height: 420px !important;
+      height: auto;
+      margin: 60px auto;
+      max-width: 90%;
+      overflow: visible;
+      ;
+    }
+
+    .seat, .driver-section, .door-section {
+      transform: rotate(-90deg) !important;
+    }
+
+    .bus-layout::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      right: -20px;
+      bottom: -20px;
+      border-radius: 12px;
+      z-index: -1;
+    }
+
+    .seat-legend-container {
+      display: flex !important;
+      justify-content: center;
+      margin-top: 16rem !important;
+
+      .d-flex {
+        gap: 1rem !important;
+      }
+    }
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  .selected-seats {
+    width: 100%;
+  }
+ }
+
+ // Tablet and larger mobile
+ @media only screen and (min-width: 601px) and (max-width: 991px) {
+  .bus-container {
+    .bus-layout {
+      transform: rotate(90deg);
+      transform-origin: center center;
+      //min-height: 400px !important;
+      height: auto;
+      margin: 60px auto;
+      max-width: 85%;
+      overflow: visible;
+    }
+
+    .seat, .driver-section, .door-section {
+      transform: rotate(-90deg) !important;
+    }
+
+    .seat-legend-container {
+      display: flex !important;
+      justify-content: center;
+      margin-top: 14rem !important;
+    }
+  }
+ }
+
+ // Desktop screens
+ @media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .bus-container .bus-layout {
+    transform: none;
+    margin-left:0;
+    // max-width: 90%;
+    width: 100%;
+  }
+
+  .seat, .driver-section, .door-section {
+    transform: none !important;
+  }
+ }
+
+ // Large desktop screens
+ @media only screen and (min-width: 1200px) and (max-width: 1899px) {
+  .bus-container .bus-layout {
+    // max-width: 80%;
+    width: 100%;
+    margin: 20px auto;
+    margin-left:0;
+  }
+ }
+
+ // Extra large desktop screens
+ @media only screen and (min-width: 1900px) {
+  .bus-container .bus-layout {
+    // max-width: 70%;
+    width: 100%;
+    margin: 20px auto;
+    margin-left:0;
+  }
+ }
+
+ @media (min-width: 1000px) {
+   .bus-layout {
+     transform: rotate(90deg);
+     transform-origin: center center;
+   }
+
+
+       .seat, .driver-section, .door-section {
+         transform: rotate(-90deg) !important;
+       }
+
+
+       .bus-layout::before {
+         content: '';
+         position: absolute;
+         top: -20px;
+         left: -20px;
+         right: -20px;
+         bottom: -20px;
+         border-radius: 12px;
+         z-index: -1;
+       }
+
+ }
+
+ //@media (min-width: 1000px) {
+ //  .bus-container {
+ //    .bus-layout {
+ //      transform: rotate(90deg);
+ //      transform-origin: center center;
+ //      //min-height: 420px !important;
+ //      height: 420px;
+ //      margin: 60px auto;
+ //      max-width: 90%;
+ //      overflow: visible;;
+ //    }
+ //
+ //    .seat, .driver-section, .door-section {
+ //      transform: rotate(-90deg) !important;
+ //    }
+ //
+ //    .bus-layout::before {
+ //      content: '';
+ //      position: absolute;
+ //      top: -20px;
+ //      left: -20px;
+ //      right: -20px;
+ //      bottom: -20px;
+ //      border-radius: 12px;
+ //      z-index: -1;
+ //    }
+ //
+ //    .seat-legend-container {
+ //      display: flex !important;
+ //      justify-content: center;
+ //      margin-top: 16rem !important;
+ //      .d-flex {
+ //        gap: 1rem !important;
+ //      }
+ //    }
+ //  }
+ //
+ //  .card-body {
+ //    padding: 1rem;
+ //  }
+ //
+ //  .selected-seats {
+ //    width: 100%;
+ //  }
+ //}

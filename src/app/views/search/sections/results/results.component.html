@@ -1,0 +1,111 @@
+<div class="row">
+      <div
+        [@columnAnim]="isViewSeatOpen() ? 'hidden' : 'visible'"
+        [ngClass]="isViewSeatOpen() ? 'd-none' :'col-12 col-lg-3 d-none d-lg-block'">
+        <app-search-refine-filters></app-search-refine-filters>
+      </div>
+
+      <div
+        [ngClass]="isViewSeatOpen() ? 'col-12 col-lg-7  d-lg-block': 'col-12 col-lg-9'">
+        <div>
+          <div class="row">
+            <div class="col-sm-9 col-8">
+              <h3 class="mb-2">Search results:</h3>
+            </div>
+
+
+            <div class="col-sm-3 col-4">
+
+
+              <!--
+              <select class="form-select" [(ngModel)]="currency" (change)="onCurrency($event)">
+                <option value="1">KES</option>
+                <option value="2">UGX</option>
+
+              </select> -->
+            </div>
+          </div>
+
+
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link" [class.active]="selectedTab === 'onward'" [class.disabled]="selectedTab === 'return'"
+                href="javascript:void(0)" (click)="!isReturnSelected() && selectTab('onward')">
+                ONWARD JOURNEY
+              </a>
+            </li>
+            <li class="nav-item" *ngIf="type==='twoway'">
+              <a class="nav-link" [class.active]="selectedTab === 'return'" [class.disabled]="isReturnDisabled"
+                href="javascript:void(0)" (click)="!isReturnDisabled && selectTab('return')">
+                RETURN JOURNEY
+              </a>
+            </li>
+          </ul>
+
+          <!-- Tab Content -->
+          <div
+            style="max-height:65vh"
+            class="tab-content mt-2 overflow-y-auto my-scrollable ">
+            <div id="onward" class="container tab-pane fade" [class.show]="selectedTab === 'onward'"
+              [class.active]="selectedTab === 'onward'">
+
+              <!-- <div class="row mb-3">
+                  <div class="col-sm-9 col-6"></div>
+                  <div class="col-sm-3 col-6">
+                    <mat-form-field appearance="outline" class="small-form-field w-100">
+                      <mat-label>Currency</mat-label>
+                      <mat-select  [(ngModel)]="currency" (selectionChange)="onCurrency($event)">
+                        <mat-option value="1">KES</mat-option>
+                        <mat-option value="2">UGX</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div> -->
+
+              <div class="vstack gap-3">
+                <app-component-search-results-card  (viewSeatOpen)="getCollapseSeatState($event)"    [data]="data" [type]="type"></app-component-search-results-card>
+              </div>
+            </div>
+
+            <!-- Return Journey -->
+            <div *ngIf="type==='twoway'">
+              <div *ngIf="selectedTab === 'return'" id="return" class="container tab-pane fade show active">
+
+                <h6>{{ payload.destination_name }} → {{ payload.source_name }}</h6>
+                <p>{{ payload.return_date | date: 'dd MMM yyyy' }}</p>
+
+                <div class="vstack gap-3">
+                  <app-component-search-results-card  (viewSeatOpen)="getCollapseSeatState($event)"  [data]="return_buses" [type]="type"></app-component-search-results-card>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- One-Way Journey (Hidden when "Return" tab is active) -->
+          <div hidden="type==='onward' && selectedTab !== 'return'">
+            <div class="vstack gap-3">
+              <app-component-search-results-card (viewSeatOpen)="getCollapseSeatState($event)"  [data]="data"></app-component-search-results-card>
+            </div>p
+          </div>
+        </div>
+      </div>
+
+      <div
+        [@columnAnim]="isViewSeatOpen() ? 'visible' : 'hidden'"
+        [ngClass]="isViewSeatOpen() ? 'd-none col-md-5 col-lg-5  d-lg-block': 'd-none'">
+          <div class="m-1">
+            <div class="rounded">
+              <div class="row g-3">
+                <div class="col-12 ">
+                  <div class="">
+                    <app-component-bus-seat-selector [busData] ="busdata" [payload]="seat_data" [type]="type"></app-component-bus-seat-selector>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+</div>
+
+

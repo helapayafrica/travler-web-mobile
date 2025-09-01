@@ -1,6 +1,6 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {Router, RouterLink} from '@angular/router';
-import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import {TypeaheadModule} from 'ngx-bootstrap/typeahead';
 import {
   AbstractControl,
   FormBuilder,
@@ -10,15 +10,16 @@ import {
   ValidatorFn,
   Validators
 } from '@angular/forms';
-import { map, Observable, startWith } from 'rxjs';
-import { CommonModule, DatePipe } from '@angular/common';
-import { ViewChild, ElementRef } from '@angular/core';
+import {map, Observable, startWith} from 'rxjs';
+import {CommonModule, DatePipe} from '@angular/common';
+import {ViewChild, ElementRef} from '@angular/core';
 import {DatePicker, DatePickerModule} from 'primeng/datepicker';
 import {group} from '@angular/animations';
 import {BookingService} from '../../services/booking';
 import {MessageService} from '../../services/message.service';
 import {BackendService} from '../../services/backend';
 import {CouponInsuredService} from '../../services/coupon-insured.service';
+
 @Component({
   selector: 'app-shared-search',
   standalone: true,
@@ -41,7 +42,7 @@ export class SearchComponent implements OnInit {
   searchForm: FormGroup;
   filteredFromCities: Observable<{ id: string; city_name: string }[]>;
   filteredDestinationCities: Observable<{ id: string; city_name: string }[]>;
-  message =  this.messageService.getMessage()
+  message = this.messageService.getMessage()
   today = new Date()
 
 
@@ -58,7 +59,7 @@ export class SearchComponent implements OnInit {
       date: [this.today, [Validators.required, futureDateValidator()]],
       return_date: [this.today, [futureDateValidator()]], // Set default to new Date()
       trip_type: ['onward'],
-    }, {validators : returnDateAfterTravelValidator()});
+    }, {validators: returnDateAfterTravelValidator()});
 
     console.log('[Date on Init]')
     console.log(this.searchForm.value)
@@ -77,10 +78,15 @@ export class SearchComponent implements OnInit {
         startWith(''),
         map((value) => this._filterDestinations(value || ''))
       );
+
+
+    console.log('[ filtered City]', this.filteredFromCities)
+    console.log('[ filtered City]', this.filteredDestinationCities)
   }
 
   @ViewChild('travelDateInput') travelDatePicker: any;
   @ViewChild('returnDateInput') returnDatePicker: any;
+
   async ngOnInit(): Promise<void> {
     this.bookingService.setSelectedTab('onward');
 
@@ -113,7 +119,7 @@ export class SearchComponent implements OnInit {
     const processedTravelDate = safeDate(data.date, this.today);
     const processedReturnDate = safeDate(data.return_date, this.today);
 
-    console.log('Processed dates:', { travel: processedTravelDate, return: processedReturnDate });
+    console.log('Processed dates:', {travel: processedTravelDate, return: processedReturnDate});
 
     this.tripType = data.trip_type || 'onward';
     this.searchForm.patchValue({
@@ -146,14 +152,22 @@ export class SearchComponent implements OnInit {
       console.log('Final form values:', this.searchForm.value);
     }, 100); // Increased timeout to ensure ViewChild is ready
 
-    this.backendService.getCities().subscribe((res) => {
-      this.cities = res.data;
+    console.log('hiiiiiiii')
+    this.backendService.getCities().subscribe({
+      next : (res) => {
+        this.cities = res.data;
+        console.log('[Cities]', this.cities)
+      },
+      error: (err) => {
+        console.log('[Cities]', err)
+      }
     });
+
+    console.log('byyrrree')
+
 
     this.focusInput('fromCity');
   }
-
-
 
   private _filterCities(value: string): { id: string; city_name: string }[] {
     const filterValue = value.toLowerCase();
@@ -170,7 +184,9 @@ export class SearchComponent implements OnInit {
       city.city_name.toLowerCase().includes(filterValue)
     );
   }
+
   couponService = inject(CouponInsuredService)
+
   onSubmit(): void {
     this.couponService.clearCancellationProtectionAndInsuredSeats()
     let data = this.searchForm.value;
@@ -182,7 +198,7 @@ export class SearchComponent implements OnInit {
     console.log('Formatted dates:', date, return_date);
 
     this.bookingService.setConfig('travel_date', date);
-    if (data.return_date && this.tripType=='twoway') {
+    if (data.return_date && this.tripType == 'twoway') {
       this.bookingService.setConfig('return_date', return_date);
       this.bookingService.setConfig('trip_type', 'twoway');
     } else {
@@ -199,8 +215,10 @@ export class SearchComponent implements OnInit {
     this.bookingService.setConfig('source_id', id);
     this.backendService.getDestinations(id).subscribe((res) => {
       this.destinations = res.data;
+
     });
   }
+
   onDestinationSelected(event: any): void {
     const selectedCity = event.item.city_name;
     let id = event.item.id;
@@ -230,7 +248,7 @@ export class SearchComponent implements OnInit {
       })
       this.bookingService.setSelectedTab('onward');
       this.searchForm.updateValueAndValidity()
-    }else{
+    } else {
       this.bookingService.setSelectedTab('onward');
     }
   }
@@ -249,14 +267,16 @@ export class SearchComponent implements OnInit {
 
   @ViewChild('fromCityInput') fromCityInput!: ElementRef<HTMLInputElement>;
   @ViewChild('toCityInput') toCityInput!: ElementRef<HTMLInputElement>;
-  @ViewChild('travelDateInput') travelDateInput!: DatePicker ;
-  @ViewChild('returnDateInput') returnDateInput!: DatePicker ;
+  @ViewChild('travelDateInput') travelDateInput!: DatePicker;
+  @ViewChild('returnDateInput') returnDateInput!: DatePicker;
 
 
   toggleDate = false
-  toggleTheDate(){
+
+  toggleTheDate() {
     this.toggleDate = !this.toggleDate;
   }
+
   focusInput(inputName: 'fromCity' | 'toCity' | 'travelDate' | 'returnDate') {
     if (inputName === 'fromCity') {
       this.fromCityInput.nativeElement.focus();
@@ -300,33 +320,29 @@ export function futureDateValidator(): ValidatorFn {
     today.setHours(0, 0, 0, 0);
     selectedDate.setHours(0, 0, 0, 0);
 
-    return selectedDate >= today ? null : { pastDate: true };
+    return selectedDate >= today ? null : {pastDate: true};
   };
 }
 
-export function returnDateAfterTravelValidator():ValidatorFn {
-  return  (group : AbstractControl):ValidationErrors | null=> {
+export function returnDateAfterTravelValidator(): ValidatorFn {
+  return (group: AbstractControl): ValidationErrors | null => {
     const start = group.get('date')?.value;
     const end = group.get('return_date')?.value;
     const tripType = group.get('trip_type')?.value;
-    console.log('[returnDateAfterTravelValidator]')
-    console.log(start, end, tripType)
-    if(!start || !end) return null;
+    if (!start || !end) return null;
 
     const d1 = new Date(start);
     const d2 = new Date(end)
 
-    d1.setHours(0,0,0,0);
-    d2.setHours(0,0,0,0);
+    d1.setHours(0, 0, 0, 0);
+    d2.setHours(0, 0, 0, 0);
 
-    console.log('[returnDateAfterTravelValidator]')
-    console.log(d1, d2)
-    console.log(d2 >= d1 ? null : { returnDateAfterTravel: true })
+
     if (tripType === 'onward') {
       group.get('return_date')?.setErrors(null);
       return null;
     }
-    return d2 >= d1 ? null : { returnDateAfterTravel: true }
+    return d2 >= d1 ? null : {returnDateAfterTravel: true}
   }
 }
 

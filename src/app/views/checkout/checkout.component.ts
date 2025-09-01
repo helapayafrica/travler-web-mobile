@@ -1,0 +1,20 @@
+import { Component } from '@angular/core';
+import {BookingFormComponent} from './sections/booking-form/booking-form.component';
+import {PaymentFormComponent} from './sections/payment-form/payment-form.component';
+import {BusInfoComponent} from './sections/bus-info/bus-info.component';
+import {OrderInfoComponent} from './sections/order-info/order-info.component';
+
+@Component({
+  selector: 'app-view-checkout',
+  standalone: true,
+  imports: [
+    BookingFormComponent,
+    BusInfoComponent,
+    OrderInfoComponent
+  ],
+  templateUrl: './checkout.component.html',
+  styleUrl: './checkout.component.scss'
+})
+export class CheckoutComponent {
+
+}

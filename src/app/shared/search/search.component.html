@@ -2,51 +2,51 @@
   <div class="row">
     <!-- Trip Type Toggle -->
     <div class="col-12 col-md-6 col-lg-3">
-    <div class="pb-3 d-flex  flex-row gap-4  px-2 py-2">
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="tripType"
-          id="onward"
-          [checked]="tripType === 'onward'"
-          (change)="setTripType('onward')">
-        <label class="form-check-label fs-5 mt-2 ms-2" style="font-size: 1rem;" for="onward">
-          One Way
-        </label>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="tripType"
-          id="roundTrip"
-          [checked]="tripType === 'twoway'"
-          (change)="setTripType('twoway')">
-        <label class="form-check-label fs-5 mt-2 ms-2" style="font-size: 1rem;" for="roundTrip">
-          Round Trip
-        </label>
+      <div class="pb-3 d-flex  flex-row gap-4  px-2 py-2">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="tripType"
+            id="onward"
+            [checked]="tripType === 'onward'"
+            (change)="setTripType('onward')">
+          <label class="form-check-label fs-5 mt-2 ms-2" style="font-size: 1rem;" for="onward">
+            One Way
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="tripType"
+            id="roundTrip"
+            [checked]="tripType === 'twoway'"
+            (change)="setTripType('twoway')">
+          <label class="form-check-label fs-5 mt-2 ms-2" style="font-size: 1rem;" for="roundTrip">
+            Round Trip
+          </label>
+        </div>
       </div>
     </div>
-  </div>
 
     <div class="col-12 col-md-6 col-lg-3 d-flex flex-column flex-md-row justify-content-start gap-3 px-3 py-2">
 
-        <small class="text-danger me-2 border-1 border-danger" *ngIf="searchForm.get('destinationCity')?.touched && searchForm.get('destinationCity')?.hasError('required')">
-          *To city is required.
-        </small>
-        <small class="text-danger me-2 border-1 border-danger" *ngIf="searchForm.get('fromCity')?.touched && searchForm.get('fromCity')?.hasError('required')">
-          *From city is required.
-        </small>
-        <small class="text-danger me-2 border-1 border-danger" *ngIf="searchForm.get('date')?.touched && searchForm.get('date')?.hasError('required')">
-          *Date is required.
-        </small>
-        <small class="text-danger me-2 border-1 border-danger" *ngIf="searchForm.get('date')?.touched && searchForm.get('date')?.hasError('pastDate')">
-          *Please select a future date.
-        </small>
-        <small class="text-danger me-2 border-1 border-danger" *ngIf="searchForm.get('return_date')?.touched && searchForm.get('return_date')?.hasError('pastDate')">
-          *Please select a future return date.
-        </small>
+      <small class="text-danger me-2 border-1 border-danger" *ngIf="searchForm.get('destinationCity')?.touched && searchForm.get('destinationCity')?.hasError('required')">
+        *To city is required.
+      </small>
+      <small class="text-danger me-2 border-1 border-danger" *ngIf="searchForm.get('fromCity')?.touched && searchForm.get('fromCity')?.hasError('required')">
+        *From city is required.
+      </small>
+      <small class="text-danger me-2 border-1 border-danger" *ngIf="searchForm.get('date')?.touched && searchForm.get('date')?.hasError('required')">
+        *Date is required.
+      </small>
+      <small class="text-danger me-2 border-1 border-danger" *ngIf="searchForm.get('date')?.touched && searchForm.get('date')?.hasError('pastDate')">
+        *Please select a future date.
+      </small>
+      <small class="text-danger me-2 border-1 border-danger" *ngIf="searchForm.get('return_date')?.touched && searchForm.get('return_date')?.hasError('pastDate')">
+        *Please select a future return date.
+      </small>
       <small *ngIf="searchForm.hasError('returnDateAfterTravel') && searchForm.get('return_date')?.touched"  class="text-danger me-2 border-1 border-danger">
         Return date cannot be earlier than travel date.
       </small>
@@ -65,133 +65,133 @@
           *ngIf="message()"  class="mb-1">{{ message() }}</p>
       </div>
     </div>
-  <!-- Search Form -->
-  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="row g-0 position-relative  pb-4  justify-content-center w-100">
-    <!-- From -->
-    <div [ngClass]="tripType === 'twoway' ? 'col-12 col-md-6 col-lg-2 ' : 'col-12 col-md-6 col-lg-4  '">
-      <div class="d-flex align-items-center rounded-input first border border-2  p-1"
-           [class.invalid] = "searchForm.get('fromCity')?.invalid && searchForm.get('fromCity')?.touched"
-           (click)="focusInput('fromCity')"
+    <!-- Search Form -->
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="row g-0 position-relative  pb-4  justify-content-center w-100">
+      <!-- From -->
+      <div [ngClass]="tripType === 'twoway' ? 'col-12 col-md-6 col-lg-2 ' : 'col-12 col-md-6 col-lg-4  '">
+        <div class="d-flex align-items-center rounded-input first border border-2  p-1"
+             [class.invalid] = "searchForm.get('fromCity')?.invalid && searchForm.get('fromCity')?.touched"
+             (click)="focusInput('fromCity')"
 
-      >
-        <i class="bi bi-geo-alt fs-4 ms-2 me-2"></i>
-        <div class="ms-2 flex-grow-1">
-          <label style="font-size: 0.5rem;" class="text-muted" for="toCity">From</label>
-        <input
-          id="fromCity"
-          #fromCityInput
-          type="text"
-          class="form-control p-2 border-0"
-          placeholder="From"
-          [typeahead]="cities"
-          formControlName="fromCity"
-          [typeaheadOptionField]="'city_name'"
-          (typeaheadOnSelect)="onCitySelected($event)" />
+        >
+          <i class="bi bi-geo-alt fs-4 ms-2 me-2"></i>
+          <div class="ms-2 flex-grow-1">
+            <label style="font-size: 0.5rem;" class="text-muted" for="toCity">From</label>
+            <input
+              id="fromCity"
+              #fromCityInput
+              type="text"
+              class="form-control p-2 border-0"
+              placeholder="From"
+              [typeahead]="cities"
+              formControlName="fromCity"
+              [typeaheadOptionField]="'city_name'"
+              (typeaheadOnSelect)="onCitySelected($event)" />
           </div>
-      </div>
-    </div>
-
-    <!-- To -->
-    <div [ngClass]="tripType === 'twoway' ? 'col-12 col-md-6 col-lg-2 ' : 'col-12 col-md-6 col-lg-4 '">
-      <div class="d-flex align-items-center rounded-input second  border border-1 p-1"
-           [class.invalid] = "searchForm.get('destinationCity')?.invalid && searchForm.get('destinationCity')?.touched"
-           (click)="focusInput('toCity')"
-      >
-        <i class="bi bi-geo-alt fs-4 ms-2 me-2"></i>
-        <div class="ms-2 flex-grow-1">
-          <label
-          style="font-size: 0.5rem;"
-          class="text-muted" for="toCity">To</label>
-          <input
-            id="toCity"
-            #toCityInput
-            type="text"
-            class="form-control p-2 border-0 "
-            placeholder="To"
-            [typeahead]="cities"
-            formControlName="destinationCity"
-            [typeaheadOptionField]="'city_name'"
-            (typeaheadOnSelect)="onDestinationSelected($event)" />
         </div>
       </div>
-    </div>
 
-    <!-- Travel Date -->
-    <div
-
-    [ngClass]="tripType === 'twoway' ? 'col-12 col-md-6 col-lg-5' : 'col-12 col-md-12 col-lg-4'">
-      <div
-      [ngClass]="tripType === 'twoway' ? 'rounded-input third' : 'rounded-input-one-way'"
-      class="d-flex align-items-center   border border-1 p-1">
-
-        <div class=" d-flex justify-content-between flex-grow-1 align-items-center flex-row gap-1"
-             [class.invalid] = "searchForm.get('date')?.invalid && searchForm.get('date')?.touched"
-             (click)="toggleTheDate();focusInput('travelDate');"
+      <!-- To -->
+      <div [ngClass]="tripType === 'twoway' ? 'col-12 col-md-6 col-lg-2 ' : 'col-12 col-md-6 col-lg-4 '">
+        <div class="d-flex align-items-center rounded-input second  border border-1 p-1"
+             [class.invalid] = "searchForm.get('destinationCity')?.invalid && searchForm.get('destinationCity')?.touched"
+             (click)="focusInput('toCity')"
         >
-          <i class="bi bi-calendar-date fs-4 ms-2 me-2"></i>
+          <i class="bi bi-geo-alt fs-4 ms-2 me-2"></i>
           <div class="ms-2 flex-grow-1">
-            <label style="font-size: 0.5rem;" class="text-muted" for="travelDate">Date of journey</label>
+            <label
+              style="font-size: 0.5rem;"
+              class="text-muted" for="toCity">To</label>
+            <input
+              id="toCity"
+              #toCityInput
+              type="text"
+              class="form-control p-2 border-0 "
+              placeholder="To"
+              [typeahead]="cities"
+              formControlName="destinationCity"
+              [typeaheadOptionField]="'city_name'"
+              (typeaheadOnSelect)="onDestinationSelected($event)" />
+          </div>
+        </div>
+      </div>
 
+      <!-- Travel Date -->
+      <div
+
+        [ngClass]="tripType === 'twoway' ? 'col-12 col-md-6 col-lg-5' : 'col-12 col-md-12 col-lg-4'">
+        <div
+          [ngClass]="tripType === 'twoway' ? 'rounded-input third' : 'rounded-input-one-way'"
+          class="d-flex align-items-center   border border-1 p-1">
+
+          <div class=" d-flex justify-content-between flex-grow-1 align-items-center flex-row gap-1"
+               [class.invalid] = "searchForm.get('date')?.invalid && searchForm.get('date')?.touched"
+               (click)="toggleTheDate();focusInput('travelDate');"
+          >
+            <i class="bi bi-calendar-date fs-4 ms-2 me-2"></i>
+            <div class="ms-2 flex-grow-1">
+              <label style="font-size: 0.5rem;" class="text-muted" for="travelDate">Date of journey</label>
+
+              <p-datepicker
+                #travelDateInput
+                styleClass="form-control p-0"
+                dateFormat="dd MM,yy"
+                [minDate]="today"
+                formControlName="date"
+                placeholder="Select date"
+                [selectOtherMonths]="true"
+                [showOtherMonths]="true"
+                [showButtonBar]="false">
+              </p-datepicker>
+            </div>
+            <button type="button" (click)="setToday()"  class="btn btn-sm rounded-pill btn-primary px-3 py-2 fs-6"> Today </button>
+            <button type="button" (click)="setTomorrow()"  class="btn btn-sm rounded-pill btn-secondary px-3 py-2 fs-6"> Tomorrow </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Return Date (conditionally shown) -->
+      <div *ngIf="tripType === 'twoway'" class="col-12 col-md-6 col-lg-3">
+        <div class="d-flex align-items-center rounded-input forth border border-1 p-1"
+             [class.invalid] = "searchForm.get('return_date')?.invalid && searchForm.get('return_date')?.touched"
+             (click)="focusInput('returnDate')"
+        >
+          <i class="bi bi-calendar2-date fs-4 ms-2 me-2"></i>
+          <div class="ms-1 flex-grow-1">
+            <label style="font-size: 0.5rem;" class="text-muted" for="returnDate">Date To return</label>
             <p-datepicker
-              #travelDateInput
+              #returnDateInput
               styleClass="form-control p-0"
               dateFormat="dd MM,yy"
               [minDate]="today"
-              formControlName="date"
-              placeholder="Select date"
+              [defaultDate]="today"
+              formControlName="return_date"
+              placeholder="Select return date"
               [selectOtherMonths]="true"
-              [showOtherMonths]="true"
-              [showButtonBar]="false">
+              [showOtherMonths]="true">
             </p-datepicker>
           </div>
-          <button type="button" (click)="setToday()"  class="btn btn-sm rounded-pill btn-primary px-3 py-2 fs-6"> Today </button>
-          <button type="button" (click)="setTomorrow()"  class="btn btn-sm rounded-pill btn-secondary px-3 py-2 fs-6"> Tomorrow </button>
+
         </div>
       </div>
-    </div>
 
-    <!-- Return Date (conditionally shown) -->
-    <div *ngIf="tripType === 'twoway'" class="col-12 col-md-6 col-lg-3">
-      <div class="d-flex align-items-center rounded-input forth border border-1 p-1"
-           [class.invalid] = "searchForm.get('return_date')?.invalid && searchForm.get('return_date')?.touched"
-           (click)="focusInput('returnDate')"
-      >
-        <i class="bi bi-calendar2-date fs-4 ms-2 me-2"></i>
-        <div class="ms-1 flex-grow-1">
-            <label style="font-size: 0.5rem;" class="text-muted" for="returnDate">Date To return</label>
-          <p-datepicker
-            #returnDateInput
-            styleClass="form-control p-0"
-            dateFormat="dd MM,yy"
-            [minDate]="today"
-            [defaultDate]="today"
-            formControlName="return_date"
-            placeholder="Select return date"
-            [selectOtherMonths]="true"
-            [showOtherMonths]="true">
-          </p-datepicker>
+      <div>
+
+      </div>
+
+      <!-- Search Button -->
+      <div class="col-12 d-flex justify-content-end justify-content-md-center justify-content-lg-center align-items-center form-btn  pt-3">
+        <div class="form-container">
+          <button
+            type="submit"
+            class="btn rounded-pill search-btn fw-semibold"
+            [disabled]="searchForm.invalid"
+          >
+            <i class="bi bi-search me-2 fs-5"></i> Search Bus
+          </button>
         </div>
 
       </div>
-    </div>
-
-    <div>
-
-    </div>
-
-    <!-- Search Button -->
-    <div class="col-12 d-flex justify-content-end justify-content-md-center justify-content-lg-center align-items-center form-btn  pt-3">
-      <div class="form-container">
-              <button
-        type="submit"
-        class="btn rounded-pill search-btn fw-semibold"
-        [disabled]="searchForm.invalid"
-        >
-        <i class="bi bi-search me-2 fs-5"></i> Search Bus
-      </button>
-      </div>
-
-    </div>
-  </form>
-</div>
+    </form>
+  </div>
 </div>

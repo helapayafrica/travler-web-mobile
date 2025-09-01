@@ -1,0 +1,43 @@
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.summary {
+  //background-image: linear-gradient(to bottom, #ed2112, #e01329, #cf0f37, #bd1541, #a91d48);
+  //color: white; /* Ensure text is readable */
+}
+
+.review {
+  //background-image: linear-gradient(to bottom, #ed2112, #e01329, #cf0f37, #bd1541, #a91d48);
+
+  //color: white; /* Ensure text is readable */
+}
+
+h6{
+  font-weight: 400 !important;
+}
+
+.card-header {
+  background-image: linear-gradient(to right top, #000000, #121212, #1e1e1e, #2a2a2a, #363636);
+  color: white;
+}
+
+.badge {
+  background-color: #EFEFEF;
+  border: 1px solid #ddd;
+  color: black;
+  padding:0.5rem;
+}
+
+bi-calendar3.departure {
+  color: var(--primary-color-500);
+}
+
+bi-calendar3.arrival {
+  color: var(--secondary-color-500);
+}
+
+*{
+  font-size: var(--font-size);
+}

@@ -1,0 +1,178 @@
+<div>
+  <div class="d-flex justify-content-between mb-3">
+    <h3 class="mb-0">Filters</h3>
+  </div>
+  <div class="vstack gap-3">
+<!--    <div class="card filter-item-card">-->
+<!--      <div class="card-body">-->
+<!--        <h5 class="card-title">Price</h5>-->
+<!--        <div class="vstack gap-3">-->
+<!--          <div class="input-group">-->
+<!--            <span class="input-group-text">From</span>-->
+<!--            <input type="number" class="form-control" placeholder="min" aria-label="fromPrice">-->
+<!--          </div>-->
+<!--          <div class="input-group">-->
+<!--            <span class="input-group-text">To</span>-->
+<!--            <input type="number" class="form-control" placeholder="max" aria-label="fromPrice">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+    <div class="container card filter-item-card p-3">
+      <h5 class=" fs-6 fw-bold mb-2 text-muted">Price Range</h5>
+
+      <ngx-slider
+        [(value)]="minValue"
+        [(highValue)]="maxValue"
+        [options]="options">
+      </ngx-slider>
+
+      <div class="d-flex justify-content-between mt-1">
+        <span class>{{ minValue | currency:'KES ' }}</span>
+        <span class>{{ maxValue | currency:'KES ' }}</span>
+      </div>
+    </div>
+
+<!--    <div class="card filter-item-card">-->
+<!--      <div class="card-body">-->
+<!--        <h5 class="card-title">Duration</h5>-->
+<!--        <div class="form-check">-->
+<!--          <input class="form-check-input-lg" type="radio" name="exampleRadios" id="durationRadio1" value="option1" checked>-->
+<!--          <label class="form-check-label" for="durationRadio1">-->
+<!--            3 hours-->
+<!--          </label>-->
+<!--        </div>-->
+<!--        <div class="form-check">-->
+<!--          <input class="form-check-input-lg" type="radio" name="exampleRadios" id="durationRadio2" value="option2">-->
+<!--          <label class="form-check-label" for="durationRadio2">-->
+<!--            3-5 hours-->
+<!--          </label>-->
+<!--        </div>-->
+<!--        <div class="form-check">-->
+<!--          <input class="form-check-input-lg" type="radio" name="exampleRadios" id="durationRadio3" value="option3">-->
+<!--          <label class="form-check-label" for="durationRadio3">-->
+<!--            5-7 hours-->
+<!--          </label>-->
+<!--        </div>-->
+<!--        <div class="form-check">-->
+<!--          <input class="form-check-input-lg" type="radio" name="exampleRadios" id="durationRadio4" value="option4">-->
+<!--          <label class="form-check-label" for="durationRadio4">-->
+<!--            7+ hours-->
+<!--          </label>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+    <div class="card filter-item-card">
+      <div class="card-body">
+        <h5 class=" fs-6 fw-bold mb-2 text-muted">Duration</h5>
+
+
+        <!-- 3 hours -->
+        <label for="durationRadio1" class="form-check d-flex align-items-center justify-content-between border-bottom py-2 w-100 mb-0">
+          <div class="d-flex align-items-center">
+            <i class="bi bi-clock fs-4 me-3"></i>
+            <span class="fw-semibold mb-0">3 hours</span>
+          </div>
+          <input class="form-check-input-lg" type="radio" name="exampleRadios" id="durationRadio1" value="option1" checked>
+        </label>
+
+        <!-- 3-5 hours -->
+        <label for="durationRadio2" class="form-check d-flex align-items-center justify-content-between border-bottom py-2 w-100 mb-0">
+          <div class="d-flex align-items-center">
+            <i class="bi bi-hourglass-split fs-4 me-3"></i>
+            <span class="fw-semibold mb-0">3-5 hours</span>
+          </div>
+          <input class="form-check-input-lg" type="radio" name="exampleRadios" id="durationRadio2" value="option2">
+        </label>
+
+        <!-- 5-7 hours -->
+        <label for="durationRadio3" class="form-check d-flex align-items-center justify-content-between border-bottom py-2 w-100 mb-0">
+          <div class="d-flex align-items-center">
+            <i class="bi bi-stopwatch fs-4 me-3"></i>
+            <span class="fw-semibold mb-0">5-7 hours</span>
+          </div>
+          <input class="form-check-input-lg" type="radio" name="exampleRadios" id="durationRadio3" value="option3">
+        </label>
+
+        <!-- 7+ hours -->
+        <label for="durationRadio4" class="form-check d-flex align-items-center justify-content-between py-2 w-100 mb-0">
+          <div class="d-flex align-items-center">
+            <i class="bi bi-alarm fs-4 me-3"></i>
+            <span class="fw-semibold mb-0">7+ hours</span>
+          </div>
+          <input class="form-check-input-lg" type="radio" name="exampleRadios" id="durationRadio4" value="option4">
+        </label>
+
+      </div>
+    </div>
+
+    <div class="card filter-item-card">
+      <div class="card-body">
+        <h5 class=" fs-6 fw-bold mb-2 text-muted">Services</h5>
+<!--        <div class="form-check">-->
+<!--          <input class="form-check-input-lg" type="checkbox" value="" id="servicesCheckbox1">-->
+<!--          <label class="form-check-label" for="servicesCheckbox1">-->
+<!--            Wi-Fi-->
+<!--          </label>-->
+<!--        </div>-->
+<!--        <div class="form-check">-->
+<!--          <input class="form-check-input-lg" type="checkbox" value="" id="servicesCheckbox2">-->
+<!--          <label class="form-check-label" for="servicesCheckbox2">-->
+<!--            TV-->
+<!--          </label>-->
+<!--        </div>-->
+<!--        <div class="form-check">-->
+<!--          <input class="form-check-input-lg" type="checkbox" value="" id="servicesCheckbox3">-->
+<!--          <label class="form-check-label" for="servicesCheckbox3">-->
+<!--            Bed-->
+<!--          </label>-->
+<!--        </div>-->
+<!--        <div class="form-check">-->
+<!--          <input class="form-check-input-lg" type="checkbox" value="" id="servicesCheckbox4">-->
+<!--          <label class="form-check-label" for="servicesCheckbox4">-->
+<!--            Meals-->
+<!--          </label>-->
+<!--        </div>-->
+        <!-- Wi-Fi -->
+        <label for="wifi" class="form-check d-flex align-items-center justify-content-between border-bottom py-2 w-100 mb-0">
+          <div class="d-flex align-items-center">
+            <i class="bi bi-wifi fs-4 me-3"></i>
+            <span class="fw-semibold fs-6 mb-0">Wi-Fi</span>
+          </div>
+          <input class="form-check-input-lg" type="checkbox" value="" id="wifi">
+        </label>
+
+        <!-- TV -->
+        <label for="servicesCheckbox2" class="form-check d-flex align-items-center justify-content-between border-bottom py-2 w-100 mb-0">
+          <div class="d-flex align-items-center">
+            <i class="bi bi-tv fs-4 me-3"></i>
+            <span class="fw-semibold fs-6 mb-0">TV</span>
+          </div>
+          <input class="form-check-input-lg" type="checkbox" value="" id="servicesCheckbox2">
+        </label>
+
+        <!-- Bed -->
+        <label for="servicesCheckbox3" class="form-check d-flex align-items-center justify-content-between border-bottom py-2 w-100 mb-0">
+          <div class="d-flex align-items-center">
+            <i class="bi bi-moon fs-4 me-3"></i>
+            <span class="fw-semibold fs-6 mb-0">Bed</span>
+          </div>
+          <input class="form-check-input-lg" type="checkbox" value="" id="servicesCheckbox3">
+        </label>
+
+        <!-- Meals -->
+        <label for="servicesCheckbox4" class="form-check d-flex align-items-center justify-content-between border-bottom py-2 w-100 mb-0">
+          <div class="d-flex align-items-center">
+            <i class="bi bi-egg-fried fs-4 me-3"></i>
+            <span class="fw-semibold fs-6 mb-0">Meals</span>
+          </div>
+          <input class="form-check-input-lg" type="checkbox" value="" id="servicesCheckbox4">
+        </label>
+
+
+      </div>
+    </div>
+
+    <button class="btn btn-outline-primary w-100">Clear all</button>
+  </div>
+</div>

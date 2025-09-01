@@ -1,0 +1,174 @@
+<div class="card mb-3">
+  <div class="card-header border-0">
+    <h5 class="card-title">Personal information</h5>
+    <div class="hstack gap-1">
+      <p class="mb-0 small">Do you need help? call us</p>
+      <a href="mailto:info@iabiri.com" style="text-decoration: none;font-weight: 700;"> +254709215215 | Email
+        : {{ email }}</a>
+    </div>
+  </div>
+  <div class="card-body border-0">
+    <form #passegerForm="ngForm" class="gap-3">
+      <!-- Cancellation Fee -->
+      <div class="col-12 col-md-8 col-lg-6 mb-3">
+        <div class="d-flex justify-content-between align-items-center rounded-2 bg-light shadow-sm py-1 px-3">
+          <div class=" p-2">
+            <div class="d-flex flex-column">
+              <p class="mb-0 fw-bold">Cancellation protect</p>
+              <p class="mb-0 text-dark">KSH 100 per passenger</p>
+            </div>
+          </div>
+          <div class="form-check form-switch">
+            <input
+              (change)="updateCancellationProtection($event)"
+              [ngModel]="protectionInsuranceService.isCancellationProtection()"
+              class="form-check-input custom-switch"
+              id="cancellationSwitch"
+              name="cancellationSwitch"
+              type="checkbox"
+            >
+          </div>
+        </div>
+      </div>
+
+      <div *ngFor="let item of data?.ticketDetail.onwardticket?.passenger;let index=index" class="row ">
+
+        <div class="col-sm-8">
+          <h5>
+            <span *ngIf="index == 0" style="color:green;font-weight: 800;text-transform: uppercase;font-size: 15px;">Primary Passenger</span>
+            <span *ngIf="index > 0" style="color:black;font-weight: 800;text-transform: uppercase;font-size: 15px;">Co Passenger</span>
+
+
+          </h5>
+        </div>
+        <div class="col-sm-4" style="text-align:right; font-size: 0.875rem;">
+          <img alt="Seat Icon" class="mb-2 me-2" height="20" src="/assets/images/seat.png" width="20">
+          Seat :<b class="fw-semibold">{{ item.seat_name }}</b>
+          <b *ngIf="data?.returnticket?.passenger"
+             class="fw-semibold">, {{ data.returnticket.passenger[index].seat_name }}</b>
+
+        </div>
+        <div class="col-12 col-md-6">
+          <label class="form-label" for="firstName">Name</label>
+          <input [(ngModel)]="item.name" class="form-control" id="name" name="seat{{item.seat_name}}" placeholder="Name"
+                 required type="text">
+        </div>
+        <div class="col-12 col-md-3">
+          <label class="form-label" for="lastName">Age</label>
+          <input [(ngModel)]="item.age" class="form-control" id="age" name="age{{item.seat_name}}" placeholder="Age"
+                 required type="number">
+        </div>
+
+        <div class="col-12 col-md-3">
+          <label class="form-label" for="sortBy">Gender</label>
+          <select [(ngModel)]="item.gender" class="form-select" id="gender" name="gender{{item.seat_name}}">
+            <option value="F">Female</option>
+            <option value="M">Male</option>
+          </select>
+        </div>
+
+
+        <div class="col-12 col-md-3 mb-lg-2">
+          <label class="form-label" for="idNo">ID/Passport</label>
+          <input [(ngModel)]="item.id_no" class="form-control" name="id_no{{item.seat_name}}" placeholder="ID Number"
+                 required
+                 type="number">
+        </div>
+        <div class="col-12 col-md-6">
+          <label class="form-label" for="idNo">Email</label>
+          <input [(ngModel)]="item.email" class="form-control" name="eamil{{item.seat_name}}" placeholder="Email"
+                 required
+                 type="text">
+        </div>
+
+        <div class="col-12 col-md-3">
+          <label class="form-label" for="residence">Nationality</label>
+          <input [(ngModel)]="item.nationality" [typeaheadOptionField]="'value'" [typeahead]="nationalities"
+                 class="form-control"
+                 name="nationality{{item.seat_name}}"
+                 placeholder="Nationality"
+                 required
+                 type="text">
+        </div>
+
+        <div class="col-sm-12">
+          <div class="row mb-2">
+            <div class="col-sm-4">
+              <label class="form-label" for="price">Code</label>
+              <select [(ngModel)]="item.mobileId" class="form-select" name="mobileId{{item.seat_name}}" value="+254">
+                <option *ngFor="let item of country_codes" [value]="item.code"> +{{ item.code }}</option>
+              </select>
+            </div>
+            <div class="col-sm-8">
+              <label class="form-label" for="phone_number">Phone Number</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-telephone-plus"></i></span>
+                <input
+                  [(ngModel)]="item.mobile"
+                  class="form-control"
+                  name="phone{{item.seat_name}}" placeholder="Phone" placeholder="700000000"
+                  type="number">
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Insurance Section -->
+        <div class="col-12 col-md-8 col-lg-6 mb-3">
+          <div class="bg-white rounded-3 shadow-sm p-2 w-100 border border-1">
+            <!-- Insurance Header -->
+            <div class="d-flex align-items-start mb-1">
+              <img alt="Insurance" height="30" src="assets/images/britam-insurance.png" width="80">
+              <div class="ms-4"><p class="mb-0 fw-bold">Travel Insurance</p>
+                <p class="mb-0 text-success">KSH 100 per passenger</p></div>
+            </div>
+
+            <!-- Insurance Benefits -->
+            <div class="bg-light rounded-2 p-2 text-center shadow-sm mb-2">
+              <span class="fw-bold text-success">Full Coverage</span>
+              <p class="text-muted mb-0">Trip cancellation included</p>
+            </div>    <!-- Insurance Options -->
+            <div class="row g-2">
+              <div class="col-6">
+                <label class="border rounded-2 p-2 d-flex justify-content-between align-items-center h-100"
+                       style="cursor: pointer;">
+                  <span>No</span>
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    [name]="'insure' + index"
+                    [checked]="!protectionInsuranceService.isSeatInsured(item.seat_name)"
+                    (change)="saveInsuranceSelection(item.seat_name, false)"
+                  />
+                </label>
+              </div>
+              <div class="col-6">
+
+                <label class="border rounded-2 p-2 d-flex justify-content-between align-items-center h-100"
+                       style="cursor: pointer;">
+                  <span>Yes</span>
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    [name]="'insure' + index"
+                    [checked]="protectionInsuranceService.isSeatInsured(item.seat_name)"
+                    (change)="saveInsuranceSelection(item.seat_name, true)"
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+    </form>
+  </div>
+  <div *ngIf="!isSuccess" class="card-footer border-0 text-end">
+    <button (click)="proceed()" [disabled]="passegerForm.invalid" class="btn btn-primary rounded-pill">Proceed to pay
+    </button>
+  </div>
+</div>

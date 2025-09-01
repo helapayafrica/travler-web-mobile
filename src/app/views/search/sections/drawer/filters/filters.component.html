@@ -1,0 +1,186 @@
+<ng-template #content let-offcanvas>
+  <div class="offcanvas-header" data-bs-theme="light">
+    <h4 class="offcanvas-title" id="offcanvas-basic-title">Filters</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="offcanvas.dismiss('Cross click')"></button>
+  </div>
+  <div class="offcanvas-body py-0">
+    <div class="vstack d-none">
+      <h6>Sort</h6>
+      <div class="col">
+        <label for="sortBy" class="form-label">Sort by</label>
+        <select class="form-select" id="sortBy">
+          <option selected>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+      <div class="col">
+        <label for="price" class="form-label">Price</label>
+        <select class="form-select" id="price">
+          <option selected>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+      <div class="col">
+        <label for="filters" class="form-label">Filters</label>
+        <select class="form-select" id="filters">
+          <option selected>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+      <div class="col">
+        <label for="ratings" class="form-label">Ratings</label>
+        <select class="form-select" id="ratings">
+          <option selected>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+      <div class="col">
+        <label for="location" class="form-label">Location</label>
+        <select class="form-select" id="location">
+          <option selected>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+    </div>
+    <div class="vstack">
+      <div class="filter-item-card card">
+        <div class="card-header">
+          <h6 class="card-title">Destination</h6>
+        </div>
+        <div class="card-body">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+            <label class="form-check-label" for="flexCheckDefault1">
+              Nairobi
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+            <label class="form-check-label" for="flexCheckDefault2">
+              Mombasa
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
+            <label class="form-check-label" for="flexCheckDefault3">
+              Nakuru
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4" disabled>
+            <label class="form-check-label" for="flexCheckDefault4">
+              Eldoret
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="filter-item-card card">
+        <div class="card-header">
+          <h6 class="card-title">Price</h6>
+        </div>
+        <div class="card-body">
+          <div class="vstack gap-3">
+            <div class="input-group">
+              <span class="input-group-text">From</span>
+              <input type="number" class="form-control" placeholder="min" aria-label="fromPrice">
+            </div>
+            <div class="input-group">
+              <span class="input-group-text">To</span>
+              <input type="number" class="form-control" placeholder="max" aria-label="fromPrice">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="filter-item-card card">
+        <div class="card-header">
+          <h6 class="card-title">Duration</h6>
+        </div>
+        <div class="card-body">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="durationRadio1" value="option1"
+                   checked>
+            <label class="form-check-label" for="durationRadio1">
+              3 hours
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="durationRadio2" value="option2">
+            <label class="form-check-label" for="durationRadio2">
+              3-5 hours
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="durationRadio3" value="option3">
+            <label class="form-check-label" for="durationRadio3">
+              5-7 hours
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="durationRadio4" value="option4">
+            <label class="form-check-label" for="durationRadio4">
+              7+ hours
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="filter-item-card card">
+        <div class="card-header">
+          <h6 class="card-title">Services</h6>
+        </div>
+        <div class="card-body">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="servicesCheckbox1">
+            <label class="form-check-label" for="servicesCheckbox1">
+              Wi-Fi
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="servicesCheckbox2">
+            <label class="form-check-label" for="servicesCheckbox2">
+              TV
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="servicesCheckbox3">
+            <label class="form-check-label" for="servicesCheckbox3">
+              Bed
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="servicesCheckbox4">
+            <label class="form-check-label" for="servicesCheckbox4">
+              Meals
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="">
+      <button class="btn btn-outline-secondary w-100">Clear all</button>
+    </div>
+
+  </div>
+</ng-template>
+
+<button
+  class="btn btn-light"
+  aria-controls="offcanvasNavbar"
+  aria-label="Toggle navigation"
+  (click)="open(content)">
+  <i class="bi bi-filter me-2"></i>
+  <span>Filters</span>
+</button>

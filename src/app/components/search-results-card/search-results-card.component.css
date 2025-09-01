@@ -1,0 +1,252 @@
+.bus-schedule-card {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  gap: 0.5rem;
+}
+@media (min-width: 992px) {
+  .bus-schedule-card {
+    flex-wrap: nowrap;
+    gap: 2rem;
+    align-items: center;
+  }
+}
+.bus-schedule-card .company-info {
+  display: flex;
+  gap: 0.75rem;
+  flex: 2;
+  width: 100%;
+}
+@media (min-width: 992px) {
+  .bus-schedule-card .company-info {
+    width: auto;
+  }
+}
+.bus-schedule-card .company-info .company-logo {
+  width: 48px;
+  height: 48px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.bus-schedule-card .company-info .schedule-details .company-name h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: #444;
+}
+.bus-schedule-card .company-info .schedule-details .company-name .route-info {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 0.25rem 0;
+}
+.bus-schedule-card .company-info .schedule-details .company-name .bus-type {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 0;
+}
+.bus-schedule-card .company-info .schedule-details .amenities {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+  align-items: center;
+}
+.bus-schedule-card .company-info .schedule-details .amenities .amenity {
+  font-size: 0.9rem;
+  color: #0066cc;
+}
+.bus-schedule-card .company-info .schedule-details .amenities .amenity-icon {
+  font-size: 1rem;
+  color: #666;
+}
+.bus-schedule-card .company-info .schedule-details .amenities .more-amenities {
+  font-size: 0.8rem;
+  color: #3498db;
+}
+.bus-schedule-card .mobile-details {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.25rem 0;
+}
+.bus-schedule-card .mobile-details .time-row {
+  display: flex;
+  gap: 1rem;
+}
+.bus-schedule-card .mobile-details .time-row .departure-time {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+.bus-schedule-card .mobile-details .time-row .seats-available {
+  font-size: 0.9rem;
+}
+.bus-schedule-card .mobile-details .rating-stars {
+  color: var(--bs-primary);
+  font-size: 0.8rem;
+}
+.bus-schedule-card .mobile-details .rating-stars .star {
+  color: #ff9800;
+  font-size: 8px !important;
+}
+.bus-schedule-card .mobile-details .rating-stars .star:not(.filled) {
+  color: #ddd;
+}
+.bus-schedule-card .time-section {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.bus-schedule-card .time-section .line-container {
+  position: relative;
+  width: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bus-schedule-card .time-section .dotted-line {
+  flex-grow: 1;
+  width: 2px;
+  border-left: 2px dotted #999;
+  margin: 4px 0;
+}
+.bus-schedule-card .time-section .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: darkgray;
+}
+.bus-schedule-card .time-section .times {
+  display: flex;
+  flex-direction: column;
+}
+.bus-schedule-card .time-section .times .time {
+  font-weight: 500;
+}
+.bus-schedule-card .time-section .times .time.arrival {
+  margin-top: 1rem;
+}
+.bus-schedule-card .rating-section {
+  flex: 1;
+  text-align: center;
+}
+.bus-schedule-card .rating-section .rating-label {
+  margin-bottom: 0.25rem;
+}
+.bus-schedule-card .rating-section .stars {
+  color: #ff9800;
+  font-size: 12px;
+}
+.bus-schedule-card .rating-section .stars .star {
+  font-size: 6px;
+}
+.bus-schedule-card .rating-section .stars .star:not(.filled) {
+  color: #ddd;
+}
+.bus-schedule-card .pricing-section {
+  flex: 1;
+  width: 50%;
+}
+@media (min-width: 992px) {
+  .bus-schedule-card .pricing-section {
+    width: auto;
+  }
+}
+.bus-schedule-card .pricing-section .price-category {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+.bus-schedule-card .pricing-section .price-category .category {
+  color: #666;
+}
+.bus-schedule-card .pricing-section .price-category .amount {
+  font-weight: 700;
+  font-size: 13px;
+}
+.bus-schedule-card .seats-section {
+  flex: 1;
+  text-align: right;
+}
+.bus-schedule-card .seats-section .seats-available {
+  color: var(--bs-primary-dark);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.bus-schedule-card .view-seats-mobile {
+  width: 45%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.bus-schedule-card .view-seats-mobile .btn-view-seats {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+@media only screen and (max-width: 600px) {
+  .bus-schedule-card {
+    padding: 0.5rem;
+  }
+  .bus-schedule-card .logo-section .company-logo {
+    width: 64px;
+    height: 64px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .bus-schedule-card .logo-section .mobile-details .time-row {
+    font-size: 0.8rem;
+  }
+  .bus-schedule-card .logo-section .mobile-details .time-row .departure-time {
+    font-weight: normal;
+  }
+  .bus-schedule-card .logo-section .mobile-details .rating-stars {
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: 1rem;
+  }
+  .bus-schedule-card .schedule-details .company-name h3 {
+    font-size: 0.8rem;
+  }
+  .bus-schedule-card .price-category {
+    font-size: 0.9rem;
+    gap: 0.5rem;
+  }
+  .bus-schedule-card .price-category span {
+    white-space: nowrap;
+  }
+  .bus-schedule-card .pricing-section {
+    flex: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: end;
+    align-self: end;
+  }
+  .bus-schedule-card .view-seats-mobile .btn {
+    padding: 0.35rem 0.75rem;
+    margin-left: 0.75rem;
+  }
+}
+.highwayPatch {
+  position: absolute;
+  background-image: linear-gradient(to right, #ed2112, #e01329, #cf0f37, #bd1541, #a91d48);
+  top: 15px;
+  left: -40px;
+  color: #fff;
+  padding: 0 0.5rem;
+  transform: rotate(-45deg);
+  margin: 4px;
+  font-size: 13px;
+  width: 100px;
+  z-index: 0;
+  overflow: clip;
+  clip-path: polygon(25% 0, 82% 0, 100% 98%, 5% 100%);
+}/*# sourceMappingURL=search-results-card.component.css.map */

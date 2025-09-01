@@ -1,0 +1,21 @@
+.card-img-top {
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+h6 {
+  font-weight: 400 !important;
+}
+
+.card-header {
+  background-image: linear-gradient(to right top, #000000, #121212, #1e1e1e, #2a2a2a, #363636);
+  color: white;
+}
+
+.badge {
+  background-color: #EFEFEF;
+  border: 1px solid #ddd;
+  color: black;
+  padding: 0.5rem;
+}/*# sourceMappingURL=bus-info.component.css.map */
