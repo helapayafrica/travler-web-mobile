@@ -36,7 +36,7 @@ import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptors } from '@angular
 
 import { appConfig } from './app/app.config';
 
-// import { provideToastr } from 'ngx-toastr';
+import { provideToastr } from 'ngx-toastr';
 import { importProvidersFrom } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideAnimations } from '@angular/platform-browser/animations';
@@ -51,7 +51,7 @@ async function bootstrap() {
       ...appConfig.providers,
       provideHttpClient(withInterceptors([httpInterceptor])),
       provideAnimations(),
-      // provideToastr(),
+      provideToastr(),
       importProvidersFrom(BrowserAnimationsModule)
     ],
   };

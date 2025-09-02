@@ -21,7 +21,7 @@ import {Select} from 'primeng/select';
 @Component({
   selector: 'app-login-modal',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NgxLoadingModule, RouterLink, Checkbox, InputText, Password, Select],
+  imports: [CommonModule, ReactiveFormsModule, NgxLoadingModule],
   templateUrl: './login-modal.component.html',
   styleUrl: './login-modal.component.scss'
 })
