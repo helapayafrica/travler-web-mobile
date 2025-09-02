@@ -23,29 +23,29 @@ export const routes: Routes = [
   },
 
   {
-        path: 'sign-up',
-        component: SignupComponent
-    },
-    {
-        path: 'login',
-        component:LoginComponent
-    },
-  {
-    path:'search',
-    component:SearchComponent
+    path: 'sign-up',
+    loadComponent: () => import('./views/Auth/sign-up/sign-up').then(m => m.SignupComponent)
   },
   {
-    path:'faqs',
-    component:FAQSComponent
+    path: 'login',
+    loadComponent: () => import('./views/Auth/login/login').then(m => m.LoginComponent)
+  },
+  {
+    path: 'search',
+    loadComponent: () => import('./views/search/search.component').then(m => m.SearchComponent)
+  },
+  {
+    path: 'faqs',
+    loadComponent: () => import('./views/home/sections/faqs/faqs.component').then(m => m.FAQSComponent)
   },
 
   {
     path: 'checkout',
-    component: CheckoutComponent
+    loadComponent: () => import('./views/checkout/checkout.component').then(m => m.CheckoutComponent)
   },
   {
     path: 'payment',
-    component: PaymentFormComponent,
+    loadComponent: () => import('./views/checkout/sections/payment-form/payment-form.component').then(m => m.PaymentFormComponent),
   },
 
     {

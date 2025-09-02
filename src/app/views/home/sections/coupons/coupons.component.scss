@@ -74,7 +74,8 @@
 .carousel-card {
   //min-width: 300px; /* Adjust based on your card width */
   height: 200px;
-  width: 296px;
+  //width: 296px;
+  width:max( 296px, 97%);
   padding : 16px;
   flex-shrink: 0;
   opacity: 0;

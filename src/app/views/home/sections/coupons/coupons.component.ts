@@ -372,15 +372,15 @@ export class CouponsComponent implements OnInit {
   ];
 
 
-responsiveOptions = [
+  responsiveOptions = [
     {
       breakpoint: '1199px',
-      numVisible: 0,
-      numScroll: 0
+      numVisible: 3,
+      numScroll: 1
     },
     {
       breakpoint: '991px',
-      numVisible: 0,
+      numVisible: 2,
       numScroll: 1
     },
     {
@@ -389,6 +389,7 @@ responsiveOptions = [
       numScroll: 1
     }
   ];
+
 
 
 

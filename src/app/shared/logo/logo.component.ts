@@ -1,11 +1,12 @@
 import {Component, Input} from '@angular/core';
-import {NgIf} from '@angular/common';
+import {NgIf, NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-shared-logo',
   standalone: true,
   imports: [
-    NgIf
+    NgIf,
+    NgOptimizedImage
   ],
   templateUrl: './logo.component.html',
   styleUrl: './logo.component.scss'
