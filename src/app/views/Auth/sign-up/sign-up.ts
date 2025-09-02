@@ -74,7 +74,7 @@ export class SignupComponent implements OnInit {
     this.signupForm = this.fb.group({
       name: ['', [Validators.required]],
       last_name: ['', [Validators.required]],
-      date_of_birth: ['', [Validators.required]],
+      date_of_birth: ['', [Validators.required, ageValidator()]],
       more: [false, [Validators.required]],
       coupon_code:[''],
       gender: [''],
@@ -161,4 +161,22 @@ export class SignupComponent implements OnInit {
 
 
   }
+}
+
+export function ageValidator(): ValidationErrors | null {
+  return (control: AbstractControl): ValidationErrors | null => {
+    if (!control.value) {
+      return null;
+    }
+
+    const birthDate = new Date(control.value);
+    const today = new Date();
+    const age = today.getFullYear() - birthDate.getFullYear();
+
+    if (age < 13) {
+      return {underage: true};
+    }
+
+    return null;
+  };
 }

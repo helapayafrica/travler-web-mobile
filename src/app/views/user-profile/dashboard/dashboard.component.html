@@ -1,0 +1,81 @@
+<div class="filter-controls">
+  <div class="filter-row">
+    <div class="filter-group">
+      <label>Total Items</label>
+      <select class="form-select" [(ngModel)]="totalItems">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+      </select>
+    </div>
+
+    <div class="filter-group date-range ms-auto">
+      <input type="date" class="form-control" [(ngModel)]="dateRange" readonly>
+    </div>
+
+    <div class="filter-group currency-select">
+      <select class="form-select" [(ngModel)]="currency">
+        <option value="KES">KES</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+      </select>
+    </div>
+
+    <div class="filter-group user-select">
+      <select class="form-select" aria-label="Default select example">
+        <option selected>Search by user</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Data table -->
+  <div class="data-table-container">
+    <table class="table table-responsive">
+      <thead>
+      <tr>
+        <th>Company Name</th>
+        <th>Ticket No</th>
+        <th>Total Sale</th>
+        <th>Commission</th>
+        <th>Self Commission</th>
+        <th>Wallet Balance</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngIf="bookings.length === 0">
+        <td colspan="10" class="text-center">Data not found.</td>
+      </tr>
+      <tr *ngFor="let booking of bookings">
+        <td>{{ booking.companyName }}</td>
+        <td>{{ booking.ticketNo }}</td>
+        <td>{{ booking.totalSales }}</td>
+        <td>{{ booking.commission }}</td>
+        <td>{{ booking.selfCommission }}</td>
+        <td>{{ booking.walletBalance }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination-controls">
+    <nav>
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

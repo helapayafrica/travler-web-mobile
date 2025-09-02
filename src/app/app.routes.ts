@@ -1,17 +1,18 @@
 import { Routes } from '@angular/router';
-import { NotFound } from './views/not-found/not-found';
-import {SignupComponent} from './views/Auth/sign-up/sign-up';
-import {LoginComponent} from './views/Auth/login/login';
 import {HomeComponent} from './views/home/home.component';
-import {FAQSComponent} from './views/home/sections/faqs/faqs.component';
-import {SearchComponent} from './views/search/search.component';
-import {CheckoutComponent} from './views/checkout/checkout.component';
-import {PaymentFormComponent} from './views/checkout/sections/payment-form/payment-form.component';
+import {PageNotFoundComponent} from './views/page-not-found/page-not-found.component';
+import {UserProfileLayoutComponent} from './views/user-profile/user-profile-layout.component';
+import {DashboardComponent} from './views/user-profile/dashboard/dashboard.component';
+import {BookingsComponent} from './views/user-profile/bookings/bookings.component';
+import {WalletComponent} from './views/user-profile/wallet/wallet.component';
+import {AccountDetailsComponent} from './views/user-profile/account-details/account-details.component';
+import {ChangePasswordComponent} from './views/user-profile/change-password/change-password.component';
+import {UserListComponent} from './views/user-profile/user-list/user-list.component';
+import {TicketComponent} from './views/ticket/ticket.component';
 
 
 
 export const routes: Routes = [
-
   {
     path:'',
     redirectTo:'/home',
@@ -47,11 +48,53 @@ export const routes: Routes = [
     path: 'payment',
     loadComponent: () => import('./views/checkout/sections/payment-form/payment-form.component').then(m => m.PaymentFormComponent),
   },
+  {
+    path: 'user-profile',
+    component: UserProfileLayoutComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent
+      },
+      {
+        path: 'bookings',
+        component: BookingsComponent
+      },
+      {
+        path: 'wallet',
+        component: WalletComponent
+      },
+      {
+        path: 'account',
+        component: AccountDetailsComponent
+      },
+      {
+        path: 'ticket',
+        component: TicketComponent
+      },
+
+
+
+
+      {
+        path: 'change-password',
+        component: ChangePasswordComponent
+      },
+      {
+        path: 'user-list',
+        component: UserListComponent
+      }
+    ]
+  },
+
 
     {
         path: '**',
-        component : NotFound
+        component : PageNotFoundComponent
     },
-
-
 ];

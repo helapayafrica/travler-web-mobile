@@ -1,120 +1,123 @@
-<div class="bg-white" *ngFor="let item of buses; let i = index;">
+<div *ngFor="let item of buses; let i = index;" class="bg-white">
 
-<!--  OG Card-->
-<!--  <div-->
-<!--    (click)="getSelectedBus(item);"-->
-<!--    class="bus-schedule-card" [ngClass]="collapseState[i] ? '' : 'card-selected'">-->
-<!--    <div class="highwayPatch text-center" *ngIf="item.highWayDirectRoute === 'Highway'">Highway</div>-->
-<!--    <div class="company-info">-->
-<!--      <div class="logo-section">-->
-<!--        <img [src]="item.company_logo" alt="Bus Company Logo" class="company-logo">-->
+  <!--  OG Card-->
+  <!--  <div-->
+  <!--    (click)="getSelectedBus(item);"-->
+  <!--    class="bus-schedule-card" [ngClass]="collapseState[i] ? '' : 'card-selected'">-->
+  <!--    <div class="highwayPatch text-center" *ngIf="item.highWayDirectRoute === 'Highway'">Highway</div>-->
+  <!--    <div class="company-info">-->
+  <!--      <div class="logo-section">-->
+  <!--        <img [src]="item.company_logo" alt="Bus Company Logo" class="company-logo">-->
 
-<!--        <div class="mobile-details d-flex flex-column d-lg-none align-items-start">-->
-<!--          <div class="time-row flex-column gap-0">-->
-<!--            <div class="departure-time">{{ item.departure_time}}</div>-->
-<!--            <div class="seats-available">{{ item.available_seat_count }} Seat(s)</div>-->
-<!--          </div>-->
-<!--          <div class="rating-stars">-->
-<!--            <span *ngFor="let star of getRatingArray(item.rating)"-->
-<!--                  class="star"-->
-<!--                  [class.filled]="star">-->
-<!--              ★-->
-<!--            </span>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
+  <!--        <div class="mobile-details d-flex flex-column d-lg-none align-items-start">-->
+  <!--          <div class="time-row flex-column gap-0">-->
+  <!--            <div class="departure-time">{{ item.departure_time}}</div>-->
+  <!--            <div class="seats-available">{{ item.available_seat_count }} Seat(s)</div>-->
+  <!--          </div>-->
+  <!--          <div class="rating-stars">-->
+  <!--            <span *ngFor="let star of getRatingArray(item.rating)"-->
+  <!--                  class="star"-->
+  <!--                  [class.filled]="star">-->
+  <!--              ★-->
+  <!--            </span>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--      </div>-->
 
-<!--      <div class="schedule-details">-->
-<!--        <div class="company-name">-->
-<!--          <h3>{{ item.company_name }}</h3>-->
-<!--          <p class="bus-type"> Bus Type: {{ item.highWayDirectRoute }}</p>-->
-<!--        </div>-->
+  <!--      <div class="schedule-details">-->
+  <!--        <div class="company-name">-->
+  <!--          <h3>{{ item.company_name }}</h3>-->
+  <!--          <p class="bus-type"> Bus Type: {{ item.highWayDirectRoute }}</p>-->
+  <!--        </div>-->
 
-<!--        <div class="amenities" *ngIf="item.amenities?.length">-->
-<!--          &lt;!&ndash; <span class="amenity" *ngFor="let amenity of item.amenities">-->
-<!--            <i class="amenity-icon" [ngClass]="getAmenityIcon(amenity)"></i>-->
-<!--          </span> &ndash;&gt;-->
-<!--          <span class="more-amenities">+3 Amenities</span>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
+  <!--        <div class="amenities" *ngIf="item.amenities?.length">-->
+  <!--          &lt;!&ndash; <span class="amenity" *ngFor="let amenity of item.amenities">-->
+  <!--            <i class="amenity-icon" [ngClass]="getAmenityIcon(amenity)"></i>-->
+  <!--          </span> &ndash;&gt;-->
+  <!--          <span class="more-amenities">+3 Amenities</span>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </div>-->
 
-<!--    <div class="time-section d-none d-lg-flex">-->
-<!--      <div class="line-container" [style.height.px]="60">-->
-<!--        <div class="dot top"></div>-->
-<!--        <div class="dotted-line"></div>-->
-<!--        <div class="dot bottom"></div>-->
-<!--      </div>-->
-<!--      <div class="times">-->
-<!--        <div class="time departure">{{ item.departure_time }}</div>-->
-<!--        <div class="time arrival">{{ item.arrival_time }}</div>-->
-<!--      </div>-->
-<!--    </div>-->
+  <!--    <div class="time-section d-none d-lg-flex">-->
+  <!--      <div class="line-container" [style.height.px]="60">-->
+  <!--        <div class="dot top"></div>-->
+  <!--        <div class="dotted-line"></div>-->
+  <!--        <div class="dot bottom"></div>-->
+  <!--      </div>-->
+  <!--      <div class="times">-->
+  <!--        <div class="time departure">{{ item.departure_time }}</div>-->
+  <!--        <div class="time arrival">{{ item.arrival_time }}</div>-->
+  <!--      </div>-->
+  <!--    </div>-->
 
-<!--    <div class="rating-section d-none d-lg-flex flex-column">-->
-<!--      <small class="rating-label">RATING</small>-->
-<!--      <div class="stars">-->
-<!--        <span *ngFor="let star of getRatingArray(item.avg_rating)"-->
+  <!--    <div class="rating-section d-none d-lg-flex flex-column">-->
+  <!--      <small class="rating-label">RATING</small>-->
+  <!--      <div class="stars">-->
+  <!--        <span *ngFor="let star of getRatingArray(item.avg_rating)"-->
 
-<!--              class="star"-->
-<!--              [class.filled]="star">-->
-<!--          ★-->
-<!--        </span>-->
-<!--      </div>-->
-<!--    </div>-->
+  <!--              class="star"-->
+  <!--              [class.filled]="star">-->
+  <!--          ★-->
+  <!--        </span>-->
+  <!--      </div>-->
+  <!--    </div>-->
 
-<!--    <div class="d-flex flex-column flex-lg-row">-->
-<!--      <div class="pricing-section">-->
-<!--        <div *ngFor="let schedule of item.defaultTripPriceList">-->
-<!--          <div class="price-category" *ngIf="schedule?.seatType == 'vip'">-->
-<!--            <span class="category">Vip:</span>-->
-<!--            <span class="amount">KES {{ schedule.amount | number }}</span>-->
-<!--          </div>-->
-<!--          <div class="price-category" *ngIf="schedule?.seatType == 'business'">-->
-<!--            <span class="category">Business:</span>-->
-<!--            <span class="amount">KES {{ schedule.amount | number }}</span>-->
-<!--          </div>-->
-<!--          <div class="price-category" *ngIf="schedule?.seatType == 'normal'">-->
-<!--            <span class="category">Normal:</span>-->
-<!--            <span class="amount">KES {{ schedule.amount | number }}</span>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
+  <!--    <div class="d-flex flex-column flex-lg-row">-->
+  <!--      <div class="pricing-section">-->
+  <!--        <div *ngFor="let schedule of item.defaultTripPriceList">-->
+  <!--          <div class="price-category" *ngIf="schedule?.seatType == 'vip'">-->
+  <!--            <span class="category">Vip:</span>-->
+  <!--            <span class="amount">KES {{ schedule.amount | number }}</span>-->
+  <!--          </div>-->
+  <!--          <div class="price-category" *ngIf="schedule?.seatType == 'business'">-->
+  <!--            <span class="category">Business:</span>-->
+  <!--            <span class="amount">KES {{ schedule.amount | number }}</span>-->
+  <!--          </div>-->
+  <!--          <div class="price-category" *ngIf="schedule?.seatType == 'normal'">-->
+  <!--            <span class="category">Normal:</span>-->
+  <!--            <span class="amount">KES {{ schedule.amount | number }}</span>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--      </div>-->
 
-<!--      <div class="seats-section d-none d-lg-block">-->
-<!--        <p class="seats-available">{{ item.available_seat_count }} Seats Available</p>-->
-<!--        <button-->
-<!--          [ngClass]="collapseState[i] ? 'btn-primary' :'btn-danger'"-->
-<!--          class="btn  btn-sm" (click)="toggleCollapse(i);searchSeats(item)"-->
-<!--                [attr.aria-expanded]="!collapseState[i]">-->
-<!--          <i class="small bi" [ngClass]="collapseState[i] ? 'bi-chevron-up' : 'bi-chevron-down'"></i>-->
-<!--          {{ collapseState[i] ? 'View Seats' : 'Close' }}-->
-<!--        </button>-->
-<!--      </div>-->
+  <!--      <div class="seats-section d-none d-lg-block">-->
+  <!--        <p class="seats-available">{{ item.available_seat_count }} Seats Available</p>-->
+  <!--        <button-->
+  <!--          [ngClass]="collapseState[i] ? 'btn-primary' :'btn-danger'"-->
+  <!--          class="btn  btn-sm" (click)="toggleCollapse(i);searchSeats(item)"-->
+  <!--                [attr.aria-expanded]="!collapseState[i]">-->
+  <!--          <i class="small bi" [ngClass]="collapseState[i] ? 'bi-chevron-up' : 'bi-chevron-down'"></i>-->
+  <!--          {{ collapseState[i] ? 'View Seats' : 'Close' }}-->
+  <!--        </button>-->
+  <!--      </div>-->
 
-<!--      <div class="view-seats-mobile d-block d-lg-none">-->
-<!--        <button-->
-<!--          [ngClass]="collapseState[i] ? 'btn-primary' :'btn-danger'"-->
-<!--          class="btn btn-primary btn-view-seats btn-sm" (click)="toggleCollapse(i);searchSeats(item)"-->
-<!--                [attr.aria-expanded]="!collapseState[i]">-->
-<!--          {{ collapseState[i] ? 'View Seats' : 'Close' }}-->
-<!--        </button>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
+  <!--      <div class="view-seats-mobile d-block d-lg-none">-->
+  <!--        <button-->
+  <!--          [ngClass]="collapseState[i] ? 'btn-primary' :'btn-danger'"-->
+  <!--          class="btn btn-primary btn-view-seats btn-sm" (click)="toggleCollapse(i);searchSeats(item)"-->
+  <!--                [attr.aria-expanded]="!collapseState[i]">-->
+  <!--          {{ collapseState[i] ? 'View Seats' : 'Close' }}-->
+  <!--        </button>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
 
-<!--  <-->
+  <!--  <-->
 
 
-<!--   my card -->
+  <!--   my card -->
   <div
     (click)="getSelectedBus(item);"
-    style="min-width:300px;"
+    [ngClass]="collapseState[i] ? '' : 'card-selected'"
     class="d-flex flex-column d-md-none justify-content-between p-3 card rounded-4 shadow m-2"
-    [ngClass]="collapseState[i] ? '' : 'card-selected'">
+    style="min-width:300px;">
 
     <!-- Highway Badge -->
-    <div class="highwayPatch text-center" *ngIf="item.highWayDirectRoute === 'Highway'">Highway</div>
+    <div *ngIf="item.highWayDirectRoute === 'Highway'" class="highwayPatch text-center">Highway</div>
+
+
+    <!-- Middle Row: Location  -->
 
     <!-- Top Row: Time & Seats -->
     <div class="d-flex flex-row justify-content-between">
@@ -124,9 +127,9 @@
           <div class="badge bg-warning-subtle text-warning-emphasis">Bus Type: {{ item.highWayDirectRoute }}</div>
         </div>
 
-<!--        <p class="pb-0 mb-0 text-muted small">-->
-<!--          {{ item.origin }} ➡️ {{ item.destination }}-->
-<!--        </p>-->
+        <!--        <p class="pb-0 mb-0 text-muted small">-->
+        <!--          {{ item.origin }} ➡️ {{ item.destination }}-->
+        <!--        </p>-->
 
         <!-- Time -->
         <p class="fw-semibold mb-1 mt-2">
@@ -155,15 +158,15 @@
         </div>
       </div>
     </div>
-
-    <!-- Middle Row: Location and Rating -->
     <div class="d-flex flex-row justify-content-between mt-2">
       <!-- Location -->
       <div class="d-flex flex-row align-items-center p-2 rounded">
-        <img height="50" width="50" alt="logo" [src]="item.company_logo" class="me-2" />
+        <!--        <img [src]="item.company_logo" alt="logo" class="me-2" height="50" width="100"/>-->
+        <img src="assets/WEBP/logo.webp" alt="logo" class="me-2" height="50" width="100"/>
+
         <div class="d-flex flex-column">
           <p class="fw-semibold mb-0" style="font-size:14px;">{{ item.company_name }}</p>
-          <p class="text-primary fw-medium mb-0" style="font-size: 13px;" *ngIf="item.amenities?.length">
+          <p *ngIf="item.amenities?.length" class="text-primary fw-medium mb-0" style="font-size: 13px;">
             Amenities + {{ item.amenities.length }}
           </p>
         </div>
@@ -173,33 +176,35 @@
       <div class="d-flex flex-column align-items-end">
         <div class="rating-stars">
           <span *ngFor="let star of getRatingArray(item.avg_rating)"
-                class="star"
-                [class.filled]="star">
+                [class.filled]="star"
+                class="star">
             ⭐
           </span>
         </div>
       </div>
     </div>
 
-    <!-- Bottom Row: Banner and Button -->
-    <div class="d-flex flex-row justify-content-end mt-2">
+
+    <!-- Bottom Row: Banner and Button --><!-- Bottom Row: Banner and Button -->
+    <div class="d-flex flex-row justify-content-end mt-auto">
       <button
-        [ngClass]="collapseState[i] ? 'btn-primary' :'btn-danger'"
-        class="btn btn-sm"
         (click)="toggleCollapse(i);searchSeats(item)"
-        [attr.aria-expanded]="!collapseState[i]">
+        [attr.aria-expanded]="!collapseState[i]"
+        [ngClass]="collapseState[i] ? 'btn-primary' :'btn-danger'"
+        class="btn btn-sm">
         {{ collapseState[i] ? 'View Seats' : 'Close' }}
       </button>
     </div>
+
   </div>
 
   <!-- Large/Medium devices -->
-  <div class="card rounded-4 d-none d-md-block shadow p-3 w-100  m-2"
-       (click)="getSelectedBus(item);"
-       [ngClass]="collapseState[i] ? '' : 'card-selected'">
+  <div (click)="getSelectedBus(item);"
+       [ngClass]="collapseState[i] ? '' : 'card-selected'"
+       class="card rounded-4 d-none d-md-block shadow p-3 w-100  m-2">
 
     <!-- Highway Badge -->
-    <div class="highwayPatch text-center" *ngIf="item.highWayDirectRoute === 'Highway'">Highway</div>
+    <div *ngIf="item.highWayDirectRoute === 'Highway'" class="highwayPatch text-center">Highway</div>
 
     <!-- Wrap in responsive flex -->
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-start gap-3">
@@ -212,10 +217,10 @@
           <div class="badge bg-success">{{ item.available_seat_count }} seats available</div>
         </div>
 
-<!--        &lt;!&ndash; Route &ndash;&gt;-->
-<!--        <p class="pb-0 mb-0 text-muted small">-->
-<!--          {{ item.origin }} ➡️ {{ item.destination }}-->
-<!--        </p>-->
+        <!--        &lt;!&ndash; Route &ndash;&gt;-->
+        <!--        <p class="pb-0 mb-0 text-muted small">-->
+        <!--          {{ item.origin }} ➡️ {{ item.destination }}-->
+        <!--        </p>-->
 
         <!-- Time -->
         <p class="fw-semibold mb-1">
@@ -227,11 +232,11 @@
 
       <!-- Middle section (logo + operator info) -->
       <div class="d-flex flex-row align-items-center p-2 rounded">
-<!--        fix me use the Prefeered img-->
-        <img height="50" width="50" alt="logo" ngSrc="assets/WEBP/logo.webp" class="me-2" />
+        <!--        fix me use the Prefeered img-->
+        <img alt="logo" class="me-2" height="50" ngSrc="assets/WEBP/logo.webp" width="100"/>
         <div class="d-flex flex-column">
           <p class="fw-semibold mb-0" style="font-size:14px;">{{ item.company_name }}</p>
-          <p class="text-primary fw-medium mb-0" style="font-size: 13px;" *ngIf="item.amenities?.length">
+          <p *ngIf="item.amenities?.length" class="text-primary fw-medium mb-0" style="font-size: 13px;">
             Amenities + {{ item.amenities.length }}
           </p>
         </div>
@@ -258,19 +263,24 @@
         </div>
 
         <!-- Rating -->
-        <div class="rating-stars mt-2 mb-2">
-          <div class="rating-stars">
-            <span class="star filled">⭐ {{ item.avg_rating }}</span>
-          </div>
-        </div>
+            <div class="rating-section d-none d-lg-flex flex-column">
+              <div class="stars">
+                <span *ngFor="let star of getRatingArray(item.avg_rating)"
+
+                      class="star"
+                      [class.filled]="star">
+                  ★
+                </span>
+              </div>
+            </div>
 
         <!-- Button -->
         <button
-          [ngClass]="collapseState[i] ? 'btn-primary' :'btn-danger'"
-          class="btn btn-sm"
           (click)="toggleCollapse(i);searchSeats(item)"
-          [attr.aria-expanded]="!collapseState[i]">
-          <i class="small bi" [ngClass]="collapseState[i] ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+          [attr.aria-expanded]="!collapseState[i]"
+          [ngClass]="collapseState[i] ? 'btn-primary' :'btn-danger'"
+          class="btn btn-sm">
+          <i [ngClass]="collapseState[i] ? 'bi-chevron-up' : 'bi-chevron-down'" class="small bi"></i>
           {{ collapseState[i] ? 'View Seats' : 'Close' }}
         </button>
       </div>
@@ -278,27 +288,19 @@
   </div>
 
 
-
-
-
-
-
-
-
-
   <!-- Collapsible Section (Closed by Default) -->
-   <div #collapse="ngbCollapse" [(ngbCollapse)]="collapseState[i]" class="m-1 col-12 d-lg-none">
+  <div #collapse="ngbCollapse" [(ngbCollapse)]="collapseState[i]" class="m-1 col-12 d-lg-none">
     <div class="rounded">
       <div class="row g-3">
         <div class="col-12 ">
           <div class="">
-            <app-component-bus-seat-selector [payload]="seat_data"  [type]="type"></app-component-bus-seat-selector>
+            <app-component-bus-seat-selector [payload]="seat_data" [type]="type"></app-component-bus-seat-selector>
           </div>
         </div>
       </div>
 
       <div class="text-end pb-2">
-        <button class="btn btn-sm btn-outline-primary" (click)="toggleCollapse(i)">
+        <button (click)="toggleCollapse(i)" class="btn btn-sm btn-outline-primary">
           <i class="bi bi-chevron-bar-up me-1"></i>
           <span>Close</span>
         </button>

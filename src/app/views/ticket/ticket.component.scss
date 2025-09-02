@@ -1,0 +1,30 @@
+
+.app-container {
+
+  padding-top: 70px;
+    min-height: 85vh; /* Full viewport height */
+    margin-top: 0;
+  }
+
+.section {
+ margin-top: 80px;
+  background-image: linear-gradient(to right, #ed2112, #e01329, #cf0f37, #bd1541, #a91d48);
+  padding:1rem 0.5rem 0.5rem 0.5rem;
+  max-width: 55vw;
+  border-radius:1rem;
+  //min-height: 50vh;
+}
+
+/* Form Inputs */
+.form-control {
+  border: 1px solid #ddd;
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+}
+
+/* Form Labels */
+.form-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: white;
+}

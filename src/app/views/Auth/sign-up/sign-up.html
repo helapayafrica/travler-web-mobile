@@ -1,6 +1,8 @@
-<div class="container">
+<div
+  style="margin-top: 7rem;"
+  class="container">
   <!-- sign up  card-->
-  <div class="card shadow">
+  <div class="card shadow p-4 my-3">
     <h2 class="text-center">Sign up</h2>
     <form (ngSubmit)="onSubmit()" [formGroup]="signupForm">
 
@@ -10,8 +12,9 @@
           <div class="d-flex flex-column gap-1">
             <label for="name">Name</label>
             <input aria-describedby="name-help" formControlName="name" id="name" pInputText pSize="small" required
-                   type="text"/>
-            <small *ngIf="signupForm.get('name')?.touched && signupForm.get('name')?.errors?.['required']" class="text-danger"
+                   type="text" placeholder="Enter your name"/>
+            <small *ngIf="signupForm.get('name')?.touched && signupForm.get('name')?.errors?.['required']"
+                   class="text-danger"
                    id="name-help">
               Name is required
             </small>
@@ -30,8 +33,10 @@
               optionLabel="label"
               placeholder="Select Code">
             </p-select>
-            <small *ngIf="signupForm.get('country_code')?.touched && signupForm.get('country_code')?.errors?.['required']" class="text-danger"
-                   id="code-help">
+            <small
+              *ngIf="signupForm.get('country_code')?.touched && signupForm.get('country_code')?.errors?.['required']"
+              class="text-danger"
+              id="code-help">
               Code is required
             </small>
           </div>
@@ -41,9 +46,11 @@
           <div class="d-flex flex-column gap-1">
             <label for="phone">Phone</label>
             <input aria-describedby="phone-help" formControlName="phone_number" id="phone" pInputText pSize="small"
-                   required type="number"/>
-            <small *ngIf="signupForm.get('phone_number')?.touched && signupForm.get('phone_number')?.errors?.['required']" class="text-danger"
-                   id="phone-help">
+                   required type="number" placeholder="Enter your phone number"/>
+            <small
+              *ngIf="signupForm.get('phone_number')?.touched && signupForm.get('phone_number')?.errors?.['required']"
+              class="text-danger"
+              id="phone-help">
               Phone number is required
             </small>
           </div>
@@ -54,12 +61,14 @@
           <div class="d-flex flex-column gap-1">
             <label for="email">Email</label>
             <input aria-describedby="email-help" formControlName="email" id="email" pInputText pSize="small" required
-                   type="email"/>
-            <small *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['required']" class="text-danger"
+                   type="email" placeholder="Enter your email"/>
+            <small *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['required']"
+                   class="text-danger"
                    id="email-help">
               Email is required
             </small>
-            <small *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['email']" class="text-danger"
+            <small *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['email']"
+                   class="text-danger"
                    id="email-format-help">
               Invalid email format
             </small>
@@ -88,10 +97,19 @@
         <div class="mt-2 col-12">
           <div class="d-flex flex-column gap-1">
             <label for="date-of-birth">Date of Birth</label>
-            <p-date-picker formControlName="date_of_birth"></p-date-picker>
-            <small *ngIf="signupForm.get('date_of_birth')?.touched && signupForm.get('date_of_birth')?.errors?.['required']"
-                   class="text-danger">
+            <p-date-picker view="year" formControlName="date_of_birth"
+                           placeholder="Select your date of birth"></p-date-picker>
+
+
+            <small
+              *ngIf="signupForm.get('date_of_birth')?.touched && signupForm.get('date_of_birth')?.errors?.['required']"
+              class="text-danger">
               Date of birth is required
+            </small>
+            <small
+              *ngIf="signupForm.get('date_of_birth')?.touched && signupForm.get('date_of_birth')?.errors?.['underage']"
+              class="text-danger">
+              You must be at least 13 years old to register
             </small>
           </div>
         </div>
@@ -105,15 +123,16 @@
             </div>
           </div>
         </div>
-        @if(signupForm.get('more')?.value){
+        @if (signupForm.get('more')?.value) {
           <div class="mt-1 col-12">
             <div class="d-flex flex-column gap-1">
               <label for="coupon">Coupon Code</label>
-              <input aria-describedby="coupon-help" formControlName="coupon_code" id="coupon" pInputText pSize="small"/>
+              <input aria-describedby="coupon-help" formControlName="coupon_code" id="coupon" pInputText pSize="small"
+                     placeholder="Enter coupon code"/>
             </div>
           </div>
         }
-<!--        Password-->
+        <!--        Password-->
 
         <div class="mt-2 col-6">
           <div class="d-flex flex-column gap-1">
@@ -124,13 +143,16 @@
               aria-describedby="password-help"
               formControlName="password"
               id="password"
-              inputStyleClass="p-inputtext-sm w-100">
+              inputStyleClass="p-inputtext-sm w-100"
+              placeholder="Enter password">
             </p-password>
-            <small *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['required']" class="text-danger"
+            <small *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['required']"
+                   class="text-danger"
                    id="password-help">
               Password is required
             </small>
-            <small *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['minlength']" class="text-danger"
+            <small *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['minlength']"
+                   class="text-danger"
                    id="password-length-help">
               Password must be at least 5 characters
             </small>
@@ -146,14 +168,19 @@
               aria-describedby="confirm-password-help"
               formControlName="confirmPassword"
               id="confPassword"
-              inputStyleClass="p-inputtext-sm w-100">
+              inputStyleClass="p-inputtext-sm w-100"
+              placeholder="Confirm password">
             </p-password>
-            <small *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.errors?.['required']" class="text-danger"
-                   id="confirm-password-help">
+            <small
+              *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.errors?.['required']"
+              class="text-danger"
+              id="confirm-password-help">
               Confirm password is required
             </small>
-            <small *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.errors?.['mustMatch']" class="text-danger"
-                   id="password-match-help">
+            <small
+              *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.errors?.['mustMatch']"
+              class="text-danger"
+              id="password-match-help">
               Passwords must match
             </small>
           </div>
@@ -186,7 +213,7 @@
           <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm me-2"></span>
           {{ isSubmitting ? 'Creating Account...' : 'Sign In' }}
         </button>
-<!--         [disabled]="!signupForm.valid || isSubmitting"-->
+        <!--         [disabled]="!signupForm.valid || isSubmitting"-->
       </div>
 
       <div class="text-center mt-3">

@@ -1,0 +1,88 @@
+<!-- Filter controls -->
+<div class="filter-controls">
+  <div class="filter-row">
+    <h5>User list</h5>
+    <button class="btn btn-primary btn-primary-color rounded-pill ms-auto">Add User</button>
+  </div>
+  <div class="filter-row mb-3">
+    <div class="filter-group">
+      <label>Total Items</label>
+      <select class="form-select" [(ngModel)]="totalItems">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+      </select>
+    </div>
+
+    <div class="search-group d-flex gap-3 ms-auto">
+      <input type="text" class="form-control" placeholder="Search users..." [(ngModel)]="searchQuery">
+      <button class="btn btn-primary" type="button" (click)="search()">Search</button>
+    </div>
+  </div>
+</div>
+
+<!-- Data table -->
+<div class="data-table-container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Role</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngIf="users.length === 0">
+      <td colspan="7" class="text-center">No users found.</td>
+    </tr>
+    <tr *ngFor="let user of users; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.phone }}</td>
+      <td>{{ user.role }}</td>
+      <td>
+          <span class="badge" [ngClass]="user.status === 'Active' ? 'bg-success' : 'bg-secondary'">
+            {{ user.status }}
+          </span>
+      </td>
+      <td>
+        <div class="action-buttons">
+          <button class="btn btn-sm btn-primary" (click)="viewUser(user.id)">
+            <i class="bi bi-eye"></i>
+          </button>
+          <button class="btn btn-sm btn-secondary" (click)="editUser(user.id)">
+            <i class="bi bi-pencil"></i>
+          </button>
+          <button class="btn btn-sm btn-danger" (click)="deleteUser(user.id)">
+            <i class="bi bi-trash"></i>
+          </button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Pagination -->
+<div class="pagination-controls">
+  <nav>
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item active"><a class="page-link" href="#">1</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>

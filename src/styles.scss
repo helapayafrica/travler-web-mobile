@@ -1,17 +1,19 @@
+@use 'sass:color';
+// Icons and local variables
+//@use 'variables' as *;
+@import 'variables';
 
-@use 'bootstrap/scss/bootstrap' as *;
-@use 'bootstrap-icons/font/bootstrap-icons' as *;
 
 
-//Variables ===================================================================
-
-//@import "variables";
 
 // Background ==================================================================
 .text-bg-primary {
   background-color: $primary !important;
   color: white;
 }
+
+
+
 
 
 // Buttons =====================================================================
@@ -392,12 +394,12 @@ body { margin: 0 }
   //font-family: "regular" !important;
   font-family: "Inter", "regular";
   font-weight: 300;
-  font-size: 16px;
+  font-size: var(--font-size);
 }
 
-.material-icons {
-  font-family: 'Material Icons' !important;
-}
+//.material-icons {
+//  font-family: 'Material Icons' !important;
+//}
 .app-container {
   min-height: 75vh; /* Full viewport height */
 }
@@ -421,46 +423,45 @@ body{
   font-weight: 300;
 }
 
-*{
-  //font-size: 0.875rem;
- font-size: var(--font-size);
-}
-//Slider
-//////////////////////////////////////
-.ngx-slider .ngx-slider-pointer {
-  /* width: 32px; */
-  /* height: 32px; */
-  /* top: -14px; */
-  /* background-color: #0db9f0; */
-  width: 14px !important;
-  height: 14px !important;
-  top: -6px !important;
-  background-color: var(--primary-color-500) !important;
-}
+//*{
+//  //font-size: 0.875rem;
+//}
+////Slider
+////////////////////////////////////////
+//.ngx-slider .ngx-slider-pointer {
+//  /* width: 32px; */
+//  /* height: 32px; */
+//  /* top: -14px; */
+//  /* background-color: #0db9f0; */
+//  width: 14px !important;
+//  height: 14px !important;
+//  top: -6px !important;
+//  background-color: var(--primary-color-500) !important;
+//}
 
-
-/* styles.css | http://localhost:4200/styles.css */
-
-.ngx-slider .ngx-slider-pointer {
-  /* top: -3px !important; */
-
-}
-
-/* Inline | http://localhost:4200/search */
-
-.ngx-slider .ngx-slider-selection {
-  /* background: #0db9f0; */
-  background-color: var(--primary-color-700) !important;
-}
-
-
-/* Inline | http://localhost:4200/search */
-
-.ngx-slider .ngx-slider-bubble {
-  /* font-size: 16px; */
-  font-size: 12px;
-  font-weight: 400;
-}
+//
+///* styles.css | http://localhost:4200/styles.css */
+//
+//.ngx-slider .ngx-slider-pointer {
+//  /* top: -3px !important; */
+//
+//}
+//
+///* Inline | http://localhost:4200/search */
+//
+//.ngx-slider .ngx-slider-selection {
+//  /* background: #0db9f0; */
+//  background-color: var(--primary-color-700) !important;
+//}
+//
+//
+///* Inline | http://localhost:4200/search */
+//
+//.ngx-slider .ngx-slider-bubble {
+//  /* font-size: 16px; */
+//  font-size: 12px;
+//  font-weight: 400;
+//}
 
 
 .dropdown-menu {
@@ -485,26 +486,5 @@ body{
 
 
 
-/* styles.scss or a global stylesheet */
-//:host ::ng-deep .p-inputtext {
-//  font-family: inherit;
-//  font-feature-settings: inherit;
-//  font-size: 16px; /* overrides 1rem */
-//  font-weight: 600;
-//  color: #333; /* new color */
-//  background: #f5f5f5; /* new background */
-//  padding-block: var(--p-inputtext-padding-y);
-//  padding-inline: 12px; /* replaces padding-inline var */
-//  border: 1px solid #888; /* replaces var border color */
-//  transition: background var(--p-inputtext-transition-duration),
-//  color var(--p-inputtext-transition-duration),
-//  border-color var(--p-inputtext-transition-duration),
-//  outline-color var(--p-inputtext-transition-duration),
-//  box-shadow var(--p-inputtext-transition-duration);
-//  appearance: none;
-//  border-radius: var(--p-inputtext-border-radius);
-//  outline-color: transparent;
-//  box-shadow: var(--p-inputtext-shadow);
-//  padding: 4px; /* final padding override */
-//}
+
 

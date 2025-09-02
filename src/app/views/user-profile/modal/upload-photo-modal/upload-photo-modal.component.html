@@ -1,0 +1,18 @@
+
+<div class="modal-header border-0">
+  <h4 class="modal-title">Upload Profile Photo</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="cancel()"></button>
+</div>
+<div class="modal-body ">
+  <form action="">
+    <div class="form-group">
+      <input type="file" (change)="onFileChange($event)" class="form-control" id="photo" name="photo" required>
+    </div>
+  </form>
+
+</div>
+<div class="modal-footer border-0 ">
+  <button type="button" class="btn btn-outline-danger rounded-pill" (click)="cancel()">Close</button>
+  <button class="btn btn-primary rounded-pill">Save</button>
+</div>
+

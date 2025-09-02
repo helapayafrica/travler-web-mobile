@@ -1,0 +1,41 @@
+<div class="wallet-container">
+  <div class="wallet-header">
+    <div class="wallet-icon">
+      <i class="bi bi-wallet2-fill"></i>
+    </div>
+    <div class="wallet-balance">
+      <h2>KES 0.00</h2>
+      <p>Your Wallet Balance</p>
+    </div>
+    <div class="wallet-actions">
+      <button class="btn btn-primary  rounded-pill" (click)="transferMoney()">Transfer Money</button>
+    </div>
+  </div>
+
+  <div class="data-table-container">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Amount</th>
+        <th>Status</th>
+        <th>Comment</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngIf="transactions.length === 0">
+        <td colspan="3" class="text-center empty-state">
+          <div class="empty-icon">
+            <i class="bi bi-bank"></i>
+          </div>
+          <p>Wallet history not found!</p>
+        </td>
+      </tr>
+      <tr *ngFor="let transaction of transactions">
+        <td>{{ transaction.amount }}</td>
+        <td>{{ transaction.status }}</td>
+        <td>{{ transaction.comment }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

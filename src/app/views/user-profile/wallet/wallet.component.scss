@@ -1,0 +1,109 @@
+.wallet-container {
+  .wallet-header {
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    border: 1px solid var(--bs-gray-300);
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+
+    .wallet-icon {
+      font-size: 2.5rem;
+      color: #EE2F2D;
+      margin-right: 1.5rem;
+
+      i {
+        color: #8254a0;
+      }
+    }
+
+    .wallet-balance {
+      flex-grow: 1;
+
+      h2 {
+        font-size: 1.75rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+
+      p {
+        margin-bottom: 0;
+        color: #6c757d;
+      }
+    }
+
+    .wallet-actions {
+      .btn-danger {
+        padding: 0.5rem 1.5rem;
+      }
+    }
+  }
+
+  .data-table-container {
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+
+    table {
+      margin-bottom: 0;
+
+      th {
+        background-color: black;
+        color: white;
+        font-weight: 500;
+        padding: 0.75rem 1rem;
+      }
+
+      td {
+        padding: 0.75rem 1rem;
+        vertical-align: middle;
+      }
+
+      .empty-state {
+        padding: 3rem 1rem;
+        text-align: center;
+
+        .empty-icon {
+          font-size: 3rem;
+          margin-bottom: 1rem;
+          color: #6c757d;
+
+          i {
+            color: #6c757d;
+          }
+        }
+
+        p {
+          font-size: 1.1rem;
+          color: #6c757d;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .wallet-container {
+    .wallet-header {
+      flex-direction: column;
+      text-align: center;
+
+      .wallet-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+
+      .wallet-balance {
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+}
+
+.btn-primary{
+  background-image: linear-gradient(to right, #ed2112, #e01329, #cf0f37, #bd1541, #a91d48);
+  color: white;
+  border: none;
+}

@@ -1,0 +1,84 @@
+.account-details-container {
+  .profile-details {
+    border-radius: 6px;
+
+    .details-section {
+      margin-bottom: 2rem;
+
+      .detail-group {
+        margin-bottom: 1.5rem;
+
+        label {
+          display: block;
+          font-weight: 500;
+          margin-bottom: 0.25rem;
+          color: #495057;
+        }
+
+        p {
+          margin-bottom: 0;
+          font-size: 1.1rem;
+        }
+      }
+    }
+
+    .documents-section {
+      margin-bottom: 2rem;
+
+      .document-card {
+        height: 100%;
+
+        label {
+          display: block;
+          font-weight: 500;
+          margin-bottom: 0.5rem;
+          text-align: center;
+        }
+
+        .document-placeholder {
+          border: 1px dashed #ced4da;
+          background-color: #f8f9fa;
+          height: 150px;
+          border-radius: 6px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          img {
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+      }
+    }
+
+    .edit-actions {
+      display: flex;
+      justify-content: flex-end;
+
+      .btn-danger {
+        padding: 0.5rem 2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .account-details-container {
+    .profile-details {
+      padding: 1.5rem;
+
+      .documents-section {
+        .document-card {
+          margin-bottom: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+.btn-primary {
+  background-image: linear-gradient(to right, #ed2112, #e01329, #cf0f37, #bd1541, #a91d48);
+  color: white;
+  border: none;
+}
