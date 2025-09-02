@@ -296,21 +296,21 @@
   //background-color: #eb402b;
   background-image: linear-gradient(to right, #ed2112, #e01329, #cf0f37, #bd1541, #a91d48);
   top: 15px;
-  left: -40px;
+  left: -30px;
   color: #fff;
 
   padding: 0 0.5rem;
   transform: rotate(-45deg);
   margin: 4px;
-  font-size: 13px;
+  font-size: 12px;
   width: 100px;
   z-index:0;
   overflow: clip;
   clip-path: polygon(
                     25% 0,
-                    82% 0,
-                    100% 98%,
-                    5% 100%
+                    82% 7%,
+                    99% 100%,
+                    7% 100%
                     );
   //box-shadow: 10px 0 5px -2px #888;
 }

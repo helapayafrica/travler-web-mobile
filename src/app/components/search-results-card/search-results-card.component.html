@@ -227,7 +227,8 @@
 
       <!-- Middle section (logo + operator info) -->
       <div class="d-flex flex-row align-items-center p-2 rounded">
-        <img height="50" width="50" alt="logo" [src]="item.company_logo" class="me-2" />
+<!--        fix me use the Prefeered img-->
+        <img height="50" width="50" alt="logo" ngSrc="assets/WEBP/logo.webp" class="me-2" />
         <div class="d-flex flex-column">
           <p class="fw-semibold mb-0" style="font-size:14px;">{{ item.company_name }}</p>
           <p class="text-primary fw-medium mb-0" style="font-size: 13px;" *ngIf="item.amenities?.length">
@@ -258,11 +259,9 @@
 
         <!-- Rating -->
         <div class="rating-stars mt-2 mb-2">
-          <span *ngFor="let star of getRatingArray(item.avg_rating)"
-                class="star"
-                [class.filled]="star">
-            ⭐
-          </span>
+          <div class="rating-stars">
+            <span class="star filled">⭐ {{ item.avg_rating }}</span>
+          </div>
         </div>
 
         <!-- Button -->

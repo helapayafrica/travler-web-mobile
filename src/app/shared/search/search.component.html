@@ -50,10 +50,6 @@
       <small *ngIf="searchForm.hasError('returnDateAfterTravel') && searchForm.get('return_date')?.touched"  class="text-danger me-2 border-1 border-danger">
         Return date cannot be earlier than travel date.
       </small>
-      <!-- Debug info -->
-      <small *ngIf="searchForm.errors" class="text-warning">
-        Form errors: {{ searchForm.errors | json }}
-      </small>
 
     </div>
 
@@ -133,6 +129,7 @@
               <label style="font-size: 0.5rem;" class="text-muted" for="travelDate">Date of journey</label>
 
               <p-datepicker
+                [appendTo]="'body'"
                 #travelDateInput
                 styleClass="form-control p-0"
                 dateFormat="dd MM,yy"
@@ -160,6 +157,7 @@
           <div class="ms-1 flex-grow-1">
             <label style="font-size: 0.5rem;" class="text-muted" for="returnDate">Date To return</label>
             <p-datepicker
+              [appendTo]="'body'"
               #returnDateInput
               styleClass="form-control p-0"
               dateFormat="dd MM,yy"
