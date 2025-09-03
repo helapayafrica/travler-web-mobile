@@ -7,7 +7,7 @@ import {BottomNav} from './views/home/sections/bottom-nav/bottom-nav';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, LoginModalComponent, FooterComponent, NavbarComponent, BottomNav],
+  imports: [RouterOutlet, LoginModalComponent, FooterComponent, BottomNav],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

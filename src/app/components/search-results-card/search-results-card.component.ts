@@ -1,7 +1,8 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {NgbCollapseModule} from '@ng-bootstrap/ng-bootstrap';
 import {BusSeatSelectorComponent} from '../bus-seat-selector/bus-seat-selector.component';
-import {CommonModule, NgIf, NgClass, NgFor, NgOptimizedImage} from '@angular/common';
+import {CommonModule, NgIf, NgClass, NgFor} from '@angular/common';
+
 import { BusSeatService } from '../bus-seat-selector/bus-seat.service';
 import { forkJoin } from 'rxjs';
 import {BookingService} from '../../services/booking';
@@ -33,7 +34,6 @@ interface BusSchedule {
     NgIf,
     NgClass,
     NgFor,
-    NgOptimizedImage,
   ],
   templateUrl: './search-results-card.component.html',
   styleUrl: './search-results-card.component.scss',
@@ -44,7 +44,7 @@ export class SearchResultsCardComponent implements OnChanges {
     public service: BackendService,
     public busSeatService: BusSeatService
   ) {
-    this.bookingService.selectedTab$.subscribe((res : any) => {
+    this.bookingService.selectedTab$.subscribe((res: any) => {
       this.selectedTab = res;
     });
   }

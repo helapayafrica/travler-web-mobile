@@ -104,10 +104,10 @@
 <!--   Clea a and Svae-->
    <div class="row p-3">
      <div class="col-6">
-       <p-button label="Clear" size="large" styleClass="p-button-outlined p-button-secondary p-button-rounded    w-100"></p-button>
+       <p-button label="Clear"  (click)="filterVisible = false" size="large" styleClass="p-button-outlined p-button-secondary p-button-rounded    w-100"></p-button>
      </div>
      <div class="col-6">
-       <p-button label="Save" size="large" styleClass="p-button-rounded w-100  "></p-button>
+       <p-button label="Save" (click)="filterVisible = false" size="large" styleClass="p-button-rounded w-100  "></p-button>
      </div>
    </div>
  </p-drawer>
