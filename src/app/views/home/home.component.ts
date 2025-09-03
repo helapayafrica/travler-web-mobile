@@ -13,6 +13,7 @@ import { animate, style, group, useAnimation, keyframes, animation, query, stagg
 
 import {GenericSkeletonComponent} from '../../shared/skeleton/home-generic-skeleton';
 import {CommonModule} from '@angular/common';
+import {BottomNav} from './sections/bottom-nav/bottom-nav';
 
 @Component({
   selector: 'app-view-home',
@@ -24,7 +25,7 @@ import {CommonModule} from '@angular/common';
     AppsComponent,
     HeroSectionComponent,
     GenericSkeletonComponent,
-    CommonModule
+    CommonModule,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

@@ -1,0 +1,149 @@
+<!--<div class="bg-white w-100">-->
+<!--  <div class="d-flex flex-row justify-content-around align-items-center">-->
+<!--    <div-->
+<!--      routerLink="/home"-->
+<!--      routerLinkActive="active"-->
+<!--      class="d-flex flex-column justify-content-center align-items-center">-->
+<!--      <i-->
+<!--        style="height: 24px; width: 24px; font-size: 24px; color: var(&#45;&#45;primary-color-500);"-->
+<!--        class="bi bi-house-door-fill"></i>-->
+<!--      <p class="fw-semibold p-1 mt-1 mb-1">Home</p>-->
+<!--    </div>-->
+<!--    <div class="d-flex flex-column justify-content-center align-items-center">-->
+<!--      <i-->
+<!--        style="height: 24px; width: 24px; font-size: 24px; color: var(&#45;&#45;primary-color-500);"-->
+<!--        class="bi bi-list-ul"></i>-->
+<!--      <p class="fw-semibold p-1 mt-1 mb-1">Bookings</p>-->
+<!--    </div>-->
+<!--    <div-->
+<!--      routerLink="/support"-->
+<!--      routerLinkActive="active"-->
+<!--      class="d-flex flex-column justify-content-center align-items-center">-->
+<!--      <i-->
+<!--        style="height: 24px; width: 24px; font-size: 24px; color: var(&#45;&#45;primary-color-500);"-->
+<!--        class="bi bi-question-circle"></i>-->
+<!--      <p class="fw-semibold p-1 mt-1 mb-1">Help</p>-->
+<!--    </div>-->
+
+<!--    <button pButton type="button" (click)="visible = true" class="bg-transparent border-0">-->
+<!--      <div class="d-flex flex-column justify-content-center align-items-center">-->
+<!--        <i class="bi bi-person"-->
+<!--           style="font-size: 24px; color: var(&#45;&#45;primary-color-500);"></i>-->
+<!--        <p-->
+<!--          style="font-size: 12px; color: var(&#45;&#45;primary-color-500);"-->
+<!--          class="fw-semibold p-1 mt-1 mb-1">Account</p>-->
+<!--      </div>-->
+<!--    </button>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="bg-white w-100">
+  <div class="d-flex flex-row justify-content-around align-items-center">
+    <!-- Home Tab -->
+    <div
+      routerLink="/home"
+      routerLinkActive="active"
+      class="d-flex flex-column justify-content-center align-items-center tab-item">
+      <i
+        style="height: 24px; width: 24px; font-size: 24px; color: var(--primary-color-500);"
+        class="bi bi-house-door-fill"></i>
+      <p class="fw-semibold tab-text">Home</p>
+    </div>
+
+    <!-- Bookings Tab -->
+    <div
+      routerLink="/bookings"
+      routerLinkActive="active"
+      class="d-flex flex-column justify-content-center align-items-center tab-item">
+      <i
+        style="height: 24px; width: 24px; font-size: 24px; color: var(--primary-color-500);"
+        class="bi bi-list-ul"></i>
+      <p class="fw-semibold tab-text">Bookings</p>
+    </div>
+
+    <!-- Help Tab -->
+    <div
+      routerLink="/support"
+      routerLinkActive="active"
+      class="d-flex flex-column justify-content-center align-items-center tab-item">
+      <i
+        style="height: 24px; width: 24px; font-size: 24px; color: var(--primary-color-500);"
+        class="bi bi-question-circle"></i>
+      <p class="fw-semibold tab-text">Help</p>
+    </div>
+
+    <!-- Account Tab -->
+    <div
+      class="d-flex flex-column justify-content-center align-items-center tab-item"
+      (click)="visible = true"
+      style="cursor: pointer;">
+      <i class="bi bi-person"
+         style="height: 24px; width: 24px; font-size: 24px; color: var(--primary-color-500);"></i>
+      <p class="fw-semibold tab-text">Account</p>
+    </div>
+  </div>
+</div>
+<p-drawer
+  header="Account"
+  icon="bi bi-person"
+  [(visible)]="visible"
+  position="bottom"
+  [style]="{ height: '300px' }">
+
+<!--  &lt;!&ndash; Optional: Add a handle bar for better UX &ndash;&gt;-->
+<!--  <div class="drawer-handle"></div>-->
+
+  <div class="drawer-list-group w-100">
+    <a
+      routerLink="/print-ticket"
+      class="drawer-list-item"
+      (click)="visible = false">
+      <i class="bi bi-printer"></i>
+      Print Ticket
+    </a>
+
+    <a
+      routerLink="/wallet"
+      class="drawer-list-item"
+      (click)="visible = false">
+      <i class="bi bi-wallet2"></i>
+      Wallet
+    </a>
+
+    <a
+      routerLink="/change-password"
+      class="drawer-list-item"
+      (click)="visible = false">
+      <i class="bi bi-key"></i>
+      Change Password
+    </a>
+
+    <!-- Optional: Add more items -->
+<!--    <a-->
+<!--      href="#"-->
+<!--      class="drawer-list-item"-->
+<!--      (click)="visible = false">-->
+<!--      <i class="bi bi-box-arrow-right"></i>-->
+<!--      Logout-->
+<!--    </a>-->
+  </div>
+</p-drawer>
+
+<!--&lt;!&ndash;Account LInksa&ndash;&gt;-->
+<!--<p-drawer header="Account" icon="bi bi-person" [(visible)]="visible" position="bottom"-->
+<!--          [style]="{ height: '300px', overflow: 'auto' }">-->
+
+<!--  <div class="list-group w-100">-->
+<!--    <a routerLink="/print-ticket"  style="font-size: 14px" class="w-100 list-group-item list-group-item-action text-dark  py-2 border-0">-->
+<!--      <i class="bi bi-printer me-2"></i> Print Ticket-->
+<!--    </a>-->
+<!--    <a routerLink="/wallet"  style="font-size: 14px" class="w-100 list-group-item list-group-item-action text-dark  py-2 border-0">-->
+<!--      <i class="bi bi-wallet2 me-2"></i> Wallet-->
+<!--    </a>-->
+<!--    <a routerLink="/change-password"  style="font-size: 14px" class="w-100 list-group-item list-group-item-action text-dark  py-2 border-0">-->
+<!--      <i class="bi bi-key me-2"></i> Change Password-->
+<!--    </a>-->
+<!--  </div>-->
+
+<!--</p-drawer>-->
+

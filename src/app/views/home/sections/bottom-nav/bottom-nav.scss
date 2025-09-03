@@ -1,0 +1,100 @@
+.click:hover, .click:focus{
+  //background: var(--primary-color-400);
+  //color: var(--primary-color-900);
+}
+.active{
+  //background: var(--primary-color-400);
+  color: var(--primary-color-900);
+}
+
+//::ng-deep .p-drawer.p-drawer-bottom {
+//  border-top-left-radius: 1.5rem;  // adjust to taste
+//  border-top-right-radius: 1.5rem;
+//  overflow: hidden; // prevents child content from bleeding out
+//}
+.tab-item {
+  flex: 1;
+  padding: 12px 8px;
+  text-decoration: none;
+  color: inherit;
+  min-height: 70px; /* Ensures consistent height */
+}
+
+.tab-text {
+  font-size: 12px;
+  color: var(--primary-color-500);
+  margin: 8px 0 0 0;
+  padding: 0;
+  text-align: center;
+  white-space: nowrap; /* Prevents text wrapping */
+  line-height: 1.2;
+}
+
+.tab-item:hover {
+  background-color: rgba(var(--primary-color-500), 0.1);
+}
+
+.tab-item.active {
+  background-color: rgba(var(--primary-color-500), 0.1);
+}
+
+///////////////////////////////////////
+/* Drawer styling */
+::ng-deep .p-drawer.p-drawer-bottom {
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Header styling */
+::ng-deep .p-drawer .p-drawer-header {
+  padding: 1.25rem 1.5rem 1rem 1.5rem;
+  border-bottom: 1px solid #e9ecef;
+  background: #f8f9fa;
+}
+
+/* Content area */
+::ng-deep .p-drawer .p-drawer-content {
+  padding: 0;
+  background: #fff;
+}
+
+/* List group enhancements */
+.drawer-list-group {
+  border-radius: 0;
+  border: none;
+}
+
+.drawer-list-item {
+  font-size: 14px;
+  transition: all 0.2s ease;
+  border: none !important;
+  padding: 0.875rem 1.5rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+  background: transparent;
+}
+
+.drawer-list-item:hover {
+  background-color: #f8f9fa !important;
+  color: var(--primary-color-500) !important;
+  transform: translateX(4px);
+}
+
+.drawer-list-item i {
+  width: 20px;
+  margin-right: 12px;
+  color: var(--primary-color-500);
+}
+
+/* Handle bar for better UX */
+.drawer-handle {
+  width: 40px;
+  height: 4px;
+  background: #dee2e6;
+  border-radius: 2px;
+  margin: 12px auto 8px auto;
+}
