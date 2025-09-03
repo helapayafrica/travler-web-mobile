@@ -1,10 +1,35 @@
  <div>
   <div class="search-section">
-    <div class="py-4 container">
-      <app-shared-search></app-shared-search>
-<!--      <hr>-->
-<!--      <app-search-filters></app-search-filters>-->
+    <div class="container d-flex flex-row justify-content-between align-items-center w-100">
+      <!-- bread crumb-->
+      <p-breadcrumb [model]="items" [home]="home">
+        <ng-template pTemplate="item" let-item>
+          <a class="cursor-pointer" (click)="toggleForm()">
+            {{item.label || item.text}}
+          </a>
+        </ng-template>
+        <ng-template pTemplate="separator">
+          <span> > </span>
+        </ng-template>
+      </p-breadcrumb>
+      <!-- filter section-->
+
+         <p-button
+          label="Filter & Sort"
+          icon="bi bi-sliders2"
+          iconPos="left"
+          (click)="filterVisible=true"
+          size="small"
+          styleClass="p-button-outlined p-button-sm">
+        </p-button>
     </div>
+
+
+    <div *ngIf="isFormOpen" class="py-4 container">
+      <app-shared-search></app-shared-search>
+    </div>
+
+
   </div>
 
   <div class="search-results-section">
@@ -17,3 +42,73 @@
     </div>
   </div>
 </div>
+
+ <p-drawer header="Sort and Filter buses"  size="small" [(visible)]="filterVisible" position="bottom"
+           [style]="{ height: 'auto', overflow: 'auto' }">
+
+   <p-tabs value="0">
+     <p-tablist>
+       <p-tab value="0" >Price Range</p-tab>
+       <p-tab value="1" >Duration</p-tab>
+       <p-tab value="2" >Services</p-tab>
+     </p-tablist>
+
+     <p-tabpanels>
+       <p-tabpanel value="0">
+         <h5 class=" fs-6 fw-bold mb-2 text-muted">Price Range</h5>
+         <!-- Price Range -->
+         <div class="container p-3">
+           <ngx-slider
+             [(value)]="minValue"
+             [(highValue)]="maxValue"
+             [options]="options">
+           </ngx-slider>
+
+           <div class="d-flex justify-content-between mt-1 text-dark">
+             <span class="text-dark">{{ minValue | currency:'KES ' }}</span>
+             <span class="text-dark">{{ maxValue | currency:'KES ' }}</span>
+           </div>
+         </div>
+       </p-tabpanel>
+
+       <p-tabpanel value="1">
+         <!-- Duration -->
+         <div class=" card-body ">
+           <h5 class=" fs-6 fw-bold mb-4 text-muted">Duration</h5>
+           <label *ngFor="let duration of durations" class="form-check d-flex align-items-center justify-content-between border-bottom py-2 w-100 mb-0">
+             <div class="d-flex align-items-center">
+               <i [class]="duration.icon + ' fs-4 me-3'"></i>
+               <span class="fw-semibold mb-0">{{ duration.label }}</span>
+             </div>
+             <input class="form-check-input-lg" type="radio" name="duration" [value]="duration.value" [(ngModel)]="selectedDuration">
+           </label>
+         </div>
+       </p-tabpanel>
+
+       <p-tabpanel value="2">
+         <!-- Services -->
+         <div class="">
+           <h5 class=" fs-6 fw-bold mb-2 text-muted">Services</h5>
+           <label *ngFor="let service of services" class="form-check d-flex align-items-center justify-content-between border-bottom py-2 w-100 mb-0">
+             <div class="d-flex align-items-center">
+               <i [class]="service.icon + ' fs-4 me-3'"></i>
+               <span class="fw-semibold fs-6 mb-0">{{ service.label }}</span>
+             </div>
+             <input class="form-check-input-lg" type="checkbox" [(ngModel)]="service.checked">
+           </label>
+         </div>
+       </p-tabpanel>
+     </p-tabpanels>
+
+   </p-tabs>
+<!--   Clea a and Svae-->
+   <div class="row p-3">
+     <div class="col-6">
+       <p-button label="Clear" size="large" styleClass="p-button-outlined p-button-secondary p-button-rounded    w-100"></p-button>
+     </div>
+     <div class="col-6">
+       <p-button label="Save" size="large" styleClass="p-button-rounded w-100  "></p-button>
+     </div>
+   </div>
+ </p-drawer>
+

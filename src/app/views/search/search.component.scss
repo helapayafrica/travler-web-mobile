@@ -1,5 +1,5 @@
 .search-section {
-  padding-top:60px;
+  padding-top:80px;
   //background-color: red;
   // background-image: linear-gradient(to right, #ed2112, #e01329, #cf0f37, #bd1541, #a91d48);
   background-color: var(--gray-50);
@@ -9,3 +9,9 @@
 .search-results-section{
   background-color: var(--gray-50);
 }
+::ng-deep .p-drawer-title {
+  padding: 0.25rem 1rem;   /* smaller vertical padding */
+  font-size: 1.125rem;       /* smaller font */
+  min-height: 2rem;        /* shrink the header height */
+}
+
