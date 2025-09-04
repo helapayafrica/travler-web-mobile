@@ -316,7 +316,8 @@
 }
 
 .card-selected {
-  background-color: beige;
+  background-color: var(--primary-color-100);
+  //background: yellowgreen;
   border: #ffc6c6 solid 1px;
   border-radius: 4px;
 }

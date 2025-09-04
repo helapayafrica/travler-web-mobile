@@ -1,115 +1,10 @@
-<!--<div *ngFor="let item of buses; let i = index" class="bg-white">-->
-<!--  <div-->
-<!--    (click)="getSelectedBus(item)"-->
-<!--    [ngClass]="collapseState[i] ? '' : 'card-selected'"-->
-<!--    class="d-flex flex-column d-md-none p-3 card rounded-3 shadow-sm m-2 position-relative bg-white"-->
-<!--    style="min-width:300px">-->
 
-<!--    &lt;!&ndash; Early Bird/Highway Offer Badge &ndash;&gt;-->
-<!--    <div *ngIf="item.highWayDirectRoute === 'Highway'" class="position-absolute top-0 end-0">-->
-<!--      <span class="badge rounded-start-0 rounded-end-3 px-3 py-1"-->
-<!--            style="background-color: #FFE066; color: #B8860B; font-size: 12px; font-weight: 600">-->
-<!--        {{ item.highWayDirectRoute }}-->
-<!--      </span>-->
-<!--    </div>-->
 
-<!--    &lt;!&ndash; Main Content Container &ndash;&gt;-->
-<!--    <div class="d-flex flex-column gap-3">-->
-
-<!--      &lt;!&ndash; Time and Price Row &ndash;&gt;-->
-<!--      <div class="d-flex justify-content-between align-items-start pt-2">-->
-<!--        &lt;!&ndash; Time Section &ndash;&gt;-->
-<!--        <div>-->
-<!--          <div class="d-flex align-items-center gap-2 mb-1">-->
-<!--            <span style="font-size: 15px" class="fw-semibold mb-0 text-dark">{{ item.departure_time }}</span>-->
-<!--            <span class="text-muted mx-2">—</span>-->
-<!--            <span style="font-size: 15px" class="mb-0 text-muted">{{ item.arrival_time }}</span>-->
-<!--          </div>-->
-<!--          <div class="text-muted small">-->
-<!--            <span *ngFor="let schedule of item.defaultTripPriceList; let last = last">-->
-<!--              ({{ schedule.amount | number }} {{ schedule.seatType }}{{ !last ? ', ' : '' }})-->
-<!--            </span>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--        &lt;!&ndash; Price Section &ndash;&gt;-->
-<!--        <div class="text-end">-->
-<!--          <div class="h5 fw-bold mb-0 text-dark">-->
-<!--            <span-->
-<!--              style="font-size: 10px; margin-right:4px">KSH</span>{{ item.defaultTripPriceList[2]?.amount | number }}-->
-<!--          </div>-->
-<!--          <div class="small mb-1">-->
-<!--            {{ (item.defaultTripPriceList[2]?.seatType)}}-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-
-<!--      &lt;!&ndash; Company Info Row &ndash;&gt;-->
-<!--      <div class="d-flex justify-content-between align-items-center">-->
-<!--        &lt;!&ndash; Company Details &ndash;&gt;-->
-<!--        <div class="d-flex align-items-center">-->
-<!--          <div>-->
-<!--            <div class="d-flex align-items-center gap-2 mb-1">-->
-<!--              <span class="fw-semibold text-dark" style="font-size: 14px">{{ item.bus_title }}</span>-->
-<!--              <span *ngIf="item.verified" class="text-success">-->
-<!--                <i class="fas fa-shield-check" style="font-size: 14px"></i>-->
-<!--              </span>-->
-<!--            </div>-->
-<!--            <div class="small text-muted">-->
-<!--              {{ item.highWayDirectRoute }} • {{ item.busType || 'A/C Sleeper' }}-->
-<!--              <span *ngIf="item.amenities?.length" class="ms-1">({{ item.amenities.length }}+)</span>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--        &lt;!&ndash; Rating &ndash;&gt;-->
-<!--        <div class="d-flex align-items-center gap-1">-->
-<!--          <span class="badge text-white d-flex align-items-center gap-1 px-2 py-1"-->
-<!--                style="background-color: #28a745; border-radius: 4px">-->
-<!--            ★ {{ item.avg_rating || '4.3' }}-->
-<!--          </span>-->
-<!--        </div>-->
-<!--      </div>-->
-
-<!--      &lt;!&ndash; Action Button &ndash;&gt;-->
-<!--      <div class="d-flex justify-content-end">-->
-<!--        <button-->
-<!--          (click)="toggleCollapse(i);searchSeats(item)"-->
-<!--          [attr.aria-expanded]="!collapseState[i]"-->
-<!--          [ngClass]="collapseState[i] ? 'btn-primary' : 'btn-outline-secondary'"-->
-<!--          class="btn btn-sm px-4">-->
-<!--          {{ collapseState[i] ? 'View Seats' : 'Close' }}-->
-<!--        </button>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-
-<!--  &lt;!&ndash; Collapsible Section (Closed by Default) &ndash;&gt;-->
-<!--  <div #collapse="ngbCollapse" [(ngbCollapse)]="collapseState[i]" class="m-1 col-12 d-lg-none">-->
-<!--    <div class="rounded">-->
-<!--      <div class="row g-3">-->
-<!--        <div class="col-12">-->
-<!--          <div>-->
-<!--            <app-component-bus-seat-selector [payload]="seat_data" [type]="type"></app-component-bus-seat-selector>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-
-<!--      <div class="text-end pb-2">-->
-<!--        <button (click)="toggleCollapse(i)" class="btn btn-sm btn-outline-primary">-->
-<!--          <i class="bi bi-chevron-bar-up me-1"></i>-->
-<!--          <span>Close</span>-->
-<!--        </button>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-
-<div *ngFor="let item of buses; let i = index" class="bg-white">
+<div *ngFor="let item of buses; let i = index">
   <div
     (click)="getSelectedBus(item)"
-    [ngClass]="collapseState[i] ? '' : 'card-selected'"
-    class="d-flex flex-column d-md-none p-3 card rounded-3 shadow-sm m-2 position-relative bg-white"
+    [ngClass]="collapseState[i] ? 'bg-white' : 'card-selected'"
+    class="d-flex flex-column d-md-none p-3 card rounded-3 shadow-sm m-2 position-relative "
     style="min-width:300px">
 
     <!-- Highway Badge -->
@@ -117,8 +12,10 @@
 
 
     <!-- Main Content Container -->
-    <div class="d-flex flex-column gap-3">
-
+    <div class="d-flex flex-column gap-2">
+      <img src="assets/logo.png" height="112.5" width="75"
+           [ngClass]=" item.highWayDirectRoute === 'Highway' ? 'ms-4':''"
+           class="img-thumbnail border-0  text-end" alt="logo">
       <!-- Time and Price Row -->
       <div class="d-flex justify-content-between align-items-start pt-2">
         <!-- Time Section -->
@@ -135,19 +32,31 @@
           </div>
         </div>
 
+<!--        &lt;!&ndash; Price Section &ndash;&gt;-->
+<!--        <div class="text-end">-->
+<!--          <div class="h5 fw-bold mb-0 text-dark">-->
+<!--            <span-->
+<!--              style="font-size: 10px; margin-right:4px">KSH</span>{{ item.defaultTripPriceList[2]?.amount | number }}-->
+<!--          </div>-->
+<!--          <div class="small mb-1">-->
+<!--            {{ (item.defaultTripPriceList[2]?.seatType)}}-->
+<!--          </div>-->
+<!--        </div>-->
         <!-- Price Section -->
         <div class="text-end">
           <div class="h5 fw-bold mb-0 text-dark">
-            <span
-              style="font-size: 10px; margin-right:4px">KSH</span>{{ item.defaultTripPriceList[2]?.amount | number }}
+            <span style="font-size: 10px; margin-right:4px">KSH</span>
+            {{ getPreferredAmount(item) | number }}
           </div>
           <div class="small mb-1">
-            {{ (item.defaultTripPriceList[2]?.seatType)}}
+            {{ getPreferredSeat(item)?.seatType }}
           </div>
         </div>
       </div>
 
-      <!-- Company Info Row -->
+
+
+        <!-- Company Info Row -->
       <div class="d-flex justify-content-between align-items-center">
         <!-- Company Details -->
         <div class="d-flex align-items-center">
@@ -188,22 +97,52 @@
   </div>
 
   <!-- Collapsible Section (Closed by Default) -->
-  <div #collapse="ngbCollapse" [(ngbCollapse)]="collapseState[i]" class="m-1 col-12 d-lg-none">
-    <div class="rounded">
-      <div class="row g-3">
-        <div class="col-12 ">
-          <div class="">
-            <app-component-bus-seat-selector [payload]="seat_data"  [type]="type"></app-component-bus-seat-selector>
+<!--  <div #collapse="ngbCollapse" [(ngbCollapse)]="collapseState[i]" class="m-1 col-12 d-lg-none">-->
+<!--    <div class="rounded">-->
+<!--      <div class="row g-3">-->
+<!--        <div class="col-12 ">-->
+<!--          <div class="">-->
+<!--            <app-component-bus-seat-selector [payload]="seat_data"  [type]="type"></app-component-bus-seat-selector>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="text-end pb-2">-->
+<!--        <button class="btn btn-sm btn-outline-primary" (click)="toggleCollapse(i)">-->
+<!--          <i class="bi bi-chevron-bar-up me-1"></i>-->
+<!--          <span>Close</span>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--Drawer TRY-->
+  <p-drawer header="Seat Selection"
+            [visible]="!collapseState[i]"
+            position="bottom"
+            [style]="{ height: '700px' }">
+    <div style="overflow-x: hidden;">
+      <div #collapse="ngbCollapse" [(ngbCollapse)]="collapseState[i]" class="m-1 col-12 d-lg-none">
+        <div class="rounded">
+          <div class="row g-3 mx-0">
+            <div class="col-12">
+              <div>
+                <app-component-bus-seat-selector [payload]="seat_data" [type]="type"></app-component-bus-seat-selector>
+              </div>
+            </div>
+
+            <div class="col-12">
+
+            </div>
+          </div>
+
+          <div class="text-end pb-2 me-4">
+            <button class="btn btn-sm btn-outline-primary" (click)="toggleCollapse(i)">
+              <i class="bi bi-chevron-bar-up me-1"></i>
+              <span>Close</span>
+            </button>
           </div>
         </div>
       </div>
-
-      <div class="text-end pb-2">
-        <button class="btn btn-sm btn-outline-primary" (click)="toggleCollapse(i)">
-          <i class="bi bi-chevron-bar-up me-1"></i>
-          <span>Close</span>
-        </button>
-      </div>
     </div>
-  </div>
+  </p-drawer>
 </div>

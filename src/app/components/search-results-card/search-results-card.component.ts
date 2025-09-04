@@ -7,6 +7,7 @@ import { BusSeatService } from '../bus-seat-selector/bus-seat.service';
 import { forkJoin } from 'rxjs';
 import {BookingService} from '../../services/booking';
 import {BackendService} from '../../services/backend';
+import {Drawer} from 'primeng/drawer';
 
 interface BusSchedule {
   companyName: string;
@@ -34,6 +35,7 @@ interface BusSchedule {
     NgIf,
     NgClass,
     NgFor,
+    Drawer,
   ],
   templateUrl: './search-results-card.component.html',
   styleUrl: './search-results-card.component.scss',
@@ -64,6 +66,7 @@ export class SearchResultsCardComponent implements OnChanges {
   collapse: any;
   selectedTab: any = '';
   buses: any = [];
+  visible = false
   emmittedSeatData: EmmitedSeatData = {
     collapseState: {},
     seatData: {},
@@ -106,24 +109,7 @@ export class SearchResultsCardComponent implements OnChanges {
     });
   }
 
-  /**
-   * Safely check if the schedule has amenities
-   */
-  hasAmenities(): boolean {
-    // return Array.isArray(this.schedule.amenities) && this.schedule.amenities.length > 0;
-    return true;
-  }
 
-  /**
-   * Get the count of extra amenities beyond the first 3
-   */
-  getExtraAmenitiesCount(): number {
-    // if (!Array.isArray(this.schedule.amenities) || this.schedule.amenities.length <= 3) {
-    //   return 0;
-    // }
-    // return this.schedule.amenities.length - 3;
-    return 1;
-  }
 
   @Output() viewSeatOpen = new EventEmitter<EmmitedSeatData>();
   // toggleCollapse(index: number): void {
@@ -262,6 +248,27 @@ export class SearchResultsCardComponent implements OnChanges {
     this.viewSeatOpen.emit({ ...this.emmittedSeatData });
   }
 
+
+
+
+
+ // check the price
+
+  private seatPriority: string[] = ['normal', 'bclass', 'vip'];
+
+  getPreferredSeat(item: { defaultTripPriceList?: Array<{ seatType: string; amount: number }> }) {
+    const list = item?.defaultTripPriceList ?? [];
+    for (const type of this.seatPriority) {
+      const found = list.find(p => p.seatType === type);
+      if (found) return found; // preserves amount = 0 as valid
+    }
+    return null;
+  }
+
+  getPreferredAmount(item: { defaultTripPriceList?: Array<{ seatType: string; amount: number }> }): number | null {
+    const seat = this.getPreferredSeat(item);
+    return seat?.amount ?? null;
+  }
 }
 
 export interface EmmitedSeatData{
