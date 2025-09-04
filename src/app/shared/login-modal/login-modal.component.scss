@@ -30,3 +30,13 @@
 
   //color: white;
 }
+
+// Force modal to appear above PrimeNG drawer
+.modal.show {
+  z-index: 2000 !important; // higher than Drawer
+}
+
+.modal-backdrop.show {
+  background-color: rgba(0, 0, 0, 0.85) !important; // darker background
+  z-index: 1999 !important; // keep it under the modal but above drawer
+}

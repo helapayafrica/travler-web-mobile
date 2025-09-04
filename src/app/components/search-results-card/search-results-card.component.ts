@@ -76,6 +76,7 @@ export class SearchResultsCardComponent implements OnChanges {
 
   selectedBusCard : any= {}
   collapseState: { [key: number]: boolean } = {}; // Object to track collapse state
+  visibleState: { [key: number]: boolean } = {};
   getRatingArray(rating: number): number[] {
     return Array(5)
       .fill(0)
@@ -106,6 +107,7 @@ export class SearchResultsCardComponent implements OnChanges {
   initializeCollapseState(): void {
     this.data.forEach((_, index) => {
       this.collapseState[index] = true; // All sections closed by default
+      this.visibleState[index] = false;
     });
   }
 
@@ -149,10 +151,12 @@ export class SearchResultsCardComponent implements OnChanges {
     // Close all
     Object.keys(this.collapseState).forEach((key) => {
       this.collapseState[+key] = true; // true = collapsed
+      this.visibleState[+key] = false;
     });
 
     // If it was open, close it. If it was closed, open it.
     this.collapseState[index] = wasOpen;
+    this.visibleState[index] = !wasOpen;
 
     // Emit new state
     this.emmittedSeatData.collapseState = { ...this.collapseState };

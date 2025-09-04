@@ -146,14 +146,14 @@ export class HomeComponent  implements  OnInit{
   }
 
   private loadComponentsSequentially() {
-    setTimeout(() => this.loadingStates.heroSection = false, 800);
-    setTimeout(() => this.loadingStates.coupons = false, 1200);
-    setTimeout(() => this.loadingStates.testimonials = false, 1600);
-    setTimeout(() => this.loadingStates.blog = false, 2000);
-    setTimeout(() => this.loadingStates.howToBook = false, 2400);
-    setTimeout(() => this.loadingStates.partners = false, 2800);
-    setTimeout(() => this.loadingStates.faqs = false, 3200);
-    setTimeout(() => this.loadingStates.apps = false, 3600);
+    setTimeout(() => this.loadingStates.heroSection = false, 500);
+    setTimeout(() => this.loadingStates.coupons = false, 900);
+    setTimeout(() => this.loadingStates.testimonials = false, 1300);
+    setTimeout(() => this.loadingStates.blog = false, 1700);
+    setTimeout(() => this.loadingStates.howToBook = false, 2100);
+    setTimeout(() => this.loadingStates.partners = false, 2500);
+    setTimeout(() => this.loadingStates.faqs = false, 2900);
+    setTimeout(() => this.loadingStates.apps = false, 3300);
   }
 
   onComponentLoaded(componentName: keyof typeof this.loadingStates) {

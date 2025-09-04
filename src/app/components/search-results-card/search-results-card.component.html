@@ -31,17 +31,6 @@
             </span>
           </div>
         </div>
-
-<!--        &lt;!&ndash; Price Section &ndash;&gt;-->
-<!--        <div class="text-end">-->
-<!--          <div class="h5 fw-bold mb-0 text-dark">-->
-<!--            <span-->
-<!--              style="font-size: 10px; margin-right:4px">KSH</span>{{ item.defaultTripPriceList[2]?.amount | number }}-->
-<!--          </div>-->
-<!--          <div class="small mb-1">-->
-<!--            {{ (item.defaultTripPriceList[2]?.seatType)}}-->
-<!--          </div>-->
-<!--        </div>-->
         <!-- Price Section -->
         <div class="text-end">
           <div class="h5 fw-bold mb-0 text-dark">
@@ -117,10 +106,11 @@
 <!--  </div>-->
 <!--Drawer TRY-->
   <p-drawer header="Seat Selection"
-            [visible]="!collapseState[i]"
+            [(visible)]="visibleState[i]"
             position="bottom"
-            [style]="{ height: '700px' }">
-    <div style="overflow-x: hidden;">
+            (onHide)="toggleCollapse(i)"
+            [style]="{ height: '800px' }">
+    <div style="overflow-x: hidden; overflow-y: scroll; " class="py-4">
       <div #collapse="ngbCollapse" [(ngbCollapse)]="collapseState[i]" class="m-1 col-12 d-lg-none">
         <div class="rounded">
           <div class="row g-3 mx-0">
@@ -129,20 +119,18 @@
                 <app-component-bus-seat-selector [payload]="seat_data" [type]="type"></app-component-bus-seat-selector>
               </div>
             </div>
-
-            <div class="col-12">
-
-            </div>
           </div>
 
-          <div class="text-end pb-2 me-4">
-            <button class="btn btn-sm btn-outline-primary" (click)="toggleCollapse(i)">
-              <i class="bi bi-chevron-bar-up me-1"></i>
-              <span>Close</span>
-            </button>
-          </div>
         </div>
       </div>
+    </div>
+
+
+    <div class="text-end pb-2 my-4">
+      <button class="btn btn-sm btn-outline-primary" (click)="toggleCollapse(i)">
+        <i class="bi bi-chevron-bar-up me-1"></i>
+        <span>Close</span>
+      </button>
     </div>
   </p-drawer>
 </div>
