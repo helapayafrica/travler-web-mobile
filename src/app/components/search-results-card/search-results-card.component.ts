@@ -4,7 +4,7 @@ import {BusSeatSelectorComponent} from '../bus-seat-selector/bus-seat-selector.c
 import {CommonModule, NgIf, NgClass, NgFor} from '@angular/common';
 
 import { BusSeatService } from '../bus-seat-selector/bus-seat.service';
-import { forkJoin } from 'rxjs';
+import { forkJoin, finalize } from 'rxjs';
 import {BookingService} from '../../services/booking';
 import {BackendService} from '../../services/backend';
 import {Drawer} from 'primeng/drawer';
@@ -23,6 +23,13 @@ interface BusSchedule {
     normal: number;
   };
   amenities?: string[];
+}
+
+export interface EmmitedSeatData{
+  collapseState: { [key: number]: boolean };
+  seatData: any;
+  type: string;
+  busData : any
 }
 
 @Component({
@@ -50,8 +57,15 @@ export class SearchResultsCardComponent implements OnChanges {
       this.selectedTab = res;
     });
   }
+
   @Input() data: any[] = [];
   @Input() type: string = '';
+  @Input() isLoading: boolean = false; // New input for main loading state
+
+  // Loading states
+  isLoadingSeats: { [key: number]: boolean } = {};
+  seatLoadError: { [key: number]: boolean } = {};
+
   payload: any = {
     source_city_id: '',
     destination_city_id: '',
@@ -61,12 +75,14 @@ export class SearchResultsCardComponent implements OnChanges {
     delayedDate: '',
     sourcetype: 'web',
   };
+
   seat_data: any = {};
   isCollapsed = true;
   collapse: any;
   selectedTab: any = '';
   buses: any = [];
-  visible = false
+  visible = false;
+
   emmittedSeatData: EmmitedSeatData = {
     collapseState: {},
     seatData: {},
@@ -74,9 +90,13 @@ export class SearchResultsCardComponent implements OnChanges {
     busData : {}
   };
 
-  selectedBusCard : any= {}
+  selectedBusCard : any= {};
   collapseState: { [key: number]: boolean } = {}; // Object to track collapse state
   visibleState: { [key: number]: boolean } = {};
+
+  @Output() viewSeatOpen = new EventEmitter<EmmitedSeatData>();
+  @Output() refreshRequested = new EventEmitter<void>(); // New output for refresh
+
   getRatingArray(rating: number): number[] {
     return Array(5)
       .fill(0)
@@ -101,6 +121,7 @@ export class SearchResultsCardComponent implements OnChanges {
       this.buses = [];
       this.buses = this.data;
       this.initializeCollapseState();
+      this.initializeLoadingStates();
     }
   }
 
@@ -111,37 +132,26 @@ export class SearchResultsCardComponent implements OnChanges {
     });
   }
 
+  initializeLoadingStates(): void {
+    this.data.forEach((_, index) => {
+      this.isLoadingSeats[index] = false;
+      this.seatLoadError[index] = false;
+    });
+  }
 
+  /**
+   * Check if data is empty
+   */
+  get isEmpty(): boolean {
+    return !this.data || this.data.length === 0;
+  }
 
-  @Output() viewSeatOpen = new EventEmitter<EmmitedSeatData>();
-  // toggleCollapse(index: number): void {
-  //   console.log('Toggling collapse for index:', this.collapseState);
-  //   this.collapseState[index] = !this.collapseState[index];
-  //   this.emmittedSeatData.collapseState = { ...this.collapseState }; // clone for immutability
-  //   this.emmittedSeatData.type = this.type;
-  //   this.viewSeatOpen.emit({ ...this.emmittedSeatData }); // emit fresh object
-  //   console.log('[Collapse state changed]', this.collapseState);
-  // }
-
-  // toggleCollapse(index: number): void {
-  //   console.log('Toggling collapse for index:', this.collapseState);
-  //   console.log('Toggling collapse for index:', index);
-  //
-  //   // Close all other collapses
-  //   Object.keys(this.collapseState).forEach((key) => {
-  //     this.collapseState[+key] = true; // true means collapsed
-  //   });
-  //
-  //   // Toggle only the clicked one
-  //   this.collapseState[index] = !this.collapseState[index];
-  //
-  //   // Emit new state
-  //   this.emmittedSeatData.collapseState = { ...this.collapseState };
-  //   this.emmittedSeatData.type = this.type;
-  //   this.viewSeatOpen.emit({ ...this.emmittedSeatData });
-  //
-  //   console.log('[Collapse state changed]', this.collapseState);
-  // }
+  /**
+   * Refresh search functionality
+   */
+  onRefreshSearch(): void {
+    this.refreshRequested.emit();
+  }
 
   toggleCollapse(index: number): void {
     console.log('Toggling collapse for index:', index);
@@ -166,83 +176,114 @@ export class SearchResultsCardComponent implements OnChanges {
     console.log('[Collapse state changed]', this.collapseState);
   }
 
+  async searchSeats(item: any, index: number) {
+    // Set loading state for this specific bus
+    this.isLoadingSeats[index] = true;
+    this.seatLoadError[index] = false;
 
-  async searchSeats(item: any) {
-    if (this.selectedTab == 'onward') {
-      this.payload.source_city_id = await this.bookingService.getConfig(
-        'source_id'
-      );
-      this.payload.destination_city_id = await this.bookingService.getConfig(
-        'destination_id'
-      );
-      this.payload.travel_date = await this.bookingService.getConfig(
-        'travel_date'
-      );
-      this.payload.delayedDate = item.delayedDate;
-      this.payload.bus_id = item.bus_id;
-      this.bookingService.setConfig('trip', item);
-      let payload_two = {
-        source: this.payload.source_city_id,
-        destination: this.payload.destination_city_id,
-        trip: item.bus_id,
-        booking_date: this.payload.travel_date,
-        delayedFlag: 0,
-        delayedDate: item.delayedDate,
-        sourcetype: 'web',
-      };
-      forkJoin({
-        seatData: this.service.getSeats(this.payload),
-        droppingPoints: this.service.getDroppingBoardingPoint(payload_two),
-      }).subscribe(({ seatData, droppingPoints }) => {
-        this.seat_data = seatData;
+    try {
+      if (this.selectedTab == 'onward') {
+        this.payload.source_city_id = await this.bookingService.getConfig('source_id');
+        this.payload.destination_city_id = await this.bookingService.getConfig('destination_id');
+        this.payload.travel_date = await this.bookingService.getConfig('travel_date');
+        this.payload.delayedDate = item.delayedDate;
+        this.payload.bus_id = item.bus_id;
+        this.bookingService.setConfig('trip', item);
 
-        this.emmittedSeatData.seatData = this.seat_data;
-        this.emmittedSeatData.type = this.type;
+        let payload_two = {
+          source: this.payload.source_city_id,
+          destination: this.payload.destination_city_id,
+          trip: item.bus_id,
+          booking_date: this.payload.travel_date,
+          delayedFlag: 0,
+          delayedDate: item.delayedDate,
+          sourcetype: 'web',
+        };
 
-        console.log('[Collapse state changed]', this.emmittedSeatData);
+        forkJoin({
+          seatData: this.service.getSeats(this.payload),
+          droppingPoints: this.service.getDroppingBoardingPoint(payload_two),
+        })
+          .pipe(
+            finalize(() => {
+              this.isLoadingSeats[index] = false;
+            })
+          )
+          .subscribe({
+            next: ({ seatData, droppingPoints }) => {
+              this.seat_data = seatData;
+              this.emmittedSeatData.seatData = this.seat_data;
+              this.emmittedSeatData.type = this.type;
 
-        this.viewSeatOpen.emit({ ...this.emmittedSeatData });
-        this.seat_data.stages = droppingPoints;
-        this.busSeatService.updateSelectedSeats([]);
-      });
-    } else {
-      this.bookingService.setConfig('trip', item);
-      this.payload.source_city_id = await this.bookingService.getConfig(
-        'destination_id'
-      );
-      this.payload.destination_city_id = await this.bookingService.getConfig(
-        'source_id'
-      );
-      this.payload.travel_date = await this.bookingService.getConfig(
-        'return_date'
-      );
-      this.payload.delayedDate = item.delayedDate;
-      this.payload.bus_id = item.bus_id;
-      let payload_two = {
-        source: this.payload.source_city_id,
-        destination: this.payload.destination_city_id,
-        trip: item.bus_id,
-        booking_date: this.payload.travel_date,
-        delayedFlag: 0,
-        delayedDate: item.delayedDate,
-        sourcetype: 'web',
-      };
-      forkJoin({
-        seatData: this.service.getSeats(this.payload),
-        droppingPoints: this.service.getDroppingBoardingPoint(payload_two),
-      }).subscribe(({ seatData, droppingPoints }) => {
-        this.seat_data = seatData;
-        /// emmiter
-        this.emmittedSeatData.seatData = this.seat_data;
-        this.emmittedSeatData.type = this.type;
+              console.log('[Seat data loaded]', this.emmittedSeatData);
 
-        console.log('[Collapse state changed]', this.emmittedSeatData);
+              this.viewSeatOpen.emit({ ...this.emmittedSeatData });
+              this.seat_data.stages = droppingPoints;
+              this.busSeatService.updateSelectedSeats([]);
+            },
+            error: (error) => {
+              console.error('Error loading seats:', error);
+              this.seatLoadError[index] = true;
+            }
+          });
+      } else {
+        // Return journey logic
+        this.bookingService.setConfig('trip', item);
+        this.payload.source_city_id = await this.bookingService.getConfig('destination_id');
+        this.payload.destination_city_id = await this.bookingService.getConfig('source_id');
+        this.payload.travel_date = await this.bookingService.getConfig('return_date');
+        this.payload.delayedDate = item.delayedDate;
+        this.payload.bus_id = item.bus_id;
 
-        this.viewSeatOpen.emit({ ...this.emmittedSeatData });
-        this.seat_data.stages = droppingPoints;
-        this.busSeatService.updateSelectedSeats([]);
-      });
+        let payload_two = {
+          source: this.payload.source_city_id,
+          destination: this.payload.destination_city_id,
+          trip: item.bus_id,
+          booking_date: this.payload.travel_date,
+          delayedFlag: 0,
+          delayedDate: item.delayedDate,
+          sourcetype: 'web',
+        };
+
+        forkJoin({
+          seatData: this.service.getSeats(this.payload),
+          droppingPoints: this.service.getDroppingBoardingPoint(payload_two),
+        })
+          .pipe(
+            finalize(() => {
+              this.isLoadingSeats[index] = false;
+            })
+          )
+          .subscribe({
+            next: ({ seatData, droppingPoints }) => {
+              this.seat_data = seatData;
+              this.emmittedSeatData.seatData = this.seat_data;
+              this.emmittedSeatData.type = this.type;
+
+              console.log('[Seat data loaded]', this.emmittedSeatData);
+
+              this.viewSeatOpen.emit({ ...this.emmittedSeatData });
+              this.seat_data.stages = droppingPoints;
+              this.busSeatService.updateSelectedSeats([]);
+            },
+            error: (error) => {
+              console.error('Error loading seats:', error);
+              this.seatLoadError[index] = true;
+            }
+          });
+      }
+    } catch (error) {
+      console.error('Error in searchSeats:', error);
+      this.isLoadingSeats[index] = false;
+      this.seatLoadError[index] = true;
     }
+  }
+
+  /**
+   * Retry loading seats after error
+   */
+  reloadSeats(item: any, index: number): void {
+    this.searchSeats(item, index);
   }
 
   getSelectedBus(bus: any){
@@ -252,12 +293,7 @@ export class SearchResultsCardComponent implements OnChanges {
     this.viewSeatOpen.emit({ ...this.emmittedSeatData });
   }
 
-
-
-
-
- // check the price
-
+  // Check the price
   private seatPriority: string[] = ['normal', 'bclass', 'vip'];
 
   getPreferredSeat(item: { defaultTripPriceList?: Array<{ seatType: string; amount: number }> }) {
@@ -273,11 +309,4 @@ export class SearchResultsCardComponent implements OnChanges {
     const seat = this.getPreferredSeat(item);
     return seat?.amount ?? null;
   }
-}
-
-export interface EmmitedSeatData{
-  collapseState: { [key: number]: boolean };
-  seatData: any;
-  type: string;
-  busData : any
 }
