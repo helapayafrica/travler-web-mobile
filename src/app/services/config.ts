@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class Config {
   config:any={
     // "token":'23D233D0-D78A-40C2-A211-19185B0C9E73',
-    "token":'A40980FF-718C-4488-A136-2A712430264C',
+    "token":'DEV123-DEV-DEV-DEV321',
     "paybill":"3902023"
   }
 

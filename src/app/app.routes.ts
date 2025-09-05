@@ -1,14 +1,7 @@
 import { Routes } from '@angular/router';
 import {HomeComponent} from './views/home/home.component';
 import {PageNotFoundComponent} from './views/page-not-found/page-not-found.component';
-import {UserProfileLayoutComponent} from './views/user-profile/user-profile-layout.component';
-import {DashboardComponent} from './views/user-profile/dashboard/dashboard.component';
-import {BookingsComponent} from './views/user-profile/bookings/bookings.component';
-import {WalletComponent} from './views/user-profile/wallet/wallet.component';
-import {AccountDetailsComponent} from './views/user-profile/account-details/account-details.component';
-import {ChangePasswordComponent} from './views/user-profile/change-password/change-password.component';
-import {UserListComponent} from './views/user-profile/user-list/user-list.component';
-import {TicketComponent} from './views/ticket/ticket.component';
+
 
 
 
@@ -49,8 +42,16 @@ export const routes: Routes = [
     loadComponent: () => import('./views/checkout/sections/payment-form/payment-form.component').then(m => m.PaymentFormComponent),
   },
   {
+    path: 'ticket',
+    loadComponent: () => import('./views/ticket/ticket.component').then(m => m.TicketComponent)
+  },
+  {
+    path: 'support',
+    loadComponent: () => import('./support/support.component').then(m => m.SupportComponent)
+  },
+  {
     path: 'user-profile',
-    component: UserProfileLayoutComponent,
+    loadComponent: () => import('./views/user-profile/user-profile-layout.component').then(m => m.UserProfileLayoutComponent),
     children: [
       {
         path: '',
@@ -59,39 +60,30 @@ export const routes: Routes = [
       },
       {
         path: 'dashboard',
-        component: DashboardComponent
+        loadComponent: () => import('./views/user-profile/dashboard/dashboard.component').then(m => m.DashboardComponent)
       },
       {
         path: 'bookings',
-        component: BookingsComponent
+        loadComponent: () => import('./views/user-profile/bookings/bookings.component').then(m => m.BookingsComponent)
       },
       {
         path: 'wallet',
-        component: WalletComponent
+        loadComponent: () => import('./views/user-profile/wallet/wallet.component').then(m => m.WalletComponent)
       },
       {
         path: 'account',
-        component: AccountDetailsComponent
+        loadComponent: () => import('./views/user-profile/account-details/account-details.component').then(m => m.AccountDetailsComponent)
       },
-      {
-        path: 'ticket',
-        component: TicketComponent
-      },
-
-
-
-
       {
         path: 'change-password',
-        component: ChangePasswordComponent
+        loadComponent: () => import('./views/user-profile/change-password/change-password.component').then(m => m.ChangePasswordComponent)
       },
       {
         path: 'user-list',
-        component: UserListComponent
+        loadComponent: () => import('./views/user-profile/user-list/user-list.component').then(m => m.UserListComponent)
       }
     ]
   },
-
 
     {
         path: '**',
