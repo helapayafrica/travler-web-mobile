@@ -122,42 +122,42 @@ export class SignupComponent implements OnInit {
   onSubmit(): void {
     let data = this.signupForm.value
 
-    console.log(data)
-    // this.loading=true;
-    // this.payload.device_number= Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-    // this.payload.phone=data.phone_number
-    // this.payload.country_code=data.country_code
+    // console.log(data)
+    this.loading=true;
+    this.payload.device_number= Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    this.payload.phone=data.phone_number
+    this.payload.country_code=data.country_code
     // console.log(this.payload);
-    // this.service.sendOtp(this.payload).subscribe((res)=>{
-    //   this.loading=false;
-    //   if(res.isSuccess){
-    //     this.modalService.openModal('verificationModal');
-    //     let info={"otp_number":"","device_number":Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),"gcm_token":"","phone":data.phone_number,"verification_key":res.verification_key,"country_code":data.country_code,"sourcetype":"web"}
-    //     this.bookingService.setConfig('verification',info);
-    //   }else{
-    //     Swal.fire({
-    //       icon: 'error',
-    //       title: 'Request Failed',
-    //       text:res.message,
-    //       width: '350px',
-    //       showCancelButton:true,
-    //       customClass: {
-    //         popup: 'tiny-swal',
-    //         icon: 'tiny-icon'
-    //       }
-    //     });
-    //   }
-    //
-    // })
-    // if (this.signupForm.invalid) {
-    //   Object.keys(this.signupForm.controls).forEach(key => {
-    //     const control = this.signupForm.get(key);
-    //     control?.markAsTouched();
-    //   });
-    //   return;
-    // }
+    this.service.sendOtp(this.payload).subscribe((res)=>{
+      this.loading=false;
+      if(res.isSuccess){
+        this.modalService.openModal('verificationModal');
+        let info={"otp_number":"","device_number":Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),"gcm_token":"","phone":data.phone_number,"verification_key":res.verification_key,"country_code":data.country_code,"sourcetype":"web"}
+        this.bookingService.setConfig('verification',info);
+      }else{
+        Swal.fire({
+          icon: 'error',
+          title: 'Request Failed',
+          text:res.message,
+          width: '350px',
+          showCancelButton:true,
+          customClass: {
+            popup: 'tiny-swal',
+            icon: 'tiny-icon'
+          }
+        });
+      }
 
-    // this.isSubmitting = true;
+    })
+    if (this.signupForm.invalid) {
+      Object.keys(this.signupForm.controls).forEach(key => {
+        const control = this.signupForm.get(key);
+        control?.markAsTouched();
+      });
+      return;
+    }
+
+    this.isSubmitting = true;
 
 
   }

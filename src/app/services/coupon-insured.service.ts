@@ -107,7 +107,7 @@ export class CouponInsuredService {
     this.passengerCount.set(passengers.length);
     this.passengerData.set(passengers);
 
-    console.log('Initialized passengers:', passengers);
+    // console.log('Initialized passengers:', passengers);
   }
 
   // Original methods remain unchanged
@@ -174,7 +174,7 @@ export class CouponInsuredService {
 
   updateCancellationProtection(value: boolean) {
     this.isCancellationProtection.set(value);
-    console.log('value changed to: ', value, '');
+    // console.log('value changed to: ', value, '');
     localStorage.setItem('cancellationProtection', JSON.stringify(value));
   }
 

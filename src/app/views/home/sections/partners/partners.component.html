@@ -1,9 +1,9 @@
 
 
-<div class="container rounded-4 p-4 partners-section">
+<div class="container  px-4 py-2 partners-section">
 
   <!-- Section title -->
-  <h3 class="fs-4 text-center pb-0 fw-semibold section-title">
+  <h3 class="fs-4 text-start pb-0 fw-bold section-title">
     Our Travel Partners
   </h3>
 
@@ -35,7 +35,7 @@
           <div *ngFor="let partner of slide; let i = index"
                class="text-center">
             <div class="partner-circle shadow-sm">
-              <img [src]="partner.logo" [alt]="partner.name">
+              <img [src]="partner.logo"  loading="lazy" [alt]="partner.name">
             </div>
             <p class="d-block mt-2">
               {{ partner.name }}

@@ -49,7 +49,7 @@ export class BookingService{
 
   setSelectedTab(tab: string): void {
     this.selectedTabSubject.next(tab);
-    console.log(tab, typeof tab)
+    // console.log(tab, typeof tab)
     localStorage.setItem(this.selectedTabKey, tab as string);
   }
 
@@ -114,7 +114,7 @@ export class BookingService{
 
   updateSearchPayload(key: 'destination_id' | 'travel_date', value: any): void {
     const tripDetails = this.payload || {};
-    console.log('ddddd',this.storage.getItem('payload'))
+    // console.log('ddddd',this.storage.getItem('payload'))
     tripDetails[key] = value;
     try {
       const serializedDetails = JSON.stringify(tripDetails);

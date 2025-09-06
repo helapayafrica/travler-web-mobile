@@ -42,6 +42,6 @@ export class BookingsComponent implements OnInit {
 
   search(): void {
     // Implement search functionality
-    console.log('Searching for:', this.searchQuery);
+    // console.log('Searching for:', this.searchQuery);
   }
 }

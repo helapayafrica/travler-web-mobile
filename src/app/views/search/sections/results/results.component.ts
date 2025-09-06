@@ -49,7 +49,7 @@ export class ResultsComponent implements OnChanges {
   @Input() data: any[] = [];
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data']) {
-      console.log('Array updated:', this.data);
+      // console.log('Array updated:', this.data);
     }
   }
   async getTripType() {
@@ -114,9 +114,9 @@ export class ResultsComponent implements OnChanges {
   }
 
   closeView() {
-    console.log('reached THe Seeter method')
+    // console.log('reached THe Seeter method')
     this.isViewSeatOpen.set(false);
-    console.log()
+    // console.log()
   }
 
 
@@ -126,7 +126,7 @@ export class ResultsComponent implements OnChanges {
   emmitedType: any = '';
   busdata : any ={}
 getCollapseSeatState($event: EmmitedSeatData) {
-    console.log('[Collapse state received]', $event);
+    // console.log('[Collapse state received]', $event);
   this.collapseState = $event.collapseState;
   this.seat_data = $event.seatData;
   this.emmitedType = $event.type;

@@ -1,11 +1,11 @@
 import {
   Component,
-  ElementRef,
+  ElementRef, EventEmitter,
   HostListener,
   inject,
   Input,
   OnChanges, OnDestroy,
-  OnInit,
+  OnInit, Output,
   SimpleChanges,
   ViewChild
 } from '@angular/core';
@@ -57,6 +57,8 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
   @Input() payload: any = [];
   @Input() type: string = '';
   @Input() busData: any = {}
+  @Input() current!: number
+  @Output() close = new EventEmitter<boolean>(false);
   isReturnStep: boolean = false;
   seatData: SeatData[] = [];
   selectedSeats: SeatData[] = [];
@@ -242,10 +244,11 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   async proceedToCheckout(): Promise<void> {
+    this.close.emit(true);
     if (this.type === 'onward') {
-      console.log("Reaching  Here")
+      // console.log("Reaching  Here")
       this.bookingService.setConfig('pickup', this.boardingForm.value);
-      console.log("Fererererere")
+      // console.log("Fererererere")
       await this.bookingService.saveOutward();
       this.loginModalService.openModal();
     } else {
@@ -256,6 +259,7 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   async proceedToReturn() {
+    this.close.emit(true);
     this.bookingService.setConfig('pickup', this.boardingForm.value);
     await this.bookingService.saveOutward();
     this.busSeatService.updateSelectedSeats([]);
@@ -335,7 +339,7 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
       this.maxY = maxY;
     });
 
-    console.log('[Max X i]', maxY)
+    // console.log('[Max X i]', maxY)
 
     const seatLayoutWidth = maxX - minX;
     const seatLayoutHeight = maxY - minY;
@@ -353,7 +357,7 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
 
 
     this.cardScaleFactor = containerClientWidth / seatLayoutWidth
-    console.log(this.scaleFactor)
+    // console.log(this.scaleFactor)
 
     if (this.cardScaleFactor === 0) {
       this.cardScaleFactor = 1;
@@ -419,7 +423,7 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
 
     // console.log('Travel Date:', date, 'Return Date:', returnDate);
 
-    console.log(this.busData)
+    // console.log(this.busData)
 
     const departureTimeRaw = this.busData?.departure_time;
     // console.log('Departure time raw', departureTimeRaw)
@@ -510,7 +514,7 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
   resultComponent = inject(ResultsComponent)
 
   closeIsOpenView() {
-    console.log('[cLOSED]')
+    // console.log('[cLOSED]')
     this.resultComponent.closeView()
   }
 

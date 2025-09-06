@@ -195,7 +195,7 @@
         <!-- Scenario 1: Proceed to Checkout (One-Way or Final Step in Two-Way) -->
         <button
           *ngIf="selectedSeats.length > 0 && !boardingForm.invalid && (type === 'onward' || isReturnStep)"
-          class="btn btn-primary w-100"
+          class="btn btn-primary w-100 rounded-pill py-2 mt-3"
           (click)="proceedToCheckout()">
           Proceed to Checkout
           <i class="bi bi-arrow-right ms-2"></i>
@@ -204,7 +204,7 @@
         <!-- Scenario 2: Proceed to Return (For Two-Way Trips, Onward Step) -->
         <button
           *ngIf="selectedSeats.length > 0 && !boardingForm.invalid && type === 'twoway' && !isReturnStep"
-          class="btn btn-success w-100"
+          class="btn btn-success w-100 rounded-pill py-2 mt-3"
           (click)="proceedToReturn()">
           Proceed to Return
           <i class="bi bi-arrow-repeat ms-2"></i>
@@ -213,7 +213,7 @@
         <!-- Scenario 3: Form Incomplete (Seats Selected but Form Invalid) -->
         <button
           *ngIf="selectedSeats.length > 0 && boardingForm.invalid"
-          class="btn btn-warning w-100"
+          class="btn btn-warning w-100 rounded-pill py-2 mt-3"
           disabled>
           Complete Form to Proceed
           <i class="bi bi-exclamation-triangle-fill ms-2"></i>
@@ -221,7 +221,7 @@
         <!-- Scenario 4: No Seats Selected -->
         <button
           *ngIf="selectedSeats.length === 0"
-          class="btn btn-secondary w-100"
+          class="btn btn-secondary w-100 rounded-pill py-2 mt-3"
           disabled>
           Select at least one seat
           <i class="bi bi-exclamation-circle-fill ms-2"></i>
@@ -230,7 +230,7 @@
 
       <!-- <div class="mt-2">
         <ng-container *ngIf="selectedSeats.length > 0; else blockButton">
-          <button class="btn btn-primary w-100" [disabled]="selectedSeats.length === 0 || boardingForm.invalid" (click)="proceedToCheckout()">
+          <button class="btn btn-primary w-100 rounded-pill py-2 mt-3" [disabled]="selectedSeats.length === 0 || boardingForm.invalid" (click)="proceedToCheckout()">
             Proceed to Checkout
             <i class="bi bi-arrow-right ms-2"></i>
           </button>

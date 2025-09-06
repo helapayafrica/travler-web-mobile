@@ -26,6 +26,6 @@ export class WalletComponent implements OnInit {
 
   transferMoney(): void {
     // Implement money transfer functionality
-    console.log('Transfer money clicked');
+    // console.log('Transfer money clicked');
   }
 }

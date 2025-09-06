@@ -43,6 +43,9 @@ constructor(public backendService:BackendService,public bookingService:BookingSe
 }
 ngOnInit(): void {
     this.getPayload();
+    const text = this.getTextForBreadCrumb()
+    this.items =  [{ text }];
+
 }
 
 async getPayload(){
@@ -53,15 +56,15 @@ async getPayload(){
 }
 //BreadCrumb
   home = { label: 'Home' };
-  items: any[] = [{ text: 'Pune to Bhopal' }];
+items :any = []
   isFormOpen = true;
 
   filterVisible = false
   toggleForm() {
-    console.log("Toggle is clicked!")
-    console.log(this.isFormOpen)
+    // console.log("Toggle is clicked!")
+    // console.log(this.isFormOpen)
     this.isFormOpen = !this.isFormOpen;
-    console.log(this.isFormOpen)
+    // console.log(this.isFormOpen)
   }
 // a the filter setting for Drawer
   minValue = 0;
@@ -91,4 +94,9 @@ async getPayload(){
   ];
 
 
+  getTextForBreadCrumb() {
+    const sourceName = this.bookingService.getConfig('source_name');
+    const destinationName = this.bookingService.getConfig('destination_name');
+    return `${sourceName} to ${destinationName}`;
+  }
 }

@@ -335,7 +335,7 @@ export class CouponsComponent implements OnInit {
       title: 'Save KES 300 on all rides above KES 1500.',
       validity: 'Valid until 15 Sep',
       code: 'RIDE300',
-      image: '/assets/images/TrvlerBanners-01.png',
+      image: '/assets/WEBP/TrvlerBanners-01.webp',
     },
     {
       type: 'rosy',
@@ -343,7 +343,7 @@ export class CouponsComponent implements OnInit {
       title: 'Book 2 rides, get 1 free!',
       validity: 'Valid until 10 Sep',
       code: 'FREERIDE',
-      image: '/assets/images/TrvlerBanners-04.png',
+      image: '/assets/WEBP/TrvlerBanners-04.webp',
     },
     {
       type: 'amber',
@@ -351,7 +351,7 @@ export class CouponsComponent implements OnInit {
       title: 'Early bird offer – 20% off for morning rides!',
       validity: 'Valid until 30 Sep',
       code: 'EARLY20',
-      image: '/assets/images/TrvlerBanners-03.png',
+      image: '/assets/WEBP/TrvlerBanners-03.webp',
     },
     {
       type: 'peachy',
@@ -359,7 +359,7 @@ export class CouponsComponent implements OnInit {
       title: 'Get 50% off on your next 3 rides',
       validity: 'Valid until 25 Sep',
       code: 'SAVE50',
-      image: '/assets/images/TrvlerBanners-1.png',
+      image: '/assets/WEBP/TrvlerBanners-1.webp'
     },
     {
       type: 'sky',
@@ -367,7 +367,7 @@ export class CouponsComponent implements OnInit {
       title: 'Weekend special: Flat KES 100 off',
       validity: 'Valid until 28 Sep',
       code: 'WKND100',
-      image: '/assets/images/TrvlerBanners-04.png',
+      image: '/assets/WEBP/TrvlerBanners-04.webp',
     },
   ];
 

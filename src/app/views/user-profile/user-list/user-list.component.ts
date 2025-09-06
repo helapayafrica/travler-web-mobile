@@ -58,18 +58,18 @@ export class UserListComponent implements OnInit {
 
   search(): void {
     // Implement search functionality
-    console.log('Searching for:', this.searchQuery);
+    // console.log('Searching for:', this.searchQuery);
   }
 
   viewUser(userId: string): void {
-    console.log('View user:', userId);
+    // console.log('View user:', userId);
   }
 
   editUser(userId: string): void {
-    console.log('Edit user:', userId);
+    // console.log('Edit user:', userId);
   }
 
   deleteUser(userId: string): void {
-    console.log('Delete user:', userId);
+    // console.log('Delete user:', userId);
   }
 }

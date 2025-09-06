@@ -38,7 +38,7 @@
       <!-- Actual offer card -->
       <ng-template #offerTpl pTemplate="item" let-offer>
         <div class="card border-0 shadow-sm carousel-card" [ngClass]="offer.type">
-          <img [src]="offer.image" loading="lazy" class="coupon-image" alt="">
+          <img [src]="offer.image" fetchpriority="high" loading="eager" class="coupon-image" alt="">
           <p class="badge mb-2">{{ offer.badge }}</p>
           <div class="d-flex flex-column justify-content-start align-items-start gap-3">
             <div class="d-flex flex-column justify-content-start align-items-start">

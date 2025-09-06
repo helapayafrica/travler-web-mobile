@@ -33,7 +33,7 @@
     <div
       (click)="getSelectedBus(item)"
       [ngClass]="collapseState[i] ? 'bg-white' : 'card-selected'"
-      class="d-flex flex-column d-md-none p-3 card rounded-3 shadow-sm m-2 position-relative"
+      class="d-flex flex-column d-md-none p-3 card rounded-4 shadow-sm m-2 position-relative"
       style="min-width:300px">
 
       <!-- Highway Badge -->
@@ -41,7 +41,7 @@
 
       <!-- Main Content Container -->
       <div class="d-flex flex-column gap-2">
-        <img src="assets/logo.png" height="112.5" width="75"
+        <img src="assets/WEBP/logo.webp" height="112.5" width="75"
              [ngClass]="item.highWayDirectRoute === 'Highway' ? 'ms-4':''"
              class="img-thumbnail border-0 text-end" alt="logo">
 
@@ -106,7 +106,7 @@
             [attr.aria-expanded]="!collapseState[i]"
             [ngClass]="collapseState[i] ? 'btn-primary' : 'btn-outline-secondary'"
             [disabled]="isLoadingSeats[i]"
-            class="btn btn-sm px-4 position-relative">
+            class="btn btn-sm px-4 position-relative rounded-4">
 
             <!-- Loading spinner -->
             <span *ngIf="isLoadingSeats[i]" class="spinner-border spinner-border-sm me-2" role="status">
@@ -168,6 +168,8 @@
                   <app-component-bus-seat-selector
                     *ngIf="seat_data"
                     [payload]="seat_data"
+                    (close)="closeDrawerFromEmmiter($event, i)"
+                    [current]="i"
                     [type]="type">
                   </app-component-bus-seat-selector>
                 </div>

@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.loginForm.value);
+    // console.log(this.loginForm.value);
 
     if (this.loginForm.invalid) {
       console.log(this.loginForm.value);
@@ -76,13 +76,13 @@ export class LoginComponent implements OnInit {
 
     this.isSubmitting = true;
     let data:any={"username":this.loginForm.value.phone_number,"password":this.loginForm.value.password,"gcm_token":"","country_code":this.loginForm.value.country_code,"sourcetype":"web"}
-    console.log(data);
+    // console.log(data);
 
-    // this.service.login(data).subscribe((res)=>{
-    //   this.isSubmitting = false;
-    //   this.authService.login(res.data);
-    //   this.router.navigateByUrl('/');
-    // })
+    this.service.login(data).subscribe((res)=>{
+      this.isSubmitting = false;
+      this.authService.login(res.data);
+      this.router.navigateByUrl('/');
+    })
   }
 
 }

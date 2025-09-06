@@ -61,8 +61,8 @@ export class SearchComponent implements OnInit {
       trip_type: ['onward'],
     }, {validators: returnDateAfterTravelValidator()});
 
-    console.log('[Date on Init]')
-    console.log(this.searchForm.value)
+    // console.log('[Date on Init]')
+    // console.log(this.searchForm.value)
 
 
     this.filteredFromCities = this.searchForm
@@ -80,8 +80,8 @@ export class SearchComponent implements OnInit {
       );
 
 
-    console.log('[ filtered City]', this.filteredFromCities)
-    console.log('[ filtered City]', this.filteredDestinationCities)
+    // console.log('[ filtered City]', this.filteredFromCities)
+    // console.log('[ filtered City]', this.filteredDestinationCities)
   }
 
   @ViewChild('travelDateInput') travelDatePicker: any;
@@ -98,7 +98,7 @@ export class SearchComponent implements OnInit {
       trip_type: await this.bookingService.getConfig('trip_type'),
     };
 
-    console.log('Raw config data:', data);
+    // console.log('Raw config data:', data);
 
     const safeDate = (val: any, fallback: Date = this.today): Date => {
       if (!val || val === 'null' || val === 'undefined') return fallback;
@@ -119,7 +119,7 @@ export class SearchComponent implements OnInit {
     const processedTravelDate = safeDate(data.date, this.today);
     const processedReturnDate = safeDate(data.return_date, this.today);
 
-    console.log('Processed dates:', {travel: processedTravelDate, return: processedReturnDate});
+    // console.log('Processed dates:', {travel: processedTravelDate, return: processedReturnDate});
 
     this.tripType = data.trip_type || 'onward';
     this.searchForm.patchValue({
@@ -133,13 +133,13 @@ export class SearchComponent implements OnInit {
 
     setTimeout(() => {
       if (this.travelDateInput && processedTravelDate) {
-        console.log('Setting travel date on datepicker:', processedTravelDate);
+        // console.log('Setting travel date on datepicker:', processedTravelDate);
         this.travelDateInput.writeValue(processedTravelDate);
         this.searchForm.get('date')?.setValue(processedTravelDate);
       }
 
       if (this.returnDateInput && processedReturnDate && this.tripType === 'twoway') {
-        console.log('Setting return date on datepicker:', processedReturnDate);
+        // console.log('Setting return date on datepicker:', processedReturnDate);
         this.returnDateInput.writeValue(processedReturnDate);
         this.searchForm.get('return_date')?.setValue(processedReturnDate);
       }
@@ -149,21 +149,21 @@ export class SearchComponent implements OnInit {
       this.searchForm.get('return_date')?.updateValueAndValidity();
       this.searchForm.updateValueAndValidity();
 
-      console.log('Final form values:', this.searchForm.value);
+      // console.log('Final form values:', this.searchForm.value);
     }, 100); // Increased timeout to ensure ViewChild is ready
 
-    console.log('hiiiiiiii')
+    // console.log('hiiiiiiii')
     this.backendService.getCities().subscribe({
       next : (res) => {
         this.cities = res.data;
-        console.log('[Cities]', this.cities)
+        // console.log('[Cities]', this.cities)
       },
       error: (err) => {
         console.log('[Cities]', err)
       }
     });
 
-    console.log('byyrrree')
+
 
 
     this.focusInput('fromCity');
@@ -190,12 +190,12 @@ export class SearchComponent implements OnInit {
   onSubmit(): void {
     this.couponService.clearCancellationProtectionAndInsuredSeats()
     let data = this.searchForm.value;
-    console.log('Form data:', data);
+    // console.log('Form data:', data);
     const date = this.formatDateForConfig(data.date);
     const return_date = this.formatDateForConfig(data.return_date);
 
-    console.log('Form data:', data);
-    console.log('Formatted dates:', date, return_date);
+    // console.log('Form data:', data);
+    // console.log('Formatted dates:', date, return_date);
 
     this.bookingService.setConfig('travel_date', date);
     if (data.return_date && this.tripType == 'twoway') {
@@ -228,7 +228,7 @@ export class SearchComponent implements OnInit {
 
   onDateSelected(event: any): void {
     const selectedDate = event.value;
-    console.log(this.datePipe.transform(selectedDate, 'YYYY-MM-dd'));
+    // console.log(this.datePipe.transform(selectedDate, 'YYYY-MM-dd'));
   }
 
   //   round trip
@@ -239,7 +239,7 @@ export class SearchComponent implements OnInit {
     this.searchForm.patchValue({
       trip_type: type,
     })
-    console.log('Trip type set to:', this.tripType);
+    // console.log('Trip type set to:', this.tripType);
     if (type === 'onward') {
       this.bookingService.setConfig('return_date', null);
       this.searchForm.patchValue({

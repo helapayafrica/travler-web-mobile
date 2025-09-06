@@ -36,7 +36,7 @@ export class PaymentFormComponent implements OnInit {
   constructor(private fb: FormBuilder,public bookingService:BookingService,public service:BackendService,private toastr: ToastrService) {
 
     this.bookingService.referenceNumber$.subscribe((res)=>{
-      console.log('ddddd',res);
+
 
     })
   }
@@ -126,7 +126,7 @@ export class PaymentFormComponent implements OnInit {
 
   // Submit Payment Function
   submitPayment() {
-    console.log(this.paymentForm.valid);
+    // console.log(this.paymentForm.valid);
     if (this.paymentForm.invalid) {
       this.paymentForm.markAllAsTouched(); // Show errors
       return;

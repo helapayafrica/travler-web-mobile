@@ -127,7 +127,6 @@
   }
 }
 .btn-primary{
-  background-image: linear-gradient(to right, #ed2112, #e01329, #cf0f37, #bd1541, #a91d48);
-  color: white;
+  background-image: linear-gradient(to right,var(--primary-color-400), var(--primary-color-500), var(--primary-color-600), var(--primary-color-600));
   border: none;
 }

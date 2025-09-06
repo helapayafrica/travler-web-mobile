@@ -31,12 +31,12 @@ export class BusInfoComponent {
       const insuranceCost = this.cancellationInsuredService.insuranceCost();
       const cancellationCost = this.cancellationInsuredService.cancellationCost();
 
-      console.log('Service values changed:', {
-        total,
-        insuranceCost,
-        cancellationCost,
-        isProtected: this.cancellationInsuredService.isCancellationProtection()
-      });
+      // console.log('Service values changed:', {
+      //   total,
+      //   insuranceCost,
+      //   cancellationCost,
+      //   isProtected: this.cancellationInsuredService.isCancellationProtection()
+      // });
 
       this.cdr.markForCheck();
     });
@@ -125,33 +125,33 @@ export class BusInfoComponent {
     let onwardSeatNames = '';
     let returnSeatNames = '';
 
-    console.log('[Onward Seats]', onwardSeats);
+    // console.log('[Onward Seats]', onwardSeats);
 
     if (onwardSeats.length > 0) {
       onwardSeats.forEach((p: any) => {
-        console.log('[onwardSeats]', p.seat_name);
+        // console.log('[onwardSeats]', p.seat_name);
         onwardSeatNames += p.seat_name + ', ';
       });
-      console.log('[onwardSeatNames]', onwardSeatNames);
+      // console.log('[onwardSeatNames]', onwardSeatNames);
     }
 
     if (returnSeats.length > 0) {
       returnSeats.forEach((p: any) => {
-        console.log('[returnSeats]', p);
+        // console.log('[returnSeats]', p);
         returnSeatNames += p.seat_name + ', ';
       });
-      console.log('[returnSeatNames]', returnSeatNames);
+      // console.log('[returnSeatNames]', returnSeatNames);
     }
 
     return onwardSeatNames;
   }
 
   seatSelected() {
-    console.log('[this data from Booking]', this.data);
+    // console.log('[this data from Booking]', this.data);
     const onwardSeats = this.data?.ticketDetail?.onwardticket?.passenger || [];
     const returnSeats = this.data?.ticketDetail?.returnticket?.passenger || [];
     this.onwardSeatsSummary = this.getSeatTypeSummaryDetailed(onwardSeats);
-    console.log('[this onwardSeatsSummary]', this.onwardSeatsSummary);
+    // console.log('[this onwardSeatsSummary]', this.onwardSeatsSummary);
     this.returnSeatsSummary = this.getSeatTypeSummaryDetailed(returnSeats);
   }
 

@@ -13,9 +13,9 @@ export class LoginModalService{
   }
 
   openModal() {
-    console.log("HEoolo World")
+    // console.log("HEoolo World")
     if (this.modalInstance) {
-      console.log("THis isnatas id ok")
+      // console.log("THis isnatas id ok")
       this.modalInstance.openModal();
     }
   }

@@ -8,7 +8,7 @@
       <div
         [ngClass]="isViewSeatOpen() ? 'col-12 col-lg-7  d-lg-block': 'col-12 col-lg-9'">
         <div>
-          <div class="row">
+          <div class="row  ">
             <div class="col-sm-9 col-8">
               <h3 class="mb-2">Search results:</h3>
             </div>
@@ -27,7 +27,7 @@
           </div>
 
 
-          <ul class="nav nav-tabs">
+          <ul class="nav nav-tabs  ">
             <li class="nav-item">
               <a class="nav-link" [class.active]="selectedTab === 'onward'" [class.disabled]="selectedTab === 'return'"
                 href="javascript:void(0)" (click)="!isReturnSelected() && selectTab('onward')">
@@ -44,9 +44,9 @@
 
           <!-- Tab Content -->
           <div
-            style="max-height:65vh"
-            class="tab-content mt-2 overflow-y-auto my-scrollable ">
-            <div id="onward" class="container tab-pane fade" [class.show]="selectedTab === 'onward'"
+            style="max-height:75vh"
+            class="tab-content mt-2 overflow-y-auto my-scrollable bg-primary-subtle ">
+            <div id="onward" class="tab-pane fade p-0" [class.show]="selectedTab === 'onward'"
               [class.active]="selectedTab === 'onward'">
 
               <!-- <div class="row mb-3">
@@ -62,7 +62,7 @@
                   </div>
                 </div> -->
 
-              <div class="vstack gap-3">
+              <div class="vstack">
                 <app-component-search-results-card  (viewSeatOpen)="getCollapseSeatState($event)"    [data]="data" [type]="type"></app-component-search-results-card>
               </div>
             </div>
@@ -84,7 +84,7 @@
 
           <!-- One-Way Journey (Hidden when "Return" tab is active) -->
           <div hidden="type==='onward' && selectedTab !== 'return'">
-            <div class="vstack gap-3">
+            <div class="vstack">
               <app-component-search-results-card (viewSeatOpen)="getCollapseSeatState($event)"  [data]="data"></app-component-search-results-card>
             </div>p
           </div>

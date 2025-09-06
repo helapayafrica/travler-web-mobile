@@ -67,7 +67,7 @@ export class BookingFormComponent implements OnInit {
         this.data.ticketDetail.returnticket.passenger[i].mobile = element.mobile
       }
     });
-    console.log('[this booking data],', this.data)
+    // console.log('[this booking data],', this.data)
 
     this.service.bookingTicket(this.data).subscribe((res) => {
       this.isSuccess = true

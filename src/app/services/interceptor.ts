@@ -12,9 +12,9 @@ export const httpInterceptor: HttpInterceptorFn = (
   const token = configService.getConfig('token');
   let data:any = req.body
   data.token=token
-  console.log('[Interceptor]')
+  // console.log('[Interceptor]')
   console.log(data)
-  console.log('[Interceptor]')
+  // console.log('[Interceptor]')
   if(req.url.endsWith('ChangePassword')){
     //   req = req.clone({ headers: req.headers.set('Authorization',JSON.parse(sessionStorage.getItem('loggedUser')).api_token),body:data});
   }else if(req.url.endsWith('json')){

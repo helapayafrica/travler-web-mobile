@@ -4,7 +4,7 @@
       <!-- bread crumb-->
       <p-breadcrumb [model]="items" [home]="home">
         <ng-template pTemplate="item" let-item>
-          <a class="cursor-pointer" (click)="toggleForm()">
+          <a class="cursor-pointer nav-item" style="text-decoration: none;" (click)="toggleForm()">
             {{item.label || item.text}}
           </a>
         </ng-template>
@@ -33,9 +33,9 @@
   </div>
 
   <div class="search-results-section">
-    <div class="container py-3">
-      <div class="row">
-        <div class="col-12">
+    <div class="container py-3 ">
+      <div class="row ">
+        <div class="col-12 ">
           <app-search-results [data]="buses"></app-search-results>
         </div>
       </div>

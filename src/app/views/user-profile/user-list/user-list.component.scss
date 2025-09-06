@@ -115,7 +115,7 @@
 }
 
 .btn-primary-color{
-  background-image: linear-gradient(to right, #ed2112, #e01329, #cf0f37, #bd1541, #a91d48);
+  background-image: linear-gradient(to right,var(--primary-color-400), var(--primary-color-500), var(--primary-color-600), var(--primary-color-600));background-image: linear-gradient(to right,var(--primary-color-400), var(--primary-color-500), var(--primary-color-600), var(--primary-color-600));
   color: white;
   border: none;
 }

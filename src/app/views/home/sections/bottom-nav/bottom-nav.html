@@ -6,13 +6,17 @@
 <!--      class="d-flex flex-column justify-content-center align-items-center">-->
 <!--      <i-->
 <!--        style="height: 24px; width: 24px; font-size: 24px; color: var(&#45;&#45;primary-color-500);"-->
-<!--        class="bi bi-house-door-fill"></i>-->
+<!--
+
+class=" fs-5 bi bi-house-door-fill"></i>-->
 <!--      <p class="fw-semibold p-1 mt-1 mb-1">Home</p>-->
 <!--    </div>-->
 <!--    <div class="d-flex flex-column justify-content-center align-items-center">-->
 <!--      <i-->
 <!--        style="height: 24px; width: 24px; font-size: 24px; color: var(&#45;&#45;primary-color-500);"-->
-<!--        class="bi bi-list-ul"></i>-->
+<!--
+
+class=" fs-5 bi bi-list-ul"></i>-->
 <!--      <p class="fw-semibold p-1 mt-1 mb-1">Bookings</p>-->
 <!--    </div>-->
 <!--    <div-->
@@ -21,13 +25,17 @@
 <!--      class="d-flex flex-column justify-content-center align-items-center">-->
 <!--      <i-->
 <!--        style="height: 24px; width: 24px; font-size: 24px; color: var(&#45;&#45;primary-color-500);"-->
-<!--        class="bi bi-question-circle"></i>-->
+<!--
+
+class=" fs-5 bi bi-question-circle"></i>-->
 <!--      <p class="fw-semibold p-1 mt-1 mb-1">Help</p>-->
 <!--    </div>-->
 
 <!--    <button pButton type="button" (click)="visible = true" class="bg-transparent border-0">-->
 <!--      <div class="d-flex flex-column justify-content-center align-items-center">-->
-<!--        <i class="bi bi-person"-->
+<!--        <i
+
+class=" fs-5 bi me-2 bi-person"-->
 <!--           style="font-size: 24px; color: var(&#45;&#45;primary-color-500);"></i>-->
 <!--        <p-->
 <!--          style="font-size: 12px; color: var(&#45;&#45;primary-color-500);"-->
@@ -41,91 +49,132 @@
   <div class="d-flex flex-row justify-content-around align-items-center">
     <!-- Home Tab -->
     <div
+      class="d-flex flex-column justify-content-center align-items-center tab-item"
       routerLink="/home"
-      routerLinkActive="active"
-      class="d-flex flex-column justify-content-center align-items-center tab-item">
+      routerLinkActive="active">
       <i
-        style="height: 24px; width: 24px; font-size: 24px; color: var(--primary-color-500);"
-        class="bi bi-house-door-fill"></i>
+        class=" fs-5 bi bi-house-door-fill"
+        style="height: 24px; width: 24px; font-size: 24px; color: var(--primary-color-500);"></i>
       <p class="fw-semibold tab-text">Home</p>
     </div>
 
     <!-- Bookings Tab -->
     <div
+      class="d-flex flex-column justify-content-center align-items-center tab-item"
       routerLink="user-profile/bookings"
-      routerLinkActive="active"
-      class="d-flex flex-column justify-content-center align-items-center tab-item">
+      routerLinkActive="active">
       <i
-        style="height: 24px; width: 24px; font-size: 24px; color: var(--primary-color-500);"
-        class="bi bi-list-ul"></i>
+        class=" fs-5 bi bi-list-ul"
+
+
+        style="height: 24px; width: 24px; font-size: 24px; color: var(--primary-color-500);"></i>
       <p class="fw-semibold tab-text">Bookings</p>
     </div>
 
     <!-- Help Tab -->
     <div
+      class="d-flex flex-column justify-content-center align-items-center tab-item"
       routerLink="/support"
-      routerLinkActive="active"
-      class="d-flex flex-column justify-content-center align-items-center tab-item">
+      routerLinkActive="active">
       <i
-        style="height: 24px; width: 24px; font-size: 24px; color: var(--primary-color-500);"
-        class="bi bi-question-circle"></i>
+        class=" fs-5 bi bi-question-circle"
+
+
+        style="height: 24px; width: 24px; font-size: 24px; color: var(--primary-color-500);"></i>
       <p class="fw-semibold tab-text">Help</p>
     </div>
 
     <!-- Account Tab -->
     <div
-      class="d-flex flex-column justify-content-center align-items-center tab-item"
       (click)="visible = true"
+      class="d-flex flex-column justify-content-center align-items-center tab-item"
       style="cursor: pointer;">
-      <i class="bi bi-person"
-         style="height: 24px; width: 24px; font-size: 24px; color: var(--primary-color-500);"></i>
+      <i
+
+        class=" fs-5 bi me-2 bi-person"
+        style="height: 24px; width: 24px; font-size: 24px; color: var(--primary-color-500);"></i>
       <p class="fw-semibold tab-text">Account</p>
     </div>
   </div>
 </div>
 <p-drawer
+  [(visible)]="visible"
+  [style]="{ height: '300px' }"
   header="Account"
   icon="bi bi-person"
-  [(visible)]="visible"
-  position="bottom"
-  [style]="{ height: '300px' }">
+  position="bottom">
 
-<!--  &lt;!&ndash; Optional: Add a handle bar for better UX &ndash;&gt;-->
-<!--  <div class="drawer-handle"></div>-->
-
+  <!--  &lt;!&ndash; Optional: Add a handle bar for better UX &ndash;&gt;-->
+  <!--  <div class="drawer-handle"></div>-->
   <div class="drawer-list-group w-100">
     <a
-      routerLink="/ticket"
+      (click)="visible = false"
       class="drawer-list-item"
-      (click)="visible = false">
-      <i class="bi bi-printer"></i>
+      routerLink="/ticket">
+      <i
+        class=" fs-5 bi me-2 bi-printer"></i>
       Print Ticket
+    </a>
+    <a
+      (click)="visible = false"
+      *ngIf="loggedIn"
+      class="drawer-list-item"
+      routerLink="/user-profile/account">
+      <i class=" fs-5 bi me-2 bi-person"></i>
+      Log in
+    </a>
+    <a
+      (click)="visible = false"
+      *ngIf="!loggedIn"
+      class="drawer-list-item"
+      routerLink="/sign-up">
+      <i class=" fs-5 bi me-2 bi-person"></i>
+      Sign Up
     </a>
 
     <a
-      routerLink="user-profile/wallet"
+      (click)="visible = false"
+      *ngIf="!loggedIn"
       class="drawer-list-item"
-      (click)="visible = false">
-      <i class="bi bi-wallet2"></i>
+      routerLink="login">
+      <i class=" fs-5 bi me-2 bi-person"></i>
+      Login
+    </a>
+
+
+    <a
+      (click)="visible = false"
+      *ngIf="loggedIn"
+      class="drawer-list-item"
+      routerLink="user-profile/wallet">
+      <i
+
+        class=" fs-5 bi me-2 bi-wallet2"></i>
       Wallet
     </a>
 
     <a
-      routerLink="user-profile/change-password"
+      (click)="visible = false"
+      *ngIf="loggedIn"
       class="drawer-list-item"
-      (click)="visible = false">
-      <i class="bi bi-key"></i>
+      routerLink="user-profile/change-password">
+      <i
+
+        class=" fs-5 bi me-2 bi-key"></i>
       Change Password
     </a>
 
-    <!-- Optional: Add more items -->
-<!--    <a-->
-<!--      href="#"-->
-<!--      class="drawer-list-item"-->
-<!--      (click)="visible = false">-->
-<!--      <i class="bi bi-box-arrow-right"></i>-->
-<!--      Logout-->
-<!--    </a>-->
+
+    <a
+      (click)="logout();visible = false"
+      *ngIf="loggedIn"
+      class="drawer-list-item text-danger-emphasis ">
+      <i
+
+        class=" fs-5 bi me-2 bi-power"></i>
+      Logout
+    </a>
+
   </div>
 </p-drawer>
 
@@ -135,13 +184,19 @@
 
 <!--  <div class="list-group w-100">-->
 <!--    <a routerLink="/print-ticket"  style="font-size: 14px" class="w-100 list-group-item list-group-item-action text-dark  py-2 border-0">-->
-<!--      <i class="bi bi-printer me-2"></i> Print Ticket-->
+<!--      <i
+
+class=" fs-5 bi me-2 bi-printer me-2"></i> Print Ticket-->
 <!--    </a>-->
 <!--    <a routerLink="/wallet"  style="font-size: 14px" class="w-100 list-group-item list-group-item-action text-dark  py-2 border-0">-->
-<!--      <i class="bi bi-wallet2 me-2"></i> Wallet-->
+<!--      <i
+
+class=" fs-5 bi me-2 bi-wallet2 me-2"></i> Wallet-->
 <!--    </a>-->
 <!--    <a routerLink="/change-password"  style="font-size: 14px" class="w-100 list-group-item list-group-item-action text-dark  py-2 border-0">-->
-<!--      <i class="bi bi-key me-2"></i> Change Password-->
+<!--      <i
+
+class=" fs-5 bi me-2 bi-key me-2"></i> Change Password-->
 <!--    </a>-->
 <!--  </div>-->
 

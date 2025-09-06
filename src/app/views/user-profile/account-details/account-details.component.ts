@@ -51,6 +51,6 @@ export class AccountDetailsComponent implements OnInit {
 
   editProfile(): void {
     // Implement edit profile functionality
-    console.log('Edit profile clicked');
+    // console.log('Edit profile clicked');
   }
 }

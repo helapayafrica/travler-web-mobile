@@ -275,23 +275,6 @@ a {
   color: $primary;
 }
 
-/*:root {*/
-/*--primary-color-100: #FEF7E7;*/
-/*--primary-color-200: #FDF0D0;*/
-/*--primary-color-400: #FACC5B;*/
-/*--primary-color-500: #F9B716;*/
-/*--primary-color-600: #C79211;*/
-/*--primary-color-800: #634908;*/
-/*--primary-color-900: #4A3606;*/
-
-/*--secondary-color-100: #f1e7eb;*/
-/*--secondary-color-200: #EAD2DE;*/
-/*--secondary-color-400: #B8628C;*/
-/*--secondary-color-500: #9A205B;*/
-/*--secondary-color-600: #7B1948;*/
-/*--secondary-color-800: #3D0C24;*/
-/*--secondary-color-900: #2E091B;*/
-/*}*/
 :root {
   /* 🌞 Secondary Color Scale (Amber-like) */
   --secondary-color-100: hsl(40, 100%, 96%);
@@ -327,25 +310,6 @@ a {
   --gray-800: hsl(0, 0%, 13%);
   --gray-900: hsl(0, 0%, 8%);
 
-  ///* --primary-orange-peachy */
-  //  --peachy-orange-color-200: hsl(27, 90%, 92%);
-  //  --peachy-orange-color-300: hsl(27, 89%, 86%);
-  //  --peachy-orange-color-400: hsl(27, 85%, 72%);
-  //
-  //  /* --primary-amber */
-  //  --amber-color-200: hsl(33, 97%, 85%);
-  //  --amber-color-300: hsl(33, 96%, 70%);
-  //  --amber-color-400: hsl(33, 94%, 56%);
-  //
-  //  /* --primary-rosy */
-  //  --rosy-color-200: hsl(6, 60%, 93%);
-  //  --rosy-color-300: hsl(6, 58%, 87%);
-  //  --rosy-color-400: hsl(6, 55%, 74%);
-  //
-  //  /* --primary-sky */
-  //  --sky-color-200: hsl(209, 78%, 96%);
-  //  --sky-color-300: hsl(209, 77%, 92%);
-  //  --sky-color-400: hsl(209, 75%, 80%);
   /* --primary-orange-peachy (soft earthy orange) */
   --peachy-orange-color-200: hsl(27, 40%, 94%);
   --peachy-orange-color-300: hsl(27, 38%, 84%);
@@ -375,31 +339,29 @@ a {
 
 html, body { height: 100%; }
 body { margin: 0 }
-@font-face {
-  font-family: "regular";
-  src: url('assets/fonts/AvenirNextLTPro-Regular.ttf');
-}
-
-@font-face {
-  font-family: "medium";
-  src: url('assets/fonts/AvenirNextLTPro-Demi.ttf');
-}
-
-@font-face {
-  font-family: "bold";
-  src: url('assets/fonts/AvenirNextLTPro-Bold.ttf');
-}
+//@font-face {
+//  font-family: "regular";
+//  src: url('assets/fonts/AvenirNextLTPro-Regular.ttf');
+//}
+//
+//@font-face {
+//  font-family: "medium";
+//  src: url('assets/fonts/AvenirNextLTPro-Demi.ttf');
+//}
+//
+//@font-face {
+//  font-family: "bold";
+//  src: url('assets/fonts/AvenirNextLTPro-Bold.ttf');
+//}
 
 *  {
   //font-family: "regular" !important;
-  font-family: "Inter", "regular";
+  font-family: "Lato", sans-serif;
   font-weight: 300;
   font-size: var(--font-size);
 }
 
-//.material-icons {
-//  font-family: 'Material Icons' !important;
-//}
+
 .app-container {
   min-height: 75vh; /* Full viewport height */
 }
@@ -423,45 +385,7 @@ body{
   font-weight: 300;
 }
 
-//*{
-//  //font-size: 0.875rem;
-//}
-////Slider
-////////////////////////////////////////
-//.ngx-slider .ngx-slider-pointer {
-//  /* width: 32px; */
-//  /* height: 32px; */
-//  /* top: -14px; */
-//  /* background-color: #0db9f0; */
-//  width: 14px !important;
-//  height: 14px !important;
-//  top: -6px !important;
-//  background-color: var(--primary-color-500) !important;
-//}
 
-//
-///* styles.css | http://localhost:4200/styles.css */
-//
-//.ngx-slider .ngx-slider-pointer {
-//  /* top: -3px !important; */
-//
-//}
-//
-///* Inline | http://localhost:4200/search */
-//
-//.ngx-slider .ngx-slider-selection {
-//  /* background: #0db9f0; */
-//  background-color: var(--primary-color-700) !important;
-//}
-//
-//
-///* Inline | http://localhost:4200/search */
-//
-//.ngx-slider .ngx-slider-bubble {
-//  /* font-size: 16px; */
-//  font-size: 12px;
-//  font-weight: 400;
-//}
 
 
 .dropdown-menu {

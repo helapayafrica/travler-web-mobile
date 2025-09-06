@@ -73,11 +73,11 @@ export class LoginModalComponent {
   }
 
   openModal() {
-    console.log("MOdal Open")
+    // console.log("MOdal Open")
     if (!this.modalInstance) {
       this.modalInstance = new Modal(this.loginModal.nativeElement);
     }
-    console.log("MOdal Open 2")
+    // console.log("MOdal Open 2")
 
     this.modalInstance.show();
   }
@@ -113,7 +113,7 @@ export class LoginModalComponent {
 
   sign(){
     this.modalService.closeModal();
-    this.router.navigateByUrl('/signup');
+    this.router.navigateByUrl('/sign-up');
 
   }
 

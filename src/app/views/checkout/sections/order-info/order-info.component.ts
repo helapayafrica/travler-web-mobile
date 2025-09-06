@@ -16,6 +16,6 @@ export class OrderInfoComponent{
   }
  async getBooking(){
   this.data = await this.bookingService.getConfig('booking');
-  console.log('sssss',this.data)
+  // console.log('sssss',this.data)
  }
 }

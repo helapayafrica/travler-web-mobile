@@ -154,7 +154,7 @@ export class SearchResultsCardComponent implements OnChanges {
   }
 
   toggleCollapse(index: number): void {
-    console.log('Toggling collapse for index:', index);
+    // console.log('Toggling collapse for index:', index);
 
     const wasOpen = !this.collapseState[index]; // remember before change
 
@@ -173,7 +173,7 @@ export class SearchResultsCardComponent implements OnChanges {
     this.emmittedSeatData.type = this.type;
     this.viewSeatOpen.emit({ ...this.emmittedSeatData });
 
-    console.log('[Collapse state changed]', this.collapseState);
+    // console.log('[Collapse state changed]', this.collapseState);
   }
 
   async searchSeats(item: any, index: number) {
@@ -215,7 +215,7 @@ export class SearchResultsCardComponent implements OnChanges {
               this.emmittedSeatData.seatData = this.seat_data;
               this.emmittedSeatData.type = this.type;
 
-              console.log('[Seat data loaded]', this.emmittedSeatData);
+              // console.log('[Seat data loaded]', this.emmittedSeatData);
 
               this.viewSeatOpen.emit({ ...this.emmittedSeatData });
               this.seat_data.stages = droppingPoints;
@@ -308,5 +308,13 @@ export class SearchResultsCardComponent implements OnChanges {
   getPreferredAmount(item: { defaultTripPriceList?: Array<{ seatType: string; amount: number }> }): number | null {
     const seat = this.getPreferredSeat(item);
     return seat?.amount ?? null;
+  }
+
+  closeDrawerFromEmmiter( bool: boolean, i: number) {
+    if(bool){
+      this.toggleCollapse(i)
+    }
+
+
   }
 }

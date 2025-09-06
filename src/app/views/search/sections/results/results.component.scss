@@ -4,10 +4,14 @@
 .nav-tabs .nav-item .nav-link {
     color: white;
     font-weight: bold;
-    border: none;
+    border: none !important;
+
   border-radius: 50rem;
     // width: 50%;
     text-align: center;
+}
+.nav-tabs{
+  border: none;
 }
 .nav-tabs .nav-item .nav-link {
     background-color:  #EF9A9A;
@@ -17,7 +21,7 @@
     color: white;
 }
 
-stcc
+
 .tab-pane {
     padding: 10px;
     text-align: center;
@@ -26,7 +30,9 @@ stcc
     color: black;
 }
 .nav-tabs .nav-link {
-    border-radius: 4px !important; /* Remove border radius */
+    border-radius: 8px !important; /* Remove border radius */
+  margin-right:4px;
+
 }
 
 .modify-btn {
@@ -341,7 +347,7 @@ h6{
     //border-radius: 50rem;
     position: absolute;
     //background-color: #eb402b;
-    background-image: linear-gradient(to right, #ed2112, #e01329, #cf0f37, #bd1541, #a91d48);
+    background-image: linear-gradient(to right,var(--primary-color-400), var(--primary-color-500), var(--primary-color-600), var(--primary-color-600));background-image: linear-gradient(to right,var(--primary-color-400), var(--primary-color-500), var(--primary-color-600), var(--primary-color-600));
     top: 15px;
     left: -40px;
     color: #fff;
@@ -391,3 +397,5 @@ h6{
   scrollbar-width: thin;        /* "auto" | "thin" | "none" */
   scrollbar-color: #bbb #f1f1f1; /* thumb + track */
 }
+
+
