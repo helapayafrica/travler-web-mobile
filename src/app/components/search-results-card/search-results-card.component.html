@@ -54,9 +54,11 @@
               <span class="text-muted mx-2">—</span>
               <span style="font-size: 15px" class="mb-0 text-muted">{{ item.arrival_time }}</span>
             </div>
-            <div class="text-muted small">
-              <span *ngFor="let schedule of item.defaultTripPriceList; let last = last">
-                ({{ schedule.amount | number }} {{ schedule.seatType }}{{ !last ? ', ' : '' }})
+            <div class="text-info-emphasis small">
+              <span
+                style="font-size: 14px"
+                *ngFor="let schedule of item.defaultTripPriceList; let last = last">
+                ( {{ schedule.seatType }} : {{ schedule.amount | number }} {{ !last ? ', ' : '' }})
               </span>
             </div>
           </div>
@@ -67,7 +69,7 @@
               {{ getPreferredAmount(item) | number }}
             </div>
             <div class="small mb-1">
-              {{ getPreferredSeat(item)?.seatType }}
+              {{ getPreferredSeat(item)?.seatType | uppercase }}
             </div>
           </div>
         </div>
