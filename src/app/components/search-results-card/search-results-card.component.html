@@ -177,11 +177,14 @@
       </div>
 
       <!-- Close button -->
-      <div class="text-end pb-2 my-4">
-        <button class="btn btn-sm btn-outline-primary" (click)="toggleCollapse(i)">
+      <div class="text-end pb-2 mt-3">
+        <button
+          class="btn btn-sm btn-outline-secondary bg-secondary-subtle d-flex align-items-center rounded-3 text-dark"
+          (click)="toggleCollapse(i)">
           <i class="bi bi-chevron-bar-up me-1"></i>
-          <span>Close</span>
+          Close
         </button>
+
       </div>
     </p-drawer>
   </div>
