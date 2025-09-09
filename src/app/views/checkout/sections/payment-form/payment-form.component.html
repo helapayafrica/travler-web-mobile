@@ -1,125 +1,7 @@
 <!--<div class="section">-->
 <!--  <div class="container app-container">-->
 <!--    <div class="section-title mt-4">-->
-<!--      <h5>MAKE PAYMENTS</h5>-->
-<!--    </div>-->
-<!--    <div class="row">-->
-<!--      <div class="col-12 col-md-6 col-lg-8 vstack">-->
-<!--        <div class="card m-0">-->
-<!--          <div class="card-header border-0 d-flex justify-content-between align-items-center">-->
-<!--            <h5 class="card-title mb-0">Payment Details</h5>-->
-<!--            <span class="badge fs-6">Remaing Time : {{ formattedTime }}</span>-->
-<!--          </div>-->
-<!--          <div class="card-body">-->
-<!--            <form [formGroup]="paymentForm" class="row needs-validation">-->
-<!--              <div class="col-12">-->
-<!--                <label class="form-label">Select Payment Method</label>-->
-<!--                <div class="d-flex gap-1">-->
-<!--                  <div class="form-check">-->
-<!--                    <input class="form-check-input" type="radio" formControlName="paymentMethod" id="mpesa"-->
-<!--                           value="mpesa" (change)="updatePlaceholder()">-->
-<!--                    <label class="form-check-label" for="mpesa">-->
-<!--                      <img src="assets/mpesa.png" alt="Mpesa" width="80">-->
-<!--                    </label>-->
-<!--                  </div>-->
-<!--                  <div class="form-check">-->
-<!--                    <input class="form-check-input" type="radio" formControlName="paymentMethod" id="airtel"-->
-<!--                           value="airtel" (change)="updatePlaceholder()">-->
-<!--                    <label class="form-check-label" for="airtel">-->
-<!--                      <img src="assets/airtel.png" alt="Airtel Money" width="80">-->
-<!--                    </label>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="col-12">-->
-<!--                <label class="form-label">Mobile Number</label>-->
-<!--                <div class="col-sm-12">-->
-<!--                  <div class="row">-->
-<!--                    <div class="col-sm-3">-->
-<!--                      <label for="price" class="form-label">Code</label>-->
-<!--                      <select class="form-select" formControlName="countryCode" (change)="updateValidation()">-->
-<!--                        <option value="">Select Phone Code</option>-->
-<!--                        <option *ngFor="let code of countryCodes" [value]="code.code">+{{ code.code }}-->
-<!--                          ({{ code.country }})-->
-<!--                        </option>-->
-<!--                      </select>-->
-<!--                    </div>-->
-<!--                    <div class="col-sm-5">-->
-<!--                      <label for="phone_number" class="form-label">Phone Number</label>-->
-<!--                      <div class="input-group">-->
-<!--                        <span class="input-group-text"><i class="bi bi-telephone-plus"></i></span>-->
-<!--                        <input type="number" class="form-control" formControlName="mobileNumber">-->
-<!--                      </div>-->
-<!--                      <div class="invalid-feedback"-->
-<!--                           *ngIf="paymentForm.get('mobileNumber')?.invalid && paymentForm.get('mobileNumber')?.touched">-->
-<!--                        Please enter a valid mobile number.-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <form [formGroup]="promotionForm" class="row g-2 needs-validation">-->
-<!--                <div class="col-sm-12">-->
-<!--                  <div class="row">-->
-<!--                    <div class="col-sm-5">-->
-<!--                      <label for="phone_number" class="form-label">Voucher Code</label>-->
-<!--                      <div class="input-group">-->
-<!--                        <span class="input-group-text"><i class="bi bi-gift"></i></span>-->
-<!--                        <input type="text" class="form-control" formControlName="code" placeholder="Voucher code ..">-->
-<!--                      </div>-->
-<!--                      <div class="invalid-feedback"-->
-<!--                           *ngIf="promotionForm.get('promotionForm')?.invalid && promotionForm.get('code')?.touched">-->
-<!--                        Please voucher code-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-sm-4">-->
-<!--                      <button class="btn btn-success" style="margin-top: 32px;">Apply Voucher</button>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </form>-->
-<!--              <div class="col-12 hstack my-3">-->
-<!--                <i class="bi bi-exclamation-circle-fill text-warning fs-5 me-2"></i>-->
-<!--                <p class="mb-0"><strong>Note:</strong> Once seats are selected and paid for, tickets are <strong>non-refundable</strong>.-->
-<!--                </p>-->
-<!--              </div>-->
-<!--              <div class="col-12">-->
-<!--                <div class="form-check">-->
-<!--                  <input class="form-check-input" type="checkbox" formControlName="consent">-->
-<!--                  <label class="form-check-label small">-->
-<!--                    By proceeding, I consent to iabiri collecting, processing, and storing my information in accordance-->
-<!--                    with the-->
-<!--                    <a href="#" target="_blank">Privacy Policy</a> and <a href="#" target="_blank">Terms and-->
-<!--                    Conditions</a>.-->
-<!--                  </label>-->
-<!--                  <div class="invalid-feedback"-->
-<!--                       *ngIf="paymentForm.get('consent')?.invalid && paymentForm.get('consent')?.touched">-->
-<!--                    You must agree to the terms before proceeding.-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </form>-->
-<!--          </div>-->
-<!--          <div class="card-footer border-0 text-end">-->
-<!--            <button class="btn btn-primary btn-sm py-2 px-3 rounded-pill"-->
-<!--                    [disabled]="isTimeExpired || paymentForm.invalid" (click)="submitPayment()">Proceed to Payment-->
-<!--            </button>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col-12 col-md-6 col-lg-4 vstack gap-2">-->
-<!--        <app-checkout-bus-info></app-checkout-bus-info>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-
-
-
-<!--<div class="section">-->
-<!--  <div class="container app-container">-->
-<!--    <div class="section-title mt-4">-->
-<!--      <h5>MAKE PAYMENTS</h5>-->
+<!--      <h5 class="fw-bold">MAKE PAYMENTS</h5>-->
 <!--    </div>-->
 
 <!--    <div class="row g-4 align-items-start">-->
@@ -127,50 +9,56 @@
 <!--      &lt;!&ndash; Left Column: Payment Details &ndash;&gt;-->
 <!--      <div class="col-12 col-lg-8">-->
 <!--        <div class="card shadow-sm border-0 rounded-3 p-4 h-100">-->
-<!--          <div class="">-->
+<!--          <div>-->
 
 <!--            &lt;!&ndash; Title + Timer &ndash;&gt;-->
 <!--            <div class="d-flex justify-content-between align-items-center mb-4">-->
 <!--              <h4 class="fw-bold mb-0">Payment Details</h4>-->
-<!--              <span-->
-<!--                style="font-size: 12px;"-->
-<!--                class="badge bg-light text-white rounded-pill px-3 py-2">-->
-<!--              {{ formattedTime }} Remaining-->
-<!--            </span>-->
+<!--              <span class="badge bg-danger text-white rounded-pill px-3 py-2 small">-->
+<!--                ⏱ {{ formattedTime }} Remaining-->
+<!--              </span>-->
 <!--            </div>-->
 
 <!--            <form [formGroup]="paymentForm" class="needs-validation">-->
+
+<!--              &lt;!&ndash; Payment Method &ndash;&gt;-->
 <!--              <div class="mb-4">-->
-<!--                                <label class="form-label">Select Payment Method</label>-->
-<!--                                <div class="d-flex gap-1">-->
-<!--                                  <div class="form-check">-->
-<!--                                    <input class="form-check-input" type="radio" formControlName="paymentMethod" id="mpesa"-->
-<!--                                           value="mpesa" (change)="updatePlaceholder()">-->
-<!--                                    <label class="form-check-label" for="mpesa">-->
-<!--                                      <img src="assets/mpesa.png" alt="Mpesa" width="80">-->
-<!--                                    </label>-->
-<!--                                  </div>-->
-<!--                                  <div class="form-check">-->
-<!--                                    <input class="form-check-input" type="radio" formControlName="paymentMethod" id="airtel"-->
-<!--                                           value="airtel" (change)="updatePlaceholder()">-->
-<!--                                    <label class="form-check-label" for="airtel">-->
-<!--                                      <img src="assets/airtel.png" alt="Airtel Money" width="80">-->
-<!--                                    </label>-->
-<!--                                  </div>-->
-<!--                                </div>-->
-<!--                              </div>-->
+<!--                <label class="form-label fw-semibold">Select Payment Method</label>-->
+<!--                <div class="d-flex gap-3">-->
+<!--                  &lt;!&ndash; Mpesa &ndash;&gt;-->
+<!--                  <label class="flex-fill border rounded-3 p-2 text-center cursor-pointer"-->
+<!--                         [ngClass]="{'border-success bg-light': paymentForm.value.paymentMethod === 'mpesa'}">-->
+<!--                    <input class="d-none" type="radio" formControlName="paymentMethod" id="mpesa"-->
+<!--                           value="mpesa" (change)="updatePlaceholder()">-->
+<!--                    <img src="assets/mpesa.png" alt="Mpesa" width="80" class="mb-1"><br>-->
+<!--                    <span class="fw-bold small">Mpesa</span>-->
+<!--                  </label>-->
 
+<!--                  &lt;!&ndash; Airtel &ndash;&gt;-->
+<!--                  <label class="flex-fill border rounded-3 p-2 text-center cursor-pointer"-->
+<!--                         [ngClass]="{'border-danger bg-light': paymentForm.value.paymentMethod === 'airtel'}">-->
+<!--                    <input class="d-none" type="radio" formControlName="paymentMethod" id="airtel"-->
+<!--                           value="airtel" (change)="updatePlaceholder()">-->
+<!--                    <img src="assets/airtel.png" alt="Airtel Money" width="80" class="mb-1"><br>-->
+<!--                    <span class="fw-bold small">Airtel Money</span>-->
+<!--                  </label>-->
+<!--                </div>-->
+<!--              </div>-->
 
+<!--              &lt;!&ndash; Phone Number &ndash;&gt;-->
 <!--              <div class="mb-4">-->
 <!--                <label class="form-label fw-semibold">Phone Number</label>-->
 <!--                <div class="input-group">-->
-<!--                  <select class="form-select flex-shrink-0" style="max-width: 110px;" formControlName="countryCode" (change)="updateValidation()">-->
+<!--                  <select class="form-select flex-shrink-0" style="max-width: 110px;"-->
+<!--                          formControlName="countryCode" (change)="updateValidation()">-->
 <!--                    <option value="">+Code</option>-->
 <!--                    <option *ngFor="let code of countryCodes" [value]="code.code">-->
 <!--                      +{{ code.code }}-->
 <!--                    </option>-->
 <!--                  </select>-->
-<!--                  <input type="tel" class="form-control" placeholder="Enter phone number" formControlName="mobileNumber">-->
+<!--                  <input type="tel" class="form-control"-->
+<!--                         placeholder="700 000 000"-->
+<!--                         formControlName="mobileNumber">-->
 <!--                </div>-->
 <!--                <div class="invalid-feedback"-->
 <!--                     *ngIf="paymentForm.get('mobileNumber')?.invalid && paymentForm.get('mobileNumber')?.touched">-->
@@ -178,41 +66,51 @@
 <!--                </div>-->
 <!--              </div>-->
 
-
-<!--              <div class="mb-4 p-3 rounded-3 bg-light">-->
-<!--                <label class="form-label fw-semibold">Have a Voucher?</label>-->
-<!--                <div class="input-group">-->
-<!--                  <input type="text" class="form-control rounded-2" formControlName="code" placeholder="Voucher code">-->
-<!--                  <button class="btn btn-success rounded-2 ms-2" type="button">Apply</button>-->
+<!--              &lt;!&ndash; Voucher (collapsible) &ndash;&gt;-->
+<!--              <div class="mb-4">-->
+<!--                <a class="text-decoration-none small text-primary"-->
+<!--                   data-bs-toggle="collapse" href="#voucherCollapse">-->
+<!--                  Have a voucher?-->
+<!--                </a>-->
+<!--                <div id="voucherCollapse" class="collapse mt-2">-->
+<!--                  <div class="input-group">-->
+<!--                    <input type="text" class="form-control rounded-2"-->
+<!--                           formControlName="countryCode" placeholder="Voucher code">-->
+<!--                    <button class="btn btn-outline-success rounded-2" type="button">Apply</button>-->
+<!--                  </div>-->
 <!--                </div>-->
 <!--              </div>-->
 
-
+<!--              &lt;!&ndash; Note &ndash;&gt;-->
 <!--              <div class="alert alert-warning d-flex align-items-center py-2">-->
 <!--                <i class="bi bi-exclamation-triangle-fill me-2"></i>-->
-<!--                <strong class="fw-semibold">Note:</strong> Once seats are selected and paid for, tickets are <strong class="ms-1 fw-semibold">non-refundable</strong>.- -->
+<!--                <span class="small">-->
+<!--                  <strong>Note:</strong> Once seats are selected and paid for,-->
+<!--                  tickets are <b>non-refundable</b>.-->
+<!--                </span>-->
 <!--              </div>-->
 
 <!--              &lt;!&ndash; Consent &ndash;&gt;-->
-<!--              <div class="form-check mb-4">-->
-<!--                <input class="form-check-input" type="checkbox" formControlName="consent" id="consentCheck">-->
-<!--                <label class="form-check-label small" for="consentCheck">-->
-<!--                  By proceeding, I consent to iabiri collecting, processing, and storing my information in accordance with the-->
+<!--              <div class="form-check mb-4 small">-->
+<!--                <input class="form-check-input" type="checkbox"-->
+<!--                       formControlName="consent" id="consentCheck">-->
+<!--                <label class="form-check-label" for="consentCheck">-->
+<!--                  By proceeding, I consent to iabiri collecting and storing my information-->
+<!--                  in accordance with the-->
 <!--                  <a href="#" target="_blank">Privacy Policy</a> and-->
-<!--                  <a href="#" target="_blank">Terms and Conditions</a>.-->
+<!--                  <a href="#" target="_blank">Terms & Conditions</a>.-->
 <!--                </label>-->
 <!--              </div>-->
 
 <!--              &lt;!&ndash; Submit &ndash;&gt;-->
 <!--              <div class="d-flex justify-content-end">-->
-<!--                <button class="btn btn-success py-2 rounded-5 fs-6 fw-semibold"-->
-<!--                           [disabled]="isTimeExpired || paymentForm.invalid"-->
-<!--                           (click)="submitPayment()">-->
-<!--                Pay Now with {{ paymentForm.value.paymentMethod | titlecase }}-->
-<!--              </button>-->
-
+<!--                <button class="btn btn-success py-2 px-4 rounded-pill fs-6 fw-semibold shadow"-->
+<!--                        [disabled]="isTimeExpired || paymentForm.invalid"-->
+<!--                        (click)="submitPayment()">-->
+<!--                  <i class="bi bi-lock-fill me-2"></i>-->
+<!--                  Pay Securely with {{ paymentForm.value.paymentMethod | titlecase }}-->
+<!--                </button>-->
 <!--              </div>-->
-
 
 <!--            </form>-->
 <!--          </div>-->
@@ -221,25 +119,33 @@
 
 <!--      &lt;!&ndash; Right Column: Bus Info &ndash;&gt;-->
 <!--      <div class="col-12 col-lg-4">-->
-<!--          <app-checkout-bus-info></app-checkout-bus-info>-->
+<!--        <app-checkout-bus-info></app-checkout-bus-info>-->
 <!--      </div>-->
 
 <!--    </div>-->
 <!--  </div>-->
 <!--</div>-->
 
-
-
 <div class="section">
-  <div class="container app-container">
+  <div class="container">
     <div class="section-title mt-4">
-      <h5 class="fw-bold">MAKE PAYMENTS</h5>
+      <h6 class="fw-bolder">TICKET CHECKOUT</h6>
     </div>
 
-    <div class="row g-4 align-items-start">
+    <div class="text-end mb-2">
+      <p-button
+        label="View Bus Info"
+        icon="bi bi-info-circle"
+        (click)="busInfoVisible = true"
+        styleClass="p-button p-button-sm mt-2">
+      </p-button>
+    </div>
 
-      <!-- Left Column: Payment Details -->
-      <div class="col-12 col-lg-8">
+
+
+    <div class="row app-container">
+      <!-- Left side: booking form -->
+      <div class="col-12 col-md-6 col-lg-8 vstack gap-2">
         <div class="card shadow-sm border-0 rounded-3 p-4 h-100">
           <div>
 
@@ -307,7 +213,7 @@
                 <div id="voucherCollapse" class="collapse mt-2">
                   <div class="input-group">
                     <input type="text" class="form-control rounded-2"
-                           formControlName="code" placeholder="Voucher code">
+                           formControlName="countryCode" placeholder="Voucher code">
                     <button class="btn btn-outline-success rounded-2" type="button">Apply</button>
                   </div>
                 </div>
@@ -336,7 +242,7 @@
 
               <!-- Submit -->
               <div class="d-flex justify-content-end">
-                <button class="btn btn-success py-2 px-4 rounded-pill fs-6 fw-semibold shadow"
+                <button class="btn btn-success py-2 px-4 rounded-pill fs-6 fw-semibold shadow w-100"
                         [disabled]="isTimeExpired || paymentForm.invalid"
                         (click)="submitPayment()">
                   <i class="bi bi-lock-fill me-2"></i>
@@ -347,13 +253,26 @@
             </form>
           </div>
         </div>
-      </div>
+        <!-- Button to toggle drawer -->
 
-      <!-- Right Column: Bus Info -->
-      <div class="col-12 col-lg-4">
-        <app-checkout-bus-info></app-checkout-bus-info>
       </div>
-
     </div>
   </div>
 </div>
+
+<!-- Drawer for Bus Info -->
+<p-drawer
+  header="Bus Information"
+  [(visible)]="busInfoVisible"
+  position="bottom"
+  class="p-2"
+  [style]="{height: '700px'}">
+  <app-checkout-bus-info></app-checkout-bus-info>
+
+  <div class="mt-2">
+    <button
+    class="btn btn-success py-2 px-4 rounded-pill fs-6 fw-semibold shadow w-100"
+    (click)="busInfoVisible = false"
+    > Proceed to Pay </button>
+  </div>
+</p-drawer>

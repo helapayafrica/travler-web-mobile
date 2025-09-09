@@ -2,9 +2,6 @@ import { Routes } from '@angular/router';
 import {HomeComponent} from './views/home/home.component';
 import {PageNotFoundComponent} from './views/page-not-found/page-not-found.component';
 
-
-
-
 export const routes: Routes = [
   {
     path:'',
@@ -40,6 +37,14 @@ export const routes: Routes = [
   {
     path: 'payment',
     loadComponent: () => import('./views/checkout/sections/payment-form/payment-form.component').then(m => m.PaymentFormComponent),
+  },
+  {
+    path: 'contact',
+    loadComponent: () => import('./contactus/contactus.component').then(m => m.ContactusComponent)
+  },
+  {
+    path: 'about',
+    loadComponent: () => import('./aboutus/aboutus.component').then(m => m.AboutusComponent)
   },
   {
     path: 'ticket',

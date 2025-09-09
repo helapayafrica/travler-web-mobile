@@ -1,4 +1,4 @@
-import {Component, inject, OnInit} from '@angular/core';
+ import {Component, inject, OnInit} from '@angular/core';
 import {Router, RouterLink} from '@angular/router';
 import {TypeaheadModule} from 'ngx-bootstrap/typeahead';
 import {
@@ -342,7 +342,7 @@ export function returnDateAfterTravelValidator(): ValidatorFn {
       group.get('return_date')?.setErrors(null);
       return null;
     }
-    return d2 >= d1 ? null : {returnDateAfterTravel: true}
+    return d2 > d1 ? null : {returnDateAfterTravel: true}
   }
 }
 

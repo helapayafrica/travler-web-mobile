@@ -28,37 +28,48 @@
 
 
       <a *ngIf="!loggedIn" class="nav-link" (click)="offcanvas.dismiss()" routerLink="/signup">
-        <i class="bi bi-person me-2"></i>
+        <i class="bi bi-person-plus me-2"></i>
         Sign up
       </a>
-      <a *ngIf="!loggedIn"  class="nav-link" (click)="offcanvas.dismiss()" routerLink="/login">
+      <a *ngIf="!loggedIn" class="nav-link" (click)="offcanvas.dismiss()" routerLink="/login">
+        <i class="bi bi-box-arrow-in-right me-2"></i>
         Sign in
       </a>
 
 
-      <a *ngIf="loggedIn && isAgent"  class="nav-link" (click)="offcanvas.dismiss()" routerLink="/user-profile/dashboard">
+      <a *ngIf="loggedIn && isAgent" class="nav-link" (click)="offcanvas.dismiss()" routerLink="/user-profile/dashboard">
+        <i class="bi bi-speedometer2 me-2"></i>
         Dashboard
       </a>
-      <a *ngIf="loggedIn"  class="nav-link" (click)="offcanvas.dismiss()" routerLink="/user-profile/bookings">
+
+      <a *ngIf="loggedIn" class="nav-link" (click)="offcanvas.dismiss()" routerLink="/user-profile/bookings">
+        <i class="bi bi-calendar-check me-2"></i>
         Bookings
       </a>
-      <a *ngIf="loggedIn"  class="nav-link"  (click)="offcanvas.dismiss()" routerLink="/user-profile/wallet">
+
+      <a *ngIf="loggedIn" class="nav-link" (click)="offcanvas.dismiss()" routerLink="/user-profile/wallet">
+        <i class="bi bi-wallet2 me-2"></i>
         Wallet
-    </a>
-      <a *ngIf="loggedIn"  class="nav-link" (click)="offcanvas.dismiss()" routerLink="/user-profile/account">
+      </a>
+      <a *ngIf="loggedIn" class="nav-link" (click)="offcanvas.dismiss()" routerLink="/user-profile/account">
+        <i class="bi bi-person-gear me-2"></i>
         My Account
-    </a>
-      <a *ngIf="loggedIn"  class="nav-link" (click)="offcanvas.dismiss()" routerLink="/user-profile/change-password">
+      </a>
+
+      <a *ngIf="loggedIn" class="nav-link" (click)="offcanvas.dismiss()" routerLink="/user-profile/change-password">
+        <i class="bi bi-key me-2"></i>
         Change Password
-    </a>
+      </a>
 
-
-      <a *ngIf="loggedIn && isAgent"  class="nav-link" (click)="offcanvas.dismiss()" routerLink="/user-profile/user-list">
+      <a *ngIf="loggedIn && isAgent" class="nav-link" (click)="offcanvas.dismiss()" routerLink="/user-profile/user-list">
+        <i class="bi bi-people me-2"></i>
         Users List
       </a>
 
       <div class="dropdown-divider"></div>
-      <a *ngIf="loggedIn"  class="text-danger nav-link" (click)="logout();offcanvas.dismiss();">
+
+      <a *ngIf="loggedIn" class="text-danger nav-link" (click)="logout();offcanvas.dismiss();">
+        <i class="bi bi-box-arrow-right me-2"></i>
         Logout
       </a>
 

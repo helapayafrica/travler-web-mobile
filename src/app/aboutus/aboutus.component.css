@@ -1,0 +1,25 @@
+.container {
+  padding-top: 3rem;
+}
+
+p {
+  padding: 0px !important;
+  margin: 4px !important;
+  font-size: 16px !important;
+  font-weight: 400;
+}
+
+ul li {
+  font-size: 16px !important;
+}
+
+ul {
+  padding: 12px;
+}
+
+li {
+  list-style: none;
+  line-height: 1.6rem;
+  letter-spacing: 0.01rem;
+  font-size: 18px;
+}/*# sourceMappingURL=aboutus.component.css.map */

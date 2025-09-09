@@ -1,0 +1,8 @@
+{
+  "/globalApi/**": {
+    "target": "https://api.iabiri.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

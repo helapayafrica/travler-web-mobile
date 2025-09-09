@@ -51,14 +51,14 @@ export class CouponInsuredService {
 
   // Fixed computed helper signals
   protectedPassengersCount = computed(() => {
-    const insuredSeats = this.insuredSeats();
+    const insuredSeatss = this.insuredSeats();
     const passengers = this.passengerData();
 
     // Count unique passengers who have at least one insured seat
     const insuredPassengerIds = new Set<string>();
 
     passengers.forEach(passenger => {
-      const hasInsuredSeat = insuredSeats.some(seat =>
+      const hasInsuredSeat = insuredSeatss.some(seat =>
         seat.seat_name === passenger.onwardSeat ||
         seat.seat_name === passenger.returnSeat
       );
@@ -82,8 +82,12 @@ export class CouponInsuredService {
 
   // Initialize booking data - enhanced to track passengers properly
   initializeBooking(bookingData: any) {
-    const total = bookingData.ticketDetail.onwardticket?.total ||
-      bookingData.ticketDetail.returnticket?.total || 0;
+    // const total = bookingData.ticketDetail.onwardticket?.total ||
+    //   bookingData.ticketDetail.returnticket?.total || 0;
+    const total =
+      (bookingData.ticketDetail.onwardticket?.total ?? 0) +
+      (bookingData.ticketDetail.returnticket?.total ?? 0);
+
 
     // Build passenger data structure to avoid double counting
     const passengers: any[] = [];

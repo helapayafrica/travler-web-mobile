@@ -16,3 +16,7 @@
   min-height: 2rem;        /* shrink the header height */
 }
 
+.active-crumb {
+  font-weight: bold;
+  color: #0d6efd; /* Bootstrap primary */
+}

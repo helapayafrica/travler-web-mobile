@@ -1,13 +1,18 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import {map, Observable, of} from 'rxjs';
 
-export const endpoint = 'https://api.iabiri.com/appApiV1'
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { map, catchError, tap } from 'rxjs/operators';
+// export const endpoint='http://api.ma3app.com/appApi';
+// export const endpoint='http://bossapi.99synergy.com/appApi';
+// export const endpoint = 'https://api.iabiri.com/globalApi'
+export const endpoint = '/globalApi'
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class BackendService  {
+export class BackendService {
 
   constructor(private http: HttpClient) {
   }
@@ -33,9 +38,8 @@ export class BackendService  {
       map(this.extractData));
   }
 
-
   getTrips(data: any): Observable<any> {
-    return this.http.post(endpoint + '/booking/filterBuses', data).pipe(
+    return this.http.post(endpoint + '/Trips/filterBuses', data).pipe(
       map(this.extractData));
 
   }
@@ -45,11 +49,11 @@ export class BackendService  {
       map(this.extractData));
   }
   bookingTicket(data: any): Observable<any> {
-    return this.http.post(endpoint + '/booking/Save', data).pipe(
+    return this.http.post(endpoint + '/Ticket/RoundBooking', data).pipe(
       map(this.extractData));
   }
   login(data: any): Observable<any> {
-    return this.http.post(endpoint + '/AppUser/LoginUsers', data).pipe(
+    return this.http.post(endpoint + '/AppUser/UserLogin', data).pipe(
       map(this.extractData));
   }
   otpVerification(data: any): Observable<any> {
@@ -58,7 +62,7 @@ export class BackendService  {
   }
 
   verifyOtp(data: any): Observable<any> {
-    return this.http.post(endpoint + '/AppUser/UserOTPVerification', data).pipe(
+    return this.http.post(endpoint + '/AppUser/OTPVerification', data).pipe(
       map(this.extractData));
   }
 
@@ -85,34 +89,24 @@ export class BackendService  {
     return this.http.post(endpoint + '/common/GetNationality', {"sourcetype":"web"} ).pipe(
       map(this.extractData));
   }
-  getLocation(): Observable<any> {
-    return this.http.post(endpoint+'/common/getLocation',{}).pipe(
-      map(this.extractData));
-  }
 
-
-  // getCurrencies(): Observable<any> {
-  //   return this.http.get(endpoint+'/common/getCurrencyList').pipe(
-  //     map(this.extractData));
-  // }
 
   getOffers(): Observable<any> {
     return this.http.post(endpoint + '/common/getOffersList', {"currency_id":1,"sourcetype":"web"}).pipe(
       map(this.extractData));
   }
 
-
   getSeats(payload:any){
-    return this.http.post(endpoint + '/booking/getTripSeatsPrice', payload).pipe(
+    return this.http.post(endpoint + '/trips/getTripSeatsPrice', payload).pipe(
       map(this.extractData));
   }
   getDroppingBoardingPoint(payload:any){
-    return this.http.post(endpoint+"/booking/getBoardingDroppingPoints",payload).pipe(
+    return this.http.post(endpoint+"/trips/getBoardingDroppingPoints",payload).pipe(
       map(this.extractData));
   }
 
   sendOtp(data: any): Observable<any> {
-    return this.http.post(endpoint + '/AppUser/RegisterUsers', data).pipe(
+    return this.http.post(endpoint + '/AppUser/GenerateOTP', data).pipe(
       map(this.extractData));
   }
 

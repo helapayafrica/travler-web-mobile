@@ -5,9 +5,7 @@
       class="d-flex flex-column justify-content-center align-items-center tab-item"
       routerLink="/home"
       routerLinkActive="active">
-      <i
-        class=" fs-5 bi bi-house-door-fill"
-        style="height: 24px; width: 24px; font-size: 24px; color: var(--primary-color-500);"></i>
+      <i class="fs-5 bi bi-house-fill" style="height: 24px; width: 24px; font-size: 24px; color: var(--primary-color-500);"></i>
       <p class="fw-semibold tab-text">Home</p>
     </div>
 
@@ -16,9 +14,7 @@
       class="d-flex flex-column justify-content-center align-items-center tab-item"
       routerLink="user-profile/bookings"
       routerLinkActive="active">
-      <i
-        class=" fs-5 bi bi-list-ul"
-        style="height: 24px; width: 24px; font-size: 24px; color: var(--primary-color-500);"></i>
+      <i class="fs-5 bi bi-calendar-check-fill" style="height: 24px; width: 24px; font-size: 24px; color: var(--primary-color-500);"></i>
       <p class="fw-semibold tab-text">Bookings</p>
     </div>
 
@@ -27,9 +23,7 @@
       class="d-flex flex-column justify-content-center align-items-center tab-item"
       routerLink="/support"
       routerLinkActive="active">
-      <i
-        class=" fs-5 bi bi-question-circle"
-        style="height: 24px; width: 24px; font-size: 24px; color: var(--primary-color-500);"></i>
+      <i class="fs-5 bi bi-question-circle-fill" style="height: 24px; width: 24px; font-size: 24px; color: var(--primary-color-500);"></i>
       <p class="fw-semibold tab-text">Help</p>
     </div>
 
@@ -38,9 +32,7 @@
       (click)="visible = true"
       class="d-flex flex-column justify-content-center align-items-center tab-item"
       style="cursor: pointer;">
-      <i
-        class=" fs-5 bi me-2 bi-person"
-        style="height: 24px; width: 24px; font-size: 24px; color: var(--primary-color-500);"></i>
+      <i class="fs-5 bi bi-person-circle" style="height: 24px; width: 24px; font-size: 24px; color: var(--primary-color-500);"></i>
       <p class="fw-semibold tab-text">Account</p>
     </div>
   </div>
@@ -65,7 +57,7 @@
       *ngIf="!loggedIn"
       class="drawer-list-item"
       routerLink="/login">
-      <i class=" fs-5 bi me-2 bi-person"></i>
+      <i class="fs-5 bi me-2 bi-box-arrow-in-right"></i>
       Log in
     </a>
     <a
@@ -73,7 +65,7 @@
       *ngIf="!loggedIn"
       class="drawer-list-item"
       routerLink="/sign-up">
-      <i class=" fs-5 bi me-2 bi-person"></i>
+      <i class="fs-5 bi me-2 bi-person-plus"></i>
       Sign Up
     </a>
 
@@ -82,7 +74,7 @@
       *ngIf="loggedIn"
       class="drawer-list-item"
       routerLink="/user-profile/account">
-      <i class=" fs-5 bi me-2 bi-person"></i>
+      <i class="fs-5 bi me-2 bi-person-gear"></i>
       Account
     </a>
 
@@ -110,8 +102,7 @@
       (click)="logout();visible = false"
       *ngIf="loggedIn"
       class="drawer-list-item text-danger-emphasis ">
-      <i
-        class=" fs-5 bi me-2 bi-power"></i>
+      <i class="fs-5 bi me-2 bi-box-arrow-right"></i>
       Logout
     </a>
 

@@ -2,17 +2,50 @@
   <div class="search-section">
     <div class="container d-flex flex-row justify-content-between align-items-center w-100">
       <!-- bread crumb-->
-      <p-breadcrumb [model]="items" [home]="home">
-        <ng-template pTemplate="item" let-item>
-          <a class="cursor-pointer nav-item" style="text-decoration: none;" (click)="toggleForm()">
-            {{item.label || item.text}}
-          </a>
-        </ng-template>
-        <ng-template pTemplate="separator">
-          <span> > </span>
-        </ng-template>
-      </p-breadcrumb>
-      <!-- filter section-->
+<!--      <p-breadcrumb [model]="items" [home]="home">-->
+<!--        <ng-template pTemplate="item" let-item>-->
+<!--          <a class="cursor-pointer nav-item" style="text-decoration: none;" (click)="toggleForm()">-->
+<!--            {{item.label || item.text}}-->
+<!--          </a>-->
+<!--        </ng-template>-->
+<!--        <ng-template pTemplate="separator">-->
+<!--          <span> > </span>-->
+<!--        </ng-template>-->
+<!--      </p-breadcrumb>-->
+        <p-breadcrumb [model]="items" [home]="home">
+          <ng-template pTemplate="item" let-item let-index="index">
+            <!-- Home breadcrumb -->
+            <a
+              *ngIf="index === 0; else otherItems"
+              [routerLink]="item.routerLink"
+              routerLinkActive="active-crumb"
+              [routerLinkActiveOptions]="{ exact: true }"
+              style="text-decoration: none;"
+              class="cursor-pointer nav-item"
+            >
+              {{ item.label || item.text }}
+            </a>
+
+            <!-- Other breadcrumbs -->
+            <ng-template #otherItems>
+              <a
+                [routerLink]="item.routerLink"
+                routerLinkActive="active-crumb"
+                style="text-decoration: none;"
+                class="cursor-pointer nav-item"
+                (click)="toggleForm()"
+              >
+                {{ item.label || item.text }}
+              </a>
+            </ng-template>
+          </ng-template>
+
+          <ng-template pTemplate="separator">
+            <span> > </span>
+          </ng-template>
+        </p-breadcrumb>
+
+        <!-- filter section-->
 
          <p-button
           label="Filter & Sort"

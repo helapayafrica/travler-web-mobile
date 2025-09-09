@@ -6,11 +6,14 @@ import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
 import {BookingService} from '../../../../services/booking';
 import {BackendService} from '../../../../services/backend';
+import {BookingFormComponent} from '../booking-form/booking-form.component';
+import {Button} from 'primeng/button';
+import {Drawer} from 'primeng/drawer';
 
 @Component({
   selector: 'app-checkout-payment-form',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule,FormsModule,BusInfoComponent,
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, BusInfoComponent, Button, Drawer,
   ],
   templateUrl: './payment-form.component.html',
   styleUrl: './payment-form.component.scss'
@@ -125,6 +128,7 @@ export class PaymentFormComponent implements OnInit {
   }
 
   // Submit Payment Function
+  busInfoVisible: boolean = true;
   submitPayment() {
     // console.log(this.paymentForm.valid);
     if (this.paymentForm.invalid) {

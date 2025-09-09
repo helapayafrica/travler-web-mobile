@@ -4,7 +4,7 @@ import {ResultsComponent} from './sections/results/results.component';
 import {BackendService} from '../../services/backend';
 import {BookingService} from '../../services/booking';
 import {Breadcrumb} from 'primeng/breadcrumb';
-import {RouterLink} from '@angular/router';
+import {RouterLink, RouterLinkActive} from '@angular/router';
 import {PrimeTemplate} from 'primeng/api';
 import {CurrencyPipe, NgForOf, NgIf} from '@angular/common';
 import {Button, ButtonDirective} from 'primeng/button';
@@ -32,7 +32,9 @@ import {FormsModule} from '@angular/forms';
     Tab,
     CurrencyPipe,
     FormsModule,
-    TabPanels
+    TabPanels,
+    RouterLink,
+    RouterLinkActive
   ],
   templateUrl: './search.component.html',
   styleUrl: './search.component.scss'
@@ -44,7 +46,8 @@ constructor(public backendService:BackendService,public bookingService:BookingSe
 ngOnInit(): void {
     this.getPayload();
     const text = this.getTextForBreadCrumb()
-    this.items =  [{ text }];
+   const routerLink = 'search'
+    this.items =  [{ text, routerLink }];
 
 }
 

@@ -14,7 +14,7 @@ import {BottomNav} from './views/home/sections/bottom-nav/bottom-nav';
   styleUrl: './app.scss'
 })
 export class App implements OnInit, OnDestroy {
-  private readonly DESKTOP_SITE_URL = 'https://google.com'; // Change this to your desktop site URL
+  private readonly DESKTOP_SITE_URL = 'https://traveler.helapay.africa/'; // Change this to your desktop site URL
   private resizeSubscription?: any;
 
   // Signals

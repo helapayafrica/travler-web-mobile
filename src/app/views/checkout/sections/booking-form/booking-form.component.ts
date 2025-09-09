@@ -7,7 +7,6 @@ import {CouponInsuredService} from '../../../../services/coupon-insured.service'
 import {BookingService} from '../../../../services/booking';
 import {BackendService} from '../../../../services/backend';
 
-
 @Component({
   selector: 'app-checkout-booking-form',
   standalone: true,
@@ -67,8 +66,7 @@ export class BookingFormComponent implements OnInit {
         this.data.ticketDetail.returnticket.passenger[i].mobile = element.mobile
       }
     });
-    // console.log('[this booking data],', this.data)
-
+    console.log('[this booking data],', this.data)
     this.service.bookingTicket(this.data).subscribe((res) => {
       this.isSuccess = true
       this.bookingService.setConfig('booking_reference', res.booking_reference);
