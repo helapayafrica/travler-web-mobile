@@ -256,12 +256,20 @@ export class SearchComponent implements OnInit {
   setToday() {
     const today = new Date();
     this.searchForm.get('date')?.setValue(today); // directly set Date object
+    setTimeout(() => {
+      this.travelDateInput!.hideOverlay()
+    }, 0)
+
   }
 
   setTomorrow() {
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
     this.searchForm.get('date')?.setValue(tomorrow); // directly set Date object
+    this.travelDateInput!.hideOverlay()
+    setTimeout(() => {
+      this.travelDateInput!.hideOverlay()
+    }, 0)
   }
 
 
