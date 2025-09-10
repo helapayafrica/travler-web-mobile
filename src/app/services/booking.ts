@@ -9,9 +9,10 @@ export class BookingService{
   private selectedTabKey = 'selectedTab'; // Key for localStorage
   private selectedTabSubject: BehaviorSubject<string>;
   public selectedTab$: Observable<string>;
-  private referenceNumber = new BehaviorSubject<string | null>(this.getStoredReference());
-  referenceNumber$ = this.referenceNumber.asObservable();
-  private storage = window.localStorage; // Change to sessionStorage if neede
+  // private referenceNumber = new BehaviorSubject<string | null>(this.getStoredReference());
+  private referenceNumber: BehaviorSubject<string | null>;
+  referenceNumber$
+  private storage :Storage// Change to sessionStorage if neede
   private storageKey = 'tripDetails';
   payload:any={
     "source_city_id": "",
@@ -39,6 +40,11 @@ export class BookingService{
 
 
   constructor(public router:Router) {
+    this.storage = window.localStorage;
+    const initialRef = this.getStoredReference(); // ✅ safe now
+    this.referenceNumber = new BehaviorSubject<string | null>(initialRef);
+    this.referenceNumber$ = this.referenceNumber.asObservable();
+
     const savedTab = localStorage.getItem(this.selectedTabKey) || 'onward';
 
     // Initialize BehaviorSubject **inside the constructor**
@@ -50,7 +56,8 @@ export class BookingService{
   setSelectedTab(tab: string): void {
     this.selectedTabSubject.next(tab);
     // console.log(tab, typeof tab)
-    localStorage.setItem(this.selectedTabKey, tab as string);
+    // localStorage.setItem(this.selectedTabKey, tab as string);
+    localStorage.setItem(this.selectedTabKey, JSON.stringify(tab));
   }
 
 
