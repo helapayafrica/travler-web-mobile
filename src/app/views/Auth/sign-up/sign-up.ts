@@ -8,9 +8,7 @@ import Swal from 'sweetalert2';
 import {ModalService} from '../../../services/modal';
 import {BackendService} from '../../../services/backend';
 import {BookingService} from '../../../services/booking';
-import {FloatLabel} from 'primeng/floatlabel';
 import {InputText} from 'primeng/inputtext';
-import {Button} from 'primeng/button';
 import {Checkbox} from 'primeng/checkbox';
 import {DatePicker, DatePickerModule} from 'primeng/datepicker';
 import {Password} from 'primeng/password';
@@ -37,6 +35,8 @@ export class SignupComponent implements OnInit {
     fullScreenBackdrop:true,
     tertiaryColour: '#ffffff'
   };
+  today = new Date()
+  maxDOB = new Date(this.today.getFullYear() - 13, this.today.getMonth(), this.today.getDate());
 
   otpConfig = {
     length: 6,
@@ -74,7 +74,7 @@ export class SignupComponent implements OnInit {
     this.signupForm = this.fb.group({
       name: ['', [Validators.required]],
       last_name: ['', [Validators.required]],
-      date_of_birth: ['', [Validators.required, ageValidator()]],
+      date_of_birth: [ this.maxDOB, [Validators.required, ageValidator()]],
       more: [false, [Validators.required]],
       coupon_code:[''],
       gender: [''],
@@ -120,14 +120,15 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(): void {
+    console.log(' Submit Btn clicked')
     let data = this.signupForm.value
 
-    // console.log(data)
+    console.log('[Form Data]',data)
     this.loading=true;
     this.payload.device_number= Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     this.payload.phone=data.phone_number
-    this.payload.country_code=data.country_code
-    // console.log(this.payload);
+    this.payload.country_code=data.country_code.value
+    console.log('[Form payLoad]', this.payload);
     this.service.sendOtp(this.payload).subscribe((res)=>{
       this.loading=false;
       if(res.isSuccess){
@@ -179,4 +180,7 @@ export function ageValidator(): ValidationErrors | null {
 
     return null;
   };
+
+
 }
+

@@ -37,8 +37,6 @@
           <h5>
             <span *ngIf="index == 0" style="color:green;font-weight: 800;text-transform: uppercase;font-size: 15px;">Primary Passenger</span>
             <span *ngIf="index > 0" style="color:black;font-weight: 800;text-transform: uppercase;font-size: 15px;">Co Passenger</span>
-
-
           </h5>
         </div>
         <div class="col-sm-4" style="text-align:right; font-size: 0.875rem;">
@@ -46,20 +44,19 @@
           Seat :<b class="fw-semibold">{{ item.seat_name }}</b>
           <b *ngIf="data?.returnticket?.passenger"
              class="fw-semibold">, {{ data.returnticket.passenger[index].seat_name }}</b>
-
         </div>
-        <div class="col-8 col-md-6">
+        <div class="col-8 ">
           <label class="form-label" for="firstName">Name</label>
           <input [(ngModel)]="item.name" class="form-control" id="name" name="seat{{item.seat_name}}" placeholder="Name"
                  required type="text">
         </div>
-        <div class="col-4 col-md-3">
+        <div class="col-4">
           <label class="form-label" for="lastName">Age</label>
           <input [(ngModel)]="item.age" class="form-control" id="age" name="age{{item.seat_name}}" placeholder="Age"
                  required type="number">
         </div>
 
-        <div class="col-5 col-md-3">
+        <div class="col-6 mt-2">
           <label class="form-label" for="sortBy">Gender</label>
           <select [(ngModel)]="item.gender" class="form-select" id="gender" name="gender{{item.seat_name}}">
             <option value="F">Female</option>
@@ -68,20 +65,20 @@
         </div>
 
 
-        <div class="col-7 col-md-3 mb-lg-2">
+        <div class="col-6 mt-2">
           <label class="form-label" for="idNo">ID/Passport</label>
           <input [(ngModel)]="item.id_no" class="form-control" name="id_no{{item.seat_name}}" placeholder="ID Number"
                  required
                  type="number">
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-12 mt-2">
           <label class="form-label" for="idNo">Email</label>
           <input [(ngModel)]="item.email" class="form-control" name="eamil{{item.seat_name}}" placeholder="Email"
                  required
                  type="text">
         </div>
 
-        <div class="col-12 col-md-3">
+        <div class="col-12 mt-2">
           <label class="form-label" for="residence">Nationality</label>
           <input [(ngModel)]="item.nationality" [typeaheadOptionField]="'value'" [typeahead]="nationalities"
                  class="form-control"
@@ -91,7 +88,7 @@
                  type="text">
         </div>
 
-        <div class="col-sm-12">
+        <div class="col-12 mt-2">
           <div class="row mb-2">
             <div class="col-4">
               <label class="form-label" for="price">Code</label>
@@ -116,7 +113,7 @@
 
 
         <!-- Insurance Section -->
-        <div class="col-12 col-md-8 col-lg-6 mb-3">
+        <div class="col-12 col-md-8 col-lg-6 mb-3 mt-3">
           <div class="bg-white rounded-3 shadow-sm p-2 w-100 border border-1">
             <!-- Insurance Header -->
             <div class="d-flex align-items-start mb-1">

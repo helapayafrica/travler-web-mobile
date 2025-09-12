@@ -75,14 +75,31 @@ export class LoginComponent implements OnInit {
     }
 
     this.isSubmitting = true;
-    let data:any={"username":this.loginForm.value.phone_number,"password":this.loginForm.value.password,"gcm_token":"","country_code":this.loginForm.value.country_code,"sourcetype":"web"}
+    let data:any={"username":this.loginForm.value.phone_number,"password":this.loginForm.value.password,"gcm_token":"","country_code":this.loginForm.value.country_code.value,"sourcetype":"web"}
     // console.log(data);
 
-    this.service.login(data).subscribe((res)=>{
-      this.isSubmitting = false;
-      this.authService.login(res.data);
-      this.router.navigateByUrl('/');
-    })
+    // this.service.login(data).subscribe((res)=>{
+    //   this.isSubmitting = false;
+    //   this.authService.login(res.data);
+    //   this.router.navigateByUrl('/');
+    // })
+
+    this.service.login(data).subscribe({
+      next: (res) => {
+        this.isSubmitting = false;
+        this.authService.login(res.data);
+        this.router.navigateByUrl('/');
+      },
+      error: (err) => {
+        this.isSubmitting = false;
+        console.error('Login failed:', err);
+        // optionally show error message
+      },
+      complete: () => {
+        console.log('Login request completed');
+      }
+    });
+
   }
 
 }

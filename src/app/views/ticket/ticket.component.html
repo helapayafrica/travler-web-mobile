@@ -1,21 +1,26 @@
-<div class="app-container">
-  <div class="row justify-content-center w-100">
-    <div class="section">
-      <h1 class="text-start fw-bold text-white">Print Ticket</h1>
-      <form [formGroup]="printTicketForm" (ngSubmit)="onSubmit()" class="row g-3">
+<div class="container  app-container">
+  <div class="row justify-content-center">
+    <div
+      style="width: 650px;"
+      class=" section shadow p-3 bg-form">
+      <h3 class="text-start fw-bold  ">Print Ticket</h3>
+      <form [formGroup]="printTicketForm" (ngSubmit)="onSubmit()" class="row g-3 ">
 
-        <!-- Inside form -->
+        <!-- Ticket Number -->
         <div class="col-md-6">
           <label class="form-label">Ticket Number</label>
-          <input type="text" formControlName="ticketNumber" class="form-control" placeholder="Enter ticket number" />
+          <input type="text" formControlName="ticketNumber" class="form-control"
+                 placeholder="Enter your ticket number" />
           <div *ngIf="submitted && printTicketForm.controls['ticketNumber'].invalid" class="text-danger small">
             Please enter a valid ticket number
           </div>
         </div>
 
+        <!-- Mobile Number -->
         <div class="col-md-6">
           <label class="form-label">Mobile Number</label>
-          <input type="text" formControlName="mobileNumber" class="form-control" placeholder="Enter mobile number" />
+          <input type="text" formControlName="mobileNumber" class="form-control"
+                 placeholder="Enter your mobile number" />
           <div *ngIf="submitted && printTicketForm.controls['mobileNumber'].invalid" class="text-danger small">
             Please enter a valid mobile number
           </div>
@@ -31,3 +36,4 @@
     </div>
   </div>
 </div>
+

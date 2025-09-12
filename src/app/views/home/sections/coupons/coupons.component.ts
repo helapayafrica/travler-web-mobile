@@ -335,7 +335,7 @@ export class CouponsComponent implements OnInit {
       title: 'Save KES 300 on all rides above KES 1500.',
       validity: 'Valid until 15 Sep',
       code: 'RIDE300',
-      image: '/assets/WEBP/TrvlerBanners-01p.webp',
+      image: '/assets/WEBP/TrvlerBanners-01.webp',
     },
     {
       type: 'rosy',
@@ -359,7 +359,7 @@ export class CouponsComponent implements OnInit {
       title: 'Get 50% off on your next 3 rides',
       validity: 'Valid until 25 Sep',
       code: 'SAVE50',
-      image: '/assets/WEBP/TrvlerBanners-1.webp'
+      image: '/assets/WEBP/TrvlerBanners-01.webp',
     },
     {
       type: 'sky',

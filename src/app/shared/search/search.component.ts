@@ -56,8 +56,8 @@ export class SearchComponent implements OnInit {
     this.searchForm = this.fb.group({
       fromCity: ['', Validators.required],
       destinationCity: ['', Validators.required],
-      date: [this.today, [Validators.required, futureDateValidator()]],
-      return_date: [this.today, [futureDateValidator()]], // Set default to new Date()
+      date: [null, [Validators.required, futureDateValidator()]],
+      return_date: [null, [futureDateValidator()]], // Set default to new Date()
       trip_type: ['onward'],
     }, {validators: returnDateAfterTravelValidator()});
 
@@ -100,8 +100,24 @@ export class SearchComponent implements OnInit {
 
     // console.log('Raw config data:', data);
 
-    const safeDate = (val: any, fallback: Date = this.today): Date => {
-      if (!val || val === 'null' || val === 'undefined') return fallback;
+    // const safeDate = (val: any, fallback: Date = this.today): Date => {
+    //   if (!val || val === 'null' || val === 'undefined') return fallback;
+    //
+    //   if (typeof val === 'string' && val.match(/^\d{4}-\d{2}-\d{2}$/)) {
+    //     const parts = val.split('-');
+    //     const year = parseInt(parts[0], 10);
+    //     const month = parseInt(parts[1], 10) - 1;
+    //     const day = parseInt(parts[2], 10);
+    //     const d = new Date(year, month, day);
+    //     return isNaN(d.getTime()) ? fallback : d;
+    //   }
+    //
+    //   const d = new Date(val);
+    //   return isNaN(d.getTime()) ? fallback : d;
+    // };
+
+    const safeDate = (val: any, fallback?: Date): Date | null => {
+      if (!val || val === 'null' || val === 'undefined') return fallback || null; // Changed to return null
 
       if (typeof val === 'string' && val.match(/^\d{4}-\d{2}-\d{2}$/)) {
         const parts = val.split('-');
@@ -109,15 +125,16 @@ export class SearchComponent implements OnInit {
         const month = parseInt(parts[1], 10) - 1;
         const day = parseInt(parts[2], 10);
         const d = new Date(year, month, day);
-        return isNaN(d.getTime()) ? fallback : d;
+        return isNaN(d.getTime()) ? (fallback || null) : d; // Changed to return null as fallback
       }
 
       const d = new Date(val);
-      return isNaN(d.getTime()) ? fallback : d;
+      return isNaN(d.getTime()) ? (fallback || null) : d; // Changed to return null as fallback
     };
-
-    const processedTravelDate = safeDate(data.date, this.today);
-    const processedReturnDate = safeDate(data.return_date, this.today);
+    // const processedTravelDate = safeDate(data.date, this.today);
+    // const processedReturnDate = safeDate(data.return_date, this.today);
+    const processedTravelDate = data.date && data.date !== 'null' && data.date !== 'undefined' ? safeDate(data.date) : this.today;
+    const processedReturnDate = data.return_date && data.return_date !== 'null' && data.return_date !== 'undefined' ? safeDate(data.return_date) : this.today;
 
     // console.log('Processed dates:', {travel: processedTravelDate, return: processedReturnDate});
 

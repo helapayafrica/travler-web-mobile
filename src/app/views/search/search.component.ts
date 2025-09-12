@@ -12,6 +12,7 @@ import {Drawer} from 'primeng/drawer';
 import {Tab, TabList, TabPanel, TabPanels, Tabs} from 'primeng/tabs';
 import {NgxSliderModule} from '@angular-slider/ngx-slider';
 import {FormsModule} from '@angular/forms';
+import {RefineFiltersComponent} from './sections/refine-filters/refine-filters.component';
 
 @Component({
   selector: 'app-view-search',
@@ -34,7 +35,8 @@ import {FormsModule} from '@angular/forms';
     FormsModule,
     TabPanels,
     RouterLink,
-    RouterLinkActive
+    RouterLinkActive,
+    RefineFiltersComponent
   ],
   templateUrl: './search.component.html',
   styleUrl: './search.component.scss'
@@ -44,17 +46,19 @@ buses:any=[];
 constructor(public backendService:BackendService,public bookingService:BookingService){
 }
 ngOnInit(): void {
+  console.log("Search Component is initialized!")
     this.getPayload();
     const text = this.getTextForBreadCrumb()
-   const routerLink = 'search'
+   const routerLink = '/search'
     this.items =  [{ text, routerLink }];
-
 }
 
 async getPayload(){
   let data = await this.bookingService.getPayload();
+
   this.backendService.getTrips(data).subscribe((res)=>{
     this.buses=res.data
+    console.log('[All Buses]',this.buses)
   })
 }
 //BreadCrumb

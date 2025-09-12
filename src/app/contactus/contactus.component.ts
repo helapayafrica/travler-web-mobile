@@ -5,7 +5,7 @@ import {CommonModule, NgOptimizedImage} from '@angular/common';
 @Component({
   selector: 'app-contactus',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule, NgOptimizedImage],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './contactus.component.html',
   styleUrl: './contactus.component.scss'
 })

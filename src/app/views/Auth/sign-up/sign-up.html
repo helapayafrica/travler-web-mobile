@@ -1,33 +1,41 @@
-<div
-  style="margin-top: 7rem;"
-  class="container">
-  <!-- sign up  card-->
-  <div class="card shadow p-4 my-3">
-    <h2 class="text-center">Sign up</h2>
-    <form (ngSubmit)="onSubmit()" [formGroup]="signupForm">
 
+<div style="margin-top: 7rem;" class="container">
+  <!-- sign up card -->
+  <div class="card shadow p-4 my-3">
+    <h2 class="text-center mb-4">Sign up</h2>
+    <form (ngSubmit)="onSubmit()" [formGroup]="signupForm">
       <div class="row">
-        <!--      Name-->
-        <div class="mt-2 col-12">
+
+        <!-- Name -->
+        <div class="mt-3 col-12">
           <div class="d-flex flex-column gap-1">
             <label for="name">Name</label>
-            <input aria-describedby="name-help" formControlName="name" id="name" pInputText pSize="small" required
-                   type="text" placeholder="Enter your name"/>
-            <small *ngIf="signupForm.get('name')?.touched && signupForm.get('name')?.errors?.['required']"
-                   class="text-danger"
-                   id="name-help">
+            <input
+              aria-describedby="name-help"
+              formControlName="name"
+              id="name"
+              pInputText
+              pSize="small"
+              required
+              type="text"
+              placeholder="Enter your name"
+              class="w-100" />
+            <small
+              *ngIf="signupForm.get('name')?.touched && signupForm.get('name')?.errors?.['required']"
+              class="text-danger"
+              id="name-help">
               Name is required
             </small>
           </div>
         </div>
 
-        <!--        Phone Number and code-->
-        <div class="mt-2 col-4">
+        <!-- Phone Number and code -->
+        <div class="mt-3 col-4">
           <div class="d-flex flex-column gap-1">
             <label for="code">Code</label>
             <p-select
               [options]="codes"
-              class="w-100 md:w-56"
+              class="w-100"
               formControlName="country_code"
               id="code"
               optionLabel="label"
@@ -42,11 +50,19 @@
           </div>
         </div>
 
-        <div class="mt-2 col-8">
+        <div class="mt-3 col-8">
           <div class="d-flex flex-column gap-1">
             <label for="phone">Phone</label>
-            <input aria-describedby="phone-help" formControlName="phone_number" id="phone" pInputText pSize="small"
-                   required type="number" placeholder="Enter your phone number"/>
+            <input
+              aria-describedby="phone-help"
+              formControlName="phone_number"
+              id="phone"
+              pInputText
+              pSize="small"
+              required
+              type="number"
+              placeholder="Enter your phone number"
+              class="w-100" />
             <small
               *ngIf="signupForm.get('phone_number')?.touched && signupForm.get('phone_number')?.errors?.['required']"
               class="text-danger"
@@ -56,36 +72,45 @@
           </div>
         </div>
 
-        <!--        Email Address-->
-        <div class="mt-2 col-12">
+        <!-- Email Address -->
+        <div class="mt-3 col-12">
           <div class="d-flex flex-column gap-1">
             <label for="email">Email</label>
-            <input aria-describedby="email-help" formControlName="email" id="email" pInputText pSize="small" required
-                   type="email" placeholder="Enter your email"/>
-            <small *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['required']"
-                   class="text-danger"
-                   id="email-help">
+            <input
+              aria-describedby="email-help"
+              formControlName="email"
+              id="email"
+              pInputText
+              pSize="small"
+              required
+              type="email"
+              placeholder="Enter your email"
+              class="w-100" />
+            <small
+              *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['required']"
+              class="text-danger"
+              id="email-help">
               Email is required
             </small>
-            <small *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['email']"
-                   class="text-danger"
-                   id="email-format-help">
+            <small
+              *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['email']"
+              class="text-danger"
+              id="email-format-help">
               Invalid email format
             </small>
           </div>
         </div>
 
-        <!--        Gender and date of Birth-->
         <!-- Gender -->
-        <div class="mt-2 col-12">
+        <div class="mt-3 col-12">
           <div class="d-flex flex-column gap-1">
             <label for="gender">Gender</label>
             <p-select
               [options]="[
-              { label: 'Male', value: 'M' },
-              { label: 'Female', value: 'F' },
-      ]"
-              class="w-100 md:w-56"
+                { label: 'Male', value: 'M' },
+                { label: 'Female', value: 'F' }
+              ]"
+              class="w-100"
               formControlName="gender"
               id="gender"
               optionLabel="label"
@@ -94,13 +119,17 @@
           </div>
         </div>
 
-        <div class="mt-2 col-12">
+        <!-- Date of Birth -->
+        <div class="mt-3 col-12">
           <div class="d-flex flex-column gap-1">
             <label for="date-of-birth">Date of Birth</label>
-            <p-date-picker view="year" formControlName="date_of_birth"
-                           placeholder="Select your date of birth"></p-date-picker>
-
-
+            <p-date-picker
+              formControlName="date_of_birth"
+              [selectOtherMonths]="true"
+              [maxDate]="maxDOB"
+              placeholder="Select your date of birth"
+              class="w-100">
+            </p-date-picker>
             <small
               *ngIf="signupForm.get('date_of_birth')?.touched && signupForm.get('date_of_birth')?.errors?.['required']"
               class="text-danger">
@@ -114,27 +143,38 @@
           </div>
         </div>
 
-        <!--        coupon code-->
-        <div class="mt-2 col-12">
-          <div class="mt-2 col-12">
-            <div class="d-flex align-items-center gap-2">
-              <p-checkbox formControlName="more" inputId="coupon_code" name="size" value="Normal"/>
-              <label class="small" for="coupon_code">Do you have coupon code? </label>
-            </div>
+        <!-- Coupon code checkbox -->
+        <div class="mt-3 col-12">
+          <div class="d-flex align-items-center gap-2">
+            <p-checkbox
+              formControlName="more"
+              [binary]="true"
+              inputId="coupon_code"
+              name="size"
+              value="Normal" />
+            <label class="small" for="coupon_code">Do you have coupon code?</label>
           </div>
         </div>
+
+        <!-- Conditional coupon code input -->
         @if (signupForm.get('more')?.value) {
-          <div class="mt-1 col-12">
+          <div class="mt-3 col-12">
             <div class="d-flex flex-column gap-1">
               <label for="coupon">Coupon Code</label>
-              <input aria-describedby="coupon-help" formControlName="coupon_code" id="coupon" pInputText pSize="small"
-                     placeholder="Enter coupon code"/>
+              <input
+                aria-describedby="coupon-help"
+                formControlName="coupon_code"
+                id="coupon"
+                pInputText
+                pSize="small"
+                placeholder="Enter coupon code"
+                class="w-100" />
             </div>
           </div>
         }
-        <!--        Password-->
 
-        <div class="mt-2 col-6">
+        <!-- Password -->
+        <div class="mt-3 col-6">
           <div class="d-flex flex-column gap-1">
             <label for="password">Password</label>
             <p-password
@@ -146,20 +186,23 @@
               inputStyleClass="p-inputtext-sm w-100"
               placeholder="Enter password">
             </p-password>
-            <small *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['required']"
-                   class="text-danger"
-                   id="password-help">
+            <small
+              *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['required']"
+              class="text-danger"
+              id="password-help">
               Password is required
             </small>
-            <small *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['minlength']"
-                   class="text-danger"
-                   id="password-length-help">
+            <small
+              *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['minlength']"
+              class="text-danger"
+              id="password-length-help">
               Password must be at least 5 characters
             </small>
           </div>
         </div>
 
-        <div class="mt-2 col-6">
+        <!-- Confirm Password -->
+        <div class="mt-3 col-6">
           <div class="d-flex flex-column gap-1">
             <label for="confPassword">Confirm Password</label>
             <p-password
@@ -186,42 +229,47 @@
           </div>
         </div>
 
-        <div class="mt-2 col-12">
+        <!-- Terms and Conditions -->
+        <div class="mt-3 col-12">
           <div class="d-flex align-items-center gap-2">
             <p-checkbox
               formControlName="terms"
               inputId="terms"
               name="terms"
+              [binary]="true"
               class="small-checkbox"
               value="true">
             </p-checkbox>
-
             <label for="terms">I agree to the terms and conditions</label>
           </div>
-          <small *ngIf="signupForm.get('terms')?.touched && signupForm.get('terms')?.errors?.['required']"
-                 class="text-danger">
+          <small
+            *ngIf="signupForm.get('terms')?.touched && signupForm.get('terms')?.errors?.['required']"
+            class="text-danger">
             You must agree to terms and conditions
           </small>
         </div>
 
-      </div>
-      <div class="col-12 mt-3">
-        <button
-          type="submit"
-          class="w-100 rounded-pill p-2 bg-primary text-white"
-          [disabled]="signupForm.invalid || isSubmitting">
-          <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm me-2"></span>
-          {{ isSubmitting ? 'Creating Account...' : 'Sign In' }}
-        </button>
-        <!--         [disabled]="!signupForm.valid || isSubmitting"-->
-      </div>
+        <!-- Submit Button -->
+        <div class="col-12 mt-4">
+          <button
+            type="submit"
+            class="w-100 rounded-pill p-2 bg-primary text-white border-0"
+            >
+<!--            [disabled]="!signupForm.valid || isSubmitting"-->
+            <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm me-2"></span>
+            {{ isSubmitting ? 'Creating Account...' : 'Sign Up' }}
+          </button>
+        </div>
 
-      <div class="text-center mt-3">
-        <p
-          style="cursor:pointer;"
-          class="mb-0">Already have an account? <a routerLink="/login" class="text-decoration-none">Sign in</a></p>
+        <!-- Login Link -->
+        <div class="col-12 text-center mt-3">
+          <p class="mb-0">
+            Already have an account?
+            <a routerLink="/login" class="text-decoration-none">Sign in</a>
+          </p>
+        </div>
+
       </div>
     </form>
-
   </div>
 </div>

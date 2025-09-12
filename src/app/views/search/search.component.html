@@ -12,19 +12,19 @@
 <!--          <span> > </span>-->
 <!--        </ng-template>-->
 <!--      </p-breadcrumb>-->
-        <p-breadcrumb [model]="items" [home]="home">
+        <p-breadcrumb class="bg-transparent" [model]="items" [home]="home">
           <ng-template pTemplate="item" let-item let-index="index">
             <!-- Home breadcrumb -->
             <a
               *ngIf="index === 0; else otherItems"
-              [routerLink]="item.routerLink"
-              routerLinkActive="active-crumb"
-              [routerLinkActiveOptions]="{ exact: true }"
-              style="text-decoration: none;"
-              class="cursor-pointer nav-item"
+              [routerLink]="['/', item.routerLink]"
+            routerLinkActive="active-crumb"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="cursor-pointer nav-item"
             >
-              {{ item.label || item.text }}
+            {{ item.label || item.text }}
             </a>
+
 
             <!-- Other breadcrumbs -->
             <ng-template #otherItems>
@@ -47,14 +47,15 @@
 
         <!-- filter section-->
 
-         <p-button
-          label="Filter & Sort"
-          icon="bi bi-sliders2"
-          iconPos="left"
-          (click)="filterVisible=true"
-          size="small"
-          styleClass="p-button-outlined p-button-sm">
-        </p-button>
+<!--         <p-button-->
+<!--          label="Filter & Sort"-->
+<!--          icon="bi bi-sliders2"-->
+<!--          iconPos="left"-->
+<!--          (click)="filterVisible=true"-->
+<!--          size="small"-->
+<!--          styleClass="p-button-outlined p-button-sm">-->
+<!--        </p-button>-->
+      <app-search-refine-filters></app-search-refine-filters>
     </div>
 
 
@@ -69,6 +70,7 @@
     <div class="container py-3 ">
       <div class="row ">
         <div class="col-12 ">
+<!--          pass in filtered data-->
           <app-search-results [data]="buses"></app-search-results>
         </div>
       </div>
@@ -78,7 +80,6 @@
 
  <p-drawer header="Sort and Filter buses"  size="small" [(visible)]="filterVisible" position="bottom"
            [style]="{ height: 'auto', overflow: 'auto' }">
-
    <p-tabs value="0">
      <p-tablist>
        <p-tab value="0" >Price Range</p-tab>
