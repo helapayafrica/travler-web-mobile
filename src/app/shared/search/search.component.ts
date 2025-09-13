@@ -19,6 +19,7 @@ import {BookingService} from '../../services/booking';
 import {MessageService} from '../../services/message.service';
 import {BackendService} from '../../services/backend';
 import {CouponInsuredService} from '../../services/coupon-insured.service';
+ import {Tooltip} from 'primeng/tooltip';
 
 @Component({
   selector: 'app-shared-search',
@@ -27,7 +28,8 @@ import {CouponInsuredService} from '../../services/coupon-insured.service';
     CommonModule,
     DatePickerModule,
     ReactiveFormsModule,
-    TypeaheadModule
+    TypeaheadModule,
+    Tooltip
   ],
   templateUrl: './search.component.html',
   styleUrl: './search.component.scss',
@@ -320,9 +322,21 @@ export class SearchComponent implements OnInit {
       this.messageService.setMessage('returnDate')
     }
   }
-
+  //
+  // private formatDateForConfig(date: string | Date): string {
+  //   return new Date(date).toISOString().split('T')[0];
+  // }
   private formatDateForConfig(date: string | Date): string {
-    return new Date(date).toISOString().split('T')[0];
+    if (!date) return '';
+
+    const d = new Date(date);
+
+    // Use local timezone values instead of UTC
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+
+    return `${year}-${month}-${day}`;
   }
 
   private formatDateForInput(date: string | Date): string {

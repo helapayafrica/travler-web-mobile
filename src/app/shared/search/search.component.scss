@@ -528,3 +528,47 @@ input[type="radio"]:checked {
 .bg-search-card{
   background:linear-gradient(45deg, var(--gray-100), var(--gray-50));
 }
+/* styles.scss or component styles with ::ng-deep */
+::ng-deep .wide-tooltip {
+  min-width: 220px;   /* set your desired width */
+  max-width: 300px;   /* optional: prevent it from getting too wide */
+  white-space: normal; /* allow wrapping if text is long */
+}
+
+ //iINFOR Bubblle  e demo !
+
+.info-bubble {
+  //background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--secondary-color-500) 0%, var(--secondary-color-400) 100%);
+color: var(--secondary-color-800);
+  //color: white;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  box-shadow: 0 4px 8px rgba(var(--secondary-800), 0.3);
+  display: inline-block;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  margin-bottom: 4px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 8px 12px rgba(118, 75, 162, 0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pi {
+  margin-right: 8px;
+}
+
+.pi {
+  margin-right: 8px;
+}
