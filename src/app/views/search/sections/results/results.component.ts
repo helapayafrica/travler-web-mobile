@@ -13,7 +13,7 @@ import {BackendService} from '../../../../services/backend';
 
 
 @Component({
-  selector: ' app-search-results',
+  selector: 'app-search-results',
   standalone: true,
   imports: [
     SearchResultsCardComponent,

@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row bg-transparent">
       <div
         [@columnAnim]="isViewSeatOpen() ? 'hidden' : 'visible'"
         [ngClass]="isViewSeatOpen() ? 'd-none' :'col-12 col-lg-3 d-none d-lg-block'">
@@ -6,9 +6,9 @@
       </div>
 
       <div
-        [ngClass]="isViewSeatOpen() ? 'col-12 col-lg-7  d-lg-block': 'col-12 col-lg-9'">
+        [ngClass]="isViewSeatOpen() ? 'col-12 col-lg-7 d-lg-block': 'col-12 col-lg-9'">
         <div>
-          <div class="row  ">
+          <div class="row">
             <div class="col-sm-9 col-8">
               <h3 class="mb-2">Search results:</h3>
             </div>
@@ -45,7 +45,7 @@
           <!-- Tab Content -->
           <div
             style="max-height:75vh"
-            class="tab-content mt-2 overflow-y-auto my-scrollable bg-primary-subtle ">
+            class="tab-content mt-2 overflow-y-auto my-scrollable  ">
             <div id="onward" class="tab-pane fade p-0" [class.show]="selectedTab === 'onward'"
               [class.active]="selectedTab === 'onward'">
 

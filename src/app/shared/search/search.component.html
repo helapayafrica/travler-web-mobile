@@ -30,7 +30,7 @@
       </div>
     </div>
 
-    <!--    Dempo-->
+
 
 
     <div class="col-12 col-md-6 col-lg-3 d-flex flex-column flex-md-row justify-content-start gap-3 px-3 py-2">
@@ -73,7 +73,7 @@
 <!--      </div>-->
 
 <!--      Info Buble-->
-      <div class="info-bubble">
+      <div class="info-bubble mb-2">
         <i class="pi pi-info-circle"></i>
         {{ message() }}
       </div>
@@ -122,7 +122,9 @@
               (typeaheadOnSelect)="onDestinationSelected($event)"
               [typeaheadOptionField]="'city_name'"
               [typeahead]="cities"
-              pTooltip="Enter your destination city" tooltipEvent="focus"
+              pTooltip="Enter your destination city"
+              tooltipPosition="top"
+              tooltipEvent="focus"
               class="form-control p-2 border-0 "
               formControlName="destinationCity"
               id="toCity"

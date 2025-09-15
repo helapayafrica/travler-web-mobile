@@ -4,43 +4,43 @@ import {Injectable, signal} from '@angular/core';
   providedIn: 'root'
 })
 export class MessageService {
-  readonly messaga = signal('Where to?')
+  readonly message = signal('Where to?')
 
   setMessage(state: string) {
     switch (state) {
       case "fromCity":
-        this.messaga.set("Hi there!  Where will you start your journey?");
+        this.message.set("Hi there!  Where will you start your journey?");
         break;
       case "toCity":
-        this.messaga.set("Great! And where would you like to go?");
+        this.message.set("Great! And where would you like to go?");
         break;
       case "travelDate":
-        this.messaga.set("When would you like to travel?");
+        this.message.set("When would you like to travel?");
         break;
       case "returnDate":
-        // this.messaga.set("Planning a round trip? When should we bring you back?");
-        this.messaga.set("Round trip – specify return time.");
+        // this.message.set("Planning a round trip? When should we bring you back?");
+        this.message.set("Round trip – specify return time.");
         break;
       default:
-        this.messaga.set("Welcome aboard Travellers");
+        this.message.set("Welcome aboard Travellers");
     }
   }
   // setMessage(state: string) {
   //   switch (state) {
   //     case "fromCity":
-  //       this.messaga.set("🚌 Which city are you leaving from?");
+  //       this.message.set("🚌 Which city are you leaving from?");
   //       break;
   //     case "toCity":
-  //       this.messaga.set("📍 Which city are you going to?");
+  //       this.message.set("📍 Which city are you going to?");
   //       break;
   //     case "travelDate":
-  //       this.messaga.set("📅 When will you travel?");
+  //       this.message.set("📅 When will you travel?");
   //       break;
   //     case "returnDate":
-  //       this.messaga.set("🔄 When is your return trip?");
+  //       this.message.set("🔄 When is your return trip?");
   //       break;
   //     default:
-  //       this.messaga.set("👋 Welcome aboard! Let’s get started.");
+  //       this.message.set("👋 Welcome aboard! Let’s get started.");
   //   }
   // }
 
@@ -49,6 +49,6 @@ export class MessageService {
 
 
   getMessage(){
-    return this.messaga
+    return this.message
   }
 }
