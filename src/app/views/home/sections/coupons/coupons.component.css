@@ -44,7 +44,7 @@
   padding: 0.5rem 0.5rem;
   border-radius: 10px;
   font-weight: 700;
-  width: -moz-fit-content;
+  /*width: -moz-fit-content;*/
   width: fit-content;
   background: var(--secondary-color-700);
   color: white;

@@ -219,14 +219,12 @@
 @media only screen and (min-width: 1200px) and (max-width: 1899px) {
   .bus-container .bus-layout {
     max-width: 80%;
-    margin: 20px auto;
-    margin-left: -22%;
+    margin: 20px auto 20px -22%;
   }
 }
 @media only screen and (min-width: 1900px) {
   .bus-container .bus-layout {
     max-width: 70%;
-    margin: 20px auto;
-    margin-left: -75%;
+    margin: 20px auto 20px -75%;
   }
 }/*# sourceMappingURL=bus-seat-selector.component.css.map */

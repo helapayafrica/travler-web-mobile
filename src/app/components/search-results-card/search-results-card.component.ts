@@ -83,7 +83,7 @@ export class SearchResultsCardComponent implements OnChanges {
   buses: any = [];
   visible = false;
 
-  emmittedSeatData: EmmitedSeatData = {
+  emittedSeatData: EmmitedSeatData = {
     collapseState: {},
     seatData: {},
     type: '',
@@ -169,9 +169,9 @@ export class SearchResultsCardComponent implements OnChanges {
     this.visibleState[index] = !wasOpen;
 
     // Emit new state
-    this.emmittedSeatData.collapseState = { ...this.collapseState };
-    this.emmittedSeatData.type = this.type;
-    this.viewSeatOpen.emit({ ...this.emmittedSeatData });
+    this.emittedSeatData.collapseState = { ...this.collapseState };
+    this.emittedSeatData.type = this.type;
+    this.viewSeatOpen.emit({ ...this.emittedSeatData });
 
     // console.log('[Collapse state changed]', this.collapseState);
   }
@@ -212,12 +212,12 @@ export class SearchResultsCardComponent implements OnChanges {
           .subscribe({
             next: ({ seatData, droppingPoints }) => {
               this.seat_data = seatData;
-              this.emmittedSeatData.seatData = this.seat_data;
-              this.emmittedSeatData.type = this.type;
+              this.emittedSeatData.seatData = this.seat_data;
+              this.emittedSeatData.type = this.type;
 
-              // console.log('[Seat data loaded]', this.emmittedSeatData);
+              // console.log('[Seat data loaded]', this.emittedSeatData);
 
-              this.viewSeatOpen.emit({ ...this.emmittedSeatData });
+              this.viewSeatOpen.emit({ ...this.emittedSeatData });
               this.seat_data.stages = droppingPoints;
               this.busSeatService.updateSelectedSeats([]);
             },
@@ -257,12 +257,12 @@ export class SearchResultsCardComponent implements OnChanges {
           .subscribe({
             next: ({ seatData, droppingPoints }) => {
               this.seat_data = seatData;
-              this.emmittedSeatData.seatData = this.seat_data;
-              this.emmittedSeatData.type = this.type;
+              this.emittedSeatData.seatData = this.seat_data;
+              this.emittedSeatData.type = this.type;
 
-              console.log('[Seat data loaded]', this.emmittedSeatData);
+              console.log('[Seat data loaded]', this.emittedSeatData);
 
-              this.viewSeatOpen.emit({ ...this.emmittedSeatData });
+              this.viewSeatOpen.emit({ ...this.emittedSeatData });
               this.seat_data.stages = droppingPoints;
               this.busSeatService.updateSelectedSeats([]);
             },
@@ -288,9 +288,9 @@ export class SearchResultsCardComponent implements OnChanges {
 
   getSelectedBus(bus: any){
     this.selectedBusCard = bus;
-    this.emmittedSeatData.busData = bus;
-    this.emmittedSeatData.type = this.type;
-    this.viewSeatOpen.emit({ ...this.emmittedSeatData });
+    this.emittedSeatData.busData = bus;
+    this.emittedSeatData.type = this.type;
+    this.viewSeatOpen.emit({ ...this.emittedSeatData });
   }
 
   // Check the price

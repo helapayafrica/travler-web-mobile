@@ -33,7 +33,7 @@ export class App implements OnInit, OnDestroy {
 
       if (isLarge) {
         // console.log('Screen is sm or above, redirecting to desktop site...');
-        window.location.href = this.DESKTOP_SITE_URL;
+        // window.location.href = this.DESKTOP_SITE_URL;
       }
     });
   }

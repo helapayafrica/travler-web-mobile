@@ -18,6 +18,7 @@
 }
 
 .active-crumb {
-  font-weight: bold;
-  color: #0d6efd; /* Bootstrap primary */
+  //font-weight: meduim;
+  color: var(--primary-color-600); /* Bootstrap primary */
+  text-decoration: underline;
 }

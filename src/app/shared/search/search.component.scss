@@ -339,7 +339,7 @@ input[type="radio"]:checked {
   }
 
   .rounded-input-one-way {
-    border-radius: 0rem 0rem 1rem 1rem;
+    border-radius: 0 0 1rem 1rem;
   }
 
   .search-btn {
@@ -433,7 +433,6 @@ input[type="radio"]:checked {
     .rounded-input-one-way .d-flex.justify-content-between > button {
       align-self: stretch;
       margin: 0.1rem 0;
-      margin-left: 0;
       font-size: 0.75rem !important;
       padding: 0.4rem !important;
     }
@@ -473,7 +472,7 @@ input[type="radio"]:checked {
   }
 
   .rounded-input-one-way {
-    border-radius: 0rem 0rem 1rem 1rem;
+    border-radius: 0 0 1rem 1rem;
   }
 
   .form-btn {
@@ -518,7 +517,7 @@ input[type="radio"]:checked {
   }
 
   .rounded-input-one-way {
-    border-radius: 0rem 1rem 1rem 0rem;
+    border-radius: 0 1rem 1rem 0;
   }
 }
 

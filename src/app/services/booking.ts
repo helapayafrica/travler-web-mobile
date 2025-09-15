@@ -139,7 +139,7 @@ export class BookingService{
   getTripDetails(): { source_id?: string; destination_id?: string; date?: string } | any| null {
     // try {
     //   const serializedDetails = this.storage.getItem(this.storageKey);
-    //   return serializedDetails ? JSON.parse(serializedDetails) : null;
+    //   return serializedDetails? JSON.parse(serializedDetails) : null;
     // } catch (error) {
     //   console.error('Error retrieving trip details from storage', error);
     //   return null;

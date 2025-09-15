@@ -72,13 +72,13 @@ export class PaymentFormComponent implements OnInit {
     this.selectedPaymentMethod = this.paymentForm.value.paymentMethod;
     let mobileControl = this.paymentForm.get('mobileNumber');
 
-    if (this.selectedPaymentMethod === 'mpesa') {
-      mobileControl?.setValidators([Validators.required, Validators.pattern(/^07\d{8}$/)]);
-      mobileControl?.updateValueAndValidity();
-    } else {
-      mobileControl?.setValidators([Validators.required, Validators.pattern(/^07\d{8}$/)]);
-      mobileControl?.updateValueAndValidity();
-    }
+    // if (this.selectedPaymentMethod === 'mpesa') {
+    //   mobileControl?.setValidators([Validators.required, Validators.pattern(/^07\d{8}$/)]);
+    //   mobileControl?.updateValueAndValidity();
+    // } else {
+    //   mobileControl?.setValidators([Validators.required, Validators.pattern(/^07\d{8}$/)]);
+    //   mobileControl?.updateValueAndValidity();
+    // }
   }
 
   // Start a countdown timer for 10 minutes

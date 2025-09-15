@@ -1,9 +1,9 @@
-import { Component, OnInit, inject, signal, computed, effect } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import {BackendService} from '../../../../services/backend';
-import {Carousel, CarouselResponsiveOptions} from 'primeng/carousel';
+import {Carousel} from 'primeng/carousel';
 import {PrimeTemplate} from 'primeng/api';
 
 
@@ -57,10 +57,10 @@ interface User {
   referralCode: string;
 }
 
-interface FAQ {
-  question: string;
-  answer: string;
-}
+// interface FAQ {
+//   question: string;
+//   answer: string;
+// }
 
 @Component({
   selector: 'app-home-coupons',

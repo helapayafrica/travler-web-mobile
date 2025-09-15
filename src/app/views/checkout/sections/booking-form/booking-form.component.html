@@ -40,7 +40,7 @@
           </h5>
         </div>
         <div class="col-sm-4" style="text-align:right; font-size: 0.875rem;">
-          <img alt="Seat Icon" class="mb-2 me-2" height="20" src="/assets/images/seat.png" width="20">
+          <img alt="Seat Icon" class="mb-2 me-2" height="20" ngSrc="/assets/images/seat.png" width="20">
           Seat :<b class="fw-semibold">{{ item.seat_name }}</b>
           <b *ngIf="data?.returnticket?.passenger"
              class="fw-semibold">, {{ data.returnticket.passenger[index].seat_name }}</b>
@@ -117,16 +117,16 @@
           <div class="bg-white rounded-3 shadow-sm p-2 w-100 border border-1">
             <!-- Insurance Header -->
             <div class="d-flex align-items-start mb-1">
-              <img alt="Insurance" height="30" src="assets/images/britam-insurance.png" width="80">
+              <img alt="Insurance" height="30" ngSrc="assets/images/britam-insurance.png" width="80">
               <div class="ms-4"><p class="mb-0 fw-bold">Travel Insurance</p>
                 <p class="mb-0 text-success">KSH 100 per passenger</p></div>
             </div>
 
             <!-- Insurance Benefits -->
-            <div class="bg-light rounded-2 p-2 text-center shadow-sm mb-2">
-              <span class="fw-bold text-success">Full Coverage</span>
-              <p class="text-muted mb-0">Trip cancellation included</p>
-            </div>    <!-- Insurance Options -->
+<!--            <div class="bg-light rounded-2 p-2 text-center shadow-sm mb-2">-->
+<!--              <span class="fw-bold text-success">Full Coverage</span>-->
+<!--              <p class="text-muted mb-0">Trip cancellation included</p>-->
+<!--            </div>    &lt;!&ndash; Insurance Options &ndash;&gt;-->
             <div class="row g-2">
               <div class="col-6">
                 <label class="border rounded-2 p-2 d-flex justify-content-between align-items-center h-100"

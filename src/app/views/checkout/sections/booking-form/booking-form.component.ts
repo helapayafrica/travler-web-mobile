@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {CommonModule} from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {TypeaheadModule} from 'ngx-bootstrap/typeahead';
 import {Router} from '@angular/router';
 import {CouponInsuredService} from '../../../../services/coupon-insured.service';
@@ -10,7 +10,7 @@ import {BackendService} from '../../../../services/backend';
 @Component({
   selector: 'app-checkout-booking-form',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, FormsModule, TypeaheadModule,],
+  imports: [ReactiveFormsModule, CommonModule, FormsModule, TypeaheadModule, NgOptimizedImage,],
   templateUrl: './booking-form.component.html',
   styleUrl: './booking-form.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

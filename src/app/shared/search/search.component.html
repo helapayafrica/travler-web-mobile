@@ -35,54 +35,75 @@
 
     <div class="col-12 col-md-6 col-lg-3 d-flex flex-column flex-md-row justify-content-start gap-3 px-3 py-2">
 
-      <small
-        *ngIf="searchForm.get('destinationCity')?.touched && searchForm.get('destinationCity')?.hasError('required')"
-        class="text-danger me-2 fs-6 text-danger-emphasis  bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
-        To city is required. *
-      </small>
-      <small *ngIf="searchForm.get('fromCity')?.touched && searchForm.get('fromCity')?.hasError('required')"
-             class="text-danger me-2  fs-6 text-danger-emphasis  bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
-        From city is required. *
-      </small>
-      <small *ngIf="searchForm.get('date')?.touched && searchForm.get('date')?.hasError('required')"
-             class="text-danger me-2  fs-6 text-danger-emphasis  bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
-        *Date is required.
-      </small>
-      <small *ngIf="searchForm.get('date')?.touched && searchForm.get('date')?.hasError('pastDate')"
-             class="text-danger me-2  fs-6 text-danger-emphasis  bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
-        *Please select a future date.
-      </small>
-      <small *ngIf="searchForm.get('return_date')?.touched && searchForm.get('return_date')?.hasError('pastDate')"
-             class="text-danger me-2  fs-6 text-danger-emphasis  bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
-        *Please select a future return date.
-      </small>
-      <small *ngIf="searchForm.hasError('returnDateAfterTravel') && searchForm.get('return_date')?.touched"
-             class="text-danger me-2  fs-6 text-danger-emphasis  bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
-        Return date cannot be earlier than travel date.
-      </small>
+
+        @if (searchForm.get('destinationCity')?.touched &&(searchForm.get('destinationCity')!.hasError('required'))) {
+          <small class="text-danger me-2 fs-6 text-danger-emphasis  bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
+            To city is required. *
+          </small>
+      }
+
+
+      @if(searchForm.get('fromCity')?.touched && searchForm.get('fromCity')!.hasError('required')){
+        <small
+               class="text-danger me-2  fs-6 text-danger-emphasis  bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
+          From city is required. *
+        </small>
+      }
+
+      @if(searchForm.get('date')?.touched && searchForm.get('date')!.hasError('required')){
+        <small
+               class="text-danger me-2  fs-6 text-danger-emphasis  bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
+          *Date is required.
+        </small>
+      }
+
+      @if(searchForm.get('date')?.touched && searchForm.get('date')!.hasError('pastDate')){
+        <small
+               class="text-danger me-2  fs-6 text-danger-emphasis  bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
+          *Please select a future date.
+        </small>
+      }
+
+      @if( searchForm.get('return_date')?.touched && searchForm.get('return_date')!.hasError("pastDate")){
+        <small
+          class="text-danger me-2  fs-6 text-danger-emphasis  bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
+          *Please select a future return date.
+        </small>
+      }
+
+      @if(searchForm.hasError('returnDateAfterTravel') && searchForm.get('return_date')?.touched){
+        <small
+          class="text-danger me-2  fs-6 text-danger-emphasis  bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
+          Return date cannot be earlier than travel date.
+        </small>
+      }
+
 
     </div>
 
 
-    <div *ngIf="message()" class=" d-flex justify-content-start align-items-center">
-<!--      Typeriter-->
-<!--      <div class="typewriter">-->
-<!--        <p-->
-<!--          *ngIf="message()"-->
-<!--          class="mb-1" style="font-size: var(&#45;&#45;font-size);">{{ message() }}</p>-->
-<!--      </div>-->
+    @if(message()){
+      <div  class=" d-flex justify-content-start align-items-center">
+        <!--      Typewriter-->
+        <!--      <div class="typewriter">-->
+        <!--        <p-->
+        <!--          *ngIf="message()"-->
+        <!--          class="mb-1" style="font-size: var(&#45;&#45;font-size);">{{ message() }}</p>-->
+        <!--      </div>-->
 
-<!--      Info Buble-->
-      <div class="info-bubble mb-2">
-        <i class="pi pi-info-circle"></i>
-        {{ message() }}
+        <!--      Info Bubble-->
+        <div class="info-bubble mb-2">
+          <i class="pi pi-info-circle"></i>
+          {{ message() }}
+        </div>
       </div>
-    </div>
+    }
+
     <!-- Search Form -->
     <form (ngSubmit)="onSubmit()" [formGroup]="searchForm"
           class="row g-0 position-relative pb-2 justify-content-center w-100">
       <!-- From -->
-      <div [ngClass]="tripType === 'twoway' ? 'col-12 col-md-6 col-lg-2 ' : 'col-12 col-md-6 col-lg-4  '">
+      <div [ngClass]="tripType === 'twoway' ? 'col-12 col-md-6 col-lg-2' : 'col-12 col-md-6 col-lg-4'">
         <div
 
           (click)="focusInput('fromCity')"
@@ -96,7 +117,9 @@
               (typeaheadOnSelect)="onCitySelected($event)"
               [typeaheadOptionField]="'city_name'"
               [typeahead]="cities"
-              pTooltip="Enter the Boarding City" tooltipEvent="focus"
+              pTooltip="Enter the Boarding City"
+              tooltipPosition="top"
+              tooltipEvent="focus"
               class="form-control p-2 border-0"
               formControlName="fromCity"
               id="fromCity"
@@ -107,7 +130,7 @@
       </div>
 
       <!-- To -->
-      <div [ngClass]="tripType === 'twoway' ? 'col-12 col-md-6 col-lg-2 ' : 'col-12 col-md-6 col-lg-4 '">
+      <div [ngClass]="tripType === 'twoway' ? 'col-12 col-md-6 col-lg-2' : 'col-12 col-md-6 col-lg-4'">
         <div (click)="focusInput('toCity')"
              [class.invalid]="searchForm.get('destinationCity')?.invalid && searchForm.get('destinationCity')?.touched"
              class="d-flex align-items-center rounded-input second  border border-1 p-1"
@@ -160,7 +183,9 @@
                 dateFormat="dd MM,yy"
                 formControlName="date"
                 placeholder="Select date"
-                pTooltip="Choose your travel date" tooltipEvent="focus"
+                pTooltip="Choose your travel date"
+                tooltipPosition="top"
+                tooltipEvent="focus"
                 styleClass="form-control p-0">
               </p-datepicker>
             </div>
@@ -174,8 +199,9 @@
         </div>
       </div>
 
+      @if(tripType === 'twoway'){
       <!-- Return Date (conditionally shown) -->
-      <div *ngIf="tripType === 'twoway'" class="col-12 col-md-6 col-lg-3">
+      <div class="col-12 col-md-6 col-lg-3">
         <div (click)="focusInput('returnDate')"
              [class.invalid]="searchForm.get('return_date')?.invalid && searchForm.get('return_date')?.touched"
              class="d-flex align-items-center rounded-input forth border border-1 p-1"
@@ -193,14 +219,16 @@
               dateFormat="dd MM,yy"
               formControlName="return_date"
               placeholder="Select return date"
-              pTooltip="Choose your return date" tooltipEvent="focus"
+              pTooltip="Choose your return date"
+              tooltipPosition="top"
+              tooltipEvent="focus"
               styleClass="form-control p-0">
             </p-datepicker>
           </div>
 
         </div>
       </div>
-
+      }
       <div>
 
       </div>

@@ -1,8 +1,7 @@
-
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse, HttpResponse } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { map, catchError, tap } from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable, of} from 'rxjs';
+import {map} from 'rxjs/operators';
 // export const endpoint='http://api.ma3app.com/appApi';
 // export const endpoint='http://bossapi.99synergy.com/appApi';
 // export const endpoint = 'https://api.iabiri.com/globalApi'
@@ -17,8 +16,7 @@ export class BackendService {
   constructor(private http: HttpClient) {
   }
   private extractData(res: any) {
-    const body = res;
-    return body || {};
+    return res || {};
   }
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -44,7 +42,7 @@ export class BackendService {
 
   }
 
-  getBoardingDroping(data: any): Observable<any> {
+  getBoardingDropping(data: any): Observable<any> {
     return this.http.post(endpoint + '/booking/getBoardingDroppingPoints', data).pipe(
       map(this.extractData));
   }
@@ -67,7 +65,7 @@ export class BackendService {
   }
 
 
-  sigup(data: any): Observable<any> {
+  signup(data: any): Observable<any> {
     return this.http.post(endpoint + '/AppUser/RegisterUsers', data).pipe(
       map(this.extractData));
   }

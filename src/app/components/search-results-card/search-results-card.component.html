@@ -35,13 +35,56 @@
 
       <!-- Main Content Container -->
       <div class="d-flex flex-column gap-2">
-        <img src="assets/WEBP/logo.webp" height="112.5" width="75"
-             [ngClass]="item.highWayDirectRoute === 'Highway' ? 'ms-4':''"
-             class="img-thumbnail border-0 text-end" alt="logo">
+        <div class="d-flex flex-row justify-content-between align-items-start">
+          <div class="d-flex  align-items-center justify-content-start gap-3">
+            <img src="assets/WEBP/logo.webp" height="200" width="115"
+                 [ngClass]="item.highWayDirectRoute === 'Highway' ? 'ms-4':''"
+                 class="img-thumbnail border-0 text-end" alt="logo">
+
+<!--                            <div class="d-flex justify-content-end mt-1 text-end">-->
+<!--                              <span class="badge text-white d-flex align-items-center gap-1 px-2 py-1"-->
+<!--                                    style="background-color: #28a745; border-radius: 4px">-->
+<!--                                ★ {{ item.avg_rating || '4.3' }}-->
+<!--                              </span>-->
+<!--                            </div>-->
+
+          </div>
+
+
+
+          <div class="d-flex justify-content-between align-items-center">
+            <!-- Company Details -->
+            <div class="d-flex align-items-center gap-2">
+              <div>
+                <div class="d-flex align-items-center gap-2 mb-1">
+                  <span class="fw-semibold text-dark" style="font-size: 14px">{{ item.company_name }}</span>
+                  <span *ngIf="item.verified" class="text-success">
+                  <i class="bi bi-shield-check" style="font-size: 14px"></i>
+                </span>
+                </div>
+                <div class="small text-muted">
+                  {{ item.highWayDirectRoute }} • {{ item.busType || 'A/C Sleeper' }}
+                  <span *ngIf="item.amenities?.length" class="ms-1">({{ item.amenities.length }}+)</span>
+                </div>
+
+                <div class="d-flex justify-content-end mt-1 text-end">
+                  <span class="badge text-white d-flex align-items-center gap-1 px-2 py-1"
+                        style="background-color: #28a745; border-radius: 4px">
+                    ★ {{ item.avg_rating || '4.3' }}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Rating -->
+
+          </div>
+        </div>
+
 
 
         <!-- Time and Price Row -->
-        <div class="d-flex justify-content-between align-items-start pt-2">
+        <div class="d-flex flex-col justify-content-between align-items-start pt-2">
           <!-- Time Section -->
           <div>
             <div class="d-flex align-items-center gap-2 mb-1">
@@ -70,31 +113,7 @@
         </div>
 
         <!-- Company Info Row -->
-        <div class="d-flex justify-content-between align-items-center">
-          <!-- Company Details -->
-          <div class="d-flex align-items-center">
-            <div>
-              <div class="d-flex align-items-center gap-2 mb-1">
-                <span class="fw-semibold text-dark" style="font-size: 14px">{{ item.company_name }}</span>
-                <span *ngIf="item.verified" class="text-success">
-                  <i class="bi bi-shield-check" style="font-size: 14px"></i>
-                </span>
-              </div>
-              <div class="small text-muted">
-                {{ item.highWayDirectRoute }} • {{ item.busType || 'A/C Sleeper' }}
-                <span *ngIf="item.amenities?.length" class="ms-1">({{ item.amenities.length }}+)</span>
-              </div>
-            </div>
-          </div>
 
-          <!-- Rating -->
-          <div class="d-flex align-items-center gap-1">
-            <span class="badge text-white d-flex align-items-center gap-1 px-2 py-1"
-                  style="background-color: #28a745; border-radius: 4px">
-              ★ {{ item.avg_rating || '4.3' }}
-            </span>
-          </div>
-        </div>
 
         <!-- Action Button -->
         <div class="d-flex justify-content-end">

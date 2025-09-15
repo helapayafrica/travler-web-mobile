@@ -12,18 +12,21 @@
 <!--          <span> > </span>-->
 <!--        </ng-template>-->
 <!--      </p-breadcrumb>-->
-        <p-breadcrumb class="bg-transparent" [model]="items" [home]="home">
-          <ng-template pTemplate="item" let-item let-index="index">
+        <p-breadcrumb
+          [style]="{'background': 'transparent'}"
+          class="bg-transparent" [model]="items" [home]="home">
+          <ng-template
+            pTemplate="item" let-item let-index="index">
             <!-- Home breadcrumb -->
-            <a
+            <p
               *ngIf="index === 0; else otherItems"
               [routerLink]="['/', item.routerLink]"
             routerLinkActive="active-crumb"
             [routerLinkActiveOptions]="{ exact: true }"
-            class="cursor-pointer nav-item"
+            class="cursor-pointer active-crumb"
             >
             {{ item.label || item.text }}
-            </a>
+            </p>
 
 
             <!-- Other breadcrumbs -->
