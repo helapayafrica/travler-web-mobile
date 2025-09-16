@@ -112,4 +112,9 @@ export class BackendService {
     return this.http.post(endpoint + '/paymentGateway/checkMpesaPayment', data).pipe(
       map(this.extractData));
   }
+
+  getFilterOptions(data:any){
+    return this.http.post(endpoint + '/trips/getFilterOptions',data).pipe(
+      map(this.extractData));
+  }
 }

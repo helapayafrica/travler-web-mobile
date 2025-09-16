@@ -16,3 +16,14 @@ input[type="checkbox"] {
 *{
   font-size: var(--font-size);
 }
+.scroll-tabs {
+  display: flex;          /* lay tabs in a row */
+  overflow-x: auto;       /* enable horizontal scroll */
+  white-space: nowrap;    /* keep tabs on one line */
+  -webkit-overflow-scrolling: touch; /* smooth on mobile */
+}
+
+/* optional: hide scrollbar if you like */
+.scroll-tabs::-webkit-scrollbar {
+  display: none;
+}

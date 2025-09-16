@@ -148,45 +148,51 @@
 <!--</div>-->
 
 <p-button
-  label="Filter & Sort"
+  (click)="filterVisible=true"
   icon="bi bi-sliders2"
   iconPos="left"
-  (click)="filterVisible=true"
+  label="Filter & Sort"
   size="small"
   styleClass="p-button-outlined p-button-sm">
 </p-button>
 
 
-<p-drawer header="Sort and Filter buses"
-          size="small"
-          [(visible)]="filterVisible"
+<p-drawer [(visible)]="filterVisible"
+          [style]="{ height: 'auto', overflow: 'auto', maxHeight: '80vh'}"
+          header="Sort and Filter buses"
           position="bottom"
-          [style]="{ height: 'auto', overflow: 'auto' }">
+          size="small">
 
   <p-tabs value="0">
-    <p-tablist>
-      <p-tab value="0">Price Range</p-tab>
-      <p-tab value="1">Duration</p-tab>
-      <p-tab value="2">Services</p-tab>
+    <p-tablist class="scroll-tabs">
+      <p-tab value="3">Company Name</p-tab>
+      <p-tab value="4">Boarding Point</p-tab>
+      <p-tab value="5">Dropping Point</p-tab>
+      <!--      <p-tab value="0">Price Range</p-tab>-->
+      <p-tab value="6">Departure Time</p-tab>
+      <!--      <p-tab value="7">Bus Types</p-tab>-->
+
+      <!--      <p-tab value="1">Duration</p-tab>-->
+      <p-tab value="2">Amenities</p-tab>
     </p-tablist>
 
     <p-tabpanels>
       <!-- Price Range -->
-      <p-tabpanel value="0">
-        <h5 class="fs-6 fw-bold mb-2 text-muted">Price Range</h5>
-        <div class="container p-3">
-          <ngx-slider
-            [(value)]="minValue"
-            [(highValue)]="maxValue"
-            [options]="options"
-            (userChangeEnd)="onPriceChange()">
-          </ngx-slider>
-          <div class="d-flex justify-content-between mt-1 text-dark">
-            <span class="text-dark">{{ minValue | currency:'KES ' }}</span>
-            <span class="text-dark">{{ maxValue | currency:'KES ' }}</span>
-          </div>
-        </div>
-      </p-tabpanel>
+      <!--      <p-tabpanel value="0">-->
+      <!--        <h5 class="fs-6 fw-bold mb-2 text-muted">Price Range</h5>-->
+      <!--        <div class="container p-3">-->
+      <!--          <ngx-slider-->
+      <!--            [(value)]="minValue"-->
+      <!--            [(highValue)]="maxValue"-->
+      <!--            [options]="options"-->
+      <!--            (userChangeEnd)="onPriceChange()">-->
+      <!--          </ngx-slider>-->
+      <!--          <div class="d-flex justify-content-between mt-1 text-dark">-->
+      <!--            <span class="text-dark">{{ minValue | currency:'KES ' }}</span>-->
+      <!--            <span class="text-dark">{{ maxValue | currency:'KES ' }}</span>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--      </p-tabpanel>-->
 
       <!-- Duration -->
       <p-tabpanel value="1">
@@ -198,31 +204,131 @@
               <i [class]="duration.icon + ' fs-4 me-3'"></i>
               <span class="fw-semibold mb-0">{{ duration.label }}</span>
             </div>
-            <input class="form-check-input-lg"
-                   type="radio"
-                   name="duration"
+            <input [(ngModel)]="selectedDuration"
                    [value]="duration.value"
-                   [(ngModel)]="selectedDuration"
-                   (change)="onDurationChange($event)">
+                   class="form-check-input-lg"
+                   name="duration"
+                   type="radio"
+            >
           </label>
         </div>
       </p-tabpanel>
-
-      <!-- Services -->
+<!--      Amenities ✅-->
       <p-tabpanel value="2">
-        <h5 class="fs-6 fw-bold mb-2 text-muted">Services</h5>
-        <label *ngFor="let service of services"
-               class="form-check d-flex align-items-center justify-content-between border-bottom py-2 w-100 mb-0">
-          <div class="d-flex align-items-center">
-            <i [class]="service.icon + ' fs-4 me-3'"></i>
-            <span class="fw-semibold fs-6 mb-0">{{ service.label }}</span>
-          </div>
-          <input class="form-check-input-lg"
-                 type="checkbox"
-                 [(ngModel)]="service.checked"
-                 (change)="onServiceChange(service.label, $event)">
-        </label>
+        <h5 class="fs-6 fw-bold mb-2 text-muted">Amenities</h5>
+        <div class="d-flex flex-column gap-2">
+          <label *ngFor="let point of amenities;"
+                 [for]="point.id"
+                 class="block gap-2">
+            <input
+              (change)="onAmenitiesSelectionChange($event)"
+              [id]="point.id"
+              [value]="point.id"
+              class="me-2"
+              type="checkbox"
+            />
+            {{ point.name }}
+          </label>
+        </div>
       </p-tabpanel>
+<!--      Departure time ✅-->
+      <p-tabpanel value="6">
+        <h5 class="fs-6 fw-bold mb-2 text-muted">Departure time</h5>
+
+        <div class="d-flex flex-column gap-2">
+          <label *ngFor="let time of timeRanges"
+                 [for]="time.id"
+                 class="block gap-2">
+            <input
+
+              (change)="onDepartureTimeSelectionChange($event)"
+              [id]="time.id"
+              [value]="time.id"
+              class="me-2"
+              type="checkbox"
+            />
+            {{ time.name }}
+          </label>
+        </div>
+
+
+      </p-tabpanel>
+<!--      Boarding Points ✅-->
+      <p-tabpanel value="4">
+        <h5 class="fs-6 fw-bold mb-2 text-muted">Boarding Points</h5>
+
+        <div class="d-flex flex-column gap-2">
+
+          <label *ngFor="let point of boardingPoints">
+            <input
+              (change)="onBoardingPointSelectionChange($event)"
+              [value]="point.id"
+              name="boardingPoints"
+              type="checkbox"
+            />
+            {{ point.name }}
+          </label>
+        </div>
+
+
+      </p-tabpanel>
+<!--      Dropping points ✅ -->
+      <p-tabpanel value="5">
+        <h5 class="fs-6 fw-bold mb-2 text-muted">Dropping Points</h5>
+
+        <div class="d-flex flex-column gap-2">
+          <label *ngFor="let point of droppingPoints;"
+                 [for]="point.id"
+                 class="block gap-2">
+            <input
+              (change)="onDroppingPointSelectionChange($event)"
+              [id]="point.id"
+              [value]="point.id"
+              class="me-2"
+              type="checkbox"
+            />
+            {{ point.name }}
+          </label>
+        </div>
+
+
+      </p-tabpanel>
+<!--      bus /companies-->
+      <p-tabpanel value="3">
+        <h5 class="fs-6 fw-bold mb-2 text-muted">Bus Companies</h5>
+
+        <div class="d-flex flex-column gap-2">
+          <label *ngFor="let bus of busNames;" class="block gap-2">
+            <input
+      (change)="onCompanySelectionChange($event)"
+              [value]="bus.id"
+              class="me-2"
+              type="checkbox"
+            />
+            {{ bus.name }}
+          </label>
+        </div>
+
+
+      </p-tabpanel>
+      <!--      <p-tabpanel value="7">-->
+      <!--        <h5 class="fs-6 fw-bold mb-2 text-muted">Bus Types</h5>-->
+
+      <!--        <div class="d-flex flex-column gap-2">-->
+      <!--          <label *ngFor="let bus of busTypes; trackBy: trackByType" class="block gap-2">-->
+      <!--            <input-->
+      <!--              class="me-2"-->
+      <!--              type="checkbox"-->
+      <!--              [value]="bus"-->
+      <!--              [(ngModel)]="selectedBusTypes"-->
+      <!--            />-->
+      <!--            {{ bus }}-->
+      <!--          </label>-->
+      <!--        </div>-->
+
+
+      <!--      </p-tabpanel>-->
+
     </p-tabpanels>
   </p-tabs>
 
@@ -236,8 +342,8 @@
       </p-button>
     </div>
     <div class="col-6">
-      <p-button label="Save"
-                (click)="filterVisible = false"
+      <p-button (click)="filterVisible = false; applyFilter()"
+                label="Save"
                 size="large"
                 styleClass="p-button-rounded w-100">
       </p-button>
