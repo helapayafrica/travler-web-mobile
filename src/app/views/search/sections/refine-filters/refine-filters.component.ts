@@ -19,7 +19,7 @@ export class RefineFiltersComponent implements OnInit {
   bookingService = inject(BookingService)
   service = inject(BackendService)
   filterVisible: boolean = false;
-  @Output() filteredBusesChange = new EventEmitter<any>();
+  @Output() filterChangeEmitter = new EventEmitter<any>();
   minValue: number = 1000;
   maxValue: number = 5000;
   options: any = {
@@ -30,82 +30,7 @@ export class RefineFiltersComponent implements OnInit {
       return `KES ${value}`;
     }
   };
-  // Add these new properties
-  buses: any[] = [
-    {
-      "bus_id": "10206",
-      "company_name": "DREAMLINE EXPRESS",
-      "token": "5D42A68D-8353-4B2E-AB00-2270CBA4D76E",
-      "bus_type": "48 Seater",
-      "route_id": "1186",
-      "amenities": "4,5",
-      "delayedDate": 1757710800,
-      "departure_time": "08:30 AM",
-      "arrival_time": "06:15 PM",
-      "available_seat_count": 42,
-      "total_journey_time": "07:51",
-      "avg_rating": "0.0",
-      "rating_count": "0",
-      "multi_seat": false,
-      "defaultTripPriceList": [
-        {
-          "currencyCode": "KES",
-          "amount": "1200.00",
-          "seatType": "normal"
-        }
-      ],
-      "flatPriceList": [],
-      "highWayDirectRoute": "Direct",
-      "trip_code": "NRB-MSA-NYL-BAMBURI-MTW",
-      "ticket_amount": "1200.00",
-      "sort_time": 1757655000,
-      "company_logo": "https://sawaboss.com//uploads/logo/33/1698552128953.jpg",
-      "message": "",
-      "isPromotional": false,
-      "seatSelectionLimit": "0",
-      "delayedFlag": 0,
-      "delayedMsg": ""
-    },
-    {
-      "bus_id": "15578",
-      "company_name": "MASH EAST AFRICA LIMITED",
-      "token": "A40980FF-718C-4488-A136-2A712430264C",
-      "bus_type": "MASH POLO",
-      "route_id": "1562",
-      "amenities": "1,2,4,5,6",
-      "delayedDate": 1757710800,
-      "departure_time": "09:00 AM",
-      "arrival_time": "05:30 PM",
-      "available_seat_count": 30,
-      "total_journey_time": "07:46",
-      "avg_rating": "0.0",
-      "rating_count": "0",
-      "multi_seat": false,
-      "defaultTripPriceList": [
-        {
-          "currencyCode": "KES",
-          "amount": "2000.00",
-          "seatType": "vip"
-        },
-        {
-          "currencyCode": "KES",
-          "amount": "1500.00",
-          "seatType": "normal"
-        }
-      ],
-      "flatPriceList": [],
-      "highWayDirectRoute": "Direct",
-      "trip_code": "NBO - MSA",
-      "ticket_amount": "2000.00",
-      "sort_time": 1757656800,
-      "company_logo": "https://sawaboss.com//uploads/logo/126/31e8526bf34c6396314774d373007b721741250077.png",
-      "message": "",
-      "isPromotional": false,
-      "seatSelectionLimit": "0",
-      "delayedFlag": 0,
-      "delayedMsg": ""
-    },
-  ]
+
   filteredBuses: any[] = [];
   selectedServices: string[] = [];
   selectedDuration: string = '';
@@ -280,11 +205,12 @@ export class RefineFiltersComponent implements OnInit {
     const filters = {
       boardingPoints: this.selectedBoardingPoints,
       droppingPoints: this.selectedDroppingPoints,
-      departureTime: this.selectedRanges,
       amenities: this.selectedAmenities,
       companyNames: this.selectedBusNames,
+      time_range: this.selectedRanges,
     }
-    this.filteredBusesChange.emit(filters)
+    console.log('[ITMe]', this.selectedRanges,)
+    this.filterChangeEmitter.emit(filters)
 
   }
 
@@ -293,11 +219,11 @@ export class RefineFiltersComponent implements OnInit {
     const filters = {
       boardingPoints: this.selectedBoardingPoints,
       droppingPoints: this.selectedDroppingPoints,
-      departureTime: this.selectedRanges,
+      time_range: this.selectedRanges,
       amenities: this.selectedAmenities,
       companyNames: this.selectedBusNames,
     }
-    this.filteredBusesChange.emit(filters)
+    this.filterChangeEmitter.emit(filters)
   }
 
 

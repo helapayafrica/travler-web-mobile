@@ -13,6 +13,7 @@ import {Tab, TabList, TabPanel, TabPanels, Tabs} from 'primeng/tabs';
 import {NgxSliderModule} from '@angular-slider/ngx-slider';
 import {FormsModule} from '@angular/forms';
 import {RefineFiltersComponent} from './sections/refine-filters/refine-filters.component';
+import {retry} from 'rxjs';
 
 @Component({
   selector: 'app-view-search',
@@ -43,22 +44,36 @@ import {RefineFiltersComponent} from './sections/refine-filters/refine-filters.c
 })
 export class SearchComponent implements OnInit {
 buses:any=[];
+payload = {}
 constructor(public backendService:BackendService,public bookingService:BookingService){
 }
-ngOnInit(): void {
+async ngOnInit(): Promise<void> {
   console.log("Search Component is initialized!")
-    this.getPayload();
+  this.payload = await this.getPayload();
+    // this.getPayload();
+    this.fetchBuses(this.payload);
     const text = this.getTextForBreadCrumb()
    const routerLink = '/search'
     this.items =  [{ text, routerLink }];
 }
 
 async getPayload(){
-  let data = await this.bookingService.getPayload();
+  return await this.bookingService.getPayload();
+}
 
-  this.backendService.getTrips(data).subscribe((res)=>{
-    this.buses=res.data
-    console.log('[All Buses]',this.buses)
+fetchBuses(payload : any){
+  console.log("SEarching!!!")
+  this.backendService.getTrips(payload).subscribe({
+    next: (res)=>{
+      this.buses=res.data
+      console.log('[All Buses]',this.buses)
+    },
+    error: (error) => {
+      console.error('Error fetching buses:', error);
+    },
+    complete: () => {
+      console.log('Fetch complete');
+    }
   })
 }
 //BreadCrumb
@@ -106,4 +121,24 @@ items :any = []
     const destinationName = this.bookingService.getConfig('destination_name');
     return `${sourceName} to ${destinationName}`;
   }
+
+  getFilterChanges(filters: any){
+    console.log("Filters are changed!")
+    console.log(filters)
+    const newPayload = {
+      ...this.payload,
+      boarding_points: filters.boardingPoints,
+      dropping_points: filters.droppingPoints,
+      bus_with_amenities: filters.amenities,
+      time_range: filters.time_range,
+      company_id : filters.companyNames,
+    }
+    // console.log(this.payload)
+    console.log(['new!!!!'])
+    console.log(newPayload)
+
+    console.log("Wawe")
+    this.fetchBuses(newPayload);
+  }
 }
+

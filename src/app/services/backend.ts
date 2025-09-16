@@ -37,6 +37,7 @@ export class BackendService {
   }
 
   getTrips(data: any): Observable<any> {
+    console.log('[Data from payload]', data)
     return this.http.post(endpoint + '/Trips/filterBuses', data).pipe(
       map(this.extractData));
 

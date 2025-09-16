@@ -58,7 +58,7 @@
 <!--          size="small"-->
 <!--          styleClass="p-button-outlined p-button-sm">-->
 <!--        </p-button>-->
-      <app-search-refine-filters></app-search-refine-filters>
+      <app-search-refine-filters (filterChangeEmitter)="getFilterChanges($event)"  ></app-search-refine-filters>
     </div>
 
 
@@ -74,7 +74,7 @@
       <div class="row ">
         <div class="col-12 ">
 <!--          pass in filtered data-->
-          <app-search-results [data]="buses"></app-search-results>
+          <app-search-results  [data]="buses"></app-search-results>
         </div>
       </div>
     </div>
