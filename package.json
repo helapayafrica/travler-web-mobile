@@ -41,11 +41,13 @@
     "ngx-loading": "^17.0.0",
     "ngx-owl-carousel-o": "^20.0.1",
     "ngx-toastr": "^19.0.0",
+    "ngx-wheel": "^4.0.5",
     "primeng": "^20.0.1",
     "rxjs": "~7.8.0",
     "sweetalert2": "^11.22.5",
     "tailwindcss-primeui": "^0.6.1",
     "tslib": "^2.3.0",
+    "winwheel": "^1.0.1",
     "zone.js": "~0.15.0"
   },
   "devDependencies": {

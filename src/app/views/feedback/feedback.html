@@ -1,0 +1,95 @@
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6" style="margin-top: 6rem;">
+      <div class="card shadow-lg border-0 rounded-4" role="region" aria-labelledby="title">
+        <div class="card-body p-4">
+          <div class="text-center mb-4">
+            <i class="bi bi-check-circle-fill text-success display-1"></i>
+          </div>
+
+          <h1 id="title" class="text-center h2 fw-bold mb-4">Thank You for Your Purchase!</h1>
+
+          <div class="alert alert-success d-flex align-items-center" role="alert">
+            <i class="bi bi-bus-front me-3 fs-4"></i>
+            <div>Your booking has been confirmed successfully!</div>
+          </div>
+
+          <div class="mb-4">
+            <button class="btn btn-outline-info btn-sm d-flex align-items-center" (click)="togglePayDetails()" type="button" aria-expanded="false">
+              <i class="bi bi-credit-card me-2"></i>
+              View Payment Details
+            </button>
+          </div>
+
+          <!-- Payment details section -->
+          @if(payDetailsVisible) {
+            <div class="payment-details mb-4">
+              <app-checkout-bus-info></app-checkout-bus-info>
+            </div>
+          }
+
+          <!-- Rating Section -->
+          <div class="rating-section mt-4">
+            <h4><i class="bi bi-star-fill me-2 text-warning"></i>Rate Your Experience</h4>
+            <p class="text-muted">How would you rate our service?</p>
+
+            <form>
+              <!-- Star Rating -->
+              <div class="star-rating mb-3 d-flex justify-content-center">
+                <input type="radio" id="star5" name="rating" value="5" class="d-none">
+                <label for="star5" class="text-warning fs-3 me-1" style="cursor: pointer;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">★</label>
+                <input type="radio" id="star4" name="rating" value="4" class="d-none">
+                <label for="star4" class="text-warning fs-3 me-1" style="cursor: pointer;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">★</label>
+                <input type="radio" id="star3" name="rating" value="3" class="d-none">
+                <label for="star3" class="text-warning fs-3 me-1" style="cursor: pointer;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">★</label>
+                <input type="radio" id="star2" name="rating" value="2" class="d-none">
+                <label for="star2" class="text-warning fs-3 me-1" style="cursor: pointer;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">★</label>
+                <input type="radio" id="star1" name="rating" value="1" class="d-none">
+                <label for="star1" class="text-warning fs-3" style="cursor: pointer;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">★</label>
+              </div>
+
+              <!-- Feedback Textarea -->
+              <div class="mb-3">
+                <label for="feedback" class="form-label">Additional Comments</label>
+                <textarea
+                  id="feedback"
+                  name="feedback"
+                  placeholder="Tell us about your experience (optional)"
+                  class="form-control"
+                  rows="4"
+                  aria-describedby="feedbackHelp">
+          </textarea>
+                <div id="feedbackHelp" class="form-text">
+                  Your feedback helps us improve our service.
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-send me-1"></i>
+                Submit Feedback
+              </button>
+            </form>
+          </div>
+
+          <!-- Journey Wishes -->
+          <div class="thanks-section mt-4 p-3 bg-light rounded">
+            <p class="thanks mb-2 text-center">
+              <i class="bi bi-heart-fill text-danger me-2"></i>
+              We wish you a pleasant journey!
+            </p>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="action-buttons mt-4 text-center">
+            <a href="/" class="btn btn-success me-2">
+              <i class="bi bi-house me-1"></i>
+              Back to Home
+            </a>
+            <button class="btn btn-outline-primary" onclick="window.print()">
+              <i class="bi bi-printer me-1"></i>
+              Print Confirmation
+            </button>
+          </div>
+        </div>
+      </div>

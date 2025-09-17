@@ -1,6 +1,8 @@
 import {Routes} from '@angular/router';
 import {HomeComponent} from './views/home/home.component';
 import {PageNotFoundComponent} from './views/page-not-found/page-not-found.component';
+import {Feedback} from './views/feedback/feedback';
+import {SpinTheWheel} from './views/spin-the-wheel/spin-the-wheel';
 
 export const routes: Routes = [
   {
@@ -95,6 +97,22 @@ export const routes: Routes = [
     data: {
       description: 'Customer support and help center'
     }
+  },
+  {
+    path: 'spin-to-win',
+    loadComponent: () => import('./views/spin-the-wheel/spin-the-wheel').then(m => m.SpinTheWheel),
+    title: 'Support | Traveler',
+    data: {
+      description: 'Customer support and help center'
+    }
+  },
+  {
+    path: 'feedback',
+    loadComponent: () => import('./views/feedback/feedback').then(m => m.Feedback),
+    title: 'Feedback | Traveler',
+    data: {
+      description: 'Customer support and help center'
+      }
   },
   {
     path: 'user-profile',

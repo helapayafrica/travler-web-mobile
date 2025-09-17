@@ -1,0 +1,32 @@
+<div class="component-container">
+
+
+<div class="wheel-container">
+  <h2>Spin to Win!</h2>
+
+  <!-- Canvas for the wheel -->
+  <canvas #wheelCanvas width="300" height="300" id="canvas">
+    Canvas not supported, use another browser.
+  </canvas>
+  <div class="wheel-pointer"></div>
+  <!-- Controls -->
+  <div class="controls">
+    <button
+      (click)="startSpin()"
+      [disabled]="isSpinning"
+      class="spin-button">
+    @if (isSpinning) {
+      {{' Spinning...' }}
+    } @else {
+      {{" Spin" }}
+    }
+    </button>
+    <button (click)="resetWheel()" class="reset-button">Reset</button>
+  </div>
+
+  <!-- Results -->
+  <div *ngIf="lastResult" class="result">
+    <h3>🎉 Winner: {{ lastResult.text }} 🎉</h3>
+  </div>
+</div>
+</div>

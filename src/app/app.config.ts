@@ -9,6 +9,7 @@ import Lara from '@primeuix/themes/Lara';
 import Aura from '@primeuix/themes/Aura';
 import {httpInterceptor} from './services/interceptor';
 
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
