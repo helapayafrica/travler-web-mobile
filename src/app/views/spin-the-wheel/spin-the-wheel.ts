@@ -1,46 +1,57 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
-import {NgIf} from '@angular/common';
+import {ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {NgForOf, NgIf} from '@angular/common';
 // Declare winwheel for TypeScript
 declare var Winwheel: any;
 
 @Component({
   selector: 'app-spin-the-wheel',
   imports: [
-    NgIf
+    NgIf,
+    NgForOf
 
   ],
   templateUrl: './spin-the-wheel.html',
   styleUrl: './spin-the-wheel.scss',
   standalone: true,
 })
-export class SpinTheWheel {
+export class SpinTheWheel implements OnInit{
+  constructor(private cdr: ChangeDetectorRef) {}
   @ViewChild('wheelCanvas', { static: true }) canvasRef!: ElementRef<HTMLCanvasElement>;
 
   wheel: any;
   isSpinning = false;
   lastResult: any = null;
+  targetSegment: number |null = null;
+  isControlledSpin = false
 
   // Wheel segments/prizes
   // wheelSegments = [
-  //   { fillStyle: '#ff6b6b', text: '$100', textFillStyle: 'white' },
-  //   { fillStyle: '#4ecdc4', text: 'Free Spin', textFillStyle: 'white' },
-  //   { fillStyle: '#ffe66d', text: '$50', textFillStyle: 'black' },
-  //   { fillStyle: '#ff8b94', text: 'Try Again', textFillStyle: 'white' },
-  //   { fillStyle: '#95e1d3', text: '$200', textFillStyle: 'black' },
-  //   { fillStyle: '#a8e6cf', text: 'Jackpot!', textFillStyle: 'black' },
-  //   { fillStyle: '#ffaaa5', text: '$25', textFillStyle: 'white' },
-  //   { fillStyle: '#c7ceea', text: 'Bonus Round', textFillStyle: 'black' }
+  //   { fillStyle: '#4ecdc4', text: '10% Off', textFillStyle: 'white', size: 50 },
+  //   { fillStyle: '#ff6b6b', text: 'Try Again', textFillStyle: 'white', size: 120 },
+  //   { fillStyle: '#a8e6cf', text: '100sh off next travel', textFillStyle: 'black', size: 25 },
+  //   { fillStyle: '#ff8b94', text: 'Try Again', textFillStyle: 'white', size: 120 },
+  //   { fillStyle: '#95e1d3', text: '100% Off Next travel', textFillStyle: 'black', size: 10 },
+  //   { fillStyle: '#ffaaa5', text: 'Book again to spin', textFillStyle: 'white', size: 40 },
+  //   { fillStyle: '#ffe66d', text: '50% Off', textFillStyle: 'black', size: 20 },
   // ];
-  wheelSegments = [
-    { fillStyle: '#ff6b6b', text: '$100', textFillStyle: 'white', size: 60 }, // Larger segment
-    { fillStyle: '#4ecdc4', text: 'Free Spin', textFillStyle: 'white', size: 30 }, // Smaller
-    { fillStyle: '#ffe66d', text: '$50', textFillStyle: 'black', size: 45 },
-    { fillStyle: '#ff8b94', text: 'Try Again', textFillStyle: 'white', size: 90 }, // Largest
-    { fillStyle: '#95e1d3', text: '$200', textFillStyle: 'black', size: 20 }, // Smallest
-    { fillStyle: '#a8e6cf', text: 'Jackpot!', textFillStyle: 'black', size: 25 },
-    { fillStyle: '#ffaaa5', text: '$25', textFillStyle: 'white', size: 50 },
-    { fillStyle: '#c7ceea', text: 'Bonus Round', textFillStyle: 'black', size: 40 }
+   shuffle<T>(arr: T[]): T[] {
+    return arr
+      .map(item => ({ item, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({ item }) => item);
+  }
+
+  weightedSegments = [
+    { fillStyle: '#ff6b6b', text: 'Try Again', textFillStyle: 'white', size: 100 },
+    { fillStyle: '#ff8b94', text: 'Try Again', textFillStyle: 'white', size: 100 },
+    { fillStyle: '#4ecdc4', text: '10% Off', textFillStyle: 'white', size: 50 },
+    { fillStyle: '#ffaaa5', text: 'Book again to spin', textFillStyle: 'white', size: 40 },
+    { fillStyle: '#a8e6cf', text: '100sh off next travel', textFillStyle: 'black', size: 35 },
+    { fillStyle: '#ffe66d', text: '50% Off', textFillStyle: 'black', size: 30 },
+    { fillStyle: '#95e1d3', text: '100% Off Next travel', textFillStyle: 'black', size: 20 },
   ];
+
+  wheelSegments = this.shuffle(this.weightedSegments);
 
   ngOnInit() {
     this.initializeWheel();
@@ -50,7 +61,13 @@ export class SpinTheWheel {
     this.wheel = new Winwheel({
       canvasId: 'canvas',
       numSegments: this.wheelSegments.length,
-      segments: this.wheelSegments,
+      // segments: this.wheelSegments,
+      segments: this.wheelSegments.map(segment => ({
+        fillStyle: segment.fillStyle,
+        text: segment.text,
+        textFillStyle: segment.textFillStyle,
+        size: segment.size
+      })),
       textFontSize: 12,
       textOrientation: 'horizontal',
       textAlignment: 'center',
@@ -76,7 +93,6 @@ export class SpinTheWheel {
         callbackFinished: this.onSpinFinished.bind(this),
       }
     });
-
     // Draw the wheel
     this.wheel.draw();
   }
@@ -84,9 +100,11 @@ export class SpinTheWheel {
   startSpin() {
     if (this.isSpinning) return;
 
+    this.wheel.rotationAngle = 0;
     this.isSpinning = true;
     this.lastResult = null;
-
+    this.isControlledSpin = false;
+    this.targetSegment = null;
     // Start the spin animation
     this.wheel.startAnimation();
   }
@@ -101,6 +119,7 @@ export class SpinTheWheel {
     // - Show special animations
     console.log('Spin result:', indicatedSegment);
     console.log(this.isSpinning)
+    this.cdr.detectChanges();
   }
 
   resetWheel() {
@@ -120,5 +139,29 @@ export class SpinTheWheel {
     this.lastResult = null;
     this.wheel.animation.stopAngle = this.wheel.getRandomForSegment(segmentNumber);
     this.wheel.startAnimation();
+  }
+
+// Method to spin to a specific segment
+  spinToSpecificSegment(segmentIndex: number) {
+    if (this.isSpinning) return;
+
+    this.targetSegment = segmentIndex;
+    this.isControlledSpin = true;
+    this.isSpinning = true;
+    this.lastResult = null;
+
+    // Calculate the angle for the target segment
+    const stopAngle = this.wheel.getRandomForSegment(segmentIndex);
+    this.wheel.animation.stopAngle = stopAngle;
+    this.wheel.startAnimation();
+  }
+
+// Method to get segment probabilities (for display)
+  getSegmentProbabilities() {
+    const total = this.wheelSegments.reduce((sum, seg) => sum + seg.size, 0);
+    return this.wheelSegments.map(seg => ({
+      text: seg.text,
+      probability: Math.round((seg.size / total) * 100)
+    }));
   }
 }
