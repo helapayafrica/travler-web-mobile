@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row justify-content-center">
-    <div class="col-12 col-md-8 col-lg-6" style="margin-top: 6rem;">
+    <div class="col-12 col-md-8 col-lg-6" style="margin-top: 6rem; min-width: 300px;">
       <div class="card shadow-lg border-0 rounded-4" role="region" aria-labelledby="title">
         <div class="card-body p-4">
           <div class="text-center mb-4">
@@ -15,7 +15,10 @@
           </div>
 
           <div class="mb-4">
-            <button class="btn btn-outline-info btn-sm d-flex align-items-center" (click)="togglePayDetails()" type="button" aria-expanded="false">
+            <button class="btn btn-outline-info btn-sm d-flex align-items-center"
+                    (click)="togglePayDetails()"
+                    type="button"
+                    [attr.aria-expanded]="payDetailsVisible">
               <i class="bi bi-credit-card me-2"></i>
               View Payment Details
             </button>
@@ -33,19 +36,78 @@
             <h4><i class="bi bi-star-fill me-2 text-warning"></i>Rate Your Experience</h4>
             <p class="text-muted">How would you rate our service?</p>
 
-            <form>
+            <form (ngSubmit)="onSubmitFeedback()" #feedbackForm="ngForm">
               <!-- Star Rating -->
               <div class="star-rating mb-3 d-flex justify-content-center">
-                <input type="radio" id="star5" name="rating" value="5" class="d-none">
-                <label for="star5" class="text-warning fs-3 me-1" style="cursor: pointer;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">★</label>
-                <input type="radio" id="star4" name="rating" value="4" class="d-none">
-                <label for="star4" class="text-warning fs-3 me-1" style="cursor: pointer;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">★</label>
-                <input type="radio" id="star3" name="rating" value="3" class="d-none">
-                <label for="star3" class="text-warning fs-3 me-1" style="cursor: pointer;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">★</label>
-                <input type="radio" id="star2" name="rating" value="2" class="d-none">
-                <label for="star2" class="text-warning fs-3 me-1" style="cursor: pointer;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">★</label>
-                <input type="radio" id="star1" name="rating" value="1" class="d-none">
-                <label for="star1" class="text-warning fs-3" style="cursor: pointer;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">★</label>
+                <input type="radio"
+                       id="star1"
+                       name="rating"
+                       value="1"
+                       class="d-none"
+                       [(ngModel)]="selectedRating"
+                       (change)="onRatingChange(1)">
+                <label for="star1"
+                       class="text-warning me-2"
+                       style="cursor: pointer; font-size: 2.5rem; transition: all 0.2s ease;"
+                       [style.opacity]="selectedRating >= 1 ? '1' : '0.4'"
+                       onmouseover="this.style.transform='scale(1.1)'"
+                       onmouseout="this.style.transform='scale(1)'">★</label>
+
+                <input type="radio"
+                       id="star2"
+                       name="rating"
+                       value="2"
+                       class="d-none"
+                       [(ngModel)]="selectedRating"
+                       (change)="onRatingChange(2)">
+                <label for="star2"
+                       class="text-warning me-2"
+                       style="cursor: pointer; font-size: 2.5rem; transition: all 0.2s ease;"
+                       [style.opacity]="selectedRating >= 2 ? '1' : '0.4'"
+                       onmouseover="this.style.transform='scale(1.1)'"
+                       onmouseout="this.style.transform='scale(1)'">★</label>
+
+                <input type="radio"
+                       id="star3"
+                       name="rating"
+                       value="3"
+                       class="d-none"
+                       [(ngModel)]="selectedRating"
+                       (change)="onRatingChange(3)">
+                <label for="star3"
+                       class="text-warning me-2"
+                       style="cursor: pointer; font-size: 2.5rem; transition: all 0.2s ease;"
+                       [style.opacity]="selectedRating >= 3 ? '1' : '0.4'"
+                       onmouseover="this.style.transform='scale(1.1)'"
+                       onmouseout="this.style.transform='scale(1)'">★</label>
+
+                <input type="radio"
+                       id="star4"
+                       name="rating"
+                       value="4"
+                       class="d-none"
+                       [(ngModel)]="selectedRating"
+                       (change)="onRatingChange(4)">
+                <label for="star4"
+                       class="text-warning me-2"
+                       style="cursor: pointer; font-size: 2.5rem; transition: all 0.2s ease;"
+                       [style.opacity]="selectedRating >= 4 ? '1' : '0.4'"
+                       onmouseover="this.style.transform='scale(1.1)'"
+                       onmouseout="this.style.transform='scale(1)'">★</label>
+
+                <input type="radio"
+                       id="star5"
+                       name="rating"
+                       value="5"
+                       class="d-none"
+                       [(ngModel)]="selectedRating"
+                       (change)="onRatingChange(5)">
+                <label for="star5"
+                       class="text-warning"
+                       style="cursor: pointer; font-size: 2.5rem; transition: all 0.2s ease;"
+                       [style.opacity]="selectedRating >= 5 ? '1' : '0.4'"
+                       onmouseover="this.style.transform='scale(1.1)'"
+                       onmouseout="this.style.transform='scale(1)'">★</label>
               </div>
 
               <!-- Feedback Textarea -->
@@ -57,8 +119,10 @@
                   placeholder="Tell us about your experience (optional)"
                   class="form-control"
                   rows="4"
+                  [(ngModel)]="feedbackMessage"
+                  (input)="onFeedbackChange($event)"
                   aria-describedby="feedbackHelp">
-          </textarea>
+                </textarea>
                 <div id="feedbackHelp" class="form-text">
                   Your feedback helps us improve our service.
                 </div>
@@ -86,10 +150,13 @@
               <i class="bi bi-house me-1"></i>
               Back to Home
             </a>
-            <button class="btn btn-outline-primary" onclick="window.print()">
+            <button class="btn btn-outline-primary">
               <i class="bi bi-printer me-1"></i>
               Print Confirmation
             </button>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
