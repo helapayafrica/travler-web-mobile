@@ -63,7 +63,7 @@
                 </div> -->
 
               <div class="vstack">
-                <app-component-search-results-card  (viewSeatOpen)="getCollapseSeatState($event)"    [data]="data" [type]="type"></app-component-search-results-card>
+                <app-component-search-results-card [isLoading]="isLoading"  (viewSeatOpen)="getCollapseSeatState($event)"    [data]="data" [type]="type"></app-component-search-results-card>
               </div>
             </div>
 
@@ -75,7 +75,7 @@
                 <p>{{ payload.return_date | date: 'dd MMM yyyy' }}</p>
 
                 <div class="vstack gap-3">
-                  <app-component-search-results-card  (viewSeatOpen)="getCollapseSeatState($event)"  [data]="return_buses" [type]="type"></app-component-search-results-card>
+                  <app-component-search-results-card [isLoading]="isLoading"  (viewSeatOpen)="getCollapseSeatState($event)"  [data]="return_buses" [type]="type"></app-component-search-results-card>
                 </div>
 
               </div>
@@ -85,7 +85,7 @@
           <!-- One-Way Journey (Hidden when "Return" tab is active) -->
           <div hidden="type==='onward' && selectedTab !== 'return'">
             <div class="vstack">
-              <app-component-search-results-card (viewSeatOpen)="getCollapseSeatState($event)"  [data]="data"></app-component-search-results-card>
+              <app-component-search-results-card [isLoading]="isLoading" (viewSeatOpen)="getCollapseSeatState($event)"  [data]="data"></app-component-search-results-card>
             </div>p
           </div>
         </div>

@@ -8,7 +8,6 @@ declare var Winwheel: any;
   imports: [
     NgIf,
     NgForOf
-
   ],
   templateUrl: './spin-the-wheel.html',
   styleUrl: './spin-the-wheel.scss',
@@ -42,13 +41,13 @@ export class SpinTheWheel implements OnInit{
   }
 
   weightedSegments = [
-    { fillStyle: '#ff6b6b', text: 'Try Again', textFillStyle: 'white', size: 100 },
-    { fillStyle: '#ff8b94', text: 'Try Again', textFillStyle: 'white', size: 100 },
+    { fillStyle: '#ff6b6b', text: 'Try Again', textFillStyle: 'white', size: 90 },
+    { fillStyle: '#ff8b94', text: 'Try Again', textFillStyle: 'white', size: 90 },
     { fillStyle: '#4ecdc4', text: '10% Off', textFillStyle: 'white', size: 50 },
     { fillStyle: '#ffaaa5', text: 'Book again to spin', textFillStyle: 'white', size: 40 },
     { fillStyle: '#a8e6cf', text: '100sh off next travel', textFillStyle: 'black', size: 35 },
     { fillStyle: '#ffe66d', text: '50% Off', textFillStyle: 'black', size: 30 },
-    { fillStyle: '#95e1d3', text: '100% Off Next travel', textFillStyle: 'black', size: 20 },
+    { fillStyle: '#95e1d3', text: '100% Off Next travel', textFillStyle: 'black', size: 30 },
   ];
 
   wheelSegments = this.shuffle(this.weightedSegments);
@@ -99,6 +98,7 @@ export class SpinTheWheel implements OnInit{
 
   startSpin() {
     if (this.isSpinning) return;
+    this.cdr.detectChanges();
 
     this.wheel.rotationAngle = 0;
     this.isSpinning = true;
@@ -111,6 +111,7 @@ export class SpinTheWheel implements OnInit{
 
   onSpinFinished(indicatedSegment: any) {
     this.isSpinning = false;
+    this.cdr.detectChanges();
     this.lastResult = indicatedSegment;
 
     // You can add more logic here:
@@ -127,6 +128,7 @@ export class SpinTheWheel implements OnInit{
     this.wheel.rotationAngle = 0;
     this.wheel.draw();
     this.isSpinning = false;
+    this.cdr.detectChanges();
     this.lastResult = null;
   }
 
@@ -136,6 +138,7 @@ export class SpinTheWheel implements OnInit{
     if (this.isSpinning) return;
 
     this.isSpinning = true;
+    this.cdr.detectChanges();
     this.lastResult = null;
     this.wheel.animation.stopAngle = this.wheel.getRandomForSegment(segmentNumber);
     this.wheel.startAnimation();

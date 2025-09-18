@@ -165,56 +165,34 @@
 
   <p-tabs value="0">
     <p-tablist class="scroll-tabs">
-      <p-tab value="3">Company Name</p-tab>
-      <p-tab value="4">Boarding Point</p-tab>
-      <p-tab value="5">Dropping Point</p-tab>
-      <!--      <p-tab value="0">Price Range</p-tab>-->
-      <p-tab value="6">Departure Time</p-tab>
-      <!--      <p-tab value="7">Bus Types</p-tab>-->
-
-      <!--      <p-tab value="1">Duration</p-tab>-->
-      <p-tab value="2">Amenities</p-tab>
+      <p-tab value="0">Company Name</p-tab>
+      <p-tab value="1">Boarding Point</p-tab>
+      <p-tab value="2">Dropping Point</p-tab>
+      <p-tab value="3">Departure Time</p-tab>
+      <p-tab value="4">Amenities</p-tab>
     </p-tablist>
 
     <p-tabpanels>
-      <!-- Price Range -->
-      <!--      <p-tabpanel value="0">-->
-      <!--        <h5 class="fs-6 fw-bold mb-2 text-muted">Price Range</h5>-->
-      <!--        <div class="container p-3">-->
-      <!--          <ngx-slider-->
-      <!--            [(value)]="minValue"-->
-      <!--            [(highValue)]="maxValue"-->
-      <!--            [options]="options"-->
-      <!--            (userChangeEnd)="onPriceChange()">-->
-      <!--          </ngx-slider>-->
-      <!--          <div class="d-flex justify-content-between mt-1 text-dark">-->
-      <!--            <span class="text-dark">{{ minValue | currency:'KES ' }}</span>-->
-      <!--            <span class="text-dark">{{ maxValue | currency:'KES ' }}</span>-->
-      <!--          </div>-->
-      <!--        </div>-->
-      <!--      </p-tabpanel>-->
+      <!--      bus /companies-->
+      <p-tabpanel value="0">
+        <h5 class="fs-6 fw-bold mb-2 text-muted">Bus Companies</h5>
 
-      <!-- Duration -->
-      <p-tabpanel value="1">
-        <div class="card-body">
-          <h5 class="fs-6 fw-bold mb-4 text-muted">Duration</h5>
-          <label *ngFor="let duration of durations"
-                 class="form-check d-flex align-items-center justify-content-between border-bottom py-2 w-100 mb-0">
-            <div class="d-flex align-items-center">
-              <i [class]="duration.icon + ' fs-4 me-3'"></i>
-              <span class="fw-semibold mb-0">{{ duration.label }}</span>
-            </div>
-            <input [(ngModel)]="selectedDuration"
-                   [value]="duration.value"
-                   class="form-check-input-lg"
-                   name="duration"
-                   type="radio"
-            >
+        <div class="d-flex flex-column gap-2">
+          <label *ngFor="let bus of busNames;" class="block gap-2">
+            <input
+              (change)="onCompanySelectionChange($event)"
+              [value]="bus.id"
+              class="me-2"
+              type="checkbox"
+            />
+            {{ bus.name }}
           </label>
         </div>
+
+
       </p-tabpanel>
 <!--      Amenities ✅-->
-      <p-tabpanel value="2">
+      <p-tabpanel value="4">
         <h5 class="fs-6 fw-bold mb-2 text-muted">Amenities</h5>
         <div class="d-flex flex-column gap-2">
           <label *ngFor="let point of amenities;"
@@ -231,8 +209,48 @@
           </label>
         </div>
       </p-tabpanel>
-<!--      Departure time ✅-->
-      <p-tabpanel value="6">
+<!--      Boarding Points ✅-->
+      <p-tabpanel value="1">
+        <h5 class="fs-6 fw-bold mb-2 text-muted">Boarding Points</h5>
+
+        <div class="d-flex flex-column gap-2">
+
+          <label *ngFor="let point of boardingPoints">
+            <input
+              (change)="onBoardingPointSelectionChange($event)"
+              [value]="point.id"
+              name="boardingPoints"
+              type="checkbox"
+            />
+            {{ point.name }}
+          </label>
+        </div>
+
+
+      </p-tabpanel>
+<!--      Dropping points ✅ -->
+      <p-tabpanel value="2">
+        <h5 class="fs-6 fw-bold mb-2 text-muted">Dropping Points</h5>
+
+        <div class="d-flex flex-column gap-2">
+          <label *ngFor="let point of droppingPoints;"
+                 [for]="point.id"
+                 class="block gap-2">
+            <input
+              (change)="onDroppingPointSelectionChange($event)"
+              [id]="point.id"
+              [value]="point.id"
+              class="me-2"
+              type="checkbox"
+            />
+            {{ point.name }}
+          </label>
+        </div>
+
+
+      </p-tabpanel>
+      <!--      Departure time ✅-->
+      <p-tabpanel value="3">
         <h5 class="fs-6 fw-bold mb-2 text-muted">Departure time</h5>
 
         <div class="d-flex flex-column gap-2">
@@ -253,82 +271,6 @@
 
 
       </p-tabpanel>
-<!--      Boarding Points ✅-->
-      <p-tabpanel value="4">
-        <h5 class="fs-6 fw-bold mb-2 text-muted">Boarding Points</h5>
-
-        <div class="d-flex flex-column gap-2">
-
-          <label *ngFor="let point of boardingPoints">
-            <input
-              (change)="onBoardingPointSelectionChange($event)"
-              [value]="point.id"
-              name="boardingPoints"
-              type="checkbox"
-            />
-            {{ point.name }}
-          </label>
-        </div>
-
-
-      </p-tabpanel>
-<!--      Dropping points ✅ -->
-      <p-tabpanel value="5">
-        <h5 class="fs-6 fw-bold mb-2 text-muted">Dropping Points</h5>
-
-        <div class="d-flex flex-column gap-2">
-          <label *ngFor="let point of droppingPoints;"
-                 [for]="point.id"
-                 class="block gap-2">
-            <input
-              (change)="onDroppingPointSelectionChange($event)"
-              [id]="point.id"
-              [value]="point.id"
-              class="me-2"
-              type="checkbox"
-            />
-            {{ point.name }}
-          </label>
-        </div>
-
-
-      </p-tabpanel>
-<!--      bus /companies-->
-      <p-tabpanel value="3">
-        <h5 class="fs-6 fw-bold mb-2 text-muted">Bus Companies</h5>
-
-        <div class="d-flex flex-column gap-2">
-          <label *ngFor="let bus of busNames;" class="block gap-2">
-            <input
-      (change)="onCompanySelectionChange($event)"
-              [value]="bus.id"
-              class="me-2"
-              type="checkbox"
-            />
-            {{ bus.name }}
-          </label>
-        </div>
-
-
-      </p-tabpanel>
-      <!--      <p-tabpanel value="7">-->
-      <!--        <h5 class="fs-6 fw-bold mb-2 text-muted">Bus Types</h5>-->
-
-      <!--        <div class="d-flex flex-column gap-2">-->
-      <!--          <label *ngFor="let bus of busTypes; trackBy: trackByType" class="block gap-2">-->
-      <!--            <input-->
-      <!--              class="me-2"-->
-      <!--              type="checkbox"-->
-      <!--              [value]="bus"-->
-      <!--              [(ngModel)]="selectedBusTypes"-->
-      <!--            />-->
-      <!--            {{ bus }}-->
-      <!--          </label>-->
-      <!--        </div>-->
-
-
-      <!--      </p-tabpanel>-->
-
     </p-tabpanels>
   </p-tabs>
 

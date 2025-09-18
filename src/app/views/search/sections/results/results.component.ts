@@ -47,6 +47,7 @@ export class ResultsComponent implements OnChanges {
   }
   isReturnDisabled = true;
   @Input() data: any[] = [];
+  @Input() isLoading : boolean = false;
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data']) {
       // console.log('Array updated:', this.data);

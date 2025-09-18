@@ -58,9 +58,10 @@ export class SearchResultsCardComponent implements OnChanges {
     });
   }
 
+
   @Input() data: any[] = [];
   @Input() type: string = '';
-  @Input() isLoading: boolean = false; // New input for main loading state
+  @Input() isLoading: boolean = false;
 
   // Loading states
   isLoadingSeats: { [key: number]: boolean } = {};
@@ -95,7 +96,7 @@ export class SearchResultsCardComponent implements OnChanges {
   visibleState: { [key: number]: boolean } = {};
 
   @Output() viewSeatOpen = new EventEmitter<EmmitedSeatData>();
-  @Output() refreshRequested = new EventEmitter<void>(); // New output for refresh
+
 
   getRatingArray(rating: number): number[] {
     return Array(5)
@@ -146,12 +147,7 @@ export class SearchResultsCardComponent implements OnChanges {
     return !this.data || this.data.length === 0;
   }
 
-  /**
-   * Refresh search functionality
-   */
-  onRefreshSearch(): void {
-    this.refreshRequested.emit();
-  }
+
 
   toggleCollapse(index: number): void {
     // console.log('Toggling collapse for index:', index);

@@ -45,6 +45,7 @@ import {retry} from 'rxjs';
 export class SearchComponent implements OnInit {
 buses:any=[];
 payload = {}
+  isLoading = false;
 constructor(public backendService:BackendService,public bookingService:BookingService){
 }
 async ngOnInit(): Promise<void> {
@@ -63,16 +64,21 @@ async getPayload(){
 
 fetchBuses(payload : any){
   console.log("SEarching!!!")
+  this.isLoading = true;
   this.backendService.getTrips(payload).subscribe({
     next: (res)=>{
       this.buses=res.data
       console.log('[All Buses]',this.buses)
+      this.isLoading = false;
     },
     error: (error) => {
       console.error('Error fetching buses:', error);
+      this.isLoading = false;
+
     },
     complete: () => {
       console.log('Fetch complete');
+      this.isLoading = false;
     }
   })
 }
