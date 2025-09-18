@@ -118,4 +118,25 @@ export class BackendService {
     return this.http.post(endpoint + '/trips/getFilterOptions',data).pipe(
       map(this.extractData));
   }
+
+  getUserWalletData(userId: string, currencyId: number=1){
+      const data = {userId, currencyId, sourcetype:"web"}
+    return this.http.post(endpoint + '/UserWallet/GetWalletData',data).pipe()
+  }
+
+  getUserHistoryData(userId: string, currencyId: number=1, page=1, perPage=10){
+    const data = {userId,currencyId,perPage,page,sourcetype:"web"}
+    return this.http.post(endpoint + '/UserWallet/GetWalletHistory',data).pipe()
+  }
+
+  getBookingHistory(tripType: 'upcoming' | 'completed' = 'upcoming') {
+    const data = {tripType,sourcetype:"web"}
+    return this.http.post(endpoint + 'ticket/bookingHistory',data).pipe()
+  }
+
+  getOfferList(currencyId: number=1){
+    const data = {currency_id:1,sourcetype:"web"}
+    return this.http.post(endpoint + '/common/getOffersList',{"currency_id":1,"sourcetype":"web"}).pipe(
+      map(this.extractData));
+  }
 }
