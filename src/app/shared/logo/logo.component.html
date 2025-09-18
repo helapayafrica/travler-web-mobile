@@ -1,12 +1,4 @@
 <div class="hstack gap-3">
-  <ng-container *ngIf="imageNo !== 1; then logo1 else logo2"></ng-container>
-
-  <ng-template #logo1>
 <!--    <img ngSrc="assets/WEBP/logo.webp" width="86" height="40" alt="bus logo">-->
-    <img ngSrc="assets/WEBP/logo-compressed.webp" width="110" height="40" alt="bus logo" priority >
-  </ng-template>
-
-  <ng-template #logo2>
-    <img ngSrc="assets/WEBP/top-logo-cropped-compressed.webp" class="" width="86" height="40" alt="bus logo" priority>
-  </ng-template>
+    <img ngSrc="assets/WEBP/logo.webp"  class="object-fit-contain" width="110" height="40" alt="bus logo" priority >
 </div>

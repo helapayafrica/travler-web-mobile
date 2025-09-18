@@ -59,7 +59,7 @@ label {
 }
 
 .form-btn button {
-  background-color: black;
+  //background-color: black;
   color: white;
   width: 300px;
 }
@@ -90,14 +90,18 @@ label {
 }
 
 .btn-secondary {
-  background-color: var(--secondary-color-500) !important;
+  background: linear-gradient(135deg, var(--secondary-color-500) 0%, var(--secondary-color-400) 100%);
   border-color: var(--secondary-color-500) !important;
+  color: white !important;
 }
 
 .btn-secondary:hover,
 .btn-secondary:focus {
-  background-color: var(--secondary-color-600) !important;
+  background: linear-gradient(135deg, var(--secondary-color-700) 0%, var(--secondary-color-600) 100%);
+
   border-color: var(--secondary-color-600) !important;
+  color: white !important;
+
 }
 
 /* Make labels smaller and positioned consistently */
@@ -252,7 +256,7 @@ input[type="radio"]:checked {
 
 .typewriter p {
   width: fit-content;
-  color: var(--primary-color-500);
+  color: white;
   font-family: monospace;
   overflow: hidden;
   border-right: .15em solid var(--secondary-color-500);
@@ -343,9 +347,10 @@ input[type="radio"]:checked {
   }
 
   .search-btn {
-    background-color: var(--primary-color-500);
+    background: linear-gradient(45deg, var(--primary-color-500), var(--primary-color-400));
     width: 100%;
   }
+
 
   .form-container{
     width: 100%;
@@ -539,8 +544,7 @@ input[type="radio"]:checked {
 .info-bubble {
   //background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   background: linear-gradient(135deg, var(--secondary-color-500) 0%, var(--secondary-color-400) 100%);
-color: var(--secondary-color-800);
-  //color: white;
+  color: white;
   padding: 4px 8px;
   border-radius: 20px;
   font-size: 12px;

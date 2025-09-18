@@ -331,6 +331,13 @@
 
  }
 
+
+ .btn-primary{
+   background: linear-gradient(45deg, var(--secondary-color-500) 0%, var(--secondary-color-400) 100%);
+   border-color: var(--secondary-color-500) !important;
+   color: white !important;
+ }
+
  //@media (min-width: 1000px) {
  //  .bus-container {
  //    .bus-layout {

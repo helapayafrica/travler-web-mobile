@@ -73,10 +73,12 @@ export class BookingService{
 
   setConfig(key: string, value: any): void {
     try {
-      const encryptedValue = this.crypto.encrypt(value);
+      // const encryptedValue = this.crypto.encrypt(value);
       // const serializedValue = JSON.stringify(encryptedValue);
       const serializedValue = JSON.stringify(value);
+      // this.storage.setItem(key, serializedValue);
       this.storage.setItem(key, serializedValue);
+
     } catch (error) {
       console.error('Error saving to storage', error);
     }

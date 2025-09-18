@@ -26,7 +26,7 @@
   <div *ngFor="let item of buses; let i = index">
     <div
       (click)="getSelectedBus(item)"
-      [ngClass]="collapseState[i] ? 'bg-white' : 'card-selected'"
+      [ngClass]="collapseState[i] ? 'bg-custom' : 'card-selected'"
       class="d-flex flex-column d-md-none p-3 card rounded-4 shadow-sm m-2 position-relative"
       style="min-width:300px">
 
@@ -35,7 +35,7 @@
 
       <!-- Main Content Container -->
       <div class="d-flex flex-column gap-2">
-        <div class="d-flex flex-row justify-content-between align-items-start">
+        <div class="d-flex flex-row gap-4 align-items-start">
           <div class="d-flex  align-items-center justify-content-start gap-3">
             <img src="{{item.company_logo}}" height="80" width="80spi"
                  [ngClass]="item.highWayDirectRoute === 'Highway' ? 'ms-4':''"

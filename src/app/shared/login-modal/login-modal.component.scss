@@ -40,3 +40,9 @@
   background-color: rgba(0, 0, 0, 0.85) !important; // darker background
   z-index: 1999 !important; // keep it under the modal but above drawer
 }
+
+.btn-primary{
+  background: linear-gradient(45deg, var(--primary-color-500) 0%, var(--primary-color-400) 100%);
+  border-color: var(--primary-color-500) !important;
+  color: white !important;
+}

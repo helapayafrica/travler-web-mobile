@@ -252,40 +252,79 @@ a {
   color: $primary;
 }
 
+//Blue #34398E and Red #E52421
 :root {
-  /* 🌞 Secondary Color Scale (Amber-like) */
-  --secondary-color-100: hsl(40, 100%, 96%);
-  --secondary-color-200: hsl(40, 100%, 89%);
-  --secondary-color-300: hsl(40, 99%, 78%);
-  --secondary-color-400: hsl(40, 98%, 67%);
-  --secondary-color-500: hsl(40, 98%, 57%);
-  --secondary-color-600: hsl(40, 90%, 46%);
-  --secondary-color-700: hsl(40, 85%, 36%);
-  --secondary-color-800: hsl(40, 80%, 26%);
-  --secondary-color-900: hsl(40, 75%, 18%);
+  ///* 🌞 Secondary Color Scale (Amber-like) */
+  //--secondary-color-100: hsl(40, 100%, 96%);
+  //--secondary-color-200: hsl(40, 100%, 89%);
+  //--secondary-color-300: hsl(40, 99%, 78%);
+  //--secondary-color-400: hsl(40, 98%, 67%);
+  //--secondary-color-500: hsl(40, 98%, 57%);
+  //--secondary-color-600: hsl(40, 90%, 46%);
+  //--secondary-color-700: hsl(40, 85%, 36%);
+  //--secondary-color-800: hsl(40, 80%, 26%);
+  //--secondary-color-900: hsl(40, 75%, 18%);
 
-  /* 🌿 Primary Color Scale (Earthy Green) */
-  --primary-color-100: hsl(110, 40%, 95%);
-  --primary-color-200: hsl(110, 39%, 87%);
-  --primary-color-300: hsl(110, 39%, 73%);
-  --primary-color-400: hsl(110, 39%, 56%);
-  --primary-color-500: hsl(110, 38%, 41%);
-  --primary-color-600: hsl(110, 38%, 33%);
-  --primary-color-700: hsl(110, 38%, 25%);
-  --primary-color-800: hsl(110, 37%, 17%);
-  --primary-color-900: hsl(110, 36%, 12%);
+  ///* 🌿 Primary Color Scale (Earthy Green) */
+  //--primary-color-100: hsl(110, 40%, 95%);
+  //--primary-color-200: hsl(110, 39%, 87%);
+  //--primary-color-300: hsl(110, 39%, 73%);
+  //--primary-color-400: hsl(110, 39%, 56%);
+  //--primary-color-500: hsl(110, 38%, 41%);
+  //--primary-color-600: hsl(110, 38%, 33%);
+  //--primary-color-700: hsl(110, 38%, 25%);
+  //--primary-color-800: hsl(110, 37%, 17%);
+  //--primary-color-900: hsl(110, 36%, 12%);
 
-  /* ⚪ Grays (Neutral grayscale) */
-  --gray-50: hsl(0, 0%, 98%);
-  --gray-100: hsl(0, 0%, 95%);
-  --gray-200: hsl(0, 0%, 85%);
-  --gray-300: hsl(0, 0%, 75%);
-  --gray-400: hsl(0, 0%, 60%);
-  --gray-500: hsl(0, 0%, 45%);
-  --gray-600: hsl(0, 0%, 30%);
-  --gray-700: hsl(0, 0%, 20%);
-  --gray-800: hsl(0, 0%, 13%);
-  --gray-900: hsl(0, 0%, 8%);
+  //deep indigo
+  --primary-color-50:  hsl(236, 46%, 98%);
+  --primary-color-100: hsl(236, 46%, 95%);
+  --primary-color-200: hsl(236, 45%, 87%);
+  --primary-color-300: hsl(236, 45%, 73%);
+  --primary-color-400: hsl(236, 45%, 56%);
+  --primary-color-500: hsl(236, 46%, 38%); /* base #34398E */
+  --primary-color-600: hsl(236, 46%, 33%);
+  --primary-color-700: hsl(236, 46%, 25%);
+  --primary-color-800: hsl(236, 45%, 17%);
+  --primary-color-900: hsl(236, 44%, 12%);
+
+  /* 🔥 Secondary Color Scale (Red-like) */
+  --secondary-color-100: hsl(1, 85%, 95%);
+  --secondary-color-200: hsl(1, 84%, 86%);
+  --secondary-color-300: hsl(1, 83%, 75%);
+  --secondary-color-400: hsl(1, 82%, 64%);
+  --secondary-color-500: hsl(1, 80%, 52%); /* base #E52421 */
+  --secondary-color-600: hsl(1, 78%, 42%);
+  --secondary-color-700: hsl(1, 75%, 32%);
+  --secondary-color-800: hsl(1, 72%, 22%);
+  --secondary-color-900: hsl(1, 70%, 14%);
+
+
+  //
+  ///* ⚪ Grays (Neutral grayscale) */
+  //--gray-50: hsl(0, 0%, 98%);
+  //--gray-100: hsl(0, 0%, 95%);
+  //--gray-200: hsl(0, 0%, 85%);
+  //--gray-300: hsl(0, 0%, 75%);
+  //--gray-400: hsl(0, 0%, 60%);
+  //--gray-500: hsl(0, 0%, 45%);
+  //--gray-600: hsl(0, 0%, 30%);
+  //--gray-700: hsl(0, 0%, 20%);
+  //--gray-800: hsl(0, 0%, 13%);
+  //--gray-900: hsl(0, 0%, 8%);
+
+  /* Gray with a subtle indigo undertone */
+  --gray-50:  hsl(236, 8%, 98%);
+  --gray-100: hsl(236, 8%, 95%);
+  --gray-200: hsl(236, 7%, 85%);
+  --gray-300: hsl(236, 7%, 75%);
+  --gray-400: hsl(236, 6%, 60%);
+  --gray-500: hsl(236, 6%, 45%);
+  --gray-600: hsl(236, 5%, 30%);
+  --gray-700: hsl(236, 5%, 20%);
+  --gray-800: hsl(236, 4%, 13%);
+  --gray-900: hsl(236, 4%, 8%);
+
 
   /* --primary-orange-peachy (soft earthy orange) */
   --peachy-orange-color-200: hsl(27, 40%, 94%);
