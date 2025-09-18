@@ -84,4 +84,7 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  sign() {
+
+  }
 }

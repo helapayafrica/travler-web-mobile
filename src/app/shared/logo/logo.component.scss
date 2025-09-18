@@ -1,3 +1,7 @@
 img {
   object-fit: cover;
 }
+
+:host ::ng-deep  .form-control .p-2{
+  padding: 1rem !important;
+}

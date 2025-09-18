@@ -173,6 +173,7 @@ export class PaymentFormComponent implements OnInit {
           timer: 3000, // Auto-close after 3 seconds
           showConfirmButton: false
         });
+        // navigate to feed back and spin to win
       }else{
         Swal.fire({
           icon: 'error',

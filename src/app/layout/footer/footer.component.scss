@@ -2,15 +2,22 @@
   position: relative;
   background: linear-gradient(
       to right,
-      var(--gray-900),
-      var(--gray-800),
-      var(--gray-800),
-      var(--gray-800),
-      var(--gray-900)
+    var(--primary-color-900),
+    var(--primary-color-800),
+    var(--primary-color-800),
+    var(--primary-color-800),
+    var(--primary-color-900)
+
   );
   border-radius: 0.5rem 0.5rem 0 0;     /* big, smooth corners */
   overflow: hidden;           /* keeps pseudo-elements tidy */
 }
+
+//var(--gray-900),
+//var(--gray-800),
+//var(--gray-800),
+//var(--gray-800),
+//var(--gray-900)
 
 
 .cursor-pointer{

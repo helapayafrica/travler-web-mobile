@@ -47,3 +47,8 @@ h5 {
     min-height: 100%; /* keeps both cards same height if content is uneven */
   }
 }
+
+:host ::ng-deep .bg-custom{
+  background: linear-gradient(45deg, var(--primary-color-400), var(--primary-color-300));
+  border: 1px solid var(--primary-color-500);
+}

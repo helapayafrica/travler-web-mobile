@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import {BusInfoComponent} from '../checkout/sections/bus-info/bus-info.component';
 import {FormsModule} from '@angular/forms';
+import {NgClass} from '@angular/common';
 
 @Component({
   selector: 'app-feedback',
   imports: [
     BusInfoComponent,
-    FormsModule
+    FormsModule,
+    NgClass
   ],
   templateUrl: './feedback.html',
   styleUrl: './feedback.scss'

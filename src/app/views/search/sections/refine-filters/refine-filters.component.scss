@@ -27,3 +27,9 @@ input[type="checkbox"] {
 .scroll-tabs::-webkit-scrollbar {
   display: none;
 }
+
+:host ::ng-deep .custom-btn{
+  background:var(--primary-color-100);
+  border: 1px solid var(--primary-color-500);
+  color: var(--primary-color-500);
+}
