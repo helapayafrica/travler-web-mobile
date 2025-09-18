@@ -21,3 +21,12 @@
 
   //color: white;
 }
+
+:host ::ng-deep  .bg-custom{
+  background: linear-gradient(45deg, var(--primary-color-400), var(--primary-color-300));
+  border: 1px solid var(--primary-color-500);
+  //color: var(--primary-color-700);
+}
+
+
+

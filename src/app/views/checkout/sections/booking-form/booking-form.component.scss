@@ -29,3 +29,17 @@
 *{
   font-size: var(--font-size);
 }
+
+.bg-custom{
+  background: var(--primary-color-50);
+}
+
+.btn-primary{
+  background: linear-gradient(45deg, var(--secondary-color-500), var(--secondary-color-400));
+  border: 1px solid var(--secondary-color-600);
+}
+
+.btn-secondary:hover, focus{
+  background: linear-gradient(45deg, var(--secondary-color-600), var(--secondary-color-500));
+  border: 1px solid var(--secondary-color-700);
+}

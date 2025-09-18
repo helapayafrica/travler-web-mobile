@@ -11,7 +11,7 @@
     <form #passegerForm="ngForm" class="gap-3">
       <!-- Cancellation Fee -->
       <div class="col-12 col-md-8 col-lg-6 mb-3">
-        <div class="d-flex justify-content-between align-items-center rounded-2 bg-light shadow-sm py-1 px-3">
+        <div class="d-flex justify-content-between align-items-center rounded-2 bg-custom shadow-sm py-1 px-3">
           <div class=" p-2">
             <div class="d-flex flex-column">
               <p class="mb-0 fw-bold">Cancellation protect</p>
@@ -114,7 +114,7 @@
 
         <!-- Insurance Section -->
         <div class="col-12 col-md-8 col-lg-6 mb-3 mt-3">
-          <div class="bg-white rounded-3 shadow-sm p-2 w-100 border border-1">
+          <div class="bg-custom rounded-3 shadow-sm p-2 w-100 border border-1">
             <!-- Insurance Header -->
             <div class="d-flex align-items-start mb-1">
               <img alt="Insurance" height="30" ngSrc="assets/images/britam-insurance.png" width="80">
@@ -165,7 +165,7 @@
     </form>
   </div>
   <div *ngIf="!isSuccess" class="card-footer border-0 text-end">
-    <button (click)="proceed()" [disabled]="passegerForm.invalid" class="btn btn-primary rounded-pill">Proceed to pay
+    <button (click)="proceed()" [disabled]="passegerForm.invalid" class="btn btn-primary py-2 px-3 rounded-pill">Proceed to pay
     </button>
   </div>
 </div>
