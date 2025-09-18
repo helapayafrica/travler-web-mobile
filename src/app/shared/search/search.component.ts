@@ -1,5 +1,5 @@
  import {Component, inject, OnInit} from '@angular/core';
-import {Router, RouterLink} from '@angular/router';
+import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import {TypeaheadModule} from 'ngx-bootstrap/typeahead';
 import {
   AbstractControl,
@@ -53,7 +53,8 @@ export class SearchComponent implements OnInit {
     private fb: FormBuilder,
     public bookingService: BookingService,
     public datePipe: DatePipe,
-    public router: Router
+    public router: Router,
+    private route :ActivatedRoute,
   ) {
     this.searchForm = this.fb.group({
       fromCity: ['', Validators.required],
@@ -224,7 +225,15 @@ export class SearchComponent implements OnInit {
       this.bookingService.setConfig('trip_type', 'onward');
       this.bookingService.setConfig('return_date', null);
     }
-    this.router.navigateByUrl('/search');
+
+
+    if(this.route.snapshot.routeConfig?.path == 'search'){
+      console.log("DARRAAAAA")
+      console.log(this.route.snapshot.routeConfig?.path);
+      this.reloadCurrentRoute();
+    }else{
+      this.router.navigateByUrl('/search');
+    }
   }
 
   onCitySelected(event: any): void {
@@ -343,6 +352,13 @@ export class SearchComponent implements OnInit {
     if (!date) return '';
     const d = new Date(date);
     return d.toISOString().split('T')[0]; // "2025-08-25"
+  }
+
+  reloadCurrentRoute() {
+    const currentUrl = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigateByUrl(currentUrl);
+    });
   }
 
 }

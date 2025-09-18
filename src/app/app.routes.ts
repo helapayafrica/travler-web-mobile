@@ -3,6 +3,7 @@ import {HomeComponent} from './views/home/home.component';
 import {PageNotFoundComponent} from './views/page-not-found/page-not-found.component';
 import {Feedback} from './views/feedback/feedback';
 import {SpinTheWheel} from './views/spin-the-wheel/spin-the-wheel';
+import {authGuard} from './utils/auth-guard';
 
 export const routes: Routes = [
   {
@@ -68,7 +69,7 @@ export const routes: Routes = [
   },
   {
     path: 'contact',
-    loadComponent: () => import('./contactus/contactus.component').then(m => m.ContactusComponent),
+    loadComponent: () => import('./views/contactus/contactus.component').then(m => m.ContactusComponent),
     title: 'Contact Us | Traveler',
     data: {
       description: 'Get in touch with our support team'
@@ -76,7 +77,7 @@ export const routes: Routes = [
   },
   {
     path: 'about',
-    loadComponent: () => import('./aboutus/aboutus.component').then(m => m.AboutusComponent),
+    loadComponent: () => import('./views/aboutus/aboutus.component').then(m => m.AboutusComponent),
     title: 'About Us | Traveler',
     data: {
       description: 'Learn more about Traveler and our services'
@@ -92,7 +93,7 @@ export const routes: Routes = [
   },
   {
     path: 'support',
-    loadComponent: () => import('./support/support.component').then(m => m.SupportComponent),
+    loadComponent: () => import('./views/support/support.component').then(m => m.SupportComponent),
     title: 'Support | Traveler',
     data: {
       description: 'Customer support and help center'
@@ -116,6 +117,7 @@ export const routes: Routes = [
   },
   {
     path: 'user-profile',
+    canActivate: [authGuard],
     loadComponent: () => import('./views/user-profile/user-profile-layout.component').then(m => m.UserProfileLayoutComponent),
     title: 'Profile | Traveler',
     data: {

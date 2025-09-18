@@ -77,8 +77,8 @@ export class RefineFiltersComponent implements OnInit {
     }
     this.service.getFilterOptions(data).subscribe({
       next: (res: any) => {
-        console.log('[Fitler options]')
-        console.log(res)
+        // console.log('[Fitler options]')
+        // console.log(res)
         this.busNames = Object.entries(res.company).map(([id, name]) => ({
           id,
           name

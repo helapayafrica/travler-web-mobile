@@ -68,7 +68,7 @@ fetchBuses(payload : any){
   this.backendService.getTrips(payload).subscribe({
     next: (res)=>{
       this.buses=res.data
-      console.log('[All Buses]',this.buses)
+      // console.log('[All Buses]',this.buses)
       this.isLoading = false;
     },
     error: (error) => {
