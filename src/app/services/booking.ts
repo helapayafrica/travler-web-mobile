@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {Router} from '@angular/router';
+import {CryptoService} from './core/crypto-service';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,7 @@ export class BookingService{
     "record_type": "data",
     "currencyId": "1",
   }
+  crypto = inject(CryptoService)
 
 
 
@@ -71,6 +73,8 @@ export class BookingService{
 
   setConfig(key: string, value: any): void {
     try {
+      const encryptedValue = this.crypto.encrypt(value);
+      // const serializedValue = JSON.stringify(encryptedValue);
       const serializedValue = JSON.stringify(value);
       this.storage.setItem(key, serializedValue);
     } catch (error) {
@@ -82,6 +86,11 @@ export class BookingService{
   getConfig<T>(key: string): T | null {
     try {
       const serializedValue = this.storage.getItem(key);
+      // if (serializedValue){
+      //   const parsedValue = JSON.parse(serializedValue);
+      //   const decryptedValue = this.crypto.decrypt(parsedValue);
+      //   return decryptedValue ? decryptedValue as T : null
+      // }
       return serializedValue ? (JSON.parse(serializedValue) as T) : null;
     } catch (error) {
       console.error('Error reading from storage', error);
