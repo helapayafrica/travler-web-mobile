@@ -6,8 +6,7 @@ declare var Winwheel: any;
 @Component({
   selector: 'app-spin-the-wheel',
   imports: [
-    NgIf,
-    NgForOf
+
   ],
   templateUrl: './spin-the-wheel.html',
   styleUrl: './spin-the-wheel.scss',

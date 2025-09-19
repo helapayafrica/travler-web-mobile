@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterLink} from '@angular/router';
+import {BookingService} from '../../../services/booking';
 
 interface UserDetails {
   name: string;
@@ -28,7 +29,7 @@ interface UserDetails {
   imports: [CommonModule, RouterLink]
 })
 export class AccountDetailsComponent implements OnInit {
-  userDetails: UserDetails = {
+  userDetails: any = {
     name: 'Davis Mutuku',
     age: 0,
     gender: 'Male',
@@ -44,13 +45,30 @@ export class AccountDetailsComponent implements OnInit {
   };
 
   constructor() { }
+  service = inject((BookingService))
 
   ngOnInit(): void {
     // You would fetch account details from a service in a real app
+    this.getUserDetails();
   }
 
   editProfile(): void {
     // Implement edit profile functionality
     // console.log('Edit profile clicked');
+  }
+
+  getUserDetails(){
+    const userData: any = this.service.getConfig('userData')
+    if(userData){
+       this.userDetails.name = userData.name + ' ' + userData.last_name
+      this.userDetails.age = userData.age
+      this.userDetails.gender = userData.gender
+      this.userDetails.identityNumber = userData.identityNumber
+      this.userDetails.email = userData.email
+      this.userDetails.mobileNumber = userData.mobileNumber
+      this.userDetails.businessName = userData.name + ' ' + userData.last_name
+
+    }
+
   }
 }

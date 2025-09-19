@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {BookingService} from '../../../services/booking';
+import {BackendService} from '../../../services/backend';
 
 interface WalletTransaction {
   amount: string;
@@ -16,6 +18,8 @@ interface WalletTransaction {
 })
 export class WalletComponent implements OnInit {
   walletBalance: string = 'KES 0.00';
+  service = inject(BookingService)
+  backendService = inject(BackendService)
   transactions: WalletTransaction[] = [];
 
   constructor() { }
@@ -27,5 +31,16 @@ export class WalletComponent implements OnInit {
   transferMoney(): void {
     // Implement money transfer functionality
     // console.log('Transfer money clicked');
+  }
+
+  getWalletdate(){
+    const userDate:any = this.service.getConfig('userDate');
+    const userId = userDate.userId
+
+    this.backendService.getUserWalletData(userId).subscribe({
+      next: (data: any) => {
+        this.walletBalance = data.amount;
+      }
+    })
   }
 }

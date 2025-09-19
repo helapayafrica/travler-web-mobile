@@ -38,5 +38,10 @@
 .bg-form {
   //background: linear-gradient(to top right, var(--primary-color-300), var(--primary-color-200));
   background: linear-gradient(to top right, var(--gray-100), var(--gray-50));
+}
 
+.btn-primary{
+  background: linear-gradient(45deg, var(--primary-color-500), var(--primary-color-400));
+  color: var(--primary-color-100);
+  border:1px solid var(--primary-color-500);
 }

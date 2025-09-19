@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
+import {BackendService} from '../../../services/backend';
 
 interface Booking {
   companyName: string;
@@ -29,8 +30,13 @@ export class BookingsComponent implements OnInit {
   currency: string = 'KES';
   searchQuery: string = '';
   user: string = ''
+  state :'upcoming' | 'completed' = 'upcoming'
+  activeTab = 'upcoming'
 
   bookings: Booking[] = [];
+   data: any[] = []
+
+  service = inject(BackendService)
 
   constructor() {
   }
@@ -38,10 +44,29 @@ export class BookingsComponent implements OnInit {
   ngOnInit(): void {
     // You would fetch data from a service in a real app
     // For now, leaving it empty to match the screenshot
+    this.getTripData(this.state)
   }
 
   search(): void {
     // Implement search functionality
     // console.log('Searching for:', this.searchQuery);
+  }
+
+
+  getTripData(state:'upcoming' | 'completed'){
+     this.activeTab= state
+    this.service.getBookingHistory(state).subscribe({
+      next: (value : any) => {
+        if(value.data){
+          this.data = value.data
+        }
+      },
+      error:(err) => {
+        console.log(err)
+      },
+      complete: () => {
+        console.log('Successfully retrieved data')
+      }
+    })
   }
 }

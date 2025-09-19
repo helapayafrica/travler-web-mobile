@@ -176,30 +176,30 @@ export class PaymentFormComponent implements OnInit {
 
       console.log(data)
       console.log(newData)
-      this.service.makePayment(newData).subscribe((res)=>{
-        if(res.isSuccess){
-          Swal.fire({
-            icon: 'success',
-            title: 'Payment Initiated',
-            text:res.msg,
-            timer: 3000, // Auto-close after 3 seconds
-            showConfirmButton: false
-          });
-        setTimeout(()=>{
-          this.router.navigate(['/spin-to-win'])
-          }, 3000)
-
-        }else{
-          Swal.fire({
-            icon: 'error',
-            title: 'Payment Failed',
-            text:res.msg,
-            timer: 5000, // Auto-close after 3 seconds
-            cancelButtonText: 'Cancel',
-            showCancelButton: true,
-          });
-        }
-      });
+      // this.service.makePayment(newData).subscribe((res)=>{
+      //   if(res.isSuccess){
+      //     Swal.fire({
+      //       icon: 'success',
+      //       title: 'Payment Initiated',
+      //       text:res.msg,
+      //       timer: 3000, // Auto-close after 3 seconds
+      //       showConfirmButton: false
+      //     });
+      //   setTimeout(()=>{
+      //     this.router.navigate(['/spin-to-win'])
+      //     }, 3000)
+      //
+      //   }else{
+      //     Swal.fire({
+      //       icon: 'error',
+      //       title: 'Payment Failed',
+      //       text:res.msg,
+      //       timer: 5000, // Auto-close after 3 seconds
+      //       cancelButtonText: 'Cancel',
+      //       showCancelButton: true,
+      //     });
+      //   }
+      // });
 
     })
 
