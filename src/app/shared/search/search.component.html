@@ -172,7 +172,6 @@
             <i class="bi bi-calendar-date fs-4 ms-2 me-2"></i>
             <div class="ms-2 flex-grow-1">
               <label class="text-muted" for="travelDate" style="font-size: 0.5rem;">Date of journey</label>
-
               <p-datepicker
                 #travelDateInput
                 [appendTo]="'body'"
@@ -189,12 +188,15 @@
                 styleClass="form-control p-0">
               </p-datepicker>
             </div>
-            <button (click)="setToday()" class="btn btn-sm rounded-pill btn-primary px-3 py-2 fs-6" type="button">
-              Today
-            </button>
-            <button (click)="setTomorrow()" class="btn btn-sm rounded-pill btn-secondary px-3 py-2 fs-6" type="button">
-              Tomorrow
-            </button>
+            <div class="d-flex justify-content-center align-items-center">
+              <button (click)="setToday()" class="btn  rounded-pill btn-primary" type="button">
+                Today
+              </button>
+              <button (click)="setTomorrow()" class="btn  rounded-pill btn-secondary" type="button">
+                Tomorrow
+              </button>
+            </div>
+
           </div>
         </div>
       </div>

@@ -27,7 +27,7 @@
     <div
       (click)="getSelectedBus(item)"
       [ngClass]="collapseState[i] ? 'bg-custom' : 'card-selected'"
-      class="d-flex flex-column d-md-none p-3 card rounded-4 shadow-sm m-2 position-relative"
+      class="d-flex flex-column d-md-none p-2 card rounded-4 shadow-sm m-2 position-relative"
       style="min-width:300px">
 
       <!-- Highway Badge -->
@@ -35,9 +35,9 @@
 
       <!-- Main Content Container -->
       <div class="d-flex flex-column gap-2">
-        <div class="d-flex flex-row gap-4 align-items-start">
-          <div class="d-flex  align-items-center justify-content-start gap-3">
-            <img src="{{item.company_logo}}" height="80" width="80spi"
+        <div class="d-flex flex-row gap-2 align-items-start">
+          <div class="d-flex  align-items-center justify-content-start gap-2">
+            <img src="{{item.company_logo}}" height="55" width="55"
                  [ngClass]="item.highWayDirectRoute === 'Highway' ? 'ms-4':''"
                  class="img-thumbnail border-0 text-end" alt="logo">
 
@@ -62,17 +62,23 @@
                   <i class="bi bi-shield-check" style="font-size: 14px"></i>
                 </span>
                 </div>
-                <div class="small text-muted">
-                  {{ item.highWayDirectRoute }} • {{ item.busType || 'A/C Sleeper' }}
-                  <span *ngIf="item.amenities?.length" class="ms-1">({{ item.amenities.length }}+)</span>
-                </div>
+                <div class="small text-muted d-flex gap-1">
+                  <p>
+                    {{ item.highWayDirectRoute }} • {{ item.busType || 'A/C Sleeper' }}
+                    <span *ngIf="item.amenities?.length" class="ms-1">({{ item.amenities.length }}+)</span>
+                  </p>
 
-                <div class="d-flex justify-content-end mt-1 text-end">
+                  <div
+                    style="max-height: 18px"
+                    class="d-flex justify-content-end mt-1 text-end">
                   <span class="badge text-white d-flex align-items-center gap-1 px-2 py-1"
                         style="background-color: #28a745; border-radius: 4px">
                     ★ {{ item.avg_rating || '4.3' }}
                   </span>
+                  </div>
                 </div>
+
+
               </div>
             </div>
 
@@ -84,7 +90,7 @@
 
 
         <!-- Time and Price Row -->
-        <div class="d-flex flex-col justify-content-between align-items-start pt-2">
+        <div class="d-flex flex-col justify-content-between align-items-start">
           <!-- Time Section -->
           <div>
             <div class="d-flex align-items-center gap-2 mb-1">
@@ -92,11 +98,12 @@
               <span class="text-muted mx-2">—</span>
               <span style="font-size: 15px" class="mb-0 text-muted">{{ item.arrival_time }}</span>
             </div>
-            <div class="text-info-emphasis small">
+            <div class="text-info-emphasis small text-start">
               <span
+                class="fw-medium"
                 style="font-size: 14px"
                 *ngFor="let schedule of item.defaultTripPriceList; let last = last">
-                ( {{ schedule.seatType }} : {{ schedule.amount | number }} {{ !last ? ', ' : '' }})
+                 {{ schedule.seatType }} : {{ schedule.amount | number }} {{ !last ? ' | ' : '' }}
               </span>
             </div>
           </div>
@@ -116,7 +123,7 @@
 
 
         <!-- Action Button -->
-        <div class="d-flex justify-content-end">
+        <div class="d-flex justify-content-end mt-1">
           <button
             (click)="toggleCollapse(i); searchSeats(item, i); $event.stopPropagation()"
             [attr.aria-expanded]="!collapseState[i]"
