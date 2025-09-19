@@ -23,11 +23,13 @@
 
 <!-- Bus Results Content -->
 <div *ngIf="!isLoading && !isEmpty">
-  <div *ngFor="let item of buses; let i = index">
+  <div
+    class="d-flex flex-column gap-2"
+    *ngFor="let item of buses; let i = index">
     <div
       (click)="getSelectedBus(item)"
       [ngClass]="collapseState[i] ? 'bg-custom' : 'card-selected'"
-      class="d-flex flex-column d-md-none p-2 card rounded-4 shadow-sm m-2 position-relative"
+      class="d-flex flex-column d-md-none p-3 card rounded-4 shadow-sm gap-1 position-relative"
       style="min-width:300px">
 
       <!-- Highway Badge -->
@@ -41,15 +43,14 @@
                  [ngClass]="item.highWayDirectRoute === 'Highway' ? 'ms-4':''"
                  class="img-thumbnail border-0 text-end" alt="logo">
 
-<!--                            <div class="d-flex justify-content-end mt-1 text-end">-->
-<!--                              <span class="badge text-white d-flex align-items-center gap-1 px-2 py-1"-->
-<!--                                    style="background-color: #28a745; border-radius: 4px">-->
-<!--                                ★ {{ item.avg_rating || '4.3' }}-->
-<!--                              </span>-->
-<!--                            </div>-->
+            <!--                            <div class="d-flex justify-content-end mt-1 text-end">-->
+            <!--                              <span class="badge text-white d-flex align-items-center gap-1 px-2 py-1"-->
+            <!--                                    style="background-color: #28a745; border-radius: 4px">-->
+            <!--                                ★ {{ item.avg_rating || '4.3' }}-->
+            <!--                              </span>-->
+            <!--                            </div>-->
 
           </div>
-
 
 
           <div class="d-flex justify-content-between align-items-center">
@@ -87,8 +88,6 @@
           </div>
         </div>
 
-
-
         <!-- Time and Price Row -->
         <div class="d-flex flex-col justify-content-between align-items-start">
           <!-- Time Section -->
@@ -119,11 +118,8 @@
           </div>
         </div>
 
-        <!-- Company Info Row -->
-
-
         <!-- Action Button -->
-        <div class="d-flex justify-content-end mt-1">
+        <div class="d-flex justify-content-end">
           <button
             (click)="toggleCollapse(i); searchSeats(item, i); $event.stopPropagation()"
             [attr.aria-expanded]="!collapseState[i]"
@@ -156,7 +152,8 @@
               [style]="{ height: '800px' }">
 
       <!-- Loading state for seat selection -->
-      <div *ngIf="isLoadingSeats[i]" class="d-flex justify-content-center align-items-center py-5" style="height: 800px">
+      <div *ngIf="isLoadingSeats[i]" class="d-flex justify-content-center align-items-center py-5"
+           style="height: 800px">
         <div class="text-center">
           <div class="spinner-border text-primary" role="status" style="width: 2.5rem; height: 2.5rem;">
             <span class="visually-hidden">Loading seats...</span>

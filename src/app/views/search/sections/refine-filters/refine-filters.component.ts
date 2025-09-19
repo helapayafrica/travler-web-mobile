@@ -100,7 +100,14 @@ export class RefineFiltersComponent implements OnInit {
           name
         }));
 
-        console.log(this.busNames)
+        this.filteredBusNames = [...this.busNames];
+        this.filteredBoardingPoints = [...this.boardingPoints]
+        this.filteredAmenities = [...this.amenities];
+        this.filteredDroppingPoints = [...this.droppingPoints];
+        this.filteredTimeRanges = [...this.timeRanges];
+
+
+
       },
       error: (error: any) => {
         console.log(error)
@@ -225,7 +232,70 @@ export class RefineFiltersComponent implements OnInit {
     }
     this.filterChangeEmitter.emit(filters)
   }
+  // Filterring the prameters
 
+  companySearchTerm: string = '';
+  filteredBusNames: { id: string; name: any }[] = [];
 
-  protected readonly assertPlatform = assertPlatform;
+  boardingPointSearchTerm: string = '';
+  filteredBoardingPoints:{ id: string; name: any }[] = []
+
+  droppingPointSearchTerm: string = '';
+  filteredDroppingPoints: { id: string; name: unknown }[] = [];
+
+  departureTimeSearchTerm: string = '';
+  filteredTimeRanges: { id: string; name: unknown }[] = [];
+
+  amenitiesSearchTerm: string = '';
+  filteredAmenities: { id: string; name: unknown }[] = [];
+
+  filterCompanies() {
+    if (!this.companySearchTerm) {
+      this.filteredBusNames = [...this.busNames];
+    } else {
+      this.filteredBusNames = this.busNames.filter(bus =>
+        bus.name.toLowerCase().includes(this.companySearchTerm.toLowerCase())
+      );
+    }
+  }
+
+  filterBoardingPoints(){
+    if(!this.boardingPointSearchTerm){
+      this.filteredBoardingPoints = [...this.boardingPoints]
+    }else{
+      this.filteredBoardingPoints = this.boardingPoints.filter(boardingPoint =>
+        String(boardingPoint.name).toLowerCase().includes(this.boardingPointSearchTerm.toLowerCase())
+      )
+    }
+  }
+
+  filterDroppingPoints() {
+    if (!this.droppingPointSearchTerm) {
+      this.filteredDroppingPoints = [...this.droppingPoints];
+    } else {
+      this.filteredDroppingPoints = this.droppingPoints.filter(droppingPoint =>
+        String(droppingPoint.name).toLowerCase().includes(this.droppingPointSearchTerm.toLowerCase())
+      );
+    }
+  }
+
+  filterDepartureTime() {
+    if (!this.departureTimeSearchTerm) {
+      this.filteredTimeRanges = [...this.timeRanges];
+    } else {
+      this.filteredTimeRanges = this.timeRanges.filter(timeRange =>
+        String(timeRange.name).toLowerCase().includes(this.departureTimeSearchTerm.toLowerCase())
+      );
+    }
+  }
+
+  filterAmenities() {
+    if (!this.amenitiesSearchTerm) {
+      this.filteredAmenities = [...this.amenities];
+    } else {
+      this.filteredAmenities = this.amenities.filter(amenity =>
+        String(amenity.name).toLowerCase().includes(this.amenitiesSearchTerm.toLowerCase())
+      );
+    }
+  }
 }
