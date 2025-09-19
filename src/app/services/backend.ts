@@ -120,7 +120,10 @@ export class BackendService {
   }
 
   getUserWalletData(userId: string, currencyId: number=1){
-      const data = {userId, currencyId, sourcetype:"web"}
+
+      // const data = {userId, currencyId, sourcetype:"web"}
+    const data = {userId:userId,currencyId,sourcetype:"web"}
+    console.log(data)
     return this.http.post(endpoint + '/UserWallet/GetWalletData',data).pipe()
   }
 

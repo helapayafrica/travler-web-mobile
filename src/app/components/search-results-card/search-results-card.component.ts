@@ -8,6 +8,8 @@ import { forkJoin, finalize } from 'rxjs';
 import {BookingService} from '../../services/booking';
 import {BackendService} from '../../services/backend';
 import {Drawer} from 'primeng/drawer';
+import {AmenitiesPipe} from '../../utils/Pipes/amenities-pipe-pipe';
+import {Router} from '@angular/router';
 
 interface BusSchedule {
   companyName: string;
@@ -43,6 +45,7 @@ export interface EmmitedSeatData{
     NgClass,
     NgFor,
     Drawer,
+    AmenitiesPipe,
   ],
   templateUrl: './search-results-card.component.html',
   styleUrl: './search-results-card.component.scss',
@@ -51,7 +54,8 @@ export class SearchResultsCardComponent implements OnChanges {
   constructor(
     public bookingService: BookingService,
     public service: BackendService,
-    public busSeatService: BusSeatService
+    public busSeatService: BusSeatService,
+    public router: Router
   ) {
     this.bookingService.selectedTab$.subscribe((res: any) => {
       this.selectedTab = res;
@@ -313,4 +317,12 @@ export class SearchResultsCardComponent implements OnChanges {
 
 
   }
+
+  getAmenityArray(amenities: any) {
+    if (amenities) {
+      return amenities.split(',');
+    }
+    return []
+  }
+
 }

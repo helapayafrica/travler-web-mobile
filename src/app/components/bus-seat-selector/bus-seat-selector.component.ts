@@ -21,6 +21,7 @@ import {ResultsComponent} from '../../views/search/sections/results/results.comp
 import {LoginModalService} from '../../services/login-modal';
 import {BookingService} from '../../services/booking';
 import {Select} from 'primeng/select';
+import {Router} from '@angular/router';
 
 interface SeatData {
   left: string;
@@ -75,12 +76,15 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
   boardingForm!: FormGroup;
   stages: any = {};
   selectedTab: any = '';
+  private router = inject(Router)
 
   constructor(
     private busSeatService: BusSeatService,
     private fb: FormBuilder,
     public bookingService: BookingService,
-    public loginModalService: LoginModalService
+    public loginModalService: LoginModalService,
+
+
   ) {
     this.checkMobileView();
     this.bookingService.selectedTab$.subscribe((res) => {
@@ -246,11 +250,15 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
   async proceedToCheckout(): Promise<void> {
     this.close.emit(true);
     if (this.type === 'onward') {
-      // console.log("Reaching  Here")
       this.bookingService.setConfig('pickup', this.boardingForm.value);
-      // console.log("Fererererere")
       await this.bookingService.saveOutward();
-      this.loginModalService.openModal();
+      const loggedinStatus = this.bookingService.getConfig('loggedInStatus');
+      console.log(loggedinStatus)
+      if (loggedinStatus){
+        await this.router.navigate(['/checkout']);
+      }else{
+        this.loginModalService.openModal();
+      }
     } else {
       this.bookingService.setConfig('pickup', this.boardingForm.value);
       await this.bookingService.saveReturn();

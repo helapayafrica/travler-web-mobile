@@ -37,11 +37,11 @@ export class CouponInsuredService {
       }
     });
 
-    return insuredPassengerIds.size * 100;
+    return insuredPassengerIds.size * 50;
   });
 
   cancellationCost = computed(() =>
-    this.isCancellationProtection() ? this.passengerCount() * 100 : 0
+    this.isCancellationProtection() ? this.passengerCount() * 50 : 0
   );
 
   // Main computed total

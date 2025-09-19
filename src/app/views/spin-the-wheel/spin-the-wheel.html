@@ -27,30 +27,30 @@
 
 
   <!-- Add this section after your existing controls -->
-  <div class="control-section">
-    <h4>Control Panel</h4>
-    <div class="segment-controls">
-      <button
-        *ngFor="let segment of wheelSegments; let i = index"
-        (click)="spinToSpecificSegment(i + 1)"
-        [disabled]="isSpinning"
-        class="segment-button"
-        [style.background-color]="segment.fillStyle">
-        Win {{ segment.text }}
-      </button>
-    </div>
-  </div>
+<!--  <div class="control-section">-->
+<!--    <h4>Control Panel</h4>-->
+<!--    <div class="segment-controls">-->
+<!--      <button-->
+<!--        *ngFor="let segment of wheelSegments; let i = index"-->
+<!--        (click)="spinToSpecificSegment(i + 1)"-->
+<!--        [disabled]="isSpinning"-->
+<!--        class="segment-button"-->
+<!--        [style.background-color]="segment.fillStyle">-->
+<!--        Win {{ segment.text }}-->
+<!--      </button>-->
+<!--    </div>-->
+<!--  </div>-->
 
-  <!-- Add this before the control section -->
-  <div class="probability-display">
-    <h4>Win Chances</h4>
-    <div *ngFor="let prob of getSegmentProbabilities()" class="prob-item">
-      {{ prob.text }}: {{ prob.probability }}%
-    </div>
-  </div>
+<!--  &lt;!&ndash; Add this before the control section &ndash;&gt;-->
+<!--  <div class="probability-display">-->
+<!--    <h4>Win Chances</h4>-->
+<!--    <div *ngFor="let prob of getSegmentProbabilities()" class="prob-item">-->
+<!--      {{ prob.text }}: {{ prob.probability }}%-->
+<!--    </div>-->
+<!--  </div>-->
 
-  <!-- Results -->
-  <div *ngIf="lastResult" class="result">
-    <h3>🎉 Winner: {{ lastResult.text }} 🎉</h3>
-  </div>
+<!--  &lt;!&ndash; Results &ndash;&gt;-->
+<!--  <div *ngIf="lastResult" class="result">-->
+<!--    <h3>🎉 Winner: {{ lastResult.text }} 🎉</h3>-->
+<!--  </div>-->
 </div>

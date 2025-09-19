@@ -42,14 +42,6 @@
             <img src="{{item.company_logo}}" height="55" width="55"
                  [ngClass]="item.highWayDirectRoute === 'Highway' ? 'ms-4':''"
                  class="img-thumbnail border-0 text-end" alt="logo">
-
-            <!--                            <div class="d-flex justify-content-end mt-1 text-end">-->
-            <!--                              <span class="badge text-white d-flex align-items-center gap-1 px-2 py-1"-->
-            <!--                                    style="background-color: #28a745; border-radius: 4px">-->
-            <!--                                ★ {{ item.avg_rating || '4.3' }}-->
-            <!--                              </span>-->
-            <!--                            </div>-->
-
           </div>
 
 
@@ -65,8 +57,10 @@
                 </div>
                 <div class="small text-muted d-flex gap-1">
                   <p>
-                    {{ item.highWayDirectRoute }} • {{ item.busType || 'A/C Sleeper' }}
-                    <span *ngIf="item.amenities?.length" class="ms-1">({{ item.amenities.length }}+)</span>
+                    {{ item.highWayDirectRoute }} • <span class="" *ngFor="let amenity of getAmenityArray(item.amenities) "
+                                                          [innerHTML]="(amenity?.toString() || '') | displayAmenity">
+</span>
+<!--                    <span *ngIf="item.amenities?.length" class="ms-1">({{ item.amenities.length }}+)</span>-->
                   </p>
 
                   <div

@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild, NgZone} from '@angular/core';
 import {NgForOf, NgIf} from '@angular/common';
 // Declare winwheel for TypeScript
 declare var Winwheel: any;
@@ -14,7 +14,7 @@ declare var Winwheel: any;
   standalone: true,
 })
 export class SpinTheWheel implements OnInit{
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef, private ngZone: NgZone) {}
   @ViewChild('wheelCanvas', { static: true }) canvasRef!: ElementRef<HTMLCanvasElement>;
 
   wheel: any;
@@ -23,17 +23,7 @@ export class SpinTheWheel implements OnInit{
   targetSegment: number |null = null;
   isControlledSpin = false
 
-  // Wheel segments/prizes
-  // wheelSegments = [
-  //   { fillStyle: '#4ecdc4', text: '10% Off', textFillStyle: 'white', size: 50 },
-  //   { fillStyle: '#ff6b6b', text: 'Try Again', textFillStyle: 'white', size: 120 },
-  //   { fillStyle: '#a8e6cf', text: '100sh off next travel', textFillStyle: 'black', size: 25 },
-  //   { fillStyle: '#ff8b94', text: 'Try Again', textFillStyle: 'white', size: 120 },
-  //   { fillStyle: '#95e1d3', text: '100% Off Next travel', textFillStyle: 'black', size: 10 },
-  //   { fillStyle: '#ffaaa5', text: 'Book again to spin', textFillStyle: 'white', size: 40 },
-  //   { fillStyle: '#ffe66d', text: '50% Off', textFillStyle: 'black', size: 20 },
-  // ];
-   shuffle<T>(arr: T[]): T[] {
+  shuffle<T>(arr: T[]): T[] {
     return arr
       .map(item => ({ item, sort: Math.random() }))
       .sort((a, b) => a.sort - b.sort)
@@ -60,7 +50,6 @@ export class SpinTheWheel implements OnInit{
     this.wheel = new Winwheel({
       canvasId: 'canvas',
       numSegments: this.wheelSegments.length,
-      // segments: this.wheelSegments,
       segments: this.wheelSegments.map(segment => ({
         fillStyle: segment.fillStyle,
         text: segment.text,
@@ -78,49 +67,60 @@ export class SpinTheWheel implements OnInit{
       innerRadius: 0,
       strokeStyle: '#fff',
       lineWidth: 2,
-      // Pin/pointer configuration
-      // pins: {
-      //   number: this.wheelSegments.length,
-      //   fillStyle: '#fff',
-      //   outerRadius: 6,
-      // },
-      // Animation settings
+      pins: {
+        number: this.wheelSegments.length,
+        fillStyle: '#fff',
+        outerRadius: 6,
+      },
       animation: {
         type: 'spinToStop',
-        duration: 4, // seconds
-        spins: 15, // number of spins
-        callbackFinished: this.onSpinFinished.bind(this),
+        duration: 4,
+        spins: 15,
+        callbackAfter: (indicatedSegment: any) => {
+          this.ngZone.run(() => {
+            this.isSpinning = false;
+            this.lastResult = indicatedSegment;
+            this.cdr.detectChanges();
+            console.log('Spin finished:', indicatedSegment);
+          });
+        }
       }
     });
-    // Draw the wheel
     this.wheel.draw();
   }
 
+  // startSpin() {
+  //   if (this.isSpinning) return;
+  //   this.wheel.rotationAngle = 0;
+  //   this.isSpinning = true;
+  //   this.lastResult = null;
+  //   this.isControlledSpin = false;
+  //   this.targetSegment = null;
+  //   this.wheel.startAnimation();
+  //   console.log('Animation Called')
+  // }
   startSpin() {
     if (this.isSpinning) return;
-    this.cdr.detectChanges();
+
+    console.log('startSpin called');
+    console.log('wheel object:', this.wheel);
 
     this.wheel.rotationAngle = 0;
     this.isSpinning = true;
     this.lastResult = null;
     this.isControlledSpin = false;
     this.targetSegment = null;
-    // Start the spin animation
-    this.wheel.startAnimation();
-  }
 
-  onSpinFinished(indicatedSegment: any) {
-    this.isSpinning = false;
-    this.cdr.detectChanges();
-    this.lastResult = indicatedSegment;
-
-    // You can add more logic here:
-    // - Save result to database
-    // - Update user points
-    // - Show special animations
-    console.log('Spin result:', indicatedSegment);
-    console.log(this.isSpinning)
-    this.cdr.detectChanges();
+    try {
+      this.wheel.startAnimation();
+      console.log('Animation started successfully');
+      // this.isSpinning = false; // Reset state if animation fails
+      console.log(this.isSpinning)
+    } catch (error) {
+      console.error('Animation start failed:', error);
+      this.isSpinning = false; // Reset state if animation fails
+      console.log(this.isSpinning)
+    }
   }
 
   resetWheel() {
@@ -128,23 +128,18 @@ export class SpinTheWheel implements OnInit{
     this.wheel.rotationAngle = 0;
     this.wheel.draw();
     this.isSpinning = false;
-    this.cdr.detectChanges();
     this.lastResult = null;
   }
 
-
-  // Optional: Add programmatic spin to specific segment
   spinToSegment(segmentNumber: number) {
     if (this.isSpinning) return;
 
     this.isSpinning = true;
-    this.cdr.detectChanges();
     this.lastResult = null;
     this.wheel.animation.stopAngle = this.wheel.getRandomForSegment(segmentNumber);
     this.wheel.startAnimation();
   }
 
-// Method to spin to a specific segment
   spinToSpecificSegment(segmentIndex: number) {
     if (this.isSpinning) return;
 
@@ -153,13 +148,11 @@ export class SpinTheWheel implements OnInit{
     this.isSpinning = true;
     this.lastResult = null;
 
-    // Calculate the angle for the target segment
     const stopAngle = this.wheel.getRandomForSegment(segmentIndex);
     this.wheel.animation.stopAngle = stopAngle;
     this.wheel.startAnimation();
   }
 
-// Method to get segment probabilities (for display)
   getSegmentProbabilities() {
     const total = this.wheelSegments.reduce((sum, seg) => sum + seg.size, 0);
     return this.wheelSegments.map(seg => ({

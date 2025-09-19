@@ -14,8 +14,8 @@ import {CouponInsuredService} from '../../../../services/coupon-insured.service'
 })
 export class BusInfoComponent {
   data: any = {};
-  platformFee = 150;
-  discount = 100;
+  platformFee = 0;
+  discount = 0;
   onwardSeatsSummary: any[] = [];
   returnSeatsSummary: any[] = [];
 

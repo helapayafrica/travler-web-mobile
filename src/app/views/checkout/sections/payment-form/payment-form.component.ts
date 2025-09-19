@@ -1,14 +1,16 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { BusInfoComponent } from '../bus-info/bus-info.component';
-import { ToastrService } from 'ngx-toastr';
-import Swal from 'sweetalert2';
+import {CommonModule} from '@angular/common';
+import {Component, inject, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
+import {BusInfoComponent} from '../bus-info/bus-info.component';
+import {ToastrService} from 'ngx-toastr';
 import {BookingService} from '../../../../services/booking';
 import {BackendService} from '../../../../services/backend';
-import {BookingFormComponent} from '../booking-form/booking-form.component';
 import {Button} from 'primeng/button';
 import {Drawer} from 'primeng/drawer';
+import {Router} from '@angular/router';
+import {Observable, of} from 'rxjs';
+import Swal from 'sweetalert2';
+import {catchError, map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-checkout-payment-form',
@@ -34,6 +36,7 @@ export class PaymentFormComponent implements OnInit {
     { code: '250', country: 'Rwanda' }
   ];
 
+  router = inject(Router)
 
 
   constructor(private fb: FormBuilder,public bookingService:BookingService,public service:BackendService,private toastr: ToastrService) {
@@ -72,13 +75,13 @@ export class PaymentFormComponent implements OnInit {
     this.selectedPaymentMethod = this.paymentForm.value.paymentMethod;
     let mobileControl = this.paymentForm.get('mobileNumber');
 
-    // if (this.selectedPaymentMethod === 'mpesa') {
-    //   mobileControl?.setValidators([Validators.required, Validators.pattern(/^07\d{8}$/)]);
-    //   mobileControl?.updateValueAndValidity();
-    // } else {
-    //   mobileControl?.setValidators([Validators.required, Validators.pattern(/^07\d{8}$/)]);
-    //   mobileControl?.updateValueAndValidity();
-    // }
+    if (this.selectedPaymentMethod === 'mpesa') {
+      mobileControl?.setValidators([Validators.required, Validators.pattern(/^7\d{8}$/)]);
+      mobileControl?.updateValueAndValidity();
+    } else {
+      mobileControl?.setValidators([Validators.required, Validators.pattern(/^7\d{8}$/)]);
+      mobileControl?.updateValueAndValidity();
+    }
   }
 
   // Start a countdown timer for 10 minutes
@@ -164,26 +167,59 @@ export class PaymentFormComponent implements OnInit {
     let formData=this.paymentForm.value
     let ref_no =  await this.bookingService.getConfig('booking_reference')
     let data ={"bookingRef":ref_no,"queryoption":2,"queryvalue":formData.countryCode+formData.mobileNumber,"requestType":"ticket","additionalInfo":{"onward":{"sponsorTrip":false,"discountId":0},"return":{"sponsorTrip":false,"discountId":0}},"isWalletApply":false,"sourcetype":"web"}
-    this.service.makePayment(data).subscribe((res)=>{
-      if(res.isSuccess){
-        Swal.fire({
-          icon: 'success',
-          title: 'Payment Initiated',
-          text:res.msg,
-          timer: 3000, // Auto-close after 3 seconds
-          showConfirmButton: false
-        });
-        // navigate to feed back and spin to win
-      }else{
-        Swal.fire({
-          icon: 'error',
-          title: 'Payment Failed',
-          text:res.msg,
-          timer: 5000, // Auto-close after 3 seconds
-          cancelButtonText: 'Cancel',
-          showCancelButton: true,
-        });
+
+    this.checkWallet().subscribe(isValid=>{
+      const newData = {
+        ...data,
+        isWalletApply: isValid
       }
+
+      console.log(data)
+      console.log(newData)
+      this.service.makePayment(newData).subscribe((res)=>{
+        if(res.isSuccess){
+          Swal.fire({
+            icon: 'success',
+            title: 'Payment Initiated',
+            text:res.msg,
+            timer: 3000, // Auto-close after 3 seconds
+            showConfirmButton: false
+          });
+        setTimeout(()=>{
+          this.router.navigate(['/spin-to-win'])
+          }, 3000)
+
+        }else{
+          Swal.fire({
+            icon: 'error',
+            title: 'Payment Failed',
+            text:res.msg,
+            timer: 5000, // Auto-close after 3 seconds
+            cancelButtonText: 'Cancel',
+            showCancelButton: true,
+          });
+        }
+      });
+
     })
+
   }
+
+
+  checkWallet(): Observable<boolean> {
+    const userData: any = this.bookingService.getConfig('userData');
+    if (!userData) return of(false);
+    if(!userData.userId) return of(false);
+
+    return this.service.getUserWalletData(userData.userId).pipe(
+      map((wallet: any) => wallet.data.amount >= 1),
+      catchError((error) => {
+        console.log(error);
+        return of(false);
+      })
+    );
+  }
+
+
+
 }
