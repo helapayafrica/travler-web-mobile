@@ -102,7 +102,7 @@ export const routes: Routes = [
   {
     path: 'spin-to-win',
     loadComponent: () => import('./views/spin-the-wheel/spin-the-wheel').then(m => m.SpinTheWheel),
-    title: 'Support | Traveler',
+    title: 'Spin | Traveler',
     data: {
       description: 'Customer support and help center'
     }

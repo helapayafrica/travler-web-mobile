@@ -26,7 +26,8 @@ body {
 .error-code {
   font-size: 8rem;
   font-weight: 900;
-  color: #dc2626;
+  //color: #dc2626;
+  color: var(--primary-color-500);
   margin-bottom: 1rem;
   animation: pulse 2s ease-in-out infinite;
 }
@@ -41,12 +42,14 @@ body {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #1a1a1a;
+  //color: #1a1a1a;
+  color: var(--primary-color-900);
 }
 
 .subtitle {
   font-size: 1.2rem;
-  color: #666;
+  //color: #666;
+  color: var(--primary-color-500);
   margin-bottom: 2rem;
   opacity: 0.9;
 }
@@ -84,14 +87,20 @@ body {
 }
 
 .btn-primary {
-  background: linear-gradient(45deg, #dc2626, #b91c1c);
+  //background: linear-gradient(45deg, #dc2626, #b91c1c);
+  background: linear-gradient(45deg, var(--primary-color-500), var(--primary-color-400));
+
   color: white;
-  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+  //box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+  box-shadow: 0 4px 15px, var(--gray-400);
+
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+  //box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+  box-shadow: 0 4px 15px, var(--gray-400);
+
 }
 
 .btn-secondary {
