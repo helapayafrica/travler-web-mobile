@@ -14,7 +14,7 @@
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="row">
           <!-- Code -->
-          <div class="mt-2 col-4">
+          <div class="mt-2 col-5">
             <div class="d-flex flex-column gap-1">
               <label for="code">Code</label>
               <p-select
@@ -22,6 +22,7 @@
                 formControlName="country_code"
                 id="code"
                 optionLabel="label"
+                optionValue="value"
                 placeholder="Select Code"
                 class="w-100 p-dropdown-sm">
               </p-select>
@@ -33,7 +34,7 @@
           </div>
 
           <!-- Phone -->
-          <div class="mt-2 col-8">
+          <div class="mt-2 col-7">
             <div class="d-flex flex-column gap-1">
               <label for="phone">Phone Number</label>
               <input
@@ -93,8 +94,9 @@
           <button
             type="submit"
             class="w-100 rounded-pill p-2 bg-primary text-white"
+            [disabled]="loginForm.invalid || isSubmitting"
           >
-            <!--            [disabled]="loginForm.invalid || isSubmitting"-->
+
             <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm me-2"></span>
             {{ isSubmitting ? 'Logging in...' : 'Sign In' }}
           </button>

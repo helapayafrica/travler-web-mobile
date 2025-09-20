@@ -136,7 +136,7 @@ export class BackendService {
 
   getBookingHistory(tripType: 'upcoming' | 'completed' = 'upcoming') {
     const data = {tripType,sourcetype:"web"}
-    return this.http.post(endpoint + 'ticket/bookingHistory',data).pipe()
+    return this.http.post(endpoint + '/ticket/bookingHistory',data).pipe()
   }
 
   getOfferList(currencyId: number=1){

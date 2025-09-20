@@ -254,8 +254,9 @@
           <button
             type="submit"
             class="w-100 rounded-pill p-2 bg-primary text-white border-0"
+                      [disabled]="!signupForm.valid || isSubmitting"
             >
-<!--            [disabled]="!signupForm.valid || isSubmitting"-->
+
             <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm me-2"></span>
             {{ isSubmitting ? 'Creating Account...' : 'Sign Up' }}
           </button>

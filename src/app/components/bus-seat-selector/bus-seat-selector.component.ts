@@ -253,10 +253,12 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
       this.bookingService.setConfig('pickup', this.boardingForm.value);
       await this.bookingService.saveOutward();
       const loggedinStatus = this.bookingService.getConfig('loggedInStatus');
-      console.log(loggedinStatus)
-      if (loggedinStatus){
+      const userData = this.bookingService.getConfig('userData');
+
+      console.log(loggedinStatus &&  userData)
+      if (loggedinStatus === true && userData) {
         await this.router.navigate(['/checkout']);
-      }else{
+      } else {
         this.loginModalService.openModal();
       }
     } else {
