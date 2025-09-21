@@ -182,12 +182,12 @@ export class PaymentFormComponent implements OnInit {
             icon: 'success',
             title: 'Payment Initiated',
             text:res.msg,
-            timer: 3000, // Auto-close after 3 seconds
+            timer: 5000, // Auto-close after 3 seconds
             showConfirmButton: false
           });
         setTimeout(()=>{
-          this.router.navigate(['/spin-to-win'])
-          }, 3000)
+          this.router.navigate(['/feedback'])
+          }, 5000)
 
         }else{
           Swal.fire({

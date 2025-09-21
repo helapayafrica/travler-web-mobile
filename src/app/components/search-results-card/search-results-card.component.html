@@ -39,23 +39,25 @@
       <div class="d-flex flex-column gap-2">
         <div class="d-flex flex-row gap-2 align-items-start">
           <div class="d-flex  align-items-center justify-content-start gap-2">
-            <img src="{{item.company_logo}}" height="55" width="55"
+            <img
+              alt="{{item.company_name}} | cheap bus tickets"
+              src="{{item.company_logo}}" height="55" width="55"
                  [ngClass]="item.highWayDirectRoute === 'Highway' ? 'ms-4':''"
-                 class="img-thumbnail border-0 text-end" alt="logo">
+                 class="img-thumbnail border-0 text-end" >
           </div>
 
 
-          <div class="d-flex justify-content-between align-items-center">
+          <div class="d-flex justify-content-between  align-items-center w-100">
             <!-- Company Details -->
-            <div class="d-flex align-items-center gap-2">
-              <div>
-                <div class="d-flex align-items-center gap-2 mb-1">
+            <div class="d-flex align-items-center gap-2 w-100">
+              <div class="w-100">
+                <div class="d-flex align-items-center  gap-2 mb-1">
                   <span class="fw-semibold text-dark" style="font-size: 14px">{{ item.company_name }}</span>
                   <span *ngIf="item.verified" class="text-success">
                   <i class="bi bi-shield-check" style="font-size: 14px"></i>
                 </span>
                 </div>
-                <div class="small text-muted d-flex gap-1">
+                <div class="small text-muted d-flex justify-content-between  w-100 gap-1">
                   <p>
                     {{ item.highWayDirectRoute }} • <span class="" *ngFor="let amenity of getAmenityArray(item.amenities) "
                                                           [innerHTML]="(amenity?.toString() || '') | displayAmenity">

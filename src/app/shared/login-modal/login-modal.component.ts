@@ -86,6 +86,7 @@ export class LoginModalComponent {
     if (this.modalInstance) {
       this.modalInstance.hide();
     }
+    this.router.navigateByUrl('/checkout');
   }
   onSubmit(): void {
     if (this.loginForm.invalid) {

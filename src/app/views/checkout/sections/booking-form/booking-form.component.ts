@@ -10,7 +10,7 @@ import {BackendService} from '../../../../services/backend';
 @Component({
   selector: 'app-checkout-booking-form',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, FormsModule, TypeaheadModule, NgOptimizedImage,],
+  imports: [ReactiveFormsModule, CommonModule, FormsModule, TypeaheadModule,],
   templateUrl: './booking-form.component.html',
   styleUrl: './booking-form.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

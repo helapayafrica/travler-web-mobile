@@ -45,11 +45,7 @@ interface PriceData {
 @Component({
   selector: 'app-component-bus-seat-selector',
   standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    Select,
-  ],
+  imports: [CommonModule, ReactiveFormsModule, Select],
   animations: [seatAnimations, tooltipAnimations, fadeInAnimation],
   templateUrl: './bus-seat-selector.component.html',
   styleUrl: './bus-seat-selector.component.scss',
@@ -57,8 +53,8 @@ interface PriceData {
 export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
   @Input() payload: any = [];
   @Input() type: string = '';
-  @Input() busData: any = {}
-  @Input() current!: number
+  @Input() busData: any = {};
+  @Input() current!: number;
   @Output() close = new EventEmitter<boolean>(false);
   isReturnStep: boolean = false;
   seatData: SeatData[] = [];
@@ -67,7 +63,7 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
   isLoading = true;
   error: string | null = null;
   isMobileView = false;
-  isLargeView = true
+  isLargeView = true;
   isTabletView = false;
   seatStyles = SeatStyles; // Make styles available to component
   busLayoutHeight = 320; // Default height
@@ -76,15 +72,13 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
   boardingForm!: FormGroup;
   stages: any = {};
   selectedTab: any = '';
-  private router = inject(Router)
+  private router = inject(Router);
 
   constructor(
     private busSeatService: BusSeatService,
     private fb: FormBuilder,
     public bookingService: BookingService,
-    public loginModalService: LoginModalService,
-
-
+    public loginModalService: LoginModalService
   ) {
     this.checkMobileView();
     this.bookingService.selectedTab$.subscribe((res) => {
@@ -104,9 +98,7 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
         this.isReturnStep = true;
       }
     });
-    this.busSeatService.selectedSeats$.subscribe(
-      (seats) => (this.selectedSeats = seats)
-    );
+    this.busSeatService.selectedSeats$.subscribe((seats) => (this.selectedSeats = seats));
 
     // this.getTimer()
     // Start the timer updates
@@ -146,7 +138,6 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
     this.isLargeView = window.innerWidth > 1000;
     this.isTabletView = window.innerWidth > 768 && window.innerWidth < 1000;
 
-
     // If mobile state changed, update the layout
     if (wasMobile !== this.isMobileView) {
       this.updateLayoutDimensions();
@@ -173,12 +164,9 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
    * This helps ensure the seats are centered in the bus layout
    */
 
-
   // Get only driver and door seats for mobile layout
   getDriverAndDoorSeats() {
-    return this.seatData.filter(
-      (seat) => seat.seat_type === 'driver' || seat.seat_type === 'door'
-    );
+    return this.seatData.filter((seat) => seat.seat_type === 'driver' || seat.seat_type === 'door');
   }
 
   getSeatClass(seat: SeatData): string {
@@ -191,10 +179,7 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
 
   toggleSeat(seat: SeatData): void {
     if (!seat.selection_status) {
-      const updatedSelection = this.busSeatService.toggleSeat(
-        seat,
-        this.selectedSeats
-      );
+      const updatedSelection = this.busSeatService.toggleSeat(seat, this.selectedSeats);
       this.busSeatService.updateSelectedSeats(updatedSelection);
     }
   }
@@ -202,7 +187,7 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
   getSelectedSeatsString(): string {
     return this.selectedSeats
       .map((seat) => seat.seat_name)
-      .sort((a, b) => a.localeCompare(b, undefined, {numeric: true}))
+      .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
       .join(', ');
   }
 
@@ -213,10 +198,7 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
     }, {} as Record<string, number>);
 
     return Object.entries(types)
-      .map(
-        ([type, count]) =>
-          `${count} ${type.charAt(0).toUpperCase() + type.slice(1)}`
-      )
+      .map(([type, count]) => `${count} ${type.charAt(0).toUpperCase() + type.slice(1)}`)
       .join(' • ');
   }
 
@@ -247,16 +229,26 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
     return total.toLocaleString();
   }
 
+  // async proceedToCheckout(): Promise<void> {
+  //   this.close.emit(true);
+  //   if (this.type === 'onward') {
+  //     this.bookingService.setConfig('pickup', this.boardingForm.value);
+  //     await this.bookingService.saveOutward();
+  //     const loggedinStatus = this.bookingService.getConfig('loggedInStatus');
+  //     const userData = this.bookingService.getConfig('userData');
+  //     console.log(loggedinStatus &&  userData)
+  //   } else if (this.type === 'return') {
+  //   } else {
+  //     this.bookingService.setConfig('pickup', this.boardingForm.value);
+  //     await this.bookingService.saveReturn();
+  //     this.loginModalService.openModal();
+  //   }
+  // }
   async proceedToCheckout(): Promise<void> {
-    this.close.emit(true);
     if (this.type === 'onward') {
       this.bookingService.setConfig('pickup', this.boardingForm.value);
       await this.bookingService.saveOutward();
-      const loggedinStatus = this.bookingService.getConfig('loggedInStatus');
-      const userData = this.bookingService.getConfig('userData');
-
-      console.log(loggedinStatus &&  userData)
-    } else if (this.type === 'return') {
+      this.loginModalService.openModal();
     } else {
       this.bookingService.setConfig('pickup', this.boardingForm.value);
       await this.bookingService.saveReturn();
@@ -271,7 +263,7 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
     this.busSeatService.updateSelectedSeats([]);
     this.bookingService.setSelectedTab('return');
     // to do change the
-    this.closeIsOpenView()
+    this.closeIsOpenView();
   }
 
   // Helper method to check if maximum seats are selected (optional)
@@ -314,18 +306,16 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
     return 'available';
   }
 
-  @ViewChild('busContainer', {static: false}) busContainer!: ElementRef;
+  @ViewChild('busContainer', { static: false }) busContainer!: ElementRef;
   scaleFactor = 1;
   cardScaleFactor = 1;
   containerWidth = 0;
   containerHeight = 0;
 
-
-  maxY = 400
+  maxY = 400;
   // updated
   calculateCenterOffset() {
-    if (!this.seatData || this.seatData.length === 0 || !this.busContainer)
-      return;
+    if (!this.seatData || this.seatData.length === 0 || !this.busContainer) return;
 
     let minX = Infinity,
       minY = Infinity,
@@ -355,14 +345,12 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
 
     const containerClientWidth = this.busContainer.nativeElement.clientWidth;
 
-
     // scale only horizontally
     // console.log(containerWidth, ' => [Container Width]')
     // console.log(seatLayoutWidth, ' => [Seat Layout Width]')
-    this.scaleFactor = containerWidth / seatLayoutWidth
+    this.scaleFactor = containerWidth / seatLayoutWidth;
 
-
-    this.cardScaleFactor = containerClientWidth / seatLayoutWidth
+    this.cardScaleFactor = containerClientWidth / seatLayoutWidth;
     // console.log(this.scaleFactor)
 
     if (this.cardScaleFactor === 0) {
@@ -374,12 +362,10 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
     }
 
     if (this.cardScaleFactor < 0.8) {
-      this.cardScaleFactor = 0.9
+      this.cardScaleFactor = 0.9;
     }
 
-
     // console.log(containerClientWidth, ' => [Container Client Width]')
-
 
     // center horizontally and vertically
     const seatsCenterX = minX + seatLayoutWidth / 2;
@@ -392,13 +378,7 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
     // keep vertical scale at 1, so offset uses original seat positions
     this.centerOffsetY = containerHeight / 2 - seatsCenterY;
 
-    console.log(
-      'Offsets:',
-      this.centerOffsetX,
-      this.centerOffsetY,
-      'Scale:',
-      this.scaleFactor
-    );
+    console.log('Offsets:', this.centerOffsetX, this.centerOffsetY, 'Scale:', this.scaleFactor);
   }
 
   adjustSeatPosition(seat: SeatData, property: 'left' | 'top'): number {
@@ -406,7 +386,6 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
     if (property === 'left') {
       if (this.isMobileView) {
         return value + this.centerOffsetX;
-
       }
       return value * this.scaleFactor + this.centerOffsetX;
     } else {
@@ -417,9 +396,8 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
 
   protected readonly parseInt = parseInt;
 
-
   private timerInterval: any;
-  timeRemainingFormatted = ''
+  timeRemainingFormatted = '';
 
   // bookingService = inject(BookingService)
   getTimer() {
@@ -434,9 +412,8 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
     const departureTimeRaw = this.busData?.departure_time;
     // console.log('Departure time raw', departureTimeRaw)
     // console.log('Departure Time:', departureTimeRaw);
-    const departureTime = departureTimeRaw && departureTimeRaw.includes(':')
-      ? departureTimeRaw
-      : '00:00'; // fallback if invalid or missing
+    const departureTime =
+      departureTimeRaw && departureTimeRaw.includes(':') ? departureTimeRaw : '00:00'; // fallback if invalid or missing
 
     const tripType = this.bookingService.getConfig('trip_type');
     const selectedTab = this.bookingService.getConfig('selectedTab');
@@ -452,7 +429,7 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
       const dateObj = new Date(dateStr);
       if (isNaN(dateObj.getTime())) return null; // invalid date check
 
-      const [hours, minutes] = timeStr.split(':').map(num => parseInt(num, 10) || 0);
+      const [hours, minutes] = timeStr.split(':').map((num) => parseInt(num, 10) || 0);
       dateObj.setHours(hours, minutes, 0, 0);
       return dateObj;
     };
@@ -466,11 +443,9 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
     } else if (tripType === 'twoway' && selectedTab === 'onward') {
       targetDate = combineDateTime(date, departureTime);
       // console.log('twoway onward ')
-
     } else if (tripType === 'twoway' && selectedTab === 'twoway') {
       targetDate = combineDateTime(returnDate, departureTime);
       // console.log('twoway twoway ')
-
     }
 
     // console.log('Target Date:', targetDate);
@@ -489,19 +464,18 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
     }
 
     const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-    diffMs %= (1000 * 60 * 60 * 24);
+    diffMs %= 1000 * 60 * 60 * 24;
 
     const hours = Math.floor(diffMs / (1000 * 60 * 60));
-    diffMs %= (1000 * 60 * 60);
+    diffMs %= 1000 * 60 * 60;
 
     const minutes = Math.floor(diffMs / (1000 * 60));
-    diffMs %= (1000 * 60);
+    diffMs %= 1000 * 60;
 
     const seconds = Math.floor(diffMs / 1000);
 
     this.timeRemainingFormatted =
-      `${days.toString().padStart(2, '0')}d ` +
-      `${hours}h ${minutes}m ${seconds}s`;
+      `${days.toString().padStart(2, '0')}d ` + `${hours}h ${minutes}m ${seconds}s`;
   }
 
   ngOnDestroy() {
@@ -517,11 +491,10 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
     }, 60000); // change to 60000 if you only need minute updates
   }
 
-  resultComponent = inject(ResultsComponent)
+  resultComponent = inject(ResultsComponent);
 
   closeIsOpenView() {
     // console.log('[cLOSED]')
-    this.resultComponent.closeView()
+    this.resultComponent.closeView();
   }
-
 }

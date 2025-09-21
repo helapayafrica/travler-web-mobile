@@ -1,13 +1,11 @@
 import {ChangeDetectorRef, Component, ElementRef, NgZone, OnInit, ViewChild} from '@angular/core';
-import {NgForOf, NgIf} from '@angular/common';
-// Declare winwheel for TypeScript
+import {NgIf} from '@angular/common';
 declare var Winwheel: any;
 
 @Component({
   selector: 'app-spin-the-wheel',
   imports: [
-    NgIf,
-    NgForOf
+    NgIf
   ],
   templateUrl: './spin-the-wheel.html',
   styleUrl: './spin-the-wheel.scss',

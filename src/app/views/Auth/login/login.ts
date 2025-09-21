@@ -68,35 +68,20 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    // console.log(this.loginForm.value);
-
     if (this.loginForm.invalid) {
       console.log(this.loginForm.value);
     }
 
-    console.log(this.loginForm.value);
-
     this.isSubmitting = true;
-    let data:any={"username":this.loginForm.value.phone_number,"password":this.loginForm.value.password,"gcm_token":"","country_code":this.loginForm.value.country_code.value,"sourcetype":"web"}
+    let data:any={"username":this.loginForm.value.phone_number,"password":this.loginForm.value.password,"gcm_token":"","country_code":this.loginForm.value.country_code,"sourcetype":"web"}
     console.log(data);
-    this.service.login(data).subscribe({
-      next: (res) => {
-        this.isSubmitting = false;
-        if (res.isSucess) {
-          this.authService.login(res.data);
-          this.router.navigateByUrl('/');
-        } else {
-          throw new Error(res.message || 'Login failed. Please try again.');
-        }
-      },
-      error: (err) => {
-        this.isSubmitting = false; // Add this line to reset isSubmitting on error
-        console.log(err)
-      },
-      complete:() => {}
-  })
+    this.service.login(data).subscribe((res)=>{
+      this.isSubmitting = false;
+      this.authService.login(res.data);
+      this.router.navigateByUrl('/');
+    })
+  }
 
-}
 
   sign() {
 

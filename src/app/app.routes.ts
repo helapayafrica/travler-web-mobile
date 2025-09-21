@@ -14,7 +14,7 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    title: 'Home | Traveler',
+    title: 'Home | Cheap bus ticket',
     data: {
       description: 'Welcome to Traveler - Your trusted platform for travel bookings'
     }
@@ -22,7 +22,7 @@ export const routes: Routes = [
   {
     path: 'sign-up',
     loadComponent: () => import('./views/Auth/sign-up/sign-up').then(m => m.SignupComponent),
-    title: 'Sign Up | Traveler',
+    title: 'Sign Up | Cheap bus ticket',
     data: {
       description: 'Create your Traveler account to start booking travel services'
     }
@@ -30,7 +30,7 @@ export const routes: Routes = [
   {
     path: 'login',
     loadComponent: () => import('./views/Auth/login/login').then(m => m.LoginComponent),
-    title: 'Login | Traveler',
+    title: 'Login | Cheap bus ticket',
     data: {
       description: 'Sign in to your Traveler account'
     }
@@ -38,7 +38,7 @@ export const routes: Routes = [
   {
     path: 'search',
     loadComponent: () => import('./views/search/search.component').then(m => m.SearchComponent),
-    title: 'Search | Traveler',
+    title: 'Search | Cheap bus ticket',
     data: {
       description: 'Search for travel options and services'
     }
@@ -46,7 +46,7 @@ export const routes: Routes = [
   {
     path: 'faqs',
     loadComponent: () => import('./views/home/sections/faqs/faqs.component').then(m => m.FAQSComponent),
-    title: 'FAQs | Traveler',
+    title: 'FAQs | Cheap bus ticket',
     data: {
       description: 'Frequently Asked Questions about Traveler services'
     }
@@ -54,7 +54,7 @@ export const routes: Routes = [
   {
     path: 'checkout',
     loadComponent: () => import('./views/checkout/checkout.component').then(m => m.CheckoutComponent),
-    title: 'Checkout | Traveler',
+    title: 'Checkout | Cheap bus ticket',
     data: {
       description: 'Complete your booking payment'
     }
@@ -62,7 +62,7 @@ export const routes: Routes = [
   {
     path: 'payment',
     loadComponent: () => import('./views/checkout/sections/payment-form/payment-form.component').then(m => m.PaymentFormComponent),
-    title: 'Payment | Traveler',
+    title: 'Payment | Cheap bus ticket',
     data: {
       description: 'Secure payment processing'
     }
@@ -70,7 +70,7 @@ export const routes: Routes = [
   {
     path: 'contact',
     loadComponent: () => import('./views/contactus/contactus.component').then(m => m.ContactusComponent),
-    title: 'Contact Us | Traveler',
+    title: 'Contact Us | Cheap bus ticket',
     data: {
       description: 'Get in touch with our support team'
     }
@@ -78,7 +78,7 @@ export const routes: Routes = [
   {
     path: 'about',
     loadComponent: () => import('./views/aboutus/aboutus.component').then(m => m.AboutusComponent),
-    title: 'About Us | Traveler',
+    title: 'About Us | Cheap bus ticket',
     data: {
       description: 'Learn more about Traveler and our services'
     }
@@ -86,7 +86,7 @@ export const routes: Routes = [
   {
     path: 'ticket',
     loadComponent: () => import('./views/ticket/ticket.component').then(m => m.TicketComponent),
-    title: 'Ticket | Traveler',
+    title: 'Ticket | Cheap bus ticket',
     data: {
       description: 'View your travel ticket details'
     }
@@ -94,7 +94,7 @@ export const routes: Routes = [
   {
     path: 'support',
     loadComponent: () => import('./views/support/support.component').then(m => m.SupportComponent),
-    title: 'Support | Traveler',
+    title: 'Support | Cheap bus ticket',
     data: {
       description: 'Customer support and help center'
     }
@@ -102,7 +102,7 @@ export const routes: Routes = [
   {
     path: 'spin-to-win',
     loadComponent: () => import('./views/spin-the-wheel/spin-the-wheel').then(m => m.SpinTheWheel),
-    title: 'Spin | Traveler',
+    title: 'Spin | Cheap bus ticket',
     data: {
       description: 'Customer support and help center'
     }
@@ -110,7 +110,7 @@ export const routes: Routes = [
   {
     path: 'feedback',
     loadComponent: () => import('./views/feedback/feedback').then(m => m.Feedback),
-    title: 'Feedback | Traveler',
+    title: 'Feedback | Cheap bus ticket',
     data: {
       description: 'Customer support and help center'
       }
@@ -119,7 +119,7 @@ export const routes: Routes = [
     path: 'user-profile',
     canActivate: [authGuard],
     loadComponent: () => import('./views/user-profile/user-profile-layout.component').then(m => m.UserProfileLayoutComponent),
-    title: 'Profile | Traveler',
+    title: 'Profile | Cheap bus ticket',
     data: {
       description: 'Manage your Traveler account'
     },
@@ -132,7 +132,7 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         loadComponent: () => import('./views/user-profile/dashboard/dashboard.component').then(m => m.DashboardComponent),
-        title: 'Dashboard | Traveler',
+        title: 'Dashboard | Cheap bus ticket',
         data: {
           description: 'Your Traveler account dashboard'
         }
@@ -140,7 +140,7 @@ export const routes: Routes = [
       {
         path: 'bookings',
         loadComponent: () => import('./views/user-profile/bookings/bookings.component').then(m => m.BookingsComponent),
-        title: 'My Bookings | Traveler',
+        title: 'My Bookings | Cheap bus ticket',
         data: {
           description: 'View and manage your bookings'
         }
@@ -148,7 +148,7 @@ export const routes: Routes = [
       {
         path: 'wallet',
         loadComponent: () => import('./views/user-profile/wallet/wallet.component').then(m => m.WalletComponent),
-        title: 'Wallet | Traveler',
+        title: 'Wallet | Cheap bus ticket',
         data: {
           description: 'Manage your Traveler wallet'
         }
@@ -156,7 +156,7 @@ export const routes: Routes = [
       {
         path: 'account',
         loadComponent: () => import('./views/user-profile/account-details/account-details.component').then(m => m.AccountDetailsComponent),
-        title: 'Account Details | Traveler',
+        title: 'Account Details | Cheap bus ticket',
         data: {
           description: 'Manage your account information'
         }
@@ -164,7 +164,7 @@ export const routes: Routes = [
       {
         path: 'change-password',
         loadComponent: () => import('./views/user-profile/change-password/change-password.component').then(m => m.ChangePasswordComponent),
-        title: 'Change Password | Traveler',
+        title: 'Change Password | Cheap bus ticket',
         data: {
           description: 'Update your account password'
         }
@@ -172,7 +172,7 @@ export const routes: Routes = [
       {
         path: 'user-list',
         loadComponent: () => import('./views/user-profile/user-list/user-list.component').then(m => m.UserListComponent),
-        title: 'User List | Traveler',
+        title: 'User List | Cheap bus ticket',
         data: {
           description: 'View user list'
         }
@@ -182,7 +182,7 @@ export const routes: Routes = [
   {
     path: '**',
     component: PageNotFoundComponent,
-    title: 'Page Not Found | Traveler',
+    title: 'Page Not Found | Cheap bus ticket',
     data: {
       description: 'The requested page could not be found'
     }
