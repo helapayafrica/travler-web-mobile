@@ -1,0 +1,85 @@
+<div class="payment-confirmation-container">
+  <div class="connection-status">
+    <div class="status-indicator" [class.connected]="isConnected" [class.disconnected]="!isConnected">
+      {{ isConnected ? 'Connected' : 'Disconnected' }}
+    </div>
+  </div>
+
+  <div class="room-management">
+    <h3>Payment Room Management</h3>
+
+    <div class="input-group">
+      <input
+        type="text"
+        [(ngModel)]="invoiceRef"
+        placeholder="Enter Invoice Reference (e.g., RD2)"
+        class="form-control"
+        [disabled]="!isConnected"
+      >
+      <button
+        (click)="joinRoom()"
+        [disabled]="!isConnected || !invoiceRef.trim() || isLoading"
+        class="btn btn-primary"
+      >
+        {{ isLoading ? 'Joining...' : 'Join Room' }}
+      </button>
+      <button
+        (click)="leaveRoom()"
+        [disabled]="!isConnected || !currentRoom"
+        class="btn btn-secondary"
+      >
+        Leave Room
+      </button>
+      <button
+        (click)="ping()"
+        [disabled]="!isConnected"
+        class="btn btn-info"
+      >
+        Ping
+      </button>
+    </div>
+
+    <div class="room-status" *ngIf="currentRoom">
+      <p><strong>Current Room:</strong> {{ currentRoom }}</p>
+    </div>
+  </div>
+
+  <!-- Payment Confirmation -->
+  <div class="payment-confirmation" *ngIf="paymentConfirmation">
+    <div class="success-message">
+      <h3>🎉 Payment Confirmed!</h3>
+      <div class="payment-details">
+        <p><strong>Invoice Reference:</strong> {{ paymentConfirmation.invoice_ref }}</p>
+        <p><strong>Transaction ID:</strong> {{ paymentConfirmation.data!.TransID }}</p>
+        <p><strong>Amount:</strong> {{ paymentConfirmation.data!.TransAmount }}</p>
+        <p><strong>Customer:</strong> {{ paymentConfirmation.data!.FirstName }}</p>
+        <p><strong>Phone:</strong> {{ paymentConfirmation.data!.MSISDN }}</p>
+        <p><strong>Time:</strong> {{ paymentConfirmation.data!.TransTime }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Room Timeout -->
+  <div class="timeout-warning" *ngIf="roomTimeout">
+    <div class="warning-message">
+      <h3>⏰ Room Timeout</h3>
+      <p>{{ roomTimeout.message }}</p>
+      <p><strong>Invoice:</strong> {{ roomTimeout.invoice_ref }}</p>
+    </div>
+  </div>
+
+  <!-- Room Closed -->
+  <div class="room-closed" *ngIf="roomClosed">
+    <div class="closed-message">
+      <h3>🚪 Room Closed</h3>
+      <p>{{ roomClosed.message }}</p>
+      <p><strong>Invoice:</strong> {{ roomClosed.invoice_ref }}</p>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div class="loading" *ngIf="isLoading">
+    <div class="spinner"></div>
+    <p>Waiting for payment confirmation...</p>
+  </div>
+</div>

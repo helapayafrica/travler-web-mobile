@@ -1,0 +1,155 @@
+.payment-confirmation-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.connection-status {
+  margin-bottom: 20px;
+}
+
+.status-indicator {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  color: white;
+}
+
+.status-indicator.connected {
+  background-color: #28a745;
+}
+
+.status-indicator.disconnected {
+  background-color: #dc3545;
+}
+
+.room-management {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.form-control {
+  flex: 1;
+  min-width: 200px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-info {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.room-status {
+  background: #e9ecef;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.payment-confirmation {
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.success-message h3 {
+  color: #155724;
+  margin-bottom: 15px;
+}
+
+.payment-details p {
+  margin: 5px 0;
+  color: #155724;
+}
+
+.timeout-warning {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.warning-message h3 {
+  color: #856404;
+  margin-bottom: 15px;
+}
+
+.room-closed {
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.closed-message h3 {
+  color: #721c24;
+  margin-bottom: 15px;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .input-group {
+    flex-direction: column;
+  }
+
+  .form-control {
+    min-width: auto;
+  }
+}
