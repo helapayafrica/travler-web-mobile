@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
+import {CookieService} from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,8 @@ export class AuthService {
 
   private loggedInSubject: BehaviorSubject<boolean>;
   private userSubject: BehaviorSubject<any | null>;
+
+  cookies = inject(CookieService)
 
   constructor() {
     // ✅ Load logged-in status from localStorage
@@ -48,6 +51,16 @@ export class AuthService {
   login(user: any) {
     localStorage.setItem(this.loggedInKey, 'true');
     localStorage.setItem(this.userKey, JSON.stringify(user));
+
+    console.log(user)
+    // add the user email and to the cookies
+
+    this.cookies.set('userEmail', user.email, {
+      expires: 7,
+      secure: true,
+      sameSite: 'Strict'
+    });
+
 
     this.loggedInSubject.next(true);
     this.userSubject.next(user);

@@ -4,6 +4,7 @@ import {PageNotFoundComponent} from './views/page-not-found/page-not-found.compo
 import {Feedback} from './views/feedback/feedback';
 import {SpinTheWheel} from './views/spin-the-wheel/spin-the-wheel';
 import {authGuard} from './utils/auth-guard';
+import {PaymentConfirmationComponent} from './views/payment-confirmation-component/payment-confirmation-component';
 
 export const routes: Routes = [
   {
@@ -114,6 +115,14 @@ export const routes: Routes = [
     data: {
       description: 'Customer support and help center'
       }
+  },
+  {
+    path: 'pay-conf',
+  component: PaymentConfirmationComponent,
+    title: 'Confirm Payment | Cheap bus ticket',
+    data: {
+      description: 'Customer support and help center'
+    }
   },
   {
     path: 'user-profile',

@@ -1,12 +1,17 @@
 <div class="card mb-3">
   <div class="card-header border-0">
-    <h5 class="card-title">Personal information</h5>
-    <div class="hstack gap-1">
+    <h5 class="card-title fw-semibold">Personal information</h5>
+
+    <!-- Stack vertically on sm, stay horizontal from md up -->
+    <div class="d-flex flex-column flex-md-row gap-1 text-center text-md-start">
       <p class="mb-0 small">Do you need help? call us</p>
-      <a href="mailto:info@iabiri.com" style="text-decoration: none;font-weight: 700;"> +254709215215 | Email
-        : {{ email }}</a>
+      <a href="mailto:info@iabiri.com"
+         class="fw-medium text-decoration-none ms-md-2">
+        +254709215215 | Email: {{ email }}
+      </a>
     </div>
   </div>
+
   <div class="card-body border-0">
     <form #passegerForm="ngForm" class="gap-3">
       <!-- Cancellation Fee -->
@@ -40,7 +45,7 @@
           </h5>
         </div>
         <div class="col-sm-4" style="text-align:right; font-size: 0.875rem;">
-          <img alt="Seat Icon" class="mb-2 me-2" height="20" ngSrc="/assets/images/seat.png" width="20">
+          <img alt="Seat Icon" class="mb-2 me-2" height="20" src="/assets/images/seat.png" width="20">
           Seat :<b class="fw-semibold">{{ item.seat_name }}</b>
           <b *ngIf="data?.returnticket?.passenger"
              class="fw-semibold">, {{ data.returnticket.passenger[index].seat_name }}</b>

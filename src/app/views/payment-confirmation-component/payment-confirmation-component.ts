@@ -1,9 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnInit, OnDestroy, inject} from '@angular/core';
 import { Subscription } from 'rxjs';
 import {FormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
 import { PaymentSocketService} from '../../services/payment-socket-service';
 import {PaymentConfirmation} from '../../Models';
+import {ToastrService} from 'ngx-toastr';
 // import { PaymentSocketService, PaymentConfirmation } from '../../services/payment-socket.service';
 
 @Component({
@@ -17,6 +18,7 @@ import {PaymentConfirmation} from '../../Models';
 })
 export class PaymentConfirmationComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
+  toastr = inject(ToastrService)
 
   isConnected = false;
   currentRoom: string | null = null;
@@ -110,6 +112,7 @@ export class PaymentConfirmationComponent implements OnInit, OnDestroy {
   private handlePaymentSuccess(confirmation: PaymentConfirmation): void {
     // Handle successful payment
     console.log('Payment confirmed:', confirmation);
+    this.toastr.success('Payment confirmed successfully!', 'Success');
 
     // You can emit events, show notifications, navigate to success page, etc.
     // Example: this.router.navigate(['/payment-success']);

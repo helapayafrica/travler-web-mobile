@@ -168,6 +168,7 @@ export class PaymentFormComponent implements OnInit {
   }
   async makePayment(){
     let formData=this.paymentForm.value
+    console.log(formData)
     let ref_no =  await this.bookingService.getConfig('booking_reference')
     let data ={"bookingRef":ref_no,"queryoption":2,"queryvalue":formData.countryCode+formData.mobileNumber,"requestType":"ticket","additionalInfo":{"onward":{"sponsorTrip":false,"discountId":0},"return":{"sponsorTrip":false,"discountId":0}},"isWalletApply":false,"sourcetype":"web"}
 
@@ -184,6 +185,7 @@ export class PaymentFormComponent implements OnInit {
 
         // join the socketroom for payment  confirmation
         this.paymentSocketService.joinPaymentRoom((res.invoiceRef));
+        this.paymentSocketService.disconnect()
 
         console.log(res)
         this.startTimer()

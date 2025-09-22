@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {RouterLink} from '@angular/router';
 
 interface Partner {
   name: string;
@@ -18,6 +19,7 @@ interface PartnerBenefit {
   standalone: true,
   imports: [
     CommonModule,
+    RouterLink,
   ],
   templateUrl: './partners.component.html',
   styleUrl: './partners.component.scss'

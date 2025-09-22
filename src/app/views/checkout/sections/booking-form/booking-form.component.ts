@@ -13,7 +13,7 @@ import {Button} from 'primeng/button';
 @Component({
   selector: 'app-checkout-booking-form',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, FormsModule, TypeaheadModule, Dialog, InputText, Button,],
+  imports: [ReactiveFormsModule, CommonModule, FormsModule, TypeaheadModule, Dialog, Button,],
   templateUrl: './booking-form.component.html',
   styleUrl: './booking-form.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
