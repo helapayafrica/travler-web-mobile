@@ -15,7 +15,7 @@
           <div class=" p-2">
             <div class="d-flex flex-column">
               <p class="mb-0 fw-bold">Cancellation protect</p>
-              <p class="mb-0 text-dark">KSH 100 per passenger</p>
+              <p class="mb-0 text-dark">KSH 50 per passenger</p>
             </div>
           </div>
           <div class="form-check form-switch">
@@ -53,12 +53,12 @@
         <div class="col-4">
           <label class="form-label" for="lastName">Age</label>
           <input [(ngModel)]="item.age" class="form-control" id="age" name="age{{item.seat_name}}" placeholder="Age"
-                 required type="number">
+                 required  type="number">
         </div>
 
         <div class="col-6 mt-2">
           <label class="form-label" for="sortBy">Gender</label>
-          <select [(ngModel)]="item.gender" class="form-select" id="gender" name="gender{{item.seat_name}}">
+          <select [(ngModel)]="item.gender" class="form-select" id="gender" name="gender{{item.seat_name}}" required>
             <option value="F">Female</option>
             <option value="M">Male</option>
           </select>
@@ -74,7 +74,7 @@
         <div class="col-12 mt-2">
           <label class="form-label" for="idNo">Email</label>
           <input [(ngModel)]="item.email" class="form-control" name="eamil{{item.seat_name}}" placeholder="Email"
-                 required
+                 required email
                  type="text">
         </div>
 
@@ -92,7 +92,8 @@
           <div class="row mb-2">
             <div class="col-4">
               <label class="form-label" for="price">Code</label>
-              <select [(ngModel)]="item.mobileId" class="form-select" name="mobileId{{item.seat_name}}" value="+254">
+              <select [(ngModel)]="item.mobileId" class="form-select" name="mobileId{{item.seat_name}}" value="+254"
+                      required>
                 <option *ngFor="let item of country_codes" [value]="item.code"> +{{ item.code }}</option>
               </select>
             </div>
@@ -104,6 +105,7 @@
                   [(ngModel)]="item.mobile"
                   class="form-control"
                   name="phone{{item.seat_name}}" placeholder="Phone" placeholder="700000000"
+                  required
                   type="number">
               </div>
 
@@ -111,121 +113,86 @@
           </div>
         </div>
 
-
-        <!-- Insurance Section -->
-<!--        <div class="col-12 col-md-8 col-lg-6 mb-3 mt-3">-->
-<!--          <div class="bg-custom rounded-3 shadow-sm p-2 w-100 border border-1">-->
-<!--            &lt;!&ndash; Insurance Header &ndash;&gt;-->
-<!--            <div class="d-flex align-items-start mb-1">-->
-<!--              <img alt="Insurance" height="30" ngSrc="assets/images/britam-insurance.png" width="80">-->
-<!--              <div class="ms-4"><p class="mb-0 fw-bold">Travel Insurance</p>-->
-<!--                <p class="mb-0 text-success">KSH 50 per passenger</p></div>-->
-<!--            </div>-->
-
-<!--            &lt;!&ndash; Insurance Benefits &ndash;&gt;-->
-<!--            &lt;!&ndash;            <div class="bg-light rounded-2 p-2 text-center shadow-sm mb-2">&ndash;&gt;-->
-<!--            &lt;!&ndash;              <span class="fw-bold text-success">Full Coverage</span>&ndash;&gt;-->
-<!--            &lt;!&ndash;              <p class="text-muted mb-0">Trip cancellation included</p>&ndash;&gt;-->
-<!--            &lt;!&ndash;            </div>    &lt;!&ndash; Insurance Options &ndash;&gt;&ndash;&gt;-->
-<!--            <div class="row g-2">-->
-<!--              <div class="col-6">-->
-<!--                <label class="border rounded-2 p-2 d-flex justify-content-between align-items-center h-100"-->
-<!--                       style="cursor: pointer;">-->
-<!--                  <span>No</span>-->
-<!--                  <input-->
-<!--                    type="radio"-->
-<!--                    class="form-check-input"-->
-<!--                    [name]="'insure' + index"-->
-<!--                    [checked]="!protectionInsuranceService.isSeatInsured(item.seat_name)"-->
-<!--                    (change)="saveInsuranceSelection(item.seat_name, false)"-->
-<!--                  />-->
-<!--                </label>-->
-<!--              </div>-->
-<!--              <div class="col-6">-->
-
-<!--                <label class="border rounded-2 p-2 d-flex justify-content-between align-items-center h-100"-->
-<!--                       style="cursor: pointer;">-->
-<!--                  <span>Yes</span>-->
-<!--                  <input-->
-<!--                    type="radio"-->
-<!--                    class="form-check-input"-->
-<!--                    [name]="'insure' + index"-->
-<!--                    [checked]="protectionInsuranceService.isSeatInsured(item.seat_name)"-->
-<!--                    (change)="saveInsuranceSelection(item.seat_name, true)"-->
-<!--                  />-->
-<!--                </label>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-
-<!--        </div>-->
-
-<!--        NEw Travel insurnce-->
         <div class=" card -d-flex flex-column gap-3 p-3   ">
-            <p class="fw-bold fs-4  mb-0">Travel Insurance</p>
-            <p class="mb-0"> Protect your journey with Comprehensive  travel insurance</p>
+          <p class="fw-bold fs-4  mb-0">Travel Insurance</p>
+          <p class="mb-0"> Protect your journey with Comprehensive travel insurance</p>
 
+          <div class="d-flex flex-column ">
+            <!-- No-insurance option -->
+            <label
+              class="row custom-bg rounded-4 p-3 mb-3"
+              [ngClass]="{ 'border border-primary': selectedInsuranceName === 'none' }"
+            >
+              <div class="col-11">
+                <p class="mb-0 fw-normal">I don't want insurance</p>
+              </div>
+              <div class="col-1 d-flex justify-content-center align-items-center">
+                <input type="radio"
+                       name="insurance"
+                       class="form-check-input custom-check"
+                       value="none"
+                       (change)="onSelect('none')" />
+              </div>
+            </label>
 
+            <label
+              class="row custom-bg rounded-4 p-2 mb-3"
+              *ngFor="let ins of travelInsurances"
+              [ngClass]="{ 'border border-primary': selectedInsuranceName === ins.name }"
+            >
+              <div class="col-11">
+                <div class="d-flex flex-column">
+                  <div class="d-flex flex-row justify-content-between">
+                    <p
+                      style="font-size: 18px; font-weight: 500"
+                      class="bg-info-emphasis fw-semibold mb-0">{{ ins.name }}</p>
+                    <p
+                      style="font-size: 18px; font-weight: 500"
+                      class="bg-info-emphasis fw-semibold mb-0">
+                      KES {{ ins.price }}
+                    </p>
+                  </div>
 
-      <div class="d-flex flex-column ">
-        <!-- Loop through all insurers -->
-        <label
-          class="row custom-bg rounded-4 p-2 mb-3"
-          *ngFor="let ins of travelInsurances"
-          [ngClass]="{ 'border border-primary': selectedInsuranceName === ins.name }"
-        >
-          <div class="col-11">
-            <div class="d-flex flex-column">
-              <div class="d-flex flex-row justify-content-between">
-                <p
-                  style="font-size: 18px; font-weight: 500"
-                  class="bg-info-emphasis fw-semibold mb-0">{{ ins.name }}</p>
-                <p
-                  style="font-size: 18px; font-weight: 500"
-                  class="bg-info-emphasis fw-semibold mb-0">
-                  KES {{ ins.price }}
-                </p>
+                  <div class="d-flex flex-row">
+                    <p class="mb-0 small">{{ ins.description }}</p>
+
+                    <!-- pass the clicked insurer to the dialog -->
+                    <p
+                      class="mb-0  custom-btn flex-shrink-0"
+                      (click)="showDialog(ins)"
+                    >
+                      benefits
+                    </p>
+                  </div>
+                </div>
               </div>
 
-              <div class="d-flex flex-row">
-                <p class="mb-0 small">{{ ins.description }}</p>
-
-                <!-- pass the clicked insurer to the dialog -->
-                <p
-                  class="mb-0  custom-btn flex-shrink-0"
-                  (click)="showDialog(ins)"
-                >
-                  benefits
-                </p>
+              <div class="col-1 d-flex justify-content-center align-items-center">
+                <input type="radio"
+                       name="insurance"
+                       class="form-check-input custom-check"
+                       [value]="ins.name"
+                       (change)="onSelect(ins.name)"
+                       />
               </div>
-            </div>
-          </div>
+            </label>
 
-          <div class="col-1 d-flex justify-content-center align-items-center">
-            <input         type="radio"
-                   name="insurance"
-                   class="form-check-input custom-check"
-                   [value]="ins.name"
-                   (change)="onSelect(ins.name)" />
-          </div>
-        </label>
+            <!-- Single dialog reused for whichever insurer is selected -->
+            <p-dialog
+              header="{{ selectedInsurance?.name }} Benefits"
+              [modal]="true"
+              [(visible)]="dialog"
+              [style]="{ width: '25rem' }"
+            >
+              <ul class="list-disc pl-6 mb-6 text-sm">
+                <li *ngFor="let b of selectedInsurance?.benefits">{{ b }}</li>
+              </ul>
 
-        <!-- Single dialog reused for whichever insurer is selected -->
-        <p-dialog
-          header="{{ selectedInsurance?.name }} Benefits"
-          [modal]="true"
-          [(visible)]="dialog"
-          [style]="{ width: '25rem' }"
-        >
-          <ul class="list-disc pl-6 mb-6 text-sm">
-            <li *ngFor="let b of selectedInsurance?.benefits">{{ b }}</li>
-          </ul>
-
-          <div class="flex justify-end gap-2">
-            <p-button label="Close" severity="secondary" (click)="dialog = false" />
+              <div class="flex justify-end gap-2">
+                <p-button label="Close" severity="secondary" (click)="dialog = false"/>
+              </div>
+            </p-dialog>
           </div>
-        </p-dialog>
-      </div>
 
         </div>
 
@@ -233,12 +200,10 @@
     </form>
   </div>
   <div *ngIf="!isSuccess" class="card-footer border-0 text-end">
-    <button (click)="proceed()" [disabled]="passegerForm.invalid" class="btn btn-primary py-2 px-3 rounded-pill">Proceed to pay
+    <button (click)="proceed()" [disabled]="passegerForm.invalid" class="btn btn-primary py-2 px-3 rounded-pill">Proceed
+      to pay
     </button>
   </div>
 </div>
 
-
 <!--unsurance Dialog-->
-
-
