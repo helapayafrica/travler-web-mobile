@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 import {Observable, of} from 'rxjs';
 import Swal from 'sweetalert2';
 import {catchError, map} from 'rxjs/operators';
+import {PaymentSocketService} from '../../../../services/payment-socket-service';
 
 @Component({
   selector: 'app-checkout-payment-form',
@@ -37,6 +38,7 @@ export class PaymentFormComponent implements OnInit {
   ];
 
   router = inject(Router)
+  paymentSocketService = inject(PaymentSocketService)
 
 
   constructor(private fb: FormBuilder,public bookingService:BookingService,public service:BackendService,private toastr: ToastrService) {
@@ -86,6 +88,7 @@ export class PaymentFormComponent implements OnInit {
 
   // Start a countdown timer for 10 minutes
   startTimer() {
+    console.log(" Timer Started")
     if (this.interval) {
       clearInterval(this.interval); // ✅ Prevent multiple intervals
     }
@@ -177,7 +180,16 @@ export class PaymentFormComponent implements OnInit {
       console.log(data)
       console.log(newData)
       this.service.makePayment(newData).subscribe((res)=>{
+
+
+        // join the socketroom for payment  confirmation
+        this.paymentSocketService.joinPaymentRoom((res.invoiceRef));
+
+        console.log(res)
+        this.startTimer()
         if(res.isSuccess){
+
+
           Swal.fire({
             icon: 'success',
             title: 'Payment Initiated',
@@ -186,8 +198,9 @@ export class PaymentFormComponent implements OnInit {
             showConfirmButton: false
           });
         setTimeout(()=>{
-          this.router.navigate(['/feedback'])
-          }, 5000)
+          // this.router.navigate(['/feedback'])
+
+          }, 15000)
 
         }else{
           Swal.fire({

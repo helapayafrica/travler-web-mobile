@@ -1,129 +1,97 @@
 <div class="card mb-3">
-  <!-- Header remains the same -->
-  <div class="card-body border-0">
-    <form #passegerForm="ngForm" class="gap-3">
-      <!-- Cancellation Fee section remains the same -->
+  <div class="card-header">
+    <h5 class="card-title">Personal information</h5>
+    <div class="hstack gap-1">
+      <p class="mb-0 small">Do you need help? call us</p>
+      <a href="mailto:info@iabiri.com" style="text-decoration: none;font-weight: 700;"> +254709215215 | Email : {{email}}</a>
+    </div>
+  </div>
+  <div class="card-body">
+    <form class="gap-3" #passegerForm="ngForm">
 
-      <div *ngFor="let item of data?.ticketDetail.onwardticket?.passenger;let index=index" class="row">
-        <!-- Passenger type header remains the same -->
+      <div class="row" *ngFor="let item of data?.ticketDetail.onwardticket?.passenger;let index=index">
 
-        <!-- Name field with validation -->
-        <div class="col-8">
-          <label class="form-label" for="firstName">Name <span class="text-danger">*</span></label>
-          <input [(ngModel)]="item.name"
-                 class="form-control"
-                 [class.is-invalid]="nameInput.invalid && (nameInput.dirty || nameInput.touched)"
-                 #nameInput="ngModel"
-                 id="name"
-                 name="seat{{item.seat_name}}"
-                 placeholder="Name"
-                 required
-                 minlength="3"
-                 pattern="^[a-zA-Z ]*$"
-                 type="text">
-          <div class="invalid-feedback" *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)">
-            <div *ngIf="nameInput.errors?.['required']">Name is required</div>
-            <div *ngIf="nameInput.errors?.['minlength']">Name must be at least 3 characters</div>
-            <div *ngIf="nameInput.errors?.['pattern']">Name should only contain letters</div>
-          </div>
+        <div class="col-sm-8">
+          <h5>
+            <span  *ngIf="index == 0" style="color:green;font-weight: 800;text-transform: uppercase;font-size: 15px;">Primary Passenger</span>
+            <span  *ngIf="index > 0" style="color:black;font-weight: 800;text-transform: uppercase;font-size: 15px;">Co Passenger</span>
+
+
+          </h5>
         </div>
+        <div class="col-sm-4" style="text-align:right">
+          Seat :<b>{{item.seat_name}}</b><b *ngIf="data?.returnticket?.passenger">, {{data.returnticket.passenger[index].seat_name}}</b>
 
-        <!-- Age field with validation -->
+        </div>
+        <div class="col-8">
+          <label for="firstName" class="form-label">Name</label>
+          <input type="text" placeholder="Name" class="form-control" id="name" name="seat{{item.seat_name}}"  [(ngModel)]="item.name" required >
+        </div>
         <div class="col-4">
-          <label class="form-label" for="lastName">Age <span class="text-danger">*</span></label>
-          <input [(ngModel)]="item.age"
-                 class="form-control"
-                 [class.is-invalid]="ageInput.invalid && (ageInput.dirty || ageInput.touched)"
-                 #ageInput="ngModel"
-                 id="age"
-                 name="age{{item.seat_name}}"
-                 placeholder="Age"
-                 required
-                 min="1"
-                 max="120"
-                 type="number">
-          <div class="invalid-feedback" *ngIf="ageInput.invalid && (ageInput.dirty || ageInput.touched)">
-            <div *ngIf="ageInput.errors?.['required']">Age is required</div>
-            <div *ngIf="ageInput.errors?.['min'] || ageInput.errors?.['max']">Age must be between 1 and 120</div>
-          </div>
+          <label for="lastName" class="form-label">Age</label>
+          <input type="number" class="form-control" id="age" name="age{{item.seat_name}}"  [(ngModel)]="item.age"    placeholder="Age" required>
         </div>
 
-        <!-- ID/Passport with validation -->
-        <div class="col-6 mt-2">
-          <label class="form-label" for="idNo">ID/Passport <span class="text-danger">*</span></label>
-          <input [(ngModel)]="item.id_no"
-                 class="form-control"
-                 [class.is-invalid]="idInput.invalid && (idInput.dirty || idInput.touched)"
-                 #idInput="ngModel"
-                 name="id_no{{item.seat_name}}"
-                 placeholder="ID Number"
-                 required
-                 minlength="5"
-                 type="number">
-          <div class="invalid-feedback" *ngIf="idInput.invalid && (idInput.dirty || idInput.touched)">
-            <div *ngIf="idInput.errors?.['required']">ID/Passport is required</div>
-            <div *ngIf="idInput.errors?.['minlength']">ID must be at least 5 digits</div>
-          </div>
+        <div class="col-5">
+          <label for="sortBy" class="form-label">Gender</label>
+          <select class="form-select" id="gender" name="gender{{item.seat_name}}" [(ngModel)]="item.gender" >
+            <option value="F">Female</option>
+            <option value="M">Male</option>
+          </select>
         </div>
 
-        <!-- Email with validation -->
-        <div class="col-12 mt-2">
-          <label class="form-label" for="idNo">Email <span class="text-danger">*</span></label>
-          <input [(ngModel)]="item.email"
-                 class="form-control"
-                 [class.is-invalid]="emailInput.invalid && (emailInput.dirty || emailInput.touched)"
-                 #emailInput="ngModel"
-                 name="email{{item.seat_name}}"
-                 placeholder="Email"
-                 required
-                 email
-                 type="email">
-          <div class="invalid-feedback" *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)">
-            <div *ngIf="emailInput.errors?.['required']">Email is required</div>
-            <div *ngIf="emailInput.errors?.['email']">Please enter a valid email address</div>
-          </div>
+
+        <div class="col-7">
+          <label for="idNo" class="form-label">ID/Passport</label>
+          <input type="number" class="form-control"  name="id_no{{item.seat_name}}" required [(ngModel)]="item.id_no"  placeholder="ID Number" >
+        </div>
+        <div class="col-12 col-md-6">
+          <label for="idNo" class="form-label">Email</label>
+          <input type="text" class="form-control"  name="eamil{{item.seat_name}}" required [(ngModel)]="item.email"  placeholder="Email" >
         </div>
 
-        <!-- Phone number with validation -->
-        <div class="col-8">
-          <label class="form-label" for="phone_number">Phone Number <span class="text-danger">*</span></label>
-          <div class="input-group">
-            <span class="input-group-text"><i class="bi bi-telephone-plus"></i></span>
-            <input [(ngModel)]="item.mobile"
-                   class="form-control"
-                   [class.is-invalid]="phoneInput.invalid && (phoneInput.dirty || phoneInput.touched)"
-                   #phoneInput="ngModel"
-                   name="phone{{item.seat_name}}"
-                   placeholder="700000000"
-                   required
-                   minlength="9"
-                   maxlength="12"
-                   pattern="^[0-9]*$"
-                   type="tel">
-            <div class="invalid-feedback" *ngIf="phoneInput.invalid && (phoneInput.dirty || phoneInput.touched)">
-              <div *ngIf="phoneInput.errors?.['required']">Phone number is required</div>
-              <div *ngIf="phoneInput.errors?.['minlength']">Phone number must be at least 9 digits</div>
-              <div *ngIf="phoneInput.errors?.['pattern']">Please enter valid numbers only</div>
+        <div class="col-12 col-md-3">
+          <label for="residence" class="form-label">Nationality</label>
+          <input type="text" class="form-control"  required  name="nationality{{item.seat_name}}"  [(ngModel)]="item.nationality"
+                 [typeahead]="nationalities"
+                 [typeaheadOptionField]="'value'"
+                 placeholder="Nationality">
+        </div>
+
+        <div class="col-sm-12">
+          <div class="row mb-2">
+            <div class="col-4">
+              <label for="price" class="form-label">Code</label>
+              <select class="form-select"  name="mobileId{{item.seat_name}}" [(ngModel)]="item.mobileId" value="+254"  >
+                <option [value]="item.code" *ngFor="let item of country_codes"> +{{item.code}}</option>
+              </select>
+            </div>
+            <div class="col-8">
+              <label for="phone_number" class="form-label">Phone Number</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-telephone-plus"></i></span>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="phone{{item.seat_name}}"    placeholder="Phone" [(ngModel)]="item.mobile"
+                  placeholder="700000000">
+              </div>
+
             </div>
           </div>
         </div>
 
-        <!-- Other fields remain the same -->
       </div>
+
     </form>
   </div>
-
-  <!-- Footer with form validation message -->
-  <div *ngIf="!isSuccess" class="card-footer border-0">
-    <div class="text-danger mb-2" *ngIf="passegerForm.invalid && passegerForm.touched">
-      Please fill in all required fields correctly before proceeding.
-    </div>
-    <div class="text-end">
-      <button (click)="proceed()"
-              [disabled]="passegerForm.invalid"
-              class="btn btn-primary py-2 px-3 rounded-pill">
-        Proceed to pay
-      </button>
-    </div>
+  <div class="card-footer text-end" *ngIf="!isSuccess">
+    <button class="btn btn-primary rounded-pill
+"
+            (click)="proceed()" [disabled]="passegerForm.invalid">Proceed to pay</button>
   </div>
 </div>
+<!-- *ngIf="isSuccess" -->
+<!-- <div class="" >
+  <app-checkout-payment-form></app-checkout-payment-form>
+</div> -->

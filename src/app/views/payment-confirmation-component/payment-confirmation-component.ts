@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import {PaymentConfirmation, PaymentSocketService} from '../../payment-socket-service';
 import {FormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
+import { PaymentSocketService} from '../../services/payment-socket-service';
+import {PaymentConfirmation} from '../../Models';
 // import { PaymentSocketService, PaymentConfirmation } from '../../services/payment-socket.service';
 
 @Component({
@@ -39,21 +40,21 @@ export class PaymentConfirmationComponent implements OnInit, OnDestroy {
   private subscribeToSocketEvents(): void {
     // Connection status
     this.subscriptions.push(
-      this.paymentSocketService.isConnected$.subscribe(connected => {
+      this.paymentSocketService.isConnected$.subscribe((connected :any) => {
         this.isConnected = connected;
       })
     );
 
     // Current room
     this.subscriptions.push(
-      this.paymentSocketService.currentRoom$.subscribe(room => {
+      this.paymentSocketService.currentRoom$.subscribe((room: any) => {
         this.currentRoom = room;
       })
     );
 
     // Payment confirmation
     this.subscriptions.push(
-      this.paymentSocketService.paymentConfirmation$.subscribe(confirmation => {
+      this.paymentSocketService.paymentConfirmation$.subscribe((confirmation: any)  => {
         if (confirmation) {
           this.paymentConfirmation = confirmation;
           this.isLoading = false;
@@ -65,7 +66,7 @@ export class PaymentConfirmationComponent implements OnInit, OnDestroy {
 
     // Room timeout
     this.subscriptions.push(
-      this.paymentSocketService.roomTimeout$.subscribe(timeout => {
+      this.paymentSocketService.roomTimeout$.subscribe((timeout : any) => {
         if (timeout) {
           this.roomTimeout = timeout;
           this.isLoading = false;
@@ -75,7 +76,7 @@ export class PaymentConfirmationComponent implements OnInit, OnDestroy {
 
     // Room closed
     this.subscriptions.push(
-      this.paymentSocketService.roomClosed$.subscribe(closed => {
+      this.paymentSocketService.roomClosed$.subscribe((closed :any) => {
         if (closed) {
           this.roomClosed = closed;
           this.isLoading = false;

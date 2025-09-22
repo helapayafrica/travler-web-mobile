@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {BusInfoComponent} from '../checkout/sections/bus-info/bus-info.component';
 import {FormsModule} from '@angular/forms';
 import {NgClass} from '@angular/common';
+import {PaymentSocketService} from '../../services/payment-socket-service';
+import {askConfirmation} from '@angular/cli/src/utilities/prompt';
 
 @Component({
   selector: 'app-feedback',
@@ -13,10 +15,20 @@ import {NgClass} from '@angular/common';
   templateUrl: './feedback.html',
   styleUrl: './feedback.scss'
 })
-export class Feedback {
+export class Feedback  implements  OnInit{
   payDetailsVisible = false;
   selectedRating = 0;
   feedbackMessage = '';
+  paymentSocketService = inject(PaymentSocketService);
+
+  ngOnInit() {
+    this.paymentSocketService.paymentConfirmation$.subscribe(confirmation =>{
+      if(confirmation){
+
+        console.log('Payment confirmation success');
+      }
+})
+  }
 
   togglePayDetails() {
     this.payDetailsVisible = !this.payDetailsVisible;
