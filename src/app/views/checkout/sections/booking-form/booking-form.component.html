@@ -1,97 +1,244 @@
 <div class="card mb-3">
-  <div class="card-header">
+  <div class="card-header border-0">
     <h5 class="card-title">Personal information</h5>
     <div class="hstack gap-1">
       <p class="mb-0 small">Do you need help? call us</p>
-      <a href="mailto:info@iabiri.com" style="text-decoration: none;font-weight: 700;"> +254709215215 | Email : {{email}}</a>
+      <a href="mailto:info@iabiri.com" style="text-decoration: none;font-weight: 700;"> +254709215215 | Email
+        : {{ email }}</a>
     </div>
   </div>
-  <div class="card-body">
-    <form class="gap-3" #passegerForm="ngForm">
+  <div class="card-body border-0">
+    <form #passegerForm="ngForm" class="gap-3">
+      <!-- Cancellation Fee -->
+      <div class="col-12 col-md-8 col-lg-6 mb-3">
+        <div class="d-flex justify-content-between align-items-center rounded-2 bg-custom shadow-sm py-1 px-3">
+          <div class=" p-2">
+            <div class="d-flex flex-column">
+              <p class="mb-0 fw-bold">Cancellation protect</p>
+              <p class="mb-0 text-dark">KSH 100 per passenger</p>
+            </div>
+          </div>
+          <div class="form-check form-switch">
+            <input
+              (change)="updateCancellationProtection($event)"
+              [ngModel]="protectionInsuranceService.isCancellationProtection()"
+              class="form-check-input custom-switch"
+              id="cancellationSwitch"
+              name="cancellationSwitch"
+              type="checkbox"
+            >
+          </div>
+        </div>
+      </div>
 
-      <div class="row" *ngFor="let item of data?.ticketDetail.onwardticket?.passenger;let index=index">
+      <div *ngFor="let item of data?.ticketDetail.onwardticket?.passenger;let index=index" class="row ">
 
         <div class="col-sm-8">
           <h5>
-            <span  *ngIf="index == 0" style="color:green;font-weight: 800;text-transform: uppercase;font-size: 15px;">Primary Passenger</span>
-            <span  *ngIf="index > 0" style="color:black;font-weight: 800;text-transform: uppercase;font-size: 15px;">Co Passenger</span>
-
-
+            <span *ngIf="index == 0" style="color:green;font-weight: 800;text-transform: uppercase;font-size: 15px;">Primary Passenger</span>
+            <span *ngIf="index > 0" style="color:black;font-weight: 800;text-transform: uppercase;font-size: 15px;">Co Passenger</span>
           </h5>
         </div>
-        <div class="col-sm-4" style="text-align:right">
-          Seat :<b>{{item.seat_name}}</b><b *ngIf="data?.returnticket?.passenger">, {{data.returnticket.passenger[index].seat_name}}</b>
-
+        <div class="col-sm-4" style="text-align:right; font-size: 0.875rem;">
+          <img alt="Seat Icon" class="mb-2 me-2" height="20" ngSrc="/assets/images/seat.png" width="20">
+          Seat :<b class="fw-semibold">{{ item.seat_name }}</b>
+          <b *ngIf="data?.returnticket?.passenger"
+             class="fw-semibold">, {{ data.returnticket.passenger[index].seat_name }}</b>
         </div>
-        <div class="col-8">
-          <label for="firstName" class="form-label">Name</label>
-          <input type="text" placeholder="Name" class="form-control" id="name" name="seat{{item.seat_name}}"  [(ngModel)]="item.name" required >
+        <div class="col-8 ">
+          <label class="form-label" for="firstName">Name</label>
+          <input [(ngModel)]="item.name" class="form-control" id="name" name="seat{{item.seat_name}}" placeholder="Name"
+                 required type="text">
         </div>
         <div class="col-4">
-          <label for="lastName" class="form-label">Age</label>
-          <input type="number" class="form-control" id="age" name="age{{item.seat_name}}"  [(ngModel)]="item.age"    placeholder="Age" required>
+          <label class="form-label" for="lastName">Age</label>
+          <input [(ngModel)]="item.age" class="form-control" id="age" name="age{{item.seat_name}}" placeholder="Age"
+                 required type="number">
         </div>
 
-        <div class="col-5">
-          <label for="sortBy" class="form-label">Gender</label>
-          <select class="form-select" id="gender" name="gender{{item.seat_name}}" [(ngModel)]="item.gender" >
+        <div class="col-6 mt-2">
+          <label class="form-label" for="sortBy">Gender</label>
+          <select [(ngModel)]="item.gender" class="form-select" id="gender" name="gender{{item.seat_name}}">
             <option value="F">Female</option>
             <option value="M">Male</option>
           </select>
         </div>
 
 
-        <div class="col-7">
-          <label for="idNo" class="form-label">ID/Passport</label>
-          <input type="number" class="form-control"  name="id_no{{item.seat_name}}" required [(ngModel)]="item.id_no"  placeholder="ID Number" >
+        <div class="col-6 mt-2">
+          <label class="form-label" for="idNo">ID/Passport</label>
+          <input [(ngModel)]="item.id_no" class="form-control" name="id_no{{item.seat_name}}" placeholder="ID Number"
+                 required
+                 type="number">
         </div>
-        <div class="col-12 col-md-6">
-          <label for="idNo" class="form-label">Email</label>
-          <input type="text" class="form-control"  name="eamil{{item.seat_name}}" required [(ngModel)]="item.email"  placeholder="Email" >
-        </div>
-
-        <div class="col-12 col-md-3">
-          <label for="residence" class="form-label">Nationality</label>
-          <input type="text" class="form-control"  required  name="nationality{{item.seat_name}}"  [(ngModel)]="item.nationality"
-                 [typeahead]="nationalities"
-                 [typeaheadOptionField]="'value'"
-                 placeholder="Nationality">
+        <div class="col-12 mt-2">
+          <label class="form-label" for="idNo">Email</label>
+          <input [(ngModel)]="item.email" class="form-control" name="eamil{{item.seat_name}}" placeholder="Email"
+                 required
+                 type="text">
         </div>
 
-        <div class="col-sm-12">
+        <div class="col-12 mt-2">
+          <label class="form-label" for="residence">Nationality</label>
+          <input [(ngModel)]="item.nationality" [typeaheadOptionField]="'value'" [typeahead]="nationalities"
+                 class="form-control"
+                 name="nationality{{item.seat_name}}"
+                 placeholder="Nationality"
+                 required
+                 type="text">
+        </div>
+
+        <div class="col-12 mt-2">
           <div class="row mb-2">
             <div class="col-4">
-              <label for="price" class="form-label">Code</label>
-              <select class="form-select"  name="mobileId{{item.seat_name}}" [(ngModel)]="item.mobileId" value="+254"  >
-                <option [value]="item.code" *ngFor="let item of country_codes"> +{{item.code}}</option>
+              <label class="form-label" for="price">Code</label>
+              <select [(ngModel)]="item.mobileId" class="form-select" name="mobileId{{item.seat_name}}" value="+254">
+                <option *ngFor="let item of country_codes" [value]="item.code"> +{{ item.code }}</option>
               </select>
             </div>
             <div class="col-8">
-              <label for="phone_number" class="form-label">Phone Number</label>
+              <label class="form-label" for="phone_number">Phone Number</label>
               <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-telephone-plus"></i></span>
                 <input
-                  type="number"
+                  [(ngModel)]="item.mobile"
                   class="form-control"
-                  name="phone{{item.seat_name}}"    placeholder="Phone" [(ngModel)]="item.mobile"
-                  placeholder="700000000">
+                  name="phone{{item.seat_name}}" placeholder="Phone" placeholder="700000000"
+                  type="number">
               </div>
 
             </div>
           </div>
         </div>
 
+
+        <!-- Insurance Section -->
+<!--        <div class="col-12 col-md-8 col-lg-6 mb-3 mt-3">-->
+<!--          <div class="bg-custom rounded-3 shadow-sm p-2 w-100 border border-1">-->
+<!--            &lt;!&ndash; Insurance Header &ndash;&gt;-->
+<!--            <div class="d-flex align-items-start mb-1">-->
+<!--              <img alt="Insurance" height="30" ngSrc="assets/images/britam-insurance.png" width="80">-->
+<!--              <div class="ms-4"><p class="mb-0 fw-bold">Travel Insurance</p>-->
+<!--                <p class="mb-0 text-success">KSH 50 per passenger</p></div>-->
+<!--            </div>-->
+
+<!--            &lt;!&ndash; Insurance Benefits &ndash;&gt;-->
+<!--            &lt;!&ndash;            <div class="bg-light rounded-2 p-2 text-center shadow-sm mb-2">&ndash;&gt;-->
+<!--            &lt;!&ndash;              <span class="fw-bold text-success">Full Coverage</span>&ndash;&gt;-->
+<!--            &lt;!&ndash;              <p class="text-muted mb-0">Trip cancellation included</p>&ndash;&gt;-->
+<!--            &lt;!&ndash;            </div>    &lt;!&ndash; Insurance Options &ndash;&gt;&ndash;&gt;-->
+<!--            <div class="row g-2">-->
+<!--              <div class="col-6">-->
+<!--                <label class="border rounded-2 p-2 d-flex justify-content-between align-items-center h-100"-->
+<!--                       style="cursor: pointer;">-->
+<!--                  <span>No</span>-->
+<!--                  <input-->
+<!--                    type="radio"-->
+<!--                    class="form-check-input"-->
+<!--                    [name]="'insure' + index"-->
+<!--                    [checked]="!protectionInsuranceService.isSeatInsured(item.seat_name)"-->
+<!--                    (change)="saveInsuranceSelection(item.seat_name, false)"-->
+<!--                  />-->
+<!--                </label>-->
+<!--              </div>-->
+<!--              <div class="col-6">-->
+
+<!--                <label class="border rounded-2 p-2 d-flex justify-content-between align-items-center h-100"-->
+<!--                       style="cursor: pointer;">-->
+<!--                  <span>Yes</span>-->
+<!--                  <input-->
+<!--                    type="radio"-->
+<!--                    class="form-check-input"-->
+<!--                    [name]="'insure' + index"-->
+<!--                    [checked]="protectionInsuranceService.isSeatInsured(item.seat_name)"-->
+<!--                    (change)="saveInsuranceSelection(item.seat_name, true)"-->
+<!--                  />-->
+<!--                </label>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--        </div>-->
+
+<!--        NEw Travel insurnce-->
+        <div class=" card -d-flex flex-column gap-3 p-3   ">
+            <p class="fw-bold fs-4  mb-0">Travel Insurance</p>
+            <p class="mb-0"> Protect your journey with Comprehensive  travel insurance</p>
+
+
+
+      <div class="d-flex flex-column ">
+        <!-- Loop through all insurers -->
+        <label
+          class="row custom-bg rounded-4 p-2 mb-3"
+          *ngFor="let ins of travelInsurances"
+          [ngClass]="{ 'border border-primary': selectedInsuranceName === ins.name }"
+        >
+          <div class="col-11">
+            <div class="d-flex flex-column">
+              <div class="d-flex flex-row justify-content-between">
+                <p
+                  style="font-size: 18px; font-weight: 500"
+                  class="bg-info-emphasis fw-semibold mb-0">{{ ins.name }}</p>
+                <p
+                  style="font-size: 18px; font-weight: 500"
+                  class="bg-info-emphasis fw-semibold mb-0">
+                  KES {{ ins.price }}
+                </p>
+              </div>
+
+              <div class="d-flex flex-row">
+                <p class="mb-0 small">{{ ins.description }}</p>
+
+                <!-- pass the clicked insurer to the dialog -->
+                <p
+                  class="mb-0  custom-btn flex-shrink-0"
+                  (click)="showDialog(ins)"
+                >
+                  benefits
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-1 d-flex justify-content-center align-items-center">
+            <input         type="radio"
+                   name="insurance"
+                   class="form-check-input custom-check"
+                   [value]="ins.name"
+                   (change)="onSelect(ins.name)" />
+          </div>
+        </label>
+
+        <!-- Single dialog reused for whichever insurer is selected -->
+        <p-dialog
+          header="{{ selectedInsurance?.name }} Benefits"
+          [modal]="true"
+          [(visible)]="dialog"
+          [style]="{ width: '25rem' }"
+        >
+          <ul class="list-disc pl-6 mb-6 text-sm">
+            <li *ngFor="let b of selectedInsurance?.benefits">{{ b }}</li>
+          </ul>
+
+          <div class="flex justify-end gap-2">
+            <p-button label="Close" severity="secondary" (click)="dialog = false" />
+          </div>
+        </p-dialog>
       </div>
 
+        </div>
+
+      </div>
     </form>
   </div>
-  <div class="card-footer text-end" *ngIf="!isSuccess">
-    <button class="btn btn-primary rounded-pill
-"
-            (click)="proceed()" [disabled]="passegerForm.invalid">Proceed to pay</button>
+  <div *ngIf="!isSuccess" class="card-footer border-0 text-end">
+    <button (click)="proceed()" [disabled]="passegerForm.invalid" class="btn btn-primary py-2 px-3 rounded-pill">Proceed to pay
+    </button>
   </div>
 </div>
-<!-- *ngIf="isSuccess" -->
-<!-- <div class="" >
-  <app-checkout-payment-form></app-checkout-payment-form>
-</div> -->
+
+
+<!--unsurance Dialog-->
+
+

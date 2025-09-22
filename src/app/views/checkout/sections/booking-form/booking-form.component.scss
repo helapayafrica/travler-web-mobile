@@ -43,3 +43,41 @@
   background: linear-gradient(45deg, var(--secondary-color-600), var(--secondary-color-500));
   border: 1px solid var(--secondary-color-700);
 }
+
+.custom-btn{
+  //background:linear-gradient(45deg, var(--primary-color-500), var(--primary-color-400));
+  color: var(--primary-color-500);
+  width: fit-content;
+  padding:6px 12px ;
+  border-radius: 0.5rem;
+  max-height: 44px;
+  text-decoration: underline;
+}
+
+.custom-bg{
+  background: var(--primary-color-100);
+}
+
+.border-primary {
+  border: 2px solid var(--primary-color-500) !important;
+  /* or if you prefer the width/colour split:
+  border-width: 2px !important;
+  border-color: var(--primary-color-500) !important;
+  border-style: solid !important;
+  */
+}
+
+
+
+/* make it larger and perfectly round */
+.custom-check {
+  width: 18px;           /* increase size */
+  height: 18px;
+  accent-color: var(--primary-color-500);
+}
+
+/* optional: thicker border and clearer checked state */
+.custom-check:checked {
+  background-color: var(--primary-color-500);
+  border-color: var(--primary-color-500);
+}

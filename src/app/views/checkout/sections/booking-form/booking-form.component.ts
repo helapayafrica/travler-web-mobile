@@ -6,11 +6,14 @@ import {Router} from '@angular/router';
 import {CouponInsuredService} from '../../../../services/coupon-insured.service';
 import {BookingService} from '../../../../services/booking';
 import {BackendService} from '../../../../services/backend';
+import {Dialog} from 'primeng/dialog';
+import {InputText} from 'primeng/inputtext';
+import {Button} from 'primeng/button';
 
 @Component({
   selector: 'app-checkout-booking-form',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, FormsModule, TypeaheadModule,],
+  imports: [ReactiveFormsModule, CommonModule, FormsModule, TypeaheadModule, Dialog, InputText, Button,],
   templateUrl: './booking-form.component.html',
   styleUrl: './booking-form.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -97,4 +100,61 @@ export class BookingFormComponent implements OnInit {
     let checked = $event.target?.checked as boolean
     this.protectionInsuranceService.updateCancellationProtection(checked)
   }
+
+
+  //  DIALOGs
+
+  travelInsurances = [
+    {
+      name: 'Jubilee Insurance',
+      price: 50,
+      description:
+        'Comprehensive travel insurance with medical and baggage protections',
+      benefits: [
+        'Emergency medical treatment & evacuation',
+        'Trip cancellation or interruption cover',
+        'Loss or delay of baggage',
+        '24/7 worldwide assistance hotline'
+      ]
+    },
+    {
+      name: 'APA Insurance',
+      price: 60,
+      description:
+        'Medical emergencies, trip interruption cover, and baggage loss protection',
+      benefits: [
+        'Overseas hospital and doctor expenses',
+        'Reimbursement for missed connections',
+        'Coverage for lost passports or travel documents',
+        'Personal accident and liability cover'
+      ]
+    },
+    {
+      name: 'Britam Travel Cover',
+      price: 55,
+      description:
+        'Worldwide medical cover, evacuation, and personal liability benefits',
+      benefits: [
+        'Emergency medical & dental care',
+        'Trip delay and missed departure compensation',
+        'Baggage loss/damage insurance',
+        'Personal liability up to policy limits'
+      ]
+    }
+  ];
+
+  dialog = false;
+  selectedInsurance: any;
+
+  showDialog(insurance: any) {
+    this.selectedInsurance = insurance;
+    this.dialog = true;
+  }
+
+  selectedInsuranceName: string = '';
+
+  onSelect(insName: string) {
+    this.selectedInsuranceName = insName;
+  }
+
 }
