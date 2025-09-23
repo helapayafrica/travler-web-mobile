@@ -14,7 +14,7 @@
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="row">
           <!-- Code -->
-          <div class="mt-2 col-5">
+          <div class="mt-2 col-4">
             <div class="d-flex flex-column gap-1">
               <label for="code">Code</label>
               <p-select
@@ -34,15 +34,15 @@
           </div>
 
           <!-- Phone -->
-          <div class="mt-2 col-7">
+          <div class="mt-2 col-8">
             <div class="d-flex flex-column gap-1">
               <label for="phone">Phone Number</label>
               <input
                 id="phone"
                 type="tel"
                 formControlName="phone_number"
-                pInputText
-                class="w-100 form-control p-2"
+
+                class="w-100 form-control p-2 "
                 inputmode="tel"
                 placeholder="e.g. 700 123456"
                 pattern="^\+?[0-9\s\-]{7,15}$"/>
@@ -64,7 +64,8 @@
                 inputId="password"
                 [feedback]="false"
                 [toggleMask]="true"
-                inputStyleClass="w-100">
+                class=""
+                inputStyleClass="w-100 form-control">
               </p-password>
               <small *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']"
                      class="text-danger">

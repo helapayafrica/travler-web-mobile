@@ -66,27 +66,27 @@ export class BookingFormComponent implements OnInit {
     // this.data.insuranceDetails = this.getInsuranceBookingData();
 
     console.log('[this booking data],', this.getInsuranceBookingData())
-    // this.data.ticketDetail.onwardticket.passenger.forEach((element: any, i: any) => {
-    //   this.data.ticketDetail.onwardticket.c_email = element.email;
-    //   if (Object.keys(this.data.ticketDetail.returnticket).length > 0) {
-    //     this.data.ticketDetail.returnticket.c_email = element.email;
-    //     this.data.ticketDetail.returnticket.currencyId = "1";
-    //     this.data.ticketDetail.returnticket.passenger[i].name = element.name
-    //     this.data.ticketDetail.returnticket.passenger[i].age = element.age
-    //     this.data.ticketDetail.returnticket.passenger[i].gender = element.gender
-    //     this.data.ticketDetail.returnticket.passenger[i].id_no = element.id_no
-    //     this.data.ticketDetail.returnticket.passenger[i].mobileId = element.mobileId
-    //     this.data.ticketDetail.returnticket.passenger[i].nationality = element.nationality
-    //     this.data.ticketDetail.returnticket.passenger[i].mobile = element.mobile
-    //   }
-    // });
-    // console.log('[this booking data],', this.data)
-    // this.service.bookingTicket(this.data).subscribe((res) => {
-    //   this.isSuccess = true
-    //   this.bookingService.setConfig('booking_reference', res.booking_reference);
-    //   this.bookingService.setConfig('ticket', this.data);
-    //   this.router.navigateByUrl('/payment');
-    // })
+    this.data.ticketDetail.onwardticket.passenger.forEach((element: any, i: any) => {
+      this.data.ticketDetail.onwardticket.c_email = element.email;
+      if (Object.keys(this.data.ticketDetail.returnticket).length > 0) {
+        this.data.ticketDetail.returnticket.c_email = element.email;
+        this.data.ticketDetail.returnticket.currencyId = "1";
+        this.data.ticketDetail.returnticket.passenger[i].name = element.name
+        this.data.ticketDetail.returnticket.passenger[i].age = element.age
+        this.data.ticketDetail.returnticket.passenger[i].gender = element.gender
+        this.data.ticketDetail.returnticket.passenger[i].id_no = element.id_no
+        this.data.ticketDetail.returnticket.passenger[i].mobileId = element.mobileId
+        this.data.ticketDetail.returnticket.passenger[i].nationality = element.nationality
+        this.data.ticketDetail.returnticket.passenger[i].mobile = element.mobile
+      }
+    });
+    console.log('[this booking data],', this.data)
+    this.service.bookingTicket(this.data).subscribe((res) => {
+      this.isSuccess = true
+      this.bookingService.setConfig('booking_reference', res.booking_reference);
+      this.bookingService.setConfig('ticket', this.data);
+      this.router.navigateByUrl('/payment');
+    })
   }
 
   onCancellationChange($event: Event) {

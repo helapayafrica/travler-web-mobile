@@ -3,7 +3,8 @@
   border: 1px solid #ddd;
   border-radius: 0.375rem;
   padding: 0.5rem;
-  background-color: #efefef;
+  //background-color: #efefef;
+  background-color: var(--primary-color-100);
 }
 
 /* Form Labels */
@@ -42,6 +43,7 @@
 .btn-primary{
   background: linear-gradient(45deg, var(--secondary-color-500), var(--secondary-color-400));
   border: 1px solid var(--secondary-color-600);
+  color: white;
 }
 
 .btn-secondary:hover, focus{

@@ -18,7 +18,7 @@ import {ToastrService} from 'ngx-toastr';
   selector: 'app-view-auth-login',
   standalone: true,
   imports: [CommonModule, RouterLink,
-    ReactiveFormsModule, InputText, Password, Select, Checkbox],
+    ReactiveFormsModule, Password, Select, Checkbox],
   templateUrl: './login.html',
   styleUrl: './login.scss'
 })
