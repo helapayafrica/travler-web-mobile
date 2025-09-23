@@ -126,25 +126,25 @@
             <!-- No-insurance option -->
             <label
               class="row custom-bg rounded-4 p-3 mb-3"
-              [ngClass]="{ 'border border-primary': selectedInsuranceName === 'none' }"
+              [ngClass]="{ 'border border-primary': getSelectedInsurance(index) === 'none' }"
             >
               <div class="col-11">
                 <p class="mb-0 fw-normal">I don't want insurance</p>
               </div>
               <div class="col-1 d-flex justify-content-center align-items-center">
                 <input type="radio"
-                       name="insurance"
-                       class="form-check-input custom-check"
-                       value="none"/>
-<!--                       (change)="onSelect('none')"-->
+                       name="insurance"  [name]="'insurance-passenger-' + index"        class="form-check-input custom-check"
+                       value="none"
+                (change)="onSelectNone(index)"
+                [checked]="getSelectedInsurance(index) === 'none'"/>
 
               </div>
             </label>
 
             <label
               class="row custom-bg rounded-4 p-2 mb-3"
-              *ngFor="let ins of travelInsurances;let index = index"
-              [ngClass]="{ 'border border-primary': selectedInsuranceName === ins.name }"
+              *ngFor="let ins of travelInsurances"
+              [ngClass]="{ 'border border-primary': getSelectedInsurance(index) === ins.name }"
             >
               <div class="col-11">
                 <div class="d-flex flex-column">
@@ -179,7 +179,7 @@
                        class="form-check-input custom-check"
                        [value]="ins.name"
                        (change)="onSelect(ins.name, index)"
-                       />
+                       [checked]="getSelectedInsurance(index) === ins.name" />
               </div>
             </label>
 

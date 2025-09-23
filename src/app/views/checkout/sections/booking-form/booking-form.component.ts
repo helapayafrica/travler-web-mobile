@@ -164,15 +164,41 @@ export class BookingFormComponent implements OnInit {
 
   selectedInsuranceName: string = '';
 
+  // onSelect(insName: string, passengerIndex: number) {
+  //   console.log(insName, passengerIndex)
+  //   if (insName !== 'none') {
+  //     this.passengerInsuranceMap[passengerIndex] = insName;
+  //     this.applyInsuranceToPassenger(passengerIndex, true);
+  //   } else {
+  //     delete this.passengerInsuranceMap[passengerIndex];
+  //     this.applyInsuranceToPassenger(passengerIndex, false);
+  //   }
+  // }
   onSelect(insName: string, passengerIndex: number) {
-    console.log(insName, passengerIndex)
-    if (insName !== 'none') {
-      this.passengerInsuranceMap[passengerIndex] = insName;
-      this.applyInsuranceToPassenger(passengerIndex, true);
-    } else {
+    const currentSelection = this.getSelectedInsurance(passengerIndex);
+
+    // If clicking the same option, unselect it (set to 'none')
+    if (currentSelection === insName && insName !== 'none') {
       delete this.passengerInsuranceMap[passengerIndex];
       this.applyInsuranceToPassenger(passengerIndex, false);
+    } else {
+      // Select new option
+      if (insName !== 'none') {
+        this.passengerInsuranceMap[passengerIndex] = insName;
+        this.applyInsuranceToPassenger(passengerIndex, true);
+      } else {
+        delete this.passengerInsuranceMap[passengerIndex];
+        this.applyInsuranceToPassenger(passengerIndex, false);
+      }
     }
+
+    this.cdr.markForCheck();
+  }
+
+  onSelectNone(passengerIndex: number) {
+    delete this.passengerInsuranceMap[passengerIndex];
+    this.applyInsuranceToPassenger(passengerIndex, false);
+    this.cdr.markForCheck();
   }
 
 
@@ -198,4 +224,7 @@ export class BookingFormComponent implements OnInit {
   }
 
 
+  getSelectedInsurance(passengerIndex: number): string {
+    return this.passengerInsuranceMap[passengerIndex] || 'none';
+  }
 }
