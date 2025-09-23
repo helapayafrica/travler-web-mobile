@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
@@ -12,6 +12,7 @@ import {DatePicker} from 'primeng/datepicker';
 import {InputText} from 'primeng/inputtext';
 import {Password} from 'primeng/password';
 import {Select} from 'primeng/select';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-view-auth-login',
@@ -25,6 +26,7 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   isSubmitting = false;
   showPassword = false;
+  toastr = inject(ToastrService)
   hide_password = true; // Toggle password visibility
 
   country_codes = [
@@ -76,9 +78,24 @@ export class LoginComponent implements OnInit {
     let data:any={"username":this.loginForm.value.phone_number,"password":this.loginForm.value.password,"gcm_token":"","country_code":this.loginForm.value.country_code,"sourcetype":"web"}
     console.log(data);
     this.service.login(data).subscribe((res)=>{
-      this.isSubmitting = false;
-      this.authService.login(res.data);
-      this.router.navigateByUrl('/');
+      console.log("data")
+      if(data.isSuccess){
+        console.log(res)
+        this.isSubmitting = false;
+        this.authService.login(res.data);
+        this.router.navigateByUrl('/');
+      }else {
+        console.log(res)
+        // this.toastr.error(res.errors.password?.[0] || res.errors.username?.[0] || 'Invalid credentials', 'Login Failed');
+        this.toastr.error(
+          res.errors.password?.[0] || res.errors.username?.[0] || 'Invalid credentials',
+          'Login Failed',
+          { positionClass: 'toast-bottom-right' }   // bottom center
+        );
+
+        this.isSubmitting = false;
+      }
+
     })
   }
 

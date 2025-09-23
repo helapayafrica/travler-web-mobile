@@ -17,6 +17,7 @@ import {Checkbox} from 'primeng/checkbox';
 import {InputText} from 'primeng/inputtext';
 import {Password} from 'primeng/password';
 import {Select} from 'primeng/select';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-login-modal',
@@ -35,6 +36,8 @@ export class LoginModalComponent {
     fullScreenBackdrop:true,
     tertiaryColour: '#ffffff'
   };
+
+  toastr = inject(ToastrService)
 
   country_codes = [
     { code: '254', country: 'Kenya' },
@@ -96,11 +99,25 @@ export class LoginModalComponent {
     this.loading=true;
     this.isSubmitting = true;
     let data:any={"username":this.loginForm.value.phone_number,"password":this.loginForm.value.password,"gcm_token":"","country_code":this.loginForm.value.country_code,"sourcetype":"web"}
+    // this.service.login(data).subscribe((res)=>{
+    //   this.isSubmitting = false;
+    //   this.authService.login(res.data);
+    //   this.loading=false;
+    //   this.modalService.closeModal();
+    // })
     this.service.login(data).subscribe((res)=>{
-      this.isSubmitting = false;
-      this.authService.login(res.data);
-      this.loading=false;
-      this.modalService.closeModal();
+      console.log("data")
+      if(data.isSuccess){
+        console.log(res)
+        this.isSubmitting = false;
+        this.authService.login(res.data);
+        this.router.navigateByUrl('/checkout');
+      }else {
+        console.log(res)
+        this.toastr.error(res.errors.password?.[0] || res.errors.username?.[0] || 'Invalid credentials', 'Login Failed');
+        this.isSubmitting = false;
+      }
+
     })
   }
 

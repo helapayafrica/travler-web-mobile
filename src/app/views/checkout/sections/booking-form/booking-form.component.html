@@ -61,7 +61,7 @@
                  required  type="number">
         </div>
 
-        <div class="col-6 mt-2">
+        <div class="col-4 mt-2">
           <label class="form-label" for="sortBy">Gender</label>
           <select [(ngModel)]="item.gender" class="form-select" id="gender" name="gender{{item.seat_name}}" required>
             <option value="F">Female</option>
@@ -70,7 +70,7 @@
         </div>
 
 
-        <div class="col-6 mt-2">
+        <div class="col-8 mt-2">
           <label class="form-label" for="idNo">ID/Passport</label>
           <input [(ngModel)]="item.id_no" class="form-control" name="id_no{{item.seat_name}}" placeholder="ID Number"
                  required

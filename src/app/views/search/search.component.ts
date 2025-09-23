@@ -63,7 +63,6 @@ async getPayload(){
 }
 
 fetchBuses(payload : any){
-  console.log("SEarching!!!")
   this.isLoading = true;
   this.backendService.getTrips(payload).subscribe({
     next: (res)=>{
@@ -89,10 +88,9 @@ items :any = []
 
   filterVisible = false
   toggleForm() {
-    // console.log("Toggle is clicked!")
-    // console.log(this.isFormOpen)
+
     this.isFormOpen = !this.isFormOpen;
-    // console.log(this.isFormOpen)
+
   }
 // a the filter setting for Drawer
   minValue = 0;
