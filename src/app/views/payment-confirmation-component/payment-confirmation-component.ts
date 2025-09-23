@@ -1,7 +1,7 @@
 import {Component, OnInit, OnDestroy, inject} from '@angular/core';
 import { Subscription } from 'rxjs';
 import {FormsModule} from '@angular/forms';
-import {NgIf} from '@angular/common';
+import {NgIf, NgSwitch} from '@angular/common';
 import { PaymentSocketService} from '../../services/payment-socket-service';
 import {PaymentConfirmation} from '../../Models';
 import {ToastrService} from 'ngx-toastr';
@@ -12,7 +12,7 @@ import {ToastrService} from 'ngx-toastr';
   templateUrl: './payment-confirmation-component.html',
   imports: [
     FormsModule,
-    NgIf
+    NgSwitch
   ],
   styleUrls: ['./payment-confirmation-component.scss']
 })
@@ -116,5 +116,38 @@ export class PaymentConfirmationComponent implements OnInit, OnDestroy {
 
     // You can emit events, show notifications, navigate to success page, etc.
     // Example: this.router.navigate(['/payment-success']);
+  }
+
+
+
+
+
+  status(): string {
+    if (this.paymentConfirmation) {
+      return 'success';
+    } else if (this.roomTimeout || this.roomClosed) {
+      return 'failed';
+    } else if (this.isLoading || this.currentRoom) {
+      return 'processing';
+    }
+    return 'idle';
+  }
+
+  getCurrentTime(): string {
+    return new Date().toLocaleTimeString();
+  }
+
+  retry(): void {
+    if (this.invoiceRef.trim()) {
+      this.joinRoom();
+    }
+  }
+
+  goBack(): void {
+    this.leaveRoom();
+    this.invoiceRef = '';
+    this.paymentConfirmation = null;
+    this.roomTimeout = null;
+    this.roomClosed = null;
   }
 }

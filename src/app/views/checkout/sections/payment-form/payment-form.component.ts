@@ -185,7 +185,7 @@ export class PaymentFormComponent implements OnInit {
 
         // join the socketroom for payment  confirmation
         this.paymentSocketService.joinPaymentRoom((res.invoiceRef));
-        this.paymentSocketService.disconnect()
+        // this.paymentSocketService.disconnect()
 
         console.log(res)
         this.startTimer()
@@ -200,9 +200,8 @@ export class PaymentFormComponent implements OnInit {
             showConfirmButton: false
           });
         setTimeout(()=>{
-          // this.router.navigate(['/feedback'])
-
-          }, 15000)
+          this.router.navigate(['/confirm-payment'])
+          }, 3000)
 
         }else{
           Swal.fire({

@@ -5,6 +5,8 @@ import {Feedback} from './views/feedback/feedback';
 import {SpinTheWheel} from './views/spin-the-wheel/spin-the-wheel';
 import {authGuard} from './utils/auth-guard';
 import {PaymentConfirmationComponent} from './views/payment-confirmation-component/payment-confirmation-component';
+import {TripFeedbackForm} from './views/trip-feedback-form/trip-feedback-form';
+import {PaymentVerification} from './views/payment-verification/payment-verification';
 
 export const routes: Routes = [
   {
@@ -117,8 +119,16 @@ export const routes: Routes = [
       }
   },
   {
-    path: 'pay-conf',
-  component: PaymentConfirmationComponent,
+    path: 'trip-feedback',
+    component: TripFeedbackForm,
+    title: 'Trip Feedback | Cheap bus ticket',
+    data: {
+      description: 'Customer support and help center'
+    }
+  },
+  {
+    path: 'confirm-payment',
+  component: PaymentVerification,
     title: 'Confirm Payment | Cheap bus ticket',
     data: {
       description: 'Customer support and help center'
