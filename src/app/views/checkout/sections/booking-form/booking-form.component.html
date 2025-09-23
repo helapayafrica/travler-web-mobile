@@ -135,14 +135,15 @@
                 <input type="radio"
                        name="insurance"
                        class="form-check-input custom-check"
-                       value="none"
-                       (change)="onSelect('none')" />
+                       value="none"/>
+<!--                       (change)="onSelect('none')"-->
+
               </div>
             </label>
 
             <label
               class="row custom-bg rounded-4 p-2 mb-3"
-              *ngFor="let ins of travelInsurances"
+              *ngFor="let ins of travelInsurances;let index = index"
               [ngClass]="{ 'border border-primary': selectedInsuranceName === ins.name }"
             >
               <div class="col-11">
@@ -174,10 +175,10 @@
 
               <div class="col-1 d-flex justify-content-center align-items-center">
                 <input type="radio"
-                       name="insurance"
+                       [name]="'insurance-passenger-' + index"
                        class="form-check-input custom-check"
                        [value]="ins.name"
-                       (change)="onSelect(ins.name)"
+                       (change)="onSelect(ins.name, index)"
                        />
               </div>
             </label>

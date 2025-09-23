@@ -1,7 +1,7 @@
 import {Component, OnInit, OnDestroy, inject} from '@angular/core';
 import { Subscription } from 'rxjs';
 import {FormsModule} from '@angular/forms';
-import {NgIf, NgSwitch} from '@angular/common';
+import {CommonModule, NgIf, NgSwitch} from '@angular/common';
 import { PaymentSocketService} from '../../services/payment-socket-service';
 import {PaymentConfirmation} from '../../Models';
 import {ToastrService} from 'ngx-toastr';
@@ -12,7 +12,7 @@ import {ToastrService} from 'ngx-toastr';
   templateUrl: './payment-confirmation-component.html',
   imports: [
     FormsModule,
-    NgSwitch
+      CommonModule
   ],
   styleUrls: ['./payment-confirmation-component.scss']
 })
