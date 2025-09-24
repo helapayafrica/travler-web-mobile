@@ -38,7 +38,7 @@
       <!-- Main Content Container -->
       <div class="d-flex flex-column gap-2">
         <div class="d-flex flex-row gap-2 align-items-start">
-          <div class="d-flex  align-items-center justify-content-start gap-2">
+          <div class="d-flex  align-items-center justify-content-start gap-3">
             <img
               alt="{{item.company_name}} | cheap bus tickets"
               src="{{item.company_logo}}" height="55" width="55"
@@ -57,7 +57,7 @@
                 </div>
                 <div class="small text-muted d-flex justify-content-between  w-100 gap-1">
                   <p>
-                    <span *ngIf="item.amenities"> • </span> <span class="" *ngFor="let amenity of getAmenityArray(item.amenities) "
+                    <span *ngIf="item.amenities"> </span> <span class="" *ngFor="let amenity of getAmenityArray(item.amenities) "
                                                           [innerHTML]="(amenity?.toString() || '') | displayAmenity">
 </span> • <span *ngIf="item.available_seat_count">Available Seats : <span class="fw-bold text-primary-emphasis">{{item.available_seat_count}}</span></span>
                   </p>
