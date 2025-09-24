@@ -26,6 +26,8 @@ export class WalletComponent implements OnInit {
 
   ngOnInit(): void {
     // You would fetch wallet data from a service in a real app
+    this.getWalletdate()
+    this.getWalletHistory()
   }
 
   transferMoney(): void {
@@ -40,6 +42,21 @@ export class WalletComponent implements OnInit {
     this.backendService.getUserWalletData(userId).subscribe({
       next: (data: any) => {
         this.walletBalance = data.amount;
+      }
+    })
+  }
+
+
+  getWalletHistory(){
+    const userDate:any = this.service.getConfig('userDate');
+    const userId = userDate.userId
+
+    this.backendService.getWalletHistoryData(userId).subscribe({
+      next: (data: any) => {
+        this.transactions = data;
+      },
+      error: (error: any) => {
+        console.error('Error fetching wallet history:', error);
       }
     })
   }

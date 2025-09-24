@@ -129,7 +129,7 @@ export class BackendService {
     return this.http.post(endpoint + '/UserWallet/GetWalletData',data).pipe()
   }
 
-  getUserHistoryData(userId: string, currencyId: number=1, page=1, perPage=10){
+  getWalletHistoryData(userId: string, currencyId: number=1, page=1, perPage=10){
     const data = {userId,currencyId,perPage,page,sourcetype:"web"}
     return this.http.post(endpoint + '/UserWallet/GetWalletHistory',data).pipe()
   }
