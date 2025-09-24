@@ -79,6 +79,22 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'terms',
+    loadComponent: () => import('./views/terms/terms').then(m => m.Terms),
+    title: 'Terms | Cheap bus ticket Kenya',
+    data: {
+      description: 'Terms and conditions for using Traveler services'
+    }
+  },
+    {
+    path: 'privacy',
+    loadComponent: () => import('./views/privacy/privacy').then(m => m.Privacy),
+    title: 'Privacy | Cheap bus ticket Kenya',
+    data: {
+      description: 'Privacy policy for Traveler services'
+    }
+  },
+  {
     path: 'about',
     loadComponent: () => import('./views/aboutus/aboutus.component').then(m => m.AboutusComponent),
     title: 'About Us | Cheap bus ticket Kenya',

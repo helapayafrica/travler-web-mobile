@@ -1,10 +1,9 @@
-import {Component, OnInit, OnDestroy, inject} from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import {FormsModule} from '@angular/forms';
-import {CommonModule, NgIf, NgSwitch} from '@angular/common';
 import { PaymentSocketService} from '../../services/payment-socket-service';
-import {PaymentConfirmation} from '../../Models';
-import {ToastrService} from 'ngx-toastr';
+import {FormsModule} from '@angular/forms';
+import {NgIf} from '@angular/common';
+import { PaymentConfirmation } from '../../Models';
 // import { PaymentSocketService, PaymentConfirmation } from '../../services/payment-socket.service';
 
 @Component({
@@ -12,13 +11,12 @@ import {ToastrService} from 'ngx-toastr';
   templateUrl: './payment-confirmation-component.html',
   imports: [
     FormsModule,
-      CommonModule
+    NgIf
   ],
   styleUrls: ['./payment-confirmation-component.scss']
 })
 export class PaymentConfirmationComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
-  toastr = inject(ToastrService)
 
   isConnected = false;
   currentRoom: string | null = null;
@@ -42,21 +40,21 @@ export class PaymentConfirmationComponent implements OnInit, OnDestroy {
   private subscribeToSocketEvents(): void {
     // Connection status
     this.subscriptions.push(
-      this.paymentSocketService.isConnected$.subscribe((connected :any) => {
+      this.paymentSocketService.isConnected$.subscribe(connected => {
         this.isConnected = connected;
       })
     );
 
     // Current room
     this.subscriptions.push(
-      this.paymentSocketService.currentRoom$.subscribe((room: any) => {
+      this.paymentSocketService.currentRoom$.subscribe(room => {
         this.currentRoom = room;
       })
     );
 
     // Payment confirmation
     this.subscriptions.push(
-      this.paymentSocketService.paymentConfirmation$.subscribe((confirmation: any)  => {
+      this.paymentSocketService.paymentConfirmation$.subscribe(confirmation => {
         if (confirmation) {
           this.paymentConfirmation = confirmation;
           this.isLoading = false;
@@ -68,7 +66,7 @@ export class PaymentConfirmationComponent implements OnInit, OnDestroy {
 
     // Room timeout
     this.subscriptions.push(
-      this.paymentSocketService.roomTimeout$.subscribe((timeout : any) => {
+      this.paymentSocketService.roomTimeout$.subscribe(timeout => {
         if (timeout) {
           this.roomTimeout = timeout;
           this.isLoading = false;
@@ -78,7 +76,7 @@ export class PaymentConfirmationComponent implements OnInit, OnDestroy {
 
     // Room closed
     this.subscriptions.push(
-      this.paymentSocketService.roomClosed$.subscribe((closed :any) => {
+      this.paymentSocketService.roomClosed$.subscribe(closed => {
         if (closed) {
           this.roomClosed = closed;
           this.isLoading = false;
@@ -112,42 +110,8 @@ export class PaymentConfirmationComponent implements OnInit, OnDestroy {
   private handlePaymentSuccess(confirmation: PaymentConfirmation): void {
     // Handle successful payment
     console.log('Payment confirmed:', confirmation);
-    this.toastr.success('Payment confirmed successfully!', 'Success');
 
     // You can emit events, show notifications, navigate to success page, etc.
     // Example: this.router.navigate(['/payment-success']);
-  }
-
-
-
-
-
-  status(): string {
-    if (this.paymentConfirmation) {
-      return 'success';
-    } else if (this.roomTimeout || this.roomClosed) {
-      return 'failed';
-    } else if (this.isLoading || this.currentRoom) {
-      return 'processing';
-    }
-    return 'idle';
-  }
-
-  getCurrentTime(): string {
-    return new Date().toLocaleTimeString();
-  }
-
-  retry(): void {
-    if (this.invoiceRef.trim()) {
-      this.joinRoom();
-    }
-  }
-
-  goBack(): void {
-    this.leaveRoom();
-    this.invoiceRef = '';
-    this.paymentConfirmation = null;
-    this.roomTimeout = null;
-    this.roomClosed = null;
   }
 }
