@@ -128,7 +128,6 @@ export class SignupComponent implements OnInit {
     this.payload.device_number= Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     this.payload.phone=data.phone_number
     this.payload.country_code=data.country_code.value
-    console.log('[Form payLoad]', this.payload);
     this.service.sendOtp(this.payload).subscribe((res)=>{
       this.loading=false;
       if(res.isSuccess){

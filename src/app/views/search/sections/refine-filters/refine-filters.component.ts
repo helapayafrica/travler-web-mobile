@@ -131,7 +131,7 @@ export class RefineFiltersComponent implements OnInit {
       this.selectedBoardingPoints.push(value);
     }
 
-    console.log(this.selectedBoardingPoints);
+    // console.log(this.selectedBoardingPoints);
   }
 
   onDroppingPointSelectionChange(event: Event) {
@@ -147,7 +147,7 @@ export class RefineFiltersComponent implements OnInit {
       this.selectedDroppingPoints.push(value);
     }
 
-    console.log(this.selectedDroppingPoints);
+    // console.log(this.selectedDroppingPoints);
   }
 
   onDepartureTimeSelectionChange(event: Event) {
@@ -163,7 +163,7 @@ export class RefineFiltersComponent implements OnInit {
       this.selectedRanges.push(time);
     }
 
-    console.log(this.selectedRanges);
+    // console.log(this.selectedRanges);
   }
 
   onAmenitiesSelectionChange(event: Event) {
@@ -179,7 +179,7 @@ export class RefineFiltersComponent implements OnInit {
       this.selectedAmenities.push(amenity);
     }
 
-    console.log(this.selectedAmenities);
+    // console.log(this.selectedAmenities);
   }
 
   onCompanySelectionChange(event: Event) {
@@ -193,7 +193,7 @@ export class RefineFiltersComponent implements OnInit {
       // id not yet selected → add it
       this.selectedBusNames.push(c_name);
     }
-    console.log(this.selectedBusNames);
+    // console.log(this.selectedBusNames);
   }
 
 

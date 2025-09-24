@@ -76,16 +76,12 @@ export class LoginComponent implements OnInit {
 
     this.isSubmitting = true;
     let data:any={"username":this.loginForm.value.phone_number,"password":this.loginForm.value.password,"gcm_token":"","country_code":this.loginForm.value.country_code,"sourcetype":"web"}
-    console.log(data);
     this.service.login(data).subscribe((res)=>{
-      console.log("data")
       if(data.isSuccess){
-        console.log(res)
         this.isSubmitting = false;
         this.authService.login(res.data);
         this.router.navigateByUrl('/');
       }else {
-        console.log(res)
         // this.toastr.error(res.errors.password?.[0] || res.errors.username?.[0] || 'Invalid credentials', 'Login Failed');
         this.toastr.error(
           res.errors.password?.[0] || res.errors.username?.[0] || 'Invalid credentials',

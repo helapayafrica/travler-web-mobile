@@ -49,7 +49,6 @@ payload = {}
 constructor(public backendService:BackendService,public bookingService:BookingService){
 }
 async ngOnInit(): Promise<void> {
-  console.log("Search Component is initialized!")
   this.payload = await this.getPayload();
     // this.getPayload();
     this.fetchBuses(this.payload);
@@ -67,7 +66,6 @@ fetchBuses(payload : any){
   this.backendService.getTrips(payload).subscribe({
     next: (res)=>{
       this.buses=res.data
-      // console.log('[All Buses]',this.buses)
       this.isLoading = false;
     },
     error: (error) => {
@@ -76,7 +74,7 @@ fetchBuses(payload : any){
 
     },
     complete: () => {
-      console.log('Fetch complete');
+      // console.log('Fetch complete');
       this.isLoading = false;
     }
   })
@@ -137,11 +135,6 @@ items :any = []
       time_range: filters.time_range,
       company_id : filters.companyNames,
     }
-    // console.log(this.payload)
-    console.log(['new!!!!'])
-    console.log(newPayload)
-
-    console.log("Wawe")
     this.fetchBuses(newPayload);
   }
 }
