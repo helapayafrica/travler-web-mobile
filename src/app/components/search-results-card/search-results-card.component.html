@@ -51,18 +51,15 @@
             <!-- Company Details -->
             <div class="d-flex align-items-center gap-2 w-100">
               <div class="w-100">
-                <div class="d-flex align-items-center  gap-2 mb-1">
+                <div class="d-flex align-items-center justify-content-between  gap-2 mb-1">
                   <span class="fw-semibold text-dark" style="font-size: 14px">{{ item.company_name }}</span>
-                  <span *ngIf="item.verified" class="text-success">
-                  <i class="bi bi-shield-check" style="font-size: 14px"></i>
-                </span>
+                  <span>{{ item.highWayDirectRoute }}</span>
                 </div>
                 <div class="small text-muted d-flex justify-content-between  w-100 gap-1">
                   <p>
-                    {{ item.highWayDirectRoute }} • <span class="" *ngFor="let amenity of getAmenityArray(item.amenities) "
+                    <span *ngIf="item.amenities"> • </span> <span class="" *ngFor="let amenity of getAmenityArray(item.amenities) "
                                                           [innerHTML]="(amenity?.toString() || '') | displayAmenity">
-</span>
-<!--                    <span *ngIf="item.amenities?.length" class="ms-1">({{ item.amenities.length }}+)</span>-->
+</span> • <span *ngIf="item.available_seat_count">Available Seats : <span class="fw-bold text-primary-emphasis">{{item.available_seat_count}}</span></span>
                   </p>
 
                   <div
@@ -91,7 +88,7 @@
             <div class="d-flex align-items-center gap-2 mb-1">
               <span style="font-size: 15px" class="fw-semibold mb-0 text-dark">{{ item.departure_time }}</span>
               <span class="text-muted mx-2">—</span>
-              <span style="font-size: 15px" class="mb-0 text-muted">{{ item.arrival_time }}</span>
+              <span style="font-size: 15px" class="mb-0 fw-normal text-muted">{{ item.arrival_time }}</span>
             </div>
             <div class="text-info-emphasis small text-start">
               <span
