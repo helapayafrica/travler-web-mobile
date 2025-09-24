@@ -73,7 +73,7 @@ export class SignupComponent implements OnInit {
   initForm(): void {
     this.signupForm = this.fb.group({
       name: ['', [Validators.required]],
-      last_name: ['', [Validators.required]],
+      last_name: [' ', [Validators.required]],
       date_of_birth: [ this.maxDOB, [Validators.required, ageValidator()]],
       more: [false, [Validators.required]],
       coupon_code:[''],
@@ -120,20 +120,37 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(' Submit Btn clicked')
+
+    // console.log(this.signupForm.value)
+
+    if (this.signupForm.invalid) {
+      console.log('Form is invalvalid')
+      console.log(this.signupForm.errors)
+
+      Object.keys(this.signupForm.controls).forEach(key => {
+        const control = this.signupForm.get(key);
+        control?.markAsTouched();
+      });
+      return;
+    }
+
+
     let data = this.signupForm.value
 
     console.log('[Form Data]',data)
     this.loading=true;
     this.payload.device_number= Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     this.payload.phone=data.phone_number
+    this.payload.gender=data.gender.value
     this.payload.country_code=data.country_code.value
+    console.log(this.payload)
     this.service.sendOtp(this.payload).subscribe((res)=>{
       this.loading=false;
       if(res.isSuccess){
         this.modalService.openModal('verificationModal');
         let info={"otp_number":"","device_number":Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),"gcm_token":"","phone":data.phone_number,"verification_key":res.verification_key,"country_code":data.country_code,"sourcetype":"web"}
         this.bookingService.setConfig('verification',info);
+        this.loading=false;
       }else{
         Swal.fire({
           icon: 'error',
@@ -146,16 +163,11 @@ export class SignupComponent implements OnInit {
             icon: 'tiny-icon'
           }
         });
+
+        this.loading=false;
       }
 
     })
-    if (this.signupForm.invalid) {
-      Object.keys(this.signupForm.controls).forEach(key => {
-        const control = this.signupForm.get(key);
-        control?.markAsTouched();
-      });
-      return;
-    }
 
     this.isSubmitting = true;
 

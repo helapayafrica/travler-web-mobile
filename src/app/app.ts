@@ -6,10 +6,11 @@ import {LoginModalComponent} from './shared/login-modal/login-modal.component';
 import {FooterComponent} from './layout/footer/footer.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {BottomNav} from './views/home/sections/bottom-nav/bottom-nav';
+import {VerifyContactComponent} from './shared/verify-contact/verify-contact.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, LoginModalComponent, FooterComponent, BottomNav, NavbarComponent],
+  imports: [RouterOutlet, LoginModalComponent, FooterComponent, BottomNav, NavbarComponent, VerifyContactComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

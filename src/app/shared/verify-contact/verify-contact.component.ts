@@ -3,7 +3,6 @@ import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core'
 import { ReactiveFormsModule, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Modal } from 'bootstrap';
-
 import { NgOtpInputComponent } from 'ng-otp-input';
 import Swal from 'sweetalert2';
 import { ngxLoadingAnimationTypes, NgxLoadingModule } from 'ngx-loading';
@@ -19,14 +18,14 @@ import {BookingService} from '../../services/booking';
 })
 export class VerifyContactComponent implements OnInit {
   otpControl = new FormControl('');
-    loadingConfig = {
-        animationType: ngxLoadingAnimationTypes.chasingDots,
-        backdropBorderRadius: '10px',
-        primaryColour: 'red',
-        secondaryColour: 'black',
-        fullScreenBackdrop:true,
-        tertiaryColour: '#ffffff'
-      };
+  loadingConfig = {
+    animationType: ngxLoadingAnimationTypes.chasingDots,
+    backdropBorderRadius: '10px',
+    primaryColour: 'red',
+    secondaryColour: 'black',
+    fullScreenBackdrop:true,
+    tertiaryColour: '#ffffff'
+  };
 
   otpConfig = {
     length: 6,
