@@ -1,7 +1,13 @@
+
 *{
   font-size: var(--font-size);
   color: var(--primary-color-800);
 }
+.faqs-container{
+  padding-top:5rem;
+  min-height: 60vh;
+ }
+
 .accordion-button:not(.collapsed) {
   background-color: white;
   color:var(--primary-color-900);

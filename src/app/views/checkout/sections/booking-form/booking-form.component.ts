@@ -19,7 +19,7 @@ import {Button} from 'primeng/button';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BookingFormComponent implements OnInit {
-  email = "info@iabiri.com"
+  email = "info@Travler.com"
   isSuccess = false;
   nationalities: any = [];
   country_codes = [

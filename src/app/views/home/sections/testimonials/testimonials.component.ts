@@ -23,16 +23,16 @@ export class TestimonialsComponent implements OnInit {
       avatar:
         'https://images.unsplash.com/photo-1689857538296-b6e1a392a91d?w=500&auto=format&fit=crop&q=60',
       rating: 5,
-      text: `I've been using Iabiri through this booking platform for my monthly trips to Kisumu. The service is always reliable...`,
-      partnerName: 'Iabiri',
+      text: `I've been using Travler through this booking platform for my monthly trips to Kisumu. The service is always reliable...`,
+      partnerName: 'Travler',
     },
     {
       name: 'Sarah Ochieng',
       avatar:
         'https://images.unsplash.com/photo-1622556498246-755f44ca76f3?w=500&auto=format&fit=crop&q=60',
       rating: 4,
-      text: 'Iabiri has comfortable buses and their staff is very professional. Booking through this app has saved me from long queues.',
-      partnerName: 'Iabiri',
+      text: 'Travler has comfortable buses and their staff is very professional. Booking through this app has saved me from long queues.',
+      partnerName: 'Travler',
     },
     {
       name: 'David Kimani',

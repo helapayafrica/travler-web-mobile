@@ -30,42 +30,42 @@ export class PartnersComponent {
   partners: Partner[] = [
     {
       name: 'Dream',
-      logo: 'https://iabiri.com/assets/logo/dreamline.png',
+      logo: 'https://Travler.com/assets/logo/dreamline.png',
       description: 'Premier bus service with routes throughout Kenya'
     },
     {
       name: 'Mash East Africa',
-      logo: 'https://iabiri.com/assets/logo/mash.png',
+      logo: 'https://Travler.com/assets/logo/mash.png',
       description: 'Luxury bus service with international routes'
     },
     {
       name: 'Modern Coast',
-      logo: 'https://iabiri.com/assets/logo/modern-coast.png',
+      logo: 'https://Travler.com/assets/logo/modern-coast.png',
       description: 'Express services to major cities and tourist destinations'
     },
     {
       name: 'Buscar',
-      logo: 'https://iabiri.com/assets/logo/buscar.png',
+      logo: 'https://Travler.com/assets/logo/buscar.png',
       description: 'Reliable transportation to multiple destinations'
     },
     {
       name: 'Simba Coach',
-      logo: 'https://iabiri.com/assets/logo/simbacoach.png',
+      logo: 'https://Travler.com/assets/logo/simbacoach.png',
       description: 'Fast and efficient intercity services'
     },
     {
       name: 'Daya City',
-      logo: 'https://iabiri.com/assets/logo/dayahcity.png',
+      logo: 'https://Travler.com/assets/logo/dayahcity.png',
       description: 'Comfortable travel across East Africa'
     },
     // {
     //   name: 'Gateway Coach',
-    //   logo: 'https://iabiri.com/assets/logo/gateway.jpg',
+    //   logo: 'https://Travler.com/assets/logo/gateway.jpg',
     //   description: 'Coast region specialist with premium services'
     // },
     // {
     //   name: 'Palmers',
-    //   logo: 'https://iabiri.com/assets/logo/palmers.png',
+    //   logo: 'https://Travler.com/assets/logo/palmers.png',
     //   description: 'Experienced operator with decades of service'
     // }
   ];

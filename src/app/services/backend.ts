@@ -4,7 +4,7 @@ import {Observable, of} from 'rxjs';
 import {map} from 'rxjs/operators';
 // export const endpoint='http://api.ma3app.com/appApi';
 // export const endpoint='http://bossapi.99synergy.com/appApi';
-// export const endpoint = 'https://api.iabiri.com/globalApi'
+// export const endpoint = 'https://api.Travler.com/globalApi'
 export const endpoint = '/globalApi'
 
 

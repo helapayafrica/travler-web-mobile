@@ -1,9 +1,10 @@
 .search-section {
   padding-top: 60px;
-  background-color: var(--gray-50);
+  background-color: var(--background-color);
   color: white !important;
 }
 
 .search-results-section {
-  background-color: var(--bs-gray-200);
+  /*background-color: var(--bs-gray-200);*/
+  background-color: var(--background-color);
 }/*# sourceMappingURL=search.component.css.map */

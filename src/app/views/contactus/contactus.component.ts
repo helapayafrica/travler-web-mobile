@@ -11,7 +11,7 @@ import {CommonModule, NgOptimizedImage} from '@angular/common';
 })
 export class ContactusComponent {
   contactForm: FormGroup;
-  email='infoiabiri.com';
+  email='infoTravler.com';
   countryCodes = [
     { code: '+254', name: 'Kenya' }, // Reference point
     { code: '+255', name: 'Tanzania' },
@@ -44,7 +44,7 @@ export class ContactusComponent {
       email: ['', [Validators.required, Validators.email]],
       subject: ['', Validators.required],
       body: ['', Validators.required],
-      company: ['iabiri', Validators.required], // Default company
+      company: ['Travler', Validators.required], // Default company
       sourcetype: ['web'] // Hidden field, default is 'web'
     });
   }
