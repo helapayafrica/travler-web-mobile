@@ -1,4 +1,4 @@
- import {Component, inject, OnInit} from '@angular/core';
+ import {ChangeDetectorRef, Component, inject, OnInit} from '@angular/core';
 import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import {TypeaheadModule} from 'ngx-bootstrap/typeahead';
 import {
@@ -55,6 +55,7 @@ export class SearchComponent implements OnInit {
     public datePipe: DatePipe,
     public router: Router,
     private route :ActivatedRoute,
+    private cdr: ChangeDetectorRef,
   ) {
     this.searchForm = this.fb.group({
       fromCity: ['', Validators.required],
@@ -101,6 +102,9 @@ export class SearchComponent implements OnInit {
       trip_type: await this.bookingService.getConfig('trip_type'),
     };
 
+    console.log('[Initial Config Data]', data);
+    
+
     // console.log('Raw config data:', data);
 
     // const safeDate = (val: any, fallback: Date = this.today): Date => {
@@ -139,7 +143,7 @@ export class SearchComponent implements OnInit {
     const processedTravelDate = data.date && data.date !== 'null' && data.date !== 'undefined' ? safeDate(data.date) : this.today;
     const processedReturnDate = data.return_date && data.return_date !== 'null' && data.return_date !== 'undefined' ? safeDate(data.return_date) : this.today;
 
-    // console.log('Processed dates:', {travel: processedTravelDate, return: processedReturnDate});
+    console.log('Processed dates:', {travel: processedTravelDate, return: processedReturnDate});
 
     this.tripType = data.trip_type || 'onward';
     this.searchForm.patchValue({
@@ -149,6 +153,10 @@ export class SearchComponent implements OnInit {
       fromCity: data.fromCity || '',
       trip_type: this.tripType
     });
+
+    this.cdr.detectChanges(); 
+    console.log("[Form Values After Patch]", this.searchForm.value);
+    
 
 
     setTimeout(() => {
@@ -210,7 +218,7 @@ export class SearchComponent implements OnInit {
   onSubmit(): void {
     this.couponService.clearCancellationProtectionAndInsuredSeats()
     let data = this.searchForm.value;
-    // console.log('Form data:', data);
+    console.log('Form data:', data);
     const date = this.formatDateForConfig(data.date);
     const return_date = this.formatDateForConfig(data.return_date);
 

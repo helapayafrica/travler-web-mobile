@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { PaymentSocketService} from '../../services/payment-socket-service';
 import {FormsModule} from '@angular/forms';
-import {NgIf} from '@angular/common';
+import {CommonModule, NgIf} from '@angular/common';
 import { PaymentConfirmation } from '../../Models';
 // import { PaymentSocketService, PaymentConfirmation } from '../../services/payment-socket.service';
 
@@ -11,7 +11,7 @@ import { PaymentConfirmation } from '../../Models';
   templateUrl: './payment-confirmation-component.html',
   imports: [
     FormsModule,
-    NgIf
+    CommonModule
   ],
   styleUrls: ['./payment-confirmation-component.scss']
 })
