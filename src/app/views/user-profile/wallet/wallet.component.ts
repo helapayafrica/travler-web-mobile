@@ -2,6 +2,7 @@ import {Component, inject, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {BookingService} from '../../../services/booking';
 import {BackendService} from '../../../services/backend';
+import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 
 interface WalletTransaction {
   amount: string;
@@ -14,19 +15,23 @@ interface WalletTransaction {
   templateUrl: './wallet.component.html',
   styleUrls: ['./wallet.component.scss'],
   standalone: true,
-  imports: [CommonModule]
+  imports: [CommonModule, ReactiveFormsModule]
 })
 export class WalletComponent implements OnInit {
   walletBalance: string = 'KES 0.00';
   service = inject(BookingService)
   backendService = inject(BackendService)
   transactions: WalletTransaction[] = [];
+  voucherForm = new FormGroup(({
+    voucher: new FormControl('')
+  }))
+
 
   constructor() { }
 
   ngOnInit(): void {
     // You would fetch wallet data from a service in a real app
-    this.getWalletdate()
+    this.getWalletData()
     this.getWalletHistory()
   }
 
@@ -34,8 +39,14 @@ export class WalletComponent implements OnInit {
     // Implement money transfer functionality
     // console.log('Transfer money clicked');
   }
+  applyVoucher(){
+    console.log(this.voucherForm.value.voucher)
+  //   TODO: Appy Voucher card. back end
 
-  getWalletdate(){
+    this.getWalletData()
+  }
+
+  getWalletData(){
     const userDate:any = this.service.getConfig('userDate');
     const userId = userDate.userId
 

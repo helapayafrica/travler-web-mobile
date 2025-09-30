@@ -125,8 +125,8 @@ items :any = []
   }
 
   getFilterChanges(filters: any){
-    console.log("Filters are changed!")
-    console.log(filters)
+    // console.log("Filters are changed!")
+    // console.log(filters)
     const newPayload = {
       ...this.payload,
       boarding_points: filters.boardingPoints,

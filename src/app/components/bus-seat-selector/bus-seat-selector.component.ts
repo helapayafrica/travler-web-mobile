@@ -121,7 +121,7 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
 
   submitForm() {
     if (this.boardingForm.valid) {
-      console.log('Selected Points:', this.boardingForm.value);
+      // console.log('Selected Points:', this.boardingForm.value);
     }
   }
 
@@ -378,7 +378,7 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
     // keep vertical scale at 1, so offset uses original seat positions
     this.centerOffsetY = containerHeight / 2 - seatsCenterY;
 
-    console.log('Offsets:', this.centerOffsetX, this.centerOffsetY, 'Scale:', this.scaleFactor);
+    // console.log('Offsets:', this.centerOffsetX, this.centerOffsetY, 'Scale:', this.scaleFactor);
   }
 
   adjustSeatPosition(seat: SeatData, property: 'left' | 'top'): number {

@@ -1,25 +1,21 @@
-import {Component, inject, OnDestroy, OnInit} from '@angular/core';
-import {Subscription} from 'rxjs';
-import {ToastrService} from 'ngx-toastr';
-import {PaymentConfirmation} from '../../Models';
-import {PaymentSocketService} from '../../services/payment-socket-service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {NgSwitch, NgSwitchCase} from '@angular/common';
-import {BookingService} from '../../services/booking';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
+import { PaymentConfirmation } from '../../Models';
+import { PaymentSocketService } from '../../services/payment-socket-service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NgSwitch, NgSwitchCase } from '@angular/common';
+import { BookingService } from '../../services/booking';
 
 @Component({
   selector: 'app-payment-verification',
-  imports: [
-    NgSwitch,
-    NgSwitchCase
-  ],
+  imports: [NgSwitch, NgSwitchCase],
   templateUrl: './payment-verification.html',
-  styleUrl: './payment-verification.scss'
+  styleUrl: './payment-verification.scss',
 })
 export class PaymentVerification implements OnInit, OnDestroy {
-
   private subscriptions: Subscription[] = [];
-  toastr = inject(ToastrService)
+  toastr = inject(ToastrService);
 
   isConnected = false;
   currentRoom: string | null = null;
@@ -30,56 +26,23 @@ export class PaymentVerification implements OnInit, OnDestroy {
   invoiceRef = '';
   isLoading = false;
   // private route = inject(ActivatedRoute)
-  private router = inject(Router)
-  private bookingService = inject(BookingService)
+  private router = inject(Router);
+  private bookingService = inject(BookingService);
 
-  constructor(private paymentSocketService: PaymentSocketService) {
-  }
+  constructor(private paymentSocketService: PaymentSocketService) {}
 
   ngOnInit(): void {
     this.subscribeToSocketEvents();
 
-   const bookingRef =  this.bookingService.getConfig('booking_reference');
+    const bookingRef = this.bookingService.getConfig('booking_reference');
 
-   if (bookingRef){
-     this.invoiceRef= bookingRef as string;
-     this.autoJoinRoom()
-   }
-
-
-
-  //   //  get booking refrence
-  //
-  //
-  //   // get invoicce ref
-  //   this.route.params.subscribe(params => {
-  //     this.invoiceRef = params['invoiceRef'];
-  //     // this.joinRoom();
-  //     this.autoJoinRoom();
-  //   })
-  //
-  //   // Also check query parameters
-  //   this.route.queryParams.subscribe(queryParams => {
-  //     if (queryParams['invoice'] || queryParams['ref']) {
-  //       this.invoiceRef = queryParams['invoice'] || queryParams['ref'];
-  //       this.autoJoinRoom();
-  //     }
-  //   });
-
-  }
-
-  ngOnDestroy(): void {
-    // Leave room before destroying component
-    if (this.currentRoom) {
-      this.leaveRoom();
+    if (bookingRef) {
+      this.invoiceRef = bookingRef as string;
+      this.autoJoinRoom();
     }
 
-    // Unsubscribe from all subscriptions
-    this.subscriptions.forEach(sub => sub.unsubscribe());
-
-    this.paymentSocketService.disconnect();
-
   }
+
   private subscribeToSocketEvents(): void {
     // Connection status
     this.subscriptions.push(
@@ -158,13 +121,15 @@ export class PaymentVerification implements OnInit, OnDestroy {
             this.handleRoomJoinFailure();
           }
         }, 5000);
-
       } catch (error) {
         this.isLoading = false;
         this.toastr.error('Failed to join payment room. Please try again.', 'Error');
       }
     } else if (!this.isConnected) {
-      this.toastr.error('Not connected to server. Please check your connection.', 'Connection Error');
+      this.toastr.error(
+        'Not connected to server. Please check your connection.',
+        'Connection Error'
+      );
     }
   }
 
@@ -189,20 +154,20 @@ export class PaymentVerification implements OnInit, OnDestroy {
     }, 3000);
   }
 
-
   // Auto Join room
   private autoJoinRoom(): void {
     if (this.isConnected) {
       this.joinRoom();
     } else {
-      const connectionSub = this.paymentSocketService.isConnected$.subscribe((connected: boolean) => {
-        if (connected && this.invoiceRef.trim()) {
-          connectionSub.unsubscribe();
+      const connectionSub = this.paymentSocketService.isConnected$.subscribe(
+        (connected: boolean) => {
+          if (connected && this.invoiceRef.trim()) {
+            connectionSub.unsubscribe();
+          }
         }
-      })
+      );
     }
   }
-
 
   status(): string {
     if (this.paymentConfirmation) {
@@ -221,7 +186,10 @@ export class PaymentVerification implements OnInit, OnDestroy {
 
   retry(): void {
     if (!this.isConnected) {
-      this.toastr.error('Cannot retry while disconnected. Please check your connection.', 'Connection Error');
+      this.toastr.error(
+        'Cannot retry while disconnected. Please check your connection.',
+        'Connection Error'
+      );
       return;
     }
 
@@ -248,8 +216,13 @@ export class PaymentVerification implements OnInit, OnDestroy {
     this.currentRoom = null;
   }
 
+  tryAgain = false;
   private handlePaymentTimeout(): void {
-    this.toastr.warning('Payment confirmation timed out. Please check your payment status.', 'Timeout');
+    this.toastr.warning(
+      'Payment confirmation timed out. Please check your payment status.',
+      'Timeout'
+    );
+    this.tryAgain = true;
   }
 
   private handleRoomClosed(closedInfo: any): void {
@@ -260,4 +233,18 @@ export class PaymentVerification implements OnInit, OnDestroy {
     }
   }
 
+
+
+
+  ngOnDestroy(): void {
+    // Leave room before destroying component
+    if (this.currentRoom) {
+      this.leaveRoom();
+    }
+
+    // Unsubscribe from all subscriptions
+    this.subscriptions.forEach((sub) => sub.unsubscribe());
+
+    this.paymentSocketService.disconnect();
+  }
 }

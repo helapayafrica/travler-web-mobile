@@ -65,8 +65,6 @@ export class SearchComponent implements OnInit {
       trip_type: ['onward'],
     }, {validators: returnDateAfterTravelValidator()});
 
-    // console.log('[Date on Init]')
-    // console.log(this.searchForm.value)
 
 
     this.filteredFromCities = this.searchForm
@@ -84,8 +82,8 @@ export class SearchComponent implements OnInit {
       );
 
 
-    // console.log('[ filtered City]', this.filteredFromCities)
-    // console.log('[ filtered City]', this.filteredDestinationCities)
+
+
   }
 
   @ViewChild('travelDateInput') travelDatePicker: any;
@@ -102,8 +100,8 @@ export class SearchComponent implements OnInit {
       trip_type: await this.bookingService.getConfig('trip_type'),
     };
 
-    console.log('[Initial Config Data]', data);
-    
+
+
 
     // console.log('Raw config data:', data);
 
@@ -143,7 +141,7 @@ export class SearchComponent implements OnInit {
     const processedTravelDate = data.date && data.date !== 'null' && data.date !== 'undefined' ? safeDate(data.date) : this.today;
     const processedReturnDate = data.return_date && data.return_date !== 'null' && data.return_date !== 'undefined' ? safeDate(data.return_date) : this.today;
 
-    console.log('Processed dates:', {travel: processedTravelDate, return: processedReturnDate});
+    // console.log('Processed dates:', {travel: processedTravelDate, return: processedReturnDate});
 
     this.tripType = data.trip_type || 'onward';
     this.searchForm.patchValue({
@@ -154,9 +152,9 @@ export class SearchComponent implements OnInit {
       trip_type: this.tripType
     });
 
-    this.cdr.detectChanges(); 
-    console.log("[Form Values After Patch]", this.searchForm.value);
-    
+    this.cdr.detectChanges();
+    // console.log("[Form Values After Patch]", this.searchForm.value);
+
 
 
     setTimeout(() => {
@@ -236,8 +234,8 @@ export class SearchComponent implements OnInit {
 
 
     if(this.route.snapshot.routeConfig?.path == 'search'){
-      console.log("DARRAAAAA")
-      console.log(this.route.snapshot.routeConfig?.path);
+      // console.log("DARRAAAAA")
+      // console.log(this.route.snapshot.routeConfig?.path);
       this.reloadCurrentRoute();
     }else{
       this.router.navigateByUrl('/search');

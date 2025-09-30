@@ -8,7 +8,20 @@
       <p>Your Wallet Balance</p>
     </div>
     <div class="wallet-actions">
-      <button class="btn btn-primary  rounded-pill" (click)="transferMoney()">Transfer Money</button>
+      <div class ="row g-4">
+        <div class="col-12">
+          <div class="form-group">
+            <form class="form" [formGroup]="voucherForm" (ngSubmit)="applyVoucher()">
+              <label class="form-label" for="voucher">Apply Voucher</label>
+              <input type="text" formControlName="voucher" class="form-control" id="voucher" placeholder="Enter voucher code">
+            </form>
+          </div>
+
+        </div>
+        <div class="col-12">
+          <button class="btn btn-primary  rounded-pill" (click)="applyVoucher()">Apply Voucher</button>
+        </div>
+      </div>
     </div>
   </div>
 
