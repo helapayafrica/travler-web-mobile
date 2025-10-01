@@ -3,9 +3,11 @@ import { Subscription } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { PaymentConfirmation } from '../../Models';
 import { PaymentSocketService } from '../../services/payment-socket-service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { NgSwitch, NgSwitchCase } from '@angular/common';
 import { BookingService } from '../../services/booking';
+
+type PaymentStatus = 'idle' | 'processing' | 'success' | 'failed';
 
 @Component({
   selector: 'app-payment-verification',
@@ -14,89 +16,78 @@ import { BookingService } from '../../services/booking';
   styleUrl: './payment-verification.scss',
 })
 export class PaymentVerification implements OnInit, OnDestroy {
-  private subscriptions: Subscription[] = [];
-  toastr = inject(ToastrService);
+  private subscriptions = new Subscription();
+  private readonly toastr = inject(ToastrService);
+  private readonly router = inject(Router);
+  private readonly bookingService = inject(BookingService);
+  private readonly JOIN_TIMEOUT = 5000;
+  private readonly REDIRECT_DELAY = 3000;
 
   isConnected = false;
   currentRoom: string | null = null;
   paymentConfirmation: PaymentConfirmation | null = null;
-  roomTimeout: any = null;
-  roomClosed: any = null;
-
+  roomTimeout = false;
+  roomClosed = false;
   invoiceRef = '';
   isLoading = false;
-  // private route = inject(ActivatedRoute)
-  private router = inject(Router);
-  private bookingService = inject(BookingService);
 
   constructor(private paymentSocketService: PaymentSocketService) {}
 
   ngOnInit(): void {
+    // this.paymentSocketService.connect();
     this.subscribeToSocketEvents();
+    this.initializeInvoiceRef();
+  }
 
-    const bookingRef = this.bookingService.getConfig('booking_reference');
-
-    if (bookingRef) {
-      this.invoiceRef = bookingRef as string;
+  private initializeInvoiceRef(): void {
+    const roomIdRef = this.bookingService.getConfig('roomIdRef');
+    if (roomIdRef) {
+      this.invoiceRef = roomIdRef as string;
       this.autoJoinRoom();
     }
-
   }
 
   private subscribeToSocketEvents(): void {
-    // Connection status
-    this.subscriptions.push(
-      this.paymentSocketService.isConnected$.subscribe((connected: any) => {
+    this.subscriptions.add(
+      this.paymentSocketService.isConnected$.subscribe((connected) => {
         this.isConnected = connected;
-        // ADD these lines:
-        if (!connected && this.currentRoom) {
-          this.toastr.warning('Connection lost. Attempting to reconnect...', 'Connection');
-        }
-        if (connected && this.currentRoom && !this.paymentConfirmation) {
-          this.toastr.info('Connection restored. Monitoring payment...', 'Reconnected');
-        }
+        this.handleConnectionChange(connected);
       })
     );
 
-    // Current room
-    this.subscriptions.push(
-      this.paymentSocketService.currentRoom$.subscribe((room: any) => {
+    this.subscriptions.add(
+      this.paymentSocketService.currentRoom$.subscribe((room) => {
         this.currentRoom = room;
-        // ADD this line:
         if (this.invoiceRef && this.isLoading && !room) {
           this.handleRoomJoinFailure();
         }
       })
     );
 
-    // Payment confirmation
-    this.subscriptions.push(
-      this.paymentSocketService.paymentConfirmation$.subscribe((confirmation: any) => {
+    this.subscriptions.add(
+      this.paymentSocketService.paymentConfirmation$.subscribe((confirmation) => {
         if (confirmation) {
           this.paymentConfirmation = confirmation;
           this.isLoading = false;
-          // Handle successful payment
           this.handlePaymentSuccess(confirmation);
         }
       })
     );
 
-    // Room timeout
-    this.subscriptions.push(
-      this.paymentSocketService.roomTimeout$.subscribe((timeout: any) => {
+    this.subscriptions.add(
+      this.paymentSocketService.roomTimeout$.subscribe((timeout) => {
         if (timeout) {
-          this.roomTimeout = timeout;
+          this.roomTimeout = true;
           this.isLoading = false;
           this.handlePaymentTimeout();
         }
       })
     );
 
-    // Room closed
-    this.subscriptions.push(
-      this.paymentSocketService.roomClosed$.subscribe((closed: any) => {
+    this.subscriptions.add(
+      this.paymentSocketService.roomClosed$.subscribe((closed) => {
         if (closed) {
-          this.roomClosed = closed;
+          this.roomClosed = true;
           this.isLoading = false;
           this.handleRoomClosed(closed);
         }
@@ -104,147 +95,119 @@ export class PaymentVerification implements OnInit, OnDestroy {
     );
   }
 
-  joinRoom(): void {
-    if (this.invoiceRef.trim() && this.isConnected) {
-      this.isLoading = true;
-      this.paymentConfirmation = null;
-      this.roomTimeout = null;
-      this.roomClosed = null;
-
-      // this.paymentSocketService.joinPaymentRoom(this.invoiceRef.trim());
-      try {
-        this.paymentSocketService.joinPaymentRoom(this.invoiceRef.trim());
-
-        // ADD timeout detection:
-        setTimeout(() => {
-          if (this.isLoading && !this.currentRoom) {
-            this.handleRoomJoinFailure();
-          }
-        }, 5000);
-      } catch (error) {
-        this.isLoading = false;
-        this.toastr.error('Failed to join payment room. Please try again.', 'Error');
-      }
-    } else if (!this.isConnected) {
-      this.toastr.error(
-        'Not connected to server. Please check your connection.',
-        'Connection Error'
-      );
+  private handleConnectionChange(connected: boolean): void {
+    if (!connected && this.currentRoom) {
+      this.toastr.warning('Connection lost. Attempting to reconnect...', 'Connection');
+    } else if (connected && this.currentRoom && !this.paymentConfirmation) {
+      this.toastr.info('Connection restored. Monitoring payment...', 'Reconnected');
     }
   }
 
+  joinRoom(): void {
+    if (!this.invoiceRef.trim()) return;
+
+    if (!this.isConnected) {
+      this.toastr.error('Not connected to server. Please check your connection.', 'Connection Error');
+      return;
+    }
+
+    this.resetState();
+    this.isLoading = true;
+
+    this.paymentSocketService.joinPaymentRoom(this.invoiceRef.trim());
+
+    setTimeout(() => {
+      if (this.isLoading && !this.currentRoom) {
+        this.handleRoomJoinFailure();
+      }
+    }, this.JOIN_TIMEOUT);
+  }
+
   leaveRoom(): void {
-    if (this.invoiceRef.trim() && this.isConnected) {
+    if (this.currentRoom && this.isConnected) {
       this.paymentSocketService.leavePaymentRoom(this.invoiceRef.trim());
       this.isLoading = false;
     }
   }
 
-  ping(): void {
-    this.paymentSocketService.ping();
+  private autoJoinRoom(): void {
+    if (this.isConnected) {
+      this.joinRoom();
+    } else {
+      this.subscriptions.add(
+        this.paymentSocketService.isConnected$.subscribe((connected) => {
+          if (connected && this.invoiceRef.trim()) {
+            this.joinRoom();
+          }
+        })
+      );
+    }
   }
 
   private handlePaymentSuccess(confirmation: PaymentConfirmation): void {
-    // Handle successful payment
     console.log('Payment confirmed:', confirmation);
     this.toastr.success('Payment confirmed successfully!', 'Success');
 
     setTimeout(() => {
       this.router.navigate(['/spin-to-win']);
-    }, 3000);
+    }, this.REDIRECT_DELAY);
   }
 
-  // Auto Join room
-  private autoJoinRoom(): void {
-    if (this.isConnected) {
-      this.joinRoom();
-    } else {
-      const connectionSub = this.paymentSocketService.isConnected$.subscribe(
-        (connected: boolean) => {
-          if (connected && this.invoiceRef.trim()) {
-            connectionSub.unsubscribe();
-          }
-        }
-      );
-    }
+  private handlePaymentTimeout(): void {
+    this.toastr.warning('Payment confirmation timed out. Please check your payment status.', 'Timeout');
   }
 
-  status(): string {
-    if (this.paymentConfirmation) {
-      return 'success';
-    } else if (this.roomTimeout || this.roomClosed) {
-      return 'failed';
-    } else if (this.isLoading || this.currentRoom) {
-      return 'processing';
-    }
-    return 'idle';
-  }
+  private handleRoomClosed(closedInfo: any): void {
+    const message = closedInfo.reason === 'error'
+      ? 'Payment monitoring stopped due to an error.'
+      : 'Payment monitoring timed out.';
 
-  getCurrentTime(): string {
-    return new Date().toLocaleTimeString();
-  }
-
-  retry(): void {
-    if (!this.isConnected) {
-      this.toastr.error(
-        'Cannot retry while disconnected. Please check your connection.',
-        'Connection Error'
-      );
-      return;
-    }
-
-    if (this.invoiceRef.trim()) {
-      this.roomTimeout = null;
-      this.roomClosed = null;
-      this.paymentConfirmation = null;
-
-      this.joinRoom();
-    }
-  }
-
-  goBack(): void {
-    this.leaveRoom();
-    this.invoiceRef = '';
-    this.paymentConfirmation = null;
-    this.roomTimeout = null;
-    this.roomClosed = null;
+    const title = closedInfo.reason === 'error' ? 'Error' : 'Timeout';
+    this.toastr[closedInfo.reason === 'error' ? 'error' : 'warning'](message, title);
   }
 
   private handleRoomJoinFailure(): void {
     this.isLoading = false;
     this.toastr.error('Failed to join payment room. Please check your invoice reference.', 'Error');
-    this.currentRoom = null;
   }
 
-  tryAgain = false;
-  private handlePaymentTimeout(): void {
-    this.toastr.warning(
-      'Payment confirmation timed out. Please check your payment status.',
-      'Timeout'
-    );
-    this.tryAgain = true;
-  }
-
-  private handleRoomClosed(closedInfo: any): void {
-    if (closedInfo.reason === 'error') {
-      this.toastr.error('Payment monitoring stopped due to an error.', 'Error');
-    } else if (closedInfo.reason === 'timeout') {
-      this.toastr.warning('Payment monitoring timed out.', 'Timeout');
+  retry(): void {
+    if (!this.isConnected) {
+      this.toastr.error('Cannot retry while disconnected. Please check your connection.', 'Connection Error');
+      return;
     }
-  }
 
-
-
-
-  ngOnDestroy(): void {
-    // Leave room before destroying component
     if (this.currentRoom) {
       this.leaveRoom();
     }
 
-    // Unsubscribe from all subscriptions
-    this.subscriptions.forEach((sub) => sub.unsubscribe());
+    this.joinRoom();
+  }
 
+  goBack(): void {
+    this.leaveRoom();
+    this.resetState();
+    this.invoiceRef = '';
+  }
+
+  private resetState(): void {
+    this.paymentConfirmation = null;
+    this.roomTimeout = false;
+    this.roomClosed = false;
+  }
+
+  status(): PaymentStatus {
+    if (this.paymentConfirmation?.data.TransID) return 'success';
+    if (this.roomTimeout || this.roomClosed) return 'failed';
+    if (this.isLoading || this.currentRoom) return 'processing';
+    return 'idle';
+  }
+
+  ngOnDestroy(): void {
+    if (this.currentRoom) {
+      this.leaveRoom();
+    }
+    this.subscriptions.unsubscribe();
     this.paymentSocketService.disconnect();
   }
 }

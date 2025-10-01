@@ -182,10 +182,12 @@ export class PaymentFormComponent implements OnInit {
       console.log(newData)
       this.service.makePayment(newData).subscribe((res)=>{
 
+        console.log("['Payment Response']", res);
 
-        // join the socketroom for payment  confirmation
-        this.paymentSocketService.joinPaymentRoom((res.invoiceRef));
-        // this.paymentSocketService.disconnect()
+        console.log(res);
+        // // join the socketroom for payment  confirmation
+        // this.paymentSocketService.joinPaymentRoom((res.invoiceRef));
+        // // this.paymentSocketService.disconnect()
 
         console.log(res)
         this.startTimer()
@@ -196,7 +198,7 @@ export class PaymentFormComponent implements OnInit {
             icon: 'success',
             title: 'Payment Initiated',
             text:res.msg,
-            timer: 5000, // Auto-close after 3 seconds
+            timer: 3000, // Auto-close after 3 seconds
             showConfirmButton: false
           });
         setTimeout(()=>{
