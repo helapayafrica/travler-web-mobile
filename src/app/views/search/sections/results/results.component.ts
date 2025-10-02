@@ -72,7 +72,7 @@ export class ResultsComponent implements OnChanges {
     }
     this.selectedTab = tab;
 
-    if (tab === 'return') {
+    if (tab === 'return' || tab == '') {
       // Reset previously emitted seat data
       this.busdata = null;
       this.seat_data = null;

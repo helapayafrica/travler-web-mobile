@@ -1,0 +1,21 @@
+.app-container{
+  margin-top: 6rem;
+}
+
+.btn-primary{
+  background: linear-gradient(45deg, var(--primary-color-500), var(--primary-color-400));
+  border: var(--primary-color-500);
+}
+
+.form-group{
+  margin-bottom: 1rem;
+}
+
+.form-label{
+  font-weight: 500;
+  font-size:1.1rem;
+  margin-bottom: 0.5rem;
+}
+.form-control{
+  height: 32px !important;
+}

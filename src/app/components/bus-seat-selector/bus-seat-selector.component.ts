@@ -497,4 +497,8 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
     // console.log('[cLOSED]')
     this.resultComponent.closeView();
   }
+
+  proceedToReschedule() {
+  //   TODO: Do all Pnecessary rescheduling login here
+  }
 }

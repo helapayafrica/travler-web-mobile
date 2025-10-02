@@ -144,4 +144,11 @@ export class BackendService {
     return this.http.post(endpoint + '/common/getOffersList',{"currency_id":1,"sourcetype":"web"}).pipe(
       map(this.extractData));
   }
+
+  // rescehdule
+  // FIXME:   change to match backend
+   rescheduleTicket(data: any): Observable<any> {
+    return this.http.post(endpoint + '/Ticket/RescheduleTicket', data).pipe(
+      map(this.extractData));
+    }
 }

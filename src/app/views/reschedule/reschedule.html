@@ -1,0 +1,50 @@
+<div class="app-container">
+<div class="container">
+  <div class="card p-3 mb-4 rounded">
+    <h2 class="card-title">Reschedule Booking</h2>
+
+    <div class="bg-warning-subtle border-1 border-warning rounded-3 p-3 mb-4">
+      <div class="d-flex align-items-center">
+        <i class="bi bi-info-circle-fill text-warning fs-3 me-3"></i>
+        <div>
+          <h5 class="mb-1 fw-bold">Note:</h5>
+
+
+          <!-- <p class="mb-0 fs-6">
+            You can reschedule your trip only if your trip is
+            <span class="fw-bold text-uppercase">8+ hours away</span>.
+          </p> -->
+
+          <p class="mb-0 fs-6">
+  You can reschedule your trip only if it's
+  <span class="fw-bold text-uppercase">8+ hours away</span>.
+  <span class="fw-semibold">Time changes only</span>—locations remain the same.
+</p>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <p class="fs-5 text-muted mb-1">Select a new date for your booking</p>
+    <form [formGroup]="rescheduleForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="currentDate" class="form-label">Ticket Number:</label>
+      <input type="text" id="currentDate" formControlName="ticket" class="form-control" value="Enter Ticket No.">
+    </div>
+    <div class="form-group">
+      <label for="newDate" class="form-label">New Date:</label>
+      <input type="date" id="newDate" class="form-control" formControlName="newDate">
+      </div>
+    <button type="submit" class="btn btn-primary px-4 py-2 rounded-pill mt-4 text-end">Confirm Reschedule</button>
+
+    </form>
+</div>
+
+  <div style="min-height: 50vh;">
+    <app-search-results [isLoading] = "isLoading"  [data]="buses"></app-search-results>
+  </div>
+
+</div>
+</div>

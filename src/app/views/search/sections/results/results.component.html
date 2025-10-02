@@ -40,12 +40,21 @@
                 RETURN JOURNEY
               </a>
             </li>
+
+            <!-- reschedule -->
+            <li class="nav-item" *ngIf="type==='reschedule'">
+              <a class="nav-link" [class.active]="selectedTab === 'reschedule'" [class.disabled]="isReturnDisabled"
+                href="javascript:void(0)" (click)="!isReturnDisabled && selectTab('reschedule')">
+                RESCHEDULE
+              </a>
+            </li>
           </ul>
 
           <!-- Tab Content -->
           <div
             style="max-height:75vh"
             class="tab-content mt-2 overflow-y-auto my-scrollable  ">
+            <!-- Onward Journey -->
             <div id="onward" class="tab-pane fade p-0" [class.show]="selectedTab === 'onward'"
               [class.active]="selectedTab === 'onward'">
 
@@ -80,16 +89,43 @@
 
               </div>
             </div>
+
+
+
+           <!-- Reschedule -->
+            <div *ngIf="type==='reschedule'">
+              <div *ngIf="selectedTab === 'reschedule'" id="reschedule" class="container tab-pane fade show active">
+
+                <h6>{{ payload.destination_name }} → {{ payload.source_name }}</h6>
+                <p>{{ payload.return_date | date: 'dd MMM yyyy' }}</p>
+
+                <div class="vstack gap-3">
+                  <app-component-search-results-card [isLoading]="isLoading"  (viewSeatOpen)="getCollapseSeatState($event)"  [data]="return_buses" [type]="type"></app-component-search-results-card>
+                </div>
+
+              </div>
+            </div>
           </div>
 
+
+
+
+
           <!-- One-Way Journey (Hidden when "Return" tab is active) -->
-          <div hidden="type==='onward' && selectedTab !== 'return'">
+          <!-- <div hidden="type==='onward' && selectedTab !== 'return'">
             <div class="vstack">
               <app-component-search-results-card [isLoading]="isLoading" (viewSeatOpen)="getCollapseSeatState($event)"  [data]="data"></app-component-search-results-card>
-            </div>p
-          </div>
+            </div>
+          </div> -->
         </div>
       </div>
+
+
+
+
+
+
+
 
       <div
         [@columnAnim]="isViewSeatOpen() ? 'visible' : 'hidden'"

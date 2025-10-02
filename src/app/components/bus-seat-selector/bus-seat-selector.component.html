@@ -226,6 +226,15 @@
           Select at least one seat
           <i class="bi bi-exclamation-circle-fill ms-2"></i>
         </button>
+
+        <!-- Scenario 5: Rescheduling a bus trip -->
+        <button
+          *ngIf="selectedSeats.length > 0 && !boardingForm.invalid && type === 'twoway' && !isReturnStep"
+          class="btn btn-success w-100 rounded-pill py-2 mt-3"
+          (click)="proceedToReschedule()">
+          proceed to reschedule
+          <i class="bi bi-arrow-repeat ms-2"></i>
+        </button>
       </div>
 
       <!-- <div class="mt-2">
