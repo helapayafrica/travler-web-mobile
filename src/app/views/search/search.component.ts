@@ -14,6 +14,7 @@ import {NgxSliderModule} from '@angular-slider/ngx-slider';
 import {FormsModule} from '@angular/forms';
 import {RefineFiltersComponent} from './sections/refine-filters/refine-filters.component';
 import {retry} from 'rxjs';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-view-search',
@@ -37,7 +38,8 @@ import {retry} from 'rxjs';
     TabPanels,
     RouterLink,
     RouterLinkActive,
-    RefineFiltersComponent
+    RefineFiltersComponent,
+    TranslatePipe
   ],
   templateUrl: './search.component.html',
   styleUrl: './search.component.scss'

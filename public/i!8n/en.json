@@ -44,5 +44,106 @@
     "contact": {
       "email": "info@iabiri.com"
     }
-  }
+  },
+
+  "loading": {
+    "spinner": "Loading...",
+    "searchingBuses": "Searching for available buses...",
+    "mayTakeTime": "This may take a few moments",
+    "seatsSpinner": "Loading seats...",
+    "seats": "Loading available seats...",
+    "seatsWait": "Please wait while we fetch seat information"
+  },
+  "empty": {
+    "noBuses": "No buses available",
+    "noResults": "We couldn't find any buses for your selected route and date.",
+    "tryAgain": "Try adjusting your search criteria or check back later."
+  },
+  "badge": {
+    "highway": "Highway"
+  },
+  "bus": {
+    "availableSeats": "Available Seats"
+  },
+  "drawer": {
+    "seatSelection": "Seat Selection"
+  },
+  "error": {
+    "loadSeatsTitle": "Failed to load seats",
+    "loadSeatsMessage": "Something went wrong while loading seat information.",
+    "tryAgain": "Try Again"
+  },
+  "button": {
+    "close": "Close"
+  },
+
+  "search": {
+    "tripType": {
+      "oneWay": "One Way",
+      "roundTrip": "Round Trip"
+    },
+    "labels": {
+      "from": "From",
+      "to": "To",
+      "travelDate": "Date of journey",
+      "returnDate": "Date to return"
+    },
+    "placeholders": {
+      "from": "From",
+      "to": "To",
+      "travelDate": "Select date",
+      "returnDate": "Select return date"
+    },
+    "tooltips": {
+      "from": "Enter the Boarding City",
+      "to": "Enter your destination city",
+      "travelDate": "Choose your travel date",
+      "returnDate": "Choose your return date"
+    },
+    "quick": {
+      "today": "Today",
+      "tomorrow": "Tomorrow"
+    },
+    "actions": {
+      "submit": "Search Bus"
+    },
+    "validation": {
+      "fromRequired": "From city is required. *",
+      "destinationRequired": "To city is required. *",
+      "dateRequired": "*Date is required.",
+      "futureDate": "*Please select a future date.",
+      "futureReturnDate": "*Please select a future return date.",
+      "returnAfterTravel": "Return date cannot be earlier than travel date."
+    }
+},
+  "drawer.sortFilterTitle": "Sort and Filter buses",
+  "tabs.priceRange": "Price Range",
+  "tabs.duration": "Duration",
+  "tabs.services": "Services",
+  "priceRange.title": "Price Range",
+  "duration.title": "Duration",
+  "services.title": "Services",
+  "actions.clear": "Clear",
+  "actions.save": "Save",
+
+  "bottomNav": {
+    "home": "Home",
+    "printTicket": "Print Ticket",
+    "help": "Help",
+    "account": "Account",
+    "login": "Log in",
+    "signUp": "Sign Up",
+    "booking": "Booking",
+    "wallet": "Wallet",
+    "changePassword": "Change Password",
+    "logout": "Logout"
+}
+
+
+
+
+
+
+
+
 }

@@ -20,6 +20,7 @@ import {MessageService} from '../../services/message.service';
 import {BackendService} from '../../services/backend';
 import {CouponInsuredService} from '../../services/coupon-insured.service';
  import {Tooltip} from 'primeng/tooltip';
+ import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-shared-search',
@@ -29,7 +30,8 @@ import {CouponInsuredService} from '../../services/coupon-insured.service';
     DatePickerModule,
     ReactiveFormsModule,
     TypeaheadModule,
-    Tooltip
+    Tooltip,
+    TranslatePipe
   ],
   templateUrl: './search.component.html',
   styleUrl: './search.component.scss',

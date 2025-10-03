@@ -2,7 +2,7 @@
   <div class="row">
     <!-- Trip Type Toggle -->
     <div class="col-12 col-md-6 col-lg-3">
-      <div class="pb-2 d-flex  flex-row gap-4  px-2 py-2">
+      <div class="pb-2 d-flex flex-row gap-4 px-2 py-2">
         <div class="form-check">
           <input
             (change)="setTripType('onward')"
@@ -12,7 +12,7 @@
             name="tripType"
             type="radio">
           <label class="form-check-label fs-5 mt-2 ms-2" for="onward" style="font-size: 1rem;">
-            One Way
+            {{ 'search.tripType.oneWay' | translate }}
           </label>
         </div>
         <div class="form-check">
@@ -24,74 +24,54 @@
             name="tripType"
             type="radio">
           <label class="form-check-label fs-5 mt-2 ms-2" for="roundTrip" style="font-size: 1rem;">
-            Round Trip
+            {{ 'search.tripType.roundTrip' | translate }}
           </label>
         </div>
       </div>
     </div>
 
-
-
-
+    <!-- Validation Messages -->
     <div class="col-12 col-md-6 col-lg-3 d-flex flex-column flex-md-row justify-content-start gap-3 px-3 py-2">
-
-
-        @if (searchForm.get('destinationCity')?.touched &&(searchForm.get('destinationCity')!.hasError('required'))) {
-          <small class="text-danger me-2 fs-6 text-danger-emphasis  bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
-            To city is required. *
-          </small>
+      @if (searchForm.get('destinationCity')?.touched && (searchForm.get('destinationCity')!.hasError('required'))) {
+        <small class="text-danger bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
+          {{ 'search.validation.destinationRequired' | translate }}
+        </small>
       }
 
-
       @if(searchForm.get('fromCity')?.touched && searchForm.get('fromCity')!.hasError('required')){
-        <small
-               class="text-danger me-2  fs-6 text-danger-emphasis  bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
-          From city is required. *
+        <small class="text-danger bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
+          {{ 'search.validation.fromRequired' | translate }}
         </small>
       }
 
       @if(searchForm.get('date')?.touched && searchForm.get('date')!.hasError('required')){
-        <small
-               class="text-danger me-2  fs-6 text-danger-emphasis  bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
-          *Date is required.
+        <small class="text-danger bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
+          {{ 'search.validation.dateRequired' | translate }}
         </small>
       }
 
       @if(searchForm.get('date')?.touched && searchForm.get('date')!.hasError('pastDate')){
-        <small
-               class="text-danger me-2  fs-6 text-danger-emphasis  bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
-          *Please select a future date.
+        <small class="text-danger bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
+          {{ 'search.validation.futureDate' | translate }}
         </small>
       }
 
-      @if( searchForm.get('return_date')?.touched && searchForm.get('return_date')!.hasError("pastDate")){
-        <small
-          class="text-danger me-2  fs-6 text-danger-emphasis  bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
-          *Please select a future return date.
+      @if(searchForm.get('return_date')?.touched && searchForm.get('return_date')!.hasError("pastDate")){
+        <small class="text-danger bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
+          {{ 'search.validation.futureReturnDate' | translate }}
         </small>
       }
 
       @if(searchForm.hasError('returnDateAfterTravel') && searchForm.get('return_date')?.touched){
-        <small
-          class="text-danger me-2  fs-6 text-danger-emphasis  bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
-          Return date cannot be earlier than travel date.
+        <small class="text-danger bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
+          {{ 'search.validation.returnAfterTravel' | translate }}
         </small>
       }
-
-
     </div>
 
-
+    <!-- Info Bubble -->
     @if(message()){
-      <div  class=" d-flex justify-content-start align-items-center">
-        <!--      Typewriter-->
-        <!--      <div class="typewriter">-->
-        <!--        <p-->
-        <!--          *ngIf="message()"-->
-        <!--          class="mb-1" style="font-size: var(&#45;&#45;font-size);">{{ message() }}</p>-->
-        <!--      </div>-->
-
-        <!--      Info Bubble-->
+      <div class="d-flex justify-content-start align-items-center">
         <div class="info-bubble mb-2">
           <i class="pi pi-info-circle"></i>
           {{ message() }}
@@ -100,30 +80,27 @@
     }
 
     <!-- Search Form -->
-    <form (ngSubmit)="onSubmit()" [formGroup]="searchForm"
-          class="row g-0 position-relative pb-2 justify-content-center w-100">
+    <form (ngSubmit)="onSubmit()" [formGroup]="searchForm" class="row g-0 pb-2 justify-content-center w-100">
       <!-- From -->
       <div [ngClass]="tripType === 'twoway' ? 'col-12 col-md-6 col-lg-2' : 'col-12 col-md-6 col-lg-4'">
-        <div
-
-          (click)="focusInput('fromCity')"
-          [class.invalid]="searchForm.get('fromCity')?.invalid && searchForm.get('fromCity')?.touched"
-          class="d-flex align-items-center rounded-input first border border-2  p-1">
+        <div class="d-flex align-items-center rounded-input first border border-2 p-1"
+             (click)="focusInput('fromCity')"
+             [class.invalid]="searchForm.get('fromCity')?.invalid && searchForm.get('fromCity')?.touched">
           <i class="bi bi-geo-alt fs-4 ms-2 me-2"></i>
           <div class="ms-2 flex-grow-1">
-            <label class="text-muted" for="toCity" style="font-size: 0.5rem;">From</label>
+            <label class="text-muted" for="fromCity" style="font-size: 0.5rem;">
+              {{ 'search.labels.from' | translate }}
+            </label>
             <input
               #fromCityInput
               (typeaheadOnSelect)="onCitySelected($event)"
               [typeaheadOptionField]="'city_name'"
               [typeahead]="cities"
-              pTooltip="Enter the Boarding City"
-              tooltipPosition="top"
-              tooltipEvent="focus"
-              class="form-control p-2 border-0"
+              [placeholder]="'search.placeholders.from' | translate"
+              pTooltip="{{ 'search.tooltips.from' | translate }}"
               formControlName="fromCity"
+              class="form-control p-2 border-0"
               id="fromCity"
-              placeholder="From"
               type="text"/>
           </div>
         </div>
@@ -131,123 +108,98 @@
 
       <!-- To -->
       <div [ngClass]="tripType === 'twoway' ? 'col-12 col-md-6 col-lg-2' : 'col-12 col-md-6 col-lg-4'">
-        <div (click)="focusInput('toCity')"
-             [class.invalid]="searchForm.get('destinationCity')?.invalid && searchForm.get('destinationCity')?.touched"
-             class="d-flex align-items-center rounded-input second  border border-1 p-1"
-        >
+        <div class="d-flex align-items-center rounded-input second border border-1 p-1"
+             (click)="focusInput('toCity')"
+             [class.invalid]="searchForm.get('destinationCity')?.invalid && searchForm.get('destinationCity')?.touched">
           <i class="bi bi-geo-alt fs-4 ms-2 me-2"></i>
           <div class="ms-2 flex-grow-1">
-            <label
-              class="text-muted"
-              for="toCity" style="font-size: 0.5rem;">To</label>
+            <label class="text-muted" for="toCity" style="font-size: 0.5rem;">
+              {{ 'search.labels.to' | translate }}
+            </label>
             <input
               #toCityInput
               (typeaheadOnSelect)="onDestinationSelected($event)"
               [typeaheadOptionField]="'city_name'"
               [typeahead]="cities"
-              pTooltip="Enter your destination city"
-              tooltipPosition="top"
-              tooltipEvent="focus"
-              class="form-control p-2 border-0 "
+              [placeholder]="'search.placeholders.to' | translate"
+              pTooltip="{{ 'search.tooltips.to' | translate }}"
               formControlName="destinationCity"
+              class="form-control p-2 border-0"
               id="toCity"
-              placeholder="To"
               type="text"/>
           </div>
         </div>
       </div>
 
       <!-- Travel Date -->
-      <div
-
-        [ngClass]="tripType === 'twoway' ? 'col-12 col-md-6 col-lg-5' : 'col-12 col-md-12 col-lg-4'">
-        <div
-          [ngClass]="tripType === 'twoway' ? 'rounded-input third' : 'rounded-input-one-way'"
-          class="d-flex align-items-center   border border-1 p-1">
-
-          <div (click)="toggleTheDate();focusInput('travelDate');"
-               [class.invalid]="searchForm.get('date')?.invalid && searchForm.get('date')?.touched"
-               class=" d-flex justify-content-between flex-grow-1 align-items-center flex-row gap-1"
-          >
+      <div [ngClass]="tripType === 'twoway' ? 'col-12 col-md-6 col-lg-5' : 'col-12 col-md-12 col-lg-4'">
+        <div class="d-flex align-items-center border border-1 p-1"
+             [ngClass]="tripType === 'twoway' ? 'rounded-input third' : 'rounded-input-one-way'">
+          <div class="d-flex justify-content-between flex-grow-1 align-items-center flex-row gap-1"
+               (click)="toggleTheDate();focusInput('travelDate')"
+               [class.invalid]="searchForm.get('date')?.invalid && searchForm.get('date')?.touched">
             <i class="bi bi-calendar-date fs-4 ms-2 me-2"></i>
             <div class="ms-2 flex-grow-1">
-              <label class="text-muted" for="travelDate" style="font-size: 0.5rem;">Date of journey</label>
+              <label class="text-muted" for="travelDate" style="font-size: 0.5rem;">
+                {{ 'search.labels.travelDate' | translate }}
+              </label>
               <p-datepicker
                 #travelDateInput
                 [appendTo]="'body'"
                 [minDate]="today"
-                [selectOtherMonths]="true"
-                [showButtonBar]="false"
-                [showOtherMonths]="true"
                 dateFormat="dd MM,yy"
                 formControlName="date"
-                placeholder="Select date"
-                pTooltip="Choose your travel date"
-                tooltipPosition="top"
-                tooltipEvent="focus"
+                [placeholder]="'search.placeholders.travelDate' | translate"
+                pTooltip="{{ 'search.tooltips.travelDate' | translate }}"
                 styleClass="form-control p-0">
               </p-datepicker>
             </div>
             <div class="d-flex justify-content-center align-items-center">
-              <button (click)="setToday()" class="btn  rounded-pill btn-primary" type="button">
-                Today
+              <button (click)="setToday()" class="btn rounded-pill btn-primary" type="button">
+                {{ 'search.quick.today' | translate }}
               </button>
-              <button (click)="setTomorrow()" class="btn  rounded-pill btn-secondary" type="button">
-                Tomorrow
+              <button (click)="setTomorrow()" class="btn rounded-pill btn-secondary" type="button">
+                {{ 'search.quick.tomorrow' | translate }}
               </button>
             </div>
-
           </div>
         </div>
       </div>
 
+      <!-- Return Date -->
       @if(tripType === 'twoway'){
-      <!-- Return Date (conditionally shown) -->
-      <div class="col-12 col-md-6 col-lg-3">
-        <div (click)="focusInput('returnDate')"
-             [class.invalid]="searchForm.get('return_date')?.invalid && searchForm.get('return_date')?.touched"
-             class="d-flex align-items-center rounded-input forth border border-1 p-1"
-        >
-          <i class="bi bi-calendar2-date fs-4 ms-2 me-2"></i>
-          <div class="ms-1 flex-grow-1">
-            <label class="text-muted" for="returnDate" style="font-size: 0.5rem;">Date To return</label>
-            <p-datepicker
-              #returnDateInput
-              [appendTo]="'body'"
-              [defaultDate]="today"
-              [minDate]="today"
-              [selectOtherMonths]="true"
-              [showOtherMonths]="true"
-              dateFormat="dd MM,yy"
-              formControlName="return_date"
-              placeholder="Select return date"
-              pTooltip="Choose your return date"
-              tooltipPosition="top"
-              tooltipEvent="focus"
-              styleClass="form-control p-0">
-            </p-datepicker>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="d-flex align-items-center rounded-input forth border border-1 p-1"
+               (click)="focusInput('returnDate')"
+               [class.invalid]="searchForm.get('return_date')?.invalid && searchForm.get('return_date')?.touched">
+            <i class="bi bi-calendar2-date fs-4 ms-2 me-2"></i>
+            <div class="ms-1 flex-grow-1">
+              <label class="text-muted" for="returnDate" style="font-size: 0.5rem;">
+                {{ 'search.labels.returnDate' | translate }}
+              </label>
+              <p-datepicker
+                #returnDateInput
+                [appendTo]="'body'"
+                [minDate]="today"
+                dateFormat="dd MM,yy"
+                formControlName="return_date"
+                [placeholder]="'search.placeholders.returnDate' | translate"
+                pTooltip="{{ 'search.tooltips.returnDate' | translate }}"
+                styleClass="form-control p-0">
+              </p-datepicker>
+            </div>
           </div>
-
         </div>
-      </div>
       }
-      <div>
-
-      </div>
 
       <!-- Search Button -->
-      <div
-        class="col-12 d-flex justify-content-end justify-content-md-center justify-content-lg-center align-items-center form-btn  pt-3">
+      <div class="col-12 d-flex justify-content-end justify-content-md-center pt-3">
         <div class="form-container">
-          <button
-            [disabled]="searchForm.invalid"
-            class="btn rounded-pill search-btn fw-semibold"
-            type="submit"
-          >
-            <i class="bi bi-search me-2 fs-5"></i> Search Bus
+          <button [disabled]="searchForm.invalid" class="btn rounded-pill search-btn fw-semibold" type="submit">
+            <i class="bi bi-search me-2 fs-5"></i>
+            {{ 'search.actions.submit' | translate }}
           </button>
         </div>
-
       </div>
     </form>
   </div>

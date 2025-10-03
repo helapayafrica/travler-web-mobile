@@ -10,6 +10,7 @@ import {BackendService} from '../../services/backend';
 import {Drawer} from 'primeng/drawer';
 import {AmenitiesPipe} from '../../utils/Pipes/amenities-pipe-pipe';
 import {Router} from '@angular/router';
+import {TranslatePipe} from '@ngx-translate/core';
 
 interface BusSchedule {
   companyName: string;
@@ -46,6 +47,7 @@ export interface EmmitedSeatData{
     NgFor,
     Drawer,
     AmenitiesPipe,
+    TranslatePipe,
   ],
   templateUrl: './search-results-card.component.html',
   styleUrl: './search-results-card.component.scss',
