@@ -13,6 +13,7 @@ import {Checkbox} from 'primeng/checkbox';
 import {DatePicker, DatePickerModule} from 'primeng/datepicker';
 import {Password} from 'primeng/password';
 import {Select} from 'primeng/select';
+import {TranslatePipe} from '@ngx-translate/core';
 
 
 
@@ -20,7 +21,7 @@ import {Select} from 'primeng/select';
   selector: 'app-view-auth-signup',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, NgxLoadingModule, InputText, Checkbox, DatePicker, RouterLink,
-    DatePickerModule, Password, Select],
+    DatePickerModule, Password, Select, TranslatePipe],
   templateUrl: './sign-up.html',
   styleUrl: './sign-up.scss'
 })

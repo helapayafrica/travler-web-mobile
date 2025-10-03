@@ -1,120 +1,71 @@
-<div
-  style="height:70vh; margin-top: 7rem;"
-  class="container">
-  <div class="card shadow">
-    <!-- Logo + Header -->
-    <div class="card-header m-0">
-      <div class="text-center">
-        <img src="assets/WEBP/logo.webp" width="180px" height="auto" alt="logo">
-      </div>
-      <h3 class="text-center mb-2 fw-bold">Log in</h3>
-    </div>
+<h3 class="text-center mb-2 fw-bold">{{ 'login.title' | translate }}</h3>
 
-    <div class="card-body">
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <div class="row">
-          <!-- Code -->
-          <div class="mt-2 col-4">
-            <div class="d-flex flex-column gap-1">
-              <label for="code">Code</label>
-              <p-select
-                [options]="codes"
-                formControlName="country_code"
-                id="code"
-                optionLabel="label"
-                optionValue="value"
-                placeholder="Select Code"
-                class="w-100 p-dropdown-sm">
-              </p-select>
-              <small *ngIf="loginForm.get('country_code')?.touched && loginForm.get('country_code')?.errors?.['required']"
-                     class="text-danger">
-                Code is required
-              </small>
-            </div>
-          </div>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <!-- Code -->
+  <label for="code">{{ 'login.labels.code' | translate }}</label>
+  <p-select [options]="codes"
+            formControlName="country_code"
+            id="code"
+            optionLabel="label"
+            optionValue="value"
+            placeholder="{{ 'login.placeholders.code' | translate }}"
+            class="w-100 p-dropdown-sm">
+  </p-select>
+  <small *ngIf="loginForm.get('country_code')?.touched && loginForm.get('country_code')?.errors?.['required']"
+         class="text-danger">
+    {{ 'login.validation.codeRequired' | translate }}
+  </small>
 
-          <!-- Phone -->
-          <div class="mt-2 col-8">
-            <div class="d-flex flex-column gap-1">
-              <label for="phone">Phone Number</label>
-              <input
-                id="phone"
-                type="tel"
-                formControlName="phone_number"
+  <!-- Phone Number -->
+  <label for="phone">{{ 'login.labels.phoneNumber' | translate }}</label>
+  <input formControlName="phone_number"
+         id="phone"
+         type="tel"
+         class="w-100 form-control p-2"
+         inputmode="tel"
+         placeholder="{{ 'login.placeholders.phoneNumber' | translate }}"
+         pattern="^\+?[0-9\s\-]{7,15}$">
+  <small *ngIf="loginForm.get('phone_number')?.touched && loginForm.get('phone_number')?.errors?.['required']"
+         class="text-danger">
+    {{ 'login.validation.phoneRequired' | translate }}
+  </small>
 
-                class="w-100 form-control p-2 "
-                inputmode="tel"
-                placeholder="e.g. 700 123456"
-                pattern="^\+?[0-9\s\-]{7,15}$"/>
+  <!-- Password -->
+  <label for="password">{{ 'login.labels.password' | translate }}</label>
+  <p-password formControlName="password"
+              inputId="password"
+              [feedback]="false"
+              [toggleMask]="true"
+              inputStyleClass="w-100 form-control"
+              placeholder="{{ 'login.placeholders.password' | translate }}">
+  </p-password>
+  <small *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']"
+         class="text-danger">
+    {{ 'login.validation.passwordRequired' | translate }}
+  </small>
+  <small *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['minlength']"
+         class="text-danger">
+    {{ 'login.validation.passwordMinLength' | translate }}
+  </small>
 
-              <small *ngIf="loginForm.get('phone_number')?.touched && loginForm.get('phone_number')?.errors?.['required']"
-                     class="text-danger">
-                Phone number is required
-              </small>
-            </div>
-          </div>
+  <!-- Remember Me + Forgot Password -->
+  <p-checkbox inputId="rememberMe" formControlName="rememberMe" binary="true"></p-checkbox>
+  <label for="rememberMe">{{ 'login.labels.rememberMe' | translate }}</label>
+  <a href="#" class="text-decoration-none float-end">{{ 'login.labels.forgotPassword' | translate }}</a>
 
+  <!-- Submit -->
+  <button type="submit"
+          class="w-100 rounded-pill p-2 bg-primary text-white"
+          [disabled]="loginForm.invalid || isSubmitting">
+    <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm me-2"></span>
+    {{ isSubmitting ? ('login.buttons.loggingIn' | translate) : ('login.buttons.signIn' | translate) }}
+  </button>
 
-          <!-- Password -->
-          <div class="mt-2 col-12">
-            <div class="d-flex flex-column gap-1">
-              <label for="password">Password</label>
-              <p-password
-                formControlName="password"
-                inputId="password"
-                [feedback]="false"
-                [toggleMask]="true"
-                class=""
-                inputStyleClass="w-100 form-control">
-              </p-password>
-              <small *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']"
-                     class="text-danger">
-                Password is required
-              </small>
-              <small *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['minlength']"
-                     class="text-danger">
-                Password must be at least 6 characters
-              </small>
-            </div>
-          </div>
-
-          <!-- Remember Me + Forgot password -->
-          <div class="mt-3 row">
-            <div class="col d-flex align-items-center justify-content-start">
-              <p-checkbox inputId="rememberMe" formControlName="rememberMe" binary="true"></p-checkbox>
-              <label for="rememberMe" class="ms-2">Remember me</label>
-            </div>
-            <div class="col text-end">
-              <a href="#" class="text-decoration-none">Forgot password?</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Submit button -->
-        <div class="col-12 mt-3">
-          <button
-            type="submit"
-            class="w-100 rounded-pill p-2 bg-primary text-white"
-            [disabled]="loginForm.invalid || isSubmitting"
-          >
-
-            <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm me-2"></span>
-            {{ isSubmitting ? 'Logging in...' : 'Sign In' }}
-          </button>
-        </div>
-
-
-        <!-- Signup link -->
-        <div class="text-center mt-3">
-          <p class="mb-0">
-            Don’t have an account?
-            <a
-              style="cursor: pointer;"
-              routerLink="/sign-up" class="link-underline">Sign up</a>
-          </p>
-        </div>
-      </form>
-
-    </div>
+  <!-- Signup link -->
+  <div class="text-center mt-3">
+    <p class="mb-0">
+      {{ 'login.labels.signUpLink' | translate }}
+      <a routerLink="/sign-up" class="link-underline"></a>
+    </p>
   </div>
-</div>
+</form>

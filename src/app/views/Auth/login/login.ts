@@ -13,12 +13,13 @@ import {InputText} from 'primeng/inputtext';
 import {Password} from 'primeng/password';
 import {Select} from 'primeng/select';
 import {ToastrService} from 'ngx-toastr';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-view-auth-login',
   standalone: true,
   imports: [CommonModule, RouterLink,
-    ReactiveFormsModule, Password, Select, Checkbox],
+    ReactiveFormsModule, Password, Select, Checkbox, TranslatePipe],
   templateUrl: './login.html',
   styleUrl: './login.scss'
 })

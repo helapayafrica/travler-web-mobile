@@ -3,10 +3,11 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { BackendService } from '../../services/backend';
 import { ToastrService } from 'ngx-toastr';
 import {ResultsComponent} from '../search/sections/results/results.component';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-reschedule',
-  imports: [FormsModule, ReactiveFormsModule, ResultsComponent],
+  imports: [FormsModule, ReactiveFormsModule, ResultsComponent, TranslatePipe],
   templateUrl: './reschedule.html',
   styleUrl: './reschedule.scss'
 })

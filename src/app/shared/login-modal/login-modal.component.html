@@ -10,58 +10,52 @@
           <div class="text-center">
             <img src="assets/WEBP/logo.webp" width="180px" height="auto" alt="logo">
           </div>
-          <h6 class="modal-title" id="loginModalLabel">SIGN IN</h6>
+          <h6 class="modal-title" id="loginModalLabel">{{ 'loginModal.title' | translate }}</h6>
         </div>
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
           <div class="row mb-2">
             <div class="col-3">
-              <label for="price" class="form-label">CODE</label>
+              <label for="price" class="form-label">{{ 'loginModal.labels.code' | translate }}</label>
               <select class="form-select"  formControlName="country_code">
                 <option [value]="item.code" *ngFor="let item of country_codes">{{item.code}}</option>
               </select>
             </div>
             <div class="col-9">
-              <label for="phone_number" class="form-label">PHONE NUMBER</label>
+              <label for="phone_number" class="form-label">{{ 'loginModal.labels.phoneNumber' | translate }}</label>
               <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-telephone-plus"></i></span>
-                <input
-                  type="number"
-                  class="form-control"
-                  id="phone_number"
-                  formControlName="phone_number"
-                  placeholder="700000000">
+                <input type="number"
+                       class="form-control"
+                       id="phone_number"
+                       formControlName="phone_number"
+                       placeholder="{{ 'loginModal.placeholders.phoneNumber' | translate }}">
               </div>
               <div class="text-danger small mt-1"
                    *ngIf="loginForm.get('phone_number')?.invalid && (loginForm.get('phone_number')?.dirty || loginForm.get('phone_number')?.touched)">
-                <div *ngIf="loginForm.get('phone_number')?.errors?.['required']">Enter a valid Phone number</div>
-                <div *ngIf="loginForm.get('phone_number')?.errors?.['phone_number']">Please enter a valid Phone number</div>
+                <div *ngIf="loginForm.get('phone_number')?.errors?.['required']">{{ 'loginModal.validation.phoneNumberRequired' | translate }}</div>
+                <div *ngIf="loginForm.get('phone_number')?.errors?.['phone_number']">{{ 'loginModal.validation.phoneNumberInvalid' | translate }}</div>
               </div>
             </div>
           </div>
 
-
-
           <div class="mb-3">
-            <label for="password" class="form-label">PASSWORD</label>
+            <label for="password" class="form-label">{{ 'loginModal.labels.password' | translate }}</label>
             <div class="input-group">
               <span class="input-group-text"><i class="bi bi-lock"></i></span>
-              <input
-                [type]="showPassword ? 'text' : 'password'"
-                class="form-control"
-                id="password"
-                formControlName="password">
-              <button
-                class="input-group-text btn btn-outline-secondary"
-                type="button"
-                (click)="togglePasswordVisibility()">
+              <input [type]="showPassword ? 'text' : 'password'"
+                     class="form-control"
+                     id="password"
+                     formControlName="password">
+              <button class="input-group-text btn btn-outline-secondary"
+                      type="button"
+                      (click)="togglePasswordVisibility()">
                 <i class="bi" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
               </button>
             </div>
             <div class="text-danger small mt-1"
                  *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
-              <div *ngIf="loginForm.get('password')?.errors?.['required']">Password is required</div>
-              <div *ngIf="loginForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters
-              </div>
+              <div *ngIf="loginForm.get('password')?.errors?.['required']">{{ 'loginModal.validation.passwordRequired' | translate }}</div>
+              <div *ngIf="loginForm.get('password')?.errors?.['minlength']">{{ 'loginModal.validation.passwordMinLength' | translate }}</div>
             </div>
           </div>
 
@@ -69,48 +63,41 @@
             <div class="col">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="rememberMe" formControlName="rememberMe">
-                <label class="form-check-label" for="rememberMe">Remember me</label>
+                <label class="form-check-label" for="rememberMe">{{ 'loginModal.labels.rememberMe' | translate }}</label>
               </div>
             </div>
             <div class="col text-end">
-              <a href="#" class="text-decoration-none">Forgot password?</a>
+              <a href="#" class="text-decoration-none">{{ 'loginModal.links.forgotPassword' | translate }}</a>
             </div>
           </div>
 
-          <button
-            type="submit"
-            class="btn btn-primary w-100 py-2 mb-2 rounded-pill"
-            [disabled]="loginForm.invalid || isSubmitting">
-            <!-- <span class="spinner-border spinner-border-sm me-2" *ngIf="isSubmitting"></span> -->
-            SIGN IN
+          <button type="submit"
+                  class="btn btn-primary w-100 py-2 mb-2 rounded-pill"
+                  [disabled]="loginForm.invalid || isSubmitting">
+            {{ 'loginModal.buttons.signIn' | translate }}
           </button>
-
 
           <div class="d-flex align-items-center">
             <hr class="flex-grow-1">
-            <span class="px-3 text-secondary" style="font-size: 12px;color: darkred !important;font-weight: 700;">OR CONTINUE </span>
+            <span class="px-3 text-secondary" style="font-size: 12px;color: darkred !important;font-weight: 700;">{{ 'loginModal.orContinue' | translate }}</span>
             <hr class="flex-grow-1">
           </div>
 
-          <button
-            type="button" (click)="continue()"
-            class="btn btn-primary w-100 py-2 mb-2 rounded-pill"
-          >
-            AS GUEST
+          <button type="button"
+                  (click)="continue()"
+                  class="btn btn-primary w-100 py-2 mb-2 rounded-pill">
+            {{ 'loginModal.buttons.asGuest' | translate }}
           </button>
 
           <div class="text-center" (click)="sign()">
             <p class="mb-0">
-              Don't have an account? <a class="text-decoration-none">Sign up</a>
+              Don't have an account? <a class="text-decoration-none">{{ 'loginModal.links.signUp' | translate }}</a>
             </p>
           </div>
         </form>
-
-
       </div>
     </div>
   </div>
 </div>
 
 <ngx-loading [show]="loading" [config]="loadingConfig"></ngx-loading>
-

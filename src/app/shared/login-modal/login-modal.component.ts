@@ -18,11 +18,12 @@ import {InputText} from 'primeng/inputtext';
 import {Password} from 'primeng/password';
 import {Select} from 'primeng/select';
 import {ToastrService} from 'ngx-toastr';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login-modal',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NgxLoadingModule],
+  imports: [CommonModule, ReactiveFormsModule, NgxLoadingModule, TranslatePipe],
   templateUrl: './login-modal.component.html',
   styleUrl: './login-modal.component.scss'
 })
