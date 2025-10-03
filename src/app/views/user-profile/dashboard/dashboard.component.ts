@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {BackendService} from '../../../services/backend';
+import {TranslatePipe} from '@ngx-translate/core';
 
 
 interface Booking {
@@ -18,7 +19,7 @@ interface Booking {
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule]
+  imports: [CommonModule, FormsModule, TranslatePipe]
 })
 export class DashboardComponent implements OnInit {
   totalItems: number = 10;

@@ -169,7 +169,7 @@ export const routes: Routes = [
   },
   {
     path: 'user-profile',
-    // canActivate: [authGuard],
+    canActivate: [authGuard],
     loadComponent: () =>
       import('./views/user-profile/user-profile-layout.component').then(
         (m) => m.UserProfileLayoutComponent

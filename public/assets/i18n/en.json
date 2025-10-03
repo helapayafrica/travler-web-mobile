@@ -734,7 +734,181 @@
         "goBack": "Go Back"
       }
     }
+  },
+  "userProfilePage": {
+    "dashboard": "Dashboard",
+    "myTrips": "My Trips",
+    "wallet": "Wallet",
+    "myAccount": "My Account",
+    "userList": "User List",
+    "profilePictureAlt": "Profile Picture",
+    "cameraIconAlt": "Open Camera Modal"
   }
+,
+
+  "dashboard": {
+    "totalItemsLabel": "Total Items",
+    "dateRangeLabel": "Date Range",
+    "currencyLabel": "Currency",
+    "userSelectLabel": "Search by user",
+    "userSelectPlaceholder": "Search by user",
+    "table": {
+      "companyName": "Company Name",
+      "ticketNo": "Ticket No",
+      "totalSale": "Total Sale",
+      "commission": "Commission",
+      "selfCommission": "Self Commission",
+      "walletBalance": "Wallet Balance",
+      "noData": "Data not found."
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next"
+    }
+  },
+  "myTripsPage": {
+    "tabs": {
+      "upcoming": "Upcoming",
+      "completed": "Completed"
+    },
+    "status": {
+      "confirmed": "Confirmed",
+      "pending": "Pending",
+      "cancelled": "Cancelled",
+      "completed": "Completed"
+    },
+    "labels": {
+      "route": "Route",
+      "date": "Date",
+      "seat": "Seat",
+      "bus": "Bus",
+      "amount": "Amount",
+      "company": "Company",
+      "boarding": "Boarding"
+    },
+    "actions": {
+      "view": "View",
+      "download": "Download",
+      "cancel": "Cancel"
+    },
+    "noData": {
+      "title": "No {{tab}} bookings",
+      "subtitle": "No {{tab}} bookings to display."
+    }
+  },
+
+  "walletPage": {
+    "balance": {
+      "title": "Your Wallet Balance"
+    },
+    "voucher": {
+      "label": "Apply Voucher",
+      "placeholder": "Enter voucher code",
+      "button": "Apply Voucher"
+    },
+    "table": {
+      "headers": {
+        "amount": "Amount",
+        "status": "Status",
+        "comment": "Comment"
+      },
+      "emptyState": "Wallet history not found!"
+    }
+
+  },
+
+  "accountDetails": {
+    "buttons": {
+      "editProfile": "Edit Profile",
+      "changePassword": "Change Password"
+    },
+    "sections": {
+      "personalDetails": "Personal Details",
+      "businessDetails": "Business Details",
+      "contactDetails": "Contact Details"
+    },
+    "labels": {
+      "name": "Name",
+      "identity": "Identity",
+      "age": "Age",
+      "gender": "Gender",
+      "businessName": "Business Name",
+      "area": "Area",
+      "county": "County",
+      "city": "City",
+      "road": "Road",
+      "email": "Email",
+      "phone": "Phone Number",
+      "address": "Address"
+    },
+    "documents": {
+      "identityPhotoAlt": "Identity Photo",
+      "businessPhotoAlt": "Business Photo"
+    }
+  },
+
+  "changePassword": {
+    "title": "Change Password",
+    "labels": {
+      "oldPassword": "Old Password",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm Password"
+    },
+    "placeholders": {
+      "oldPassword": "Enter your old password",
+      "newPassword": "Enter new password",
+      "confirmPassword": "Confirm new password"
+    },
+    "errors": {
+      "oldPasswordRequired": "Old password is required",
+      "newPasswordRequired": "New password is required",
+      "newPasswordMinLength": "Password must be at least 8 characters",
+      "confirmPasswordRequired": "Please confirm your password",
+      "passwordMismatch": "Passwords do not match"
+    },
+    "buttons": {
+      "submit": "Submit"
+    }
+  }
+,
+  "userList": {
+    "title": "User List",
+    "buttons": {
+      "addUser": "Add User",
+      "search": "Search",
+      "view": "View",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "labels": {
+      "totalItems": "Total Items",
+      "searchPlaceholder": "Search users..."
+    },
+    "tableHeaders": {
+      "index": "#",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "role": "Role",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "messages": {
+      "noUsers": "No users found."
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next"
+    }
+  }
+
+
+
+
 
 
 }

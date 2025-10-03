@@ -1,7 +1,8 @@
 <div class="filter-controls">
   <div class="filter-row">
+
     <div class="filter-group">
-      <label>Total Items</label>
+      <label>{{ 'dashboard.totalItemsLabel' | translate }}</label>
       <select class="form-select" [(ngModel)]="totalItems">
         <option value="10">10</option>
         <option value="20">20</option>
@@ -10,7 +11,8 @@
     </div>
 
     <div class="filter-group date-range ms-auto">
-      <input type="date" class="form-control" [(ngModel)]="dateRange" readonly>
+      <input type="date" class="form-control" [(ngModel)]="dateRange" readonly
+             placeholder="{{ 'dashboard.dateRangeLabel' | translate }}">
     </div>
 
     <div class="filter-group currency-select">
@@ -22,8 +24,8 @@
     </div>
 
     <div class="filter-group user-select">
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Search by user</option>
+      <select class="form-select" aria-label="{{ 'dashboard.userSelectLabel' | translate }}">
+        <option selected>{{ 'dashboard.userSelectPlaceholder' | translate }}</option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
@@ -36,17 +38,17 @@
     <table class="table table-responsive">
       <thead>
       <tr>
-        <th>Company Name</th>
-        <th>Ticket No</th>
-        <th>Total Sale</th>
-        <th>Commission</th>
-        <th>Self Commission</th>
-        <th>Wallet Balance</th>
+        <th>{{ 'dashboard.table.companyName' | translate }}</th>
+        <th>{{ 'dashboard.table.ticketNo' | translate }}</th>
+        <th>{{ 'dashboard.table.totalSale' | translate }}</th>
+        <th>{{ 'dashboard.table.commission' | translate }}</th>
+        <th>{{ 'dashboard.table.selfCommission' | translate }}</th>
+        <th>{{ 'dashboard.table.walletBalance' | translate }}</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngIf="bookings.length === 0">
-        <td colspan="10" class="text-center">Data not found.</td>
+        <td colspan="10" class="text-center">{{ 'dashboard.table.noData' | translate }}</td>
       </tr>
       <tr *ngFor="let booking of bookings">
         <td>{{ booking.companyName }}</td>
@@ -65,13 +67,13 @@
     <nav>
       <ul class="pagination">
         <li class="page-item">
-          <a class="page-link" href="#" aria-label="Previous">
+          <a class="page-link" href="#" aria-label="{{ 'dashboard.pagination.previous' | translate }}">
             <span aria-hidden="true">&laquo;</span>
           </a>
         </li>
         <li class="page-item active"><a class="page-link" href="#">1</a></li>
         <li class="page-item">
-          <a class="page-link" href="#" aria-label="Next">
+          <a class="page-link" href="#" aria-label="{{ 'dashboard.pagination.next' | translate }}">
             <span aria-hidden="true">&raquo;</span>
           </a>
         </li>

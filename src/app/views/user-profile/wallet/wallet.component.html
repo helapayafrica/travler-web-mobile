@@ -5,21 +5,26 @@
     </div>
     <div class="wallet-balance">
       <h2>KES 0.00</h2>
-      <p>Your Wallet Balance</p>
+      <p>{{ 'walletPage.balance.title' | translate }}</p>
     </div>
     <div class="wallet-actions">
-      <div class ="row g-4">
+      <div class="row g-4">
         <div class="col-12">
           <div class="form-group">
             <form class="form" [formGroup]="voucherForm" (ngSubmit)="applyVoucher()">
-              <label class="form-label" for="voucher">Apply Voucher</label>
-              <input type="text" formControlName="voucher" class="form-control" id="voucher" placeholder="Enter voucher code">
+              <label class="form-label" for="voucher">{{ 'walletPage.voucher.label' | translate }}</label>
+              <input type="text"
+                     formControlName="voucher"
+                     class="form-control"
+                     id="voucher"
+                     [placeholder]="'walletPage.voucher.placeholder' | translate">
             </form>
           </div>
-
         </div>
         <div class="col-12">
-          <button class="btn btn-primary  rounded-pill" (click)="applyVoucher()">Apply Voucher</button>
+          <button class="btn btn-primary rounded-pill" (click)="applyVoucher()">
+            {{ 'walletPage.voucher.button' | translate }}
+          </button>
         </div>
       </div>
     </div>
@@ -29,9 +34,9 @@
     <table class="table">
       <thead>
       <tr>
-        <th>Amount</th>
-        <th>Status</th>
-        <th>Comment</th>
+        <th>{{ 'walletPage.table.headers.amount' | translate }}</th>
+        <th>{{ 'walletPage.table.headers.status' | translate }}</th>
+        <th>{{ 'walletPage.table.headers.comment' | translate }}</th>
       </tr>
       </thead>
       <tbody>
@@ -40,7 +45,7 @@
           <div class="empty-icon">
             <i class="bi bi-bank"></i>
           </div>
-          <p>Wallet history not found!</p>
+          <p>{{ 'walletPage.table.emptyState' | translate }}</p>
         </td>
       </tr>
       <tr *ngFor="let transaction of transactions">

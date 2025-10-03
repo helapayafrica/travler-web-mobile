@@ -2,6 +2,7 @@ import {Component, inject, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterLink} from '@angular/router';
 import {BookingService} from '../../../services/booking';
+import {TranslatePipe} from '@ngx-translate/core';
 
 interface UserDetails {
   name: string;
@@ -26,7 +27,7 @@ interface UserDetails {
   templateUrl: './account-details.component.html',
   styleUrls: ['./account-details.component.scss'],
   standalone: true,
-  imports: [CommonModule, RouterLink]
+  imports: [CommonModule, RouterLink, TranslatePipe]
 })
 export class AccountDetailsComponent implements OnInit {
   userDetails: any = {

@@ -3,6 +3,7 @@ import { RouterModule, RouterOutlet, RouterLink, RouterLinkActive } from '@angul
 import { CommonModule } from '@angular/common';
 import {NgbDropdownModule, NgbModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {UploadPhotoModalComponent} from './modal/upload-photo-modal/upload-photo-modal.component';
+import {TranslatePipe} from '@ngx-translate/core';
 
 interface UserProfile {
   id: string;
@@ -23,7 +24,8 @@ interface UserProfile {
     RouterOutlet,
     RouterLink,
     RouterLinkActive,
-]
+    TranslatePipe,
+  ]
 })
 export class UserProfileLayoutComponent implements OnInit {
   isAgent = true;

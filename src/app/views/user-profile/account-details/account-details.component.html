@@ -1,117 +1,61 @@
 <div class="account-details-container">
   <div class="profile-details">
+
+    <!-- Edit Button -->
     <div class="edit-actions">
-      <button class="btn btn-primary rounded-pill" (click)="editProfile()">Edit Profile</button>
+      <button class="btn btn-primary rounded-pill">
+        {{ 'accountDetails.buttons.editProfile' | translate }}
+      </button>
     </div>
+
     <div class="row">
-      <div class="col-12">
-        <hr class="my-2 p-0">
-      </div>
-      <div class="col-12 col-md-6  ">
-        <div class="details-section">
-          <div class="row">
-            <div class="col-12">
 
-            </div>
-            <div class="col-12">
-              <div class="row">
-                <div class="col-12 col-lg-6">
-                  <p class="fw-bold fs-5 ">Personal details</p>
-                  <div class="d-flex  flex-column justify-content-center align-items-start">
-                    <div class="d-flex flex-column justify-content-center align-items-start" >
-                      <p class="text-start p-0 mb-1"> <span class="fw-bold fs-6 text-muted">Name </span>: {{userDetails.name}}</p>
-                      <p class="text-start p-0 mb-1"> <span class="fw-bold fs-6 text-muted">Identity </span>: number{{userDetails.identityNumber}}</p>
-                      <p class="text-start p-0 mb-1"> <span class="fw-bold fs-6 text-muted">Age </span>: {{userDetails.age}}</p>
-                      <p class="text-start p-0 mb-1"> <span class="fw-bold fs-6 text-muted">Gender </span>: {{userDetails.gender}}</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                  <div class="documents-section">
-                    <div class="document-card">
-                      <div class="document-placeholder">
-                        <img
-                          style="width:100%; height:100%"
-                          src="assets/ID.png" alt="Identity Photo">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 ">
-        <div class="col-12">
-          <div class="row">
-            <div class="col-12 col-lg-6">
-              <p class="fw-bold fs-5 ">Business details</p>
-              <div class="d-flex  flex-column justify-content-center">
-                <div class="d-flex flex-column justify-content-center" >
-                  <p class="text-start p-0 mb-1"> <span class="fw-bold fs-6 text-muted">Business Name </span>: {{userDetails.businessName}}</p>
-                  <p class="text-start p-0 mb-1"> <span class="fw-bold fs-6 text-muted">Area </span>: number{{userDetails.area}}</p>
-                  <p class="text-start p-0 mb-1"> <span class="fw-bold fs-6 text-muted">County </span>: {{userDetails.county}}</p>
-                  <p class="text-start p-0 mb-1"> <span class="fw-bold fs-6 text-muted">City </span>: {{userDetails.city}}</p>
-                  <p class="text-start p-0 mb-1"> <span class="fw-bold fs-6 text-muted">Road </span>: {{userDetails.road}}</p>
-<!--                  <p class="text-start p-0 mb-1"> <span class="fw-bold fs-6 text-muted">Address </span>: {{userDetails.address}}</p>-->
-
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-lg-6">
-              <div class="documents-section">
-                <div class="document-card">
-                  <div class="document-placeholder">
-                    <img src="" alt="Business Photo">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-12">
-        <hr class="my-2 p-0">
-      </div>
+      <!-- Personal Details -->
       <div class="col-12 col-md-6">
-
-        <div class="col-12">
-          <p class="fw-bold fs-5 ">Contact  details</p>
+        <p class="fw-bold fs-5">{{ 'accountDetails.sections.personalDetails' | translate }}</p>
+        <div class="info-section">
+          <p><span class="fw-bold text-muted">{{ 'accountDetails.labels.name' | translate }}:</span> {{ userDetails.name }}</p>
+          <p><span class="fw-bold text-muted">{{ 'accountDetails.labels.identity' | translate }}:</span> {{ userDetails.identityNumber }}</p>
+          <p><span class="fw-bold text-muted">{{ 'accountDetails.labels.age' | translate }}:</span> {{ userDetails.age }}</p>
+          <p><span class="fw-bold text-muted">{{ 'accountDetails.labels.gender' | translate }}:</span> {{ userDetails.gender }}</p>
         </div>
-        <div class="col-12">
-          <div class="row">
-            <div class="col-12">
-              <div class="d-flex  flex-column justify-content-center">
-                <div class="d-flex flex-column justify-content-center" >
-                  <p class="text-start p-0 mb-1"> <span class="fw-bold fs-6 text-muted">Email Name </span>: {{userDetails.email}}</p>
-                  <p class="text-start p-0 mb-1"> <span class="fw-bold fs-6 text-muted">Phone Number </span>: number{{userDetails.mobileNumber}}</p>
-                  <p class="text-start p-0 mb-1"> <span class="fw-bold fs-6 text-muted">Address </span>: number{{userDetails.address}}</p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="documents-section">
+          <img src="assets/ID.png" alt="{{ 'accountDetails.documents.identityPhotoAlt' | translate }}">
         </div>
-
-
       </div>
+
+      <!-- Business Details -->
       <div class="col-12 col-md-6">
-
-        <div class="d-flex justify-content-end  align-content-end">
-          <button
-            routerLink="/user-profile/change-password"
-            class="btn btn-primary rounded-pill">Change Password</button>
+        <p class="fw-bold fs-5">{{ 'accountDetails.sections.businessDetails' | translate }}</p>
+        <div class="info-section">
+          <p><span class="fw-bold text-muted">{{ 'accountDetails.labels.businessName' | translate }}:</span> {{ userDetails.businessName }}</p>
+          <p><span class="fw-bold text-muted">{{ 'accountDetails.labels.area' | translate }}:</span> {{ userDetails.area }}</p>
+          <p><span class="fw-bold text-muted">{{ 'accountDetails.labels.county' | translate }}:</span> {{ userDetails.county }}</p>
+          <p><span class="fw-bold text-muted">{{ 'accountDetails.labels.city' | translate }}:</span> {{ userDetails.city }}</p>
+          <p><span class="fw-bold text-muted">{{ 'accountDetails.labels.road' | translate }}:</span> {{ userDetails.road }}</p>
         </div>
-<!--        <div class="col-12">-->
-<!--          <div class="documents-section">-->
-<!--            <div class="document-card">-->
-<!--              <div class="document-placeholder">-->
-<!--                <img src="" alt="signature Photo">-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
+        <div class="documents-section">
+          <img src="" alt="{{ 'accountDetails.documents.businessPhotoAlt' | translate }}">
+        </div>
       </div>
+
+      <!-- Contact Details -->
+      <div class="col-12 col-md-6">
+        <p class="fw-bold fs-5">{{ 'accountDetails.sections.contactDetails' | translate }}</p>
+        <div class="info-section">
+          <p><span class="fw-bold text-muted">{{ 'accountDetails.labels.email' | translate }}:</span> {{ userDetails.email }}</p>
+          <p><span class="fw-bold text-muted">{{ 'accountDetails.labels.phone' | translate }}:</span> {{ userDetails.mobileNumber }}</p>
+          <p><span class="fw-bold text-muted">{{ 'accountDetails.labels.address' | translate }}:</span> {{ userDetails.address }}</p>
+        </div>
+      </div>
+
+      <!-- Change Password -->
+      <div class="col-12 col-md-6 d-flex justify-content-end">
+        <button routerLink="/user-profile/change-password" class="btn btn-primary rounded-pill">
+          {{ 'accountDetails.buttons.changePassword' | translate }}
+        </button>
+      </div>
+
     </div>
   </div>
 </div>

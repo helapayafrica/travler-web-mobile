@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {BookingService} from '../../../services/booking';
 import {BackendService} from '../../../services/backend';
 import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
+import {TranslatePipe} from '@ngx-translate/core';
 
 interface WalletTransaction {
   amount: string;
@@ -15,7 +16,7 @@ interface WalletTransaction {
   templateUrl: './wallet.component.html',
   styleUrls: ['./wallet.component.scss'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule]
+  imports: [CommonModule, ReactiveFormsModule, TranslatePipe]
 })
 export class WalletComponent implements OnInit {
   walletBalance: string = 'KES 0.00';

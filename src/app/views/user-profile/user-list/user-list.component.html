@@ -1,12 +1,15 @@
 <!-- Filter controls -->
 <div class="filter-controls">
   <div class="filter-row">
-    <h5>User list</h5>
-    <button class="btn btn-primary btn-primary-color rounded-pill ms-auto">Add User</button>
+    <h5>{{ 'userList.title' | translate }}</h5>
+    <button class="btn btn-primary btn-primary-color rounded-pill ms-auto">
+      {{ 'userList.buttons.addUser' | translate }}
+    </button>
   </div>
+
   <div class="filter-row mb-3">
     <div class="filter-group">
-      <label>Total Items</label>
+      <label>{{ 'userList.labels.totalItems' | translate }}</label>
       <select class="form-select" [(ngModel)]="totalItems">
         <option value="10">10</option>
         <option value="20">20</option>
@@ -15,8 +18,15 @@
     </div>
 
     <div class="search-group d-flex gap-3 ms-auto">
-      <input type="text" class="form-control" placeholder="Search users..." [(ngModel)]="searchQuery">
-      <button class="btn btn-primary" type="button" (click)="search()">Search</button>
+      <input
+        type="text"
+        class="form-control"
+        [placeholder]="'userList.labels.searchPlaceholder' | translate"
+        [(ngModel)]="searchQuery"
+      />
+      <button class="btn btn-primary" type="button" (click)="search()">
+        {{ 'userList.buttons.search' | translate }}
+      </button>
     </div>
   </div>
 </div>
@@ -26,18 +36,20 @@
   <table class="table">
     <thead>
     <tr>
-      <th>#</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Role</th>
-      <th>Status</th>
-      <th>Actions</th>
+      <th>{{ 'userList.tableHeaders.index' | translate }}</th>
+      <th>{{ 'userList.tableHeaders.name' | translate }}</th>
+      <th>{{ 'userList.tableHeaders.email' | translate }}</th>
+      <th>{{ 'userList.tableHeaders.phone' | translate }}</th>
+      <th>{{ 'userList.tableHeaders.role' | translate }}</th>
+      <th>{{ 'userList.tableHeaders.status' | translate }}</th>
+      <th>{{ 'userList.tableHeaders.actions' | translate }}</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngIf="users.length === 0">
-      <td colspan="7" class="text-center">No users found.</td>
+      <td colspan="7" class="text-center">
+        {{ 'userList.messages.noUsers' | translate }}
+      </td>
     </tr>
     <tr *ngFor="let user of users; let i = index">
       <td>{{ i + 1 }}</td>
@@ -46,20 +58,23 @@
       <td>{{ user.phone }}</td>
       <td>{{ user.role }}</td>
       <td>
-          <span class="badge" [ngClass]="user.status === 'Active' ? 'bg-success' : 'bg-secondary'">
-            {{ user.status }}
+          <span
+            class="badge"
+            [ngClass]="user.status === 'Active' ? 'bg-success' : 'bg-secondary'"
+          >
+            {{ user.status === 'Active' ? ('userList.status.active' | translate) : ('userList.status.inactive' | translate) }}
           </span>
       </td>
       <td>
         <div class="action-buttons">
           <button class="btn btn-sm btn-primary" (click)="viewUser(user.id)">
-            <i class="bi bi-eye"></i>
+            <i class="bi bi-eye"></i> {{ 'userList.buttons.view' | translate }}
           </button>
           <button class="btn btn-sm btn-secondary" (click)="editUser(user.id)">
-            <i class="bi bi-pencil"></i>
+            <i class="bi bi-pencil"></i> {{ 'userList.buttons.edit' | translate }}
           </button>
           <button class="btn btn-sm btn-danger" (click)="deleteUser(user.id)">
-            <i class="bi bi-trash"></i>
+            <i class="bi bi-trash"></i> {{ 'userList.buttons.delete' | translate }}
           </button>
         </div>
       </td>
@@ -75,12 +90,14 @@
       <li class="page-item">
         <a class="page-link" href="#" aria-label="Previous">
           <span aria-hidden="true">&laquo;</span>
+          {{ 'userList.pagination.previous' | translate }}
         </a>
       </li>
       <li class="page-item active"><a class="page-link" href="#">1</a></li>
       <li class="page-item">
         <a class="page-link" href="#" aria-label="Next">
           <span aria-hidden="true">&raquo;</span>
+          {{ 'userList.pagination.next' | translate }}
         </a>
       </li>
     </ul>

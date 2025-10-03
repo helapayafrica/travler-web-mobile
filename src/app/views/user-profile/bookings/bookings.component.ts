@@ -2,6 +2,7 @@ import {Component, inject, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {BackendService} from '../../../services/backend';
+import {TranslatePipe} from '@ngx-translate/core';
 
 interface Booking {
   companyName: string;
@@ -21,7 +22,7 @@ interface Booking {
   templateUrl: './bookings.component.html',
   styleUrls: ['./bookings.component.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule]
+  imports: [CommonModule, FormsModule, TranslatePipe]
 })
 export class BookingsComponent implements OnInit {
   totalItems: number = 10;
