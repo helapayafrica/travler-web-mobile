@@ -1,47 +1,82 @@
 <div class="privacy-container">
   <div class="privacy-policy">
+
     <h1>{{ 'privacyPolicy.title' | translate }}</h1>
 
-    <p *ngFor="let p of 'privacyPolicy.intro' | translate | array">{{ p }}</p>
+    <p>{{ 'privacyPolicy.intro1' | translate }}</p>
+    <p>{{ 'privacyPolicy.intro2' | translate }}</p>
 
     <ul>
-      <li *ngFor="let item of 'privacyPolicy.principles' | translate | array">{{ item }}</li>
+      <li>{{ 'privacyPolicy.principles.item1' | translate }}</li>
+      <li>{{ 'privacyPolicy.principles.item2' | translate }}</li>
     </ul>
 
-    <h2>{{ 'privacyPolicy.notice.title' | translate }}</h2>
-    <p>{{ 'privacyPolicy.notice.text' | translate }}</p>
-    <ul>
-      <li *ngFor="let item of 'privacyPolicy.notice.purposes' | translate | array">{{ item }}</li>
-    </ul>
+    <section>
+      <h2>{{ 'privacyPolicy.notice.title' | translate }}</h2>
+      <p>{{ 'privacyPolicy.notice.text' | translate }}</p>
+      <ul>
+        <li>{{ 'privacyPolicy.notice.purposes.item1' | translate }}</li>
+        <li>{{ 'privacyPolicy.notice.purposes.item2' | translate }}</li>
+        <li>{{ 'privacyPolicy.notice.purposes.item3' | translate }}</li>
+        <li>{{ 'privacyPolicy.notice.purposes.item4' | translate }}</li>
+      </ul>
+    </section>
 
-    <h2>{{ 'privacyPolicy.consent.title' | translate }}</h2>
-    <p *ngFor="let p of 'privacyPolicy.consent.text' | translate | array">{{ p }}</p>
+    <section>
+      <h2>{{ 'privacyPolicy.consent.title' | translate }}</h2>
+      <p>{{ 'privacyPolicy.consent.text1' | translate }}</p>
+      <p>{{ 'privacyPolicy.consent.text2' | translate }}</p>
+      <p>{{ 'privacyPolicy.consent.text3' | translate }}</p>
+    </section>
 
-    <h2>{{ 'privacyPolicy.access.title' | translate }}</h2>
-    <p>{{ 'privacyPolicy.access.text' | translate }}</p>
-    <ul>
-      <li *ngFor="let item of 'privacyPolicy.access.actions' | translate | array">{{ item }}</li>
-    </ul>
+    <section>
+      <h2>{{ 'privacyPolicy.access.title' | translate }}</h2>
+      <p>{{ 'privacyPolicy.access.text' | translate }}</p>
+      <ul>
+        <li>{{ 'privacyPolicy.access.actions.item1' | translate }}</li>
+        <li>{{ 'privacyPolicy.access.actions.item2' | translate }}</li>
+        <li>{{ 'privacyPolicy.access.actions.item3' | translate }}</li>
+        <li>{{ 'privacyPolicy.access.actions.item4' | translate }}</li>
+      </ul>
+    </section>
 
-    <h2>{{ 'privacyPolicy.security.title' | translate }}</h2>
-    <p *ngFor="let p of 'privacyPolicy.security.paragraphs' | translate | array">{{ p }}</p>
+    <section>
+      <h2>{{ 'privacyPolicy.security.title' | translate }}</h2>
+      <p>{{ 'privacyPolicy.security.paragraph1' | translate }}</p>
+      <p>{{ 'privacyPolicy.security.paragraph2' | translate }}</p>
+      <p>{{ 'privacyPolicy.security.paragraph3' | translate }}</p>
+      <p>{{ 'privacyPolicy.security.paragraph4' | translate }}</p>
+      <p>{{ 'privacyPolicy.security.paragraph5' | translate }}</p>
+    </section>
 
-    <h2>{{ 'privacyPolicy.noticeToParents.title' | translate }}</h2>
-    <p *ngFor="let p of 'privacyPolicy.noticeToParents.text' | translate | array">{{ p }}</p>
+    <section>
+      <h2>{{ 'privacyPolicy.noticeToParents.title' | translate }}</h2>
+      <p>{{ 'privacyPolicy.noticeToParents.text1' | translate }}</p>
+      <p>{{ 'privacyPolicy.noticeToParents.text2' | translate }}</p>
+    </section>
 
-    <h2>{{ 'privacyPolicy.enforcement.title' | translate }}</h2>
-    <div class="contact-info">
-      <p>{{ 'privacyPolicy.enforcement.contact' | translate }}</p>
-    </div>
+    <section>
+      <h2>{{ 'privacyPolicy.enforcement.title' | translate }}</h2>
+      <p [innerHTML]="'privacyPolicy.enforcement.contact' | translate"></p>
+    </section>
 
-    <h2>{{ 'privacyPolicy.electronicRegistration.title' | translate }}</h2>
-    <p>{{ 'privacyPolicy.electronicRegistration.text' | translate }}</p>
+    <section>
+      <h2>{{ 'privacyPolicy.electronicRegistration.title' | translate }}</h2>
+      <p>{{ 'privacyPolicy.electronicRegistration.text' | translate }}</p>
+    </section>
 
-    <h2>{{ 'privacyPolicy.customerProfiles.title' | translate }}</h2>
-    <p>{{ 'privacyPolicy.customerProfiles.text' | translate }}</p>
-    <p>{{ 'privacyPolicy.customerProfiles.cookieInfo' | translate }}</p>
+    <section>
+      <h2>{{ 'privacyPolicy.customerProfiles.title' | translate }}</h2>
+      <p>{{ 'privacyPolicy.customerProfiles.text' | translate }}</p>
+      <p>{{ 'privacyPolicy.customerProfiles.cookieInfo' | translate }}</p>
+    </section>
 
-    <h2>{{ 'privacyPolicy.informationUsage.title' | translate }}</h2>
-    <p *ngFor="let p of 'privacyPolicy.informationUsage.text' | translate | array">{{ p }}</p>
+    <section>
+      <h2>{{ 'privacyPolicy.informationUsage.title' | translate }}</h2>
+      <p>{{ 'privacyPolicy.informationUsage.text1' | translate }}</p>
+      <p>{{ 'privacyPolicy.informationUsage.text2' | translate }}</p>
+      <p>{{ 'privacyPolicy.informationUsage.text3' | translate }}</p>
+    </section>
+
   </div>
 </div>
