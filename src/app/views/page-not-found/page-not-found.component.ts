@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
 import {Location} from '@angular/common';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-page-not-found',
   standalone: true,
-  imports: [],
+  imports: [
+    TranslatePipe
+  ],
   templateUrl: './page-not-found.component.html',
   styleUrl: './page-not-found.component.scss'
 })

@@ -1,6 +1,6 @@
 <div
   style="height: 70vh;"
-  class="d-flex flex-column align-items-center justify-content-center py-5  mt-5">
+  class="d-flex flex-column align-items-center justify-content-center py-5 mt-5">
 
   <div>
     <div class="road-animation">
@@ -8,21 +8,20 @@
       <div class="road-line"></div>
     </div>
 
-    <div class="container">
-      <div class="error-code">404</div>
-      <h1 class="title">Route Not Found</h1>
-      <p class="subtitle">Looks like this destination isn't on our map. Let's get you back on track!</p>
+    <div class="container text-center">
+      <div class="error-code">{{ 'notFound.errorCode' | translate }}</div>
+      <h1 class="title">{{ 'notFound.title' | translate }}</h1>
+      <p class="subtitle">{{ 'notFound.subtitle' | translate }}</p>
 
       <div class="buttons">
         <button class="btn btn-secondary" (click)="goBack()">
-          ← Go Back
+          {{ 'notFound.buttons.goBack' | translate }}
         </button>
         <button class="btn btn-primary" (click)="goHome()">
-          🏠 Home
+          {{ 'notFound.buttons.home' | translate }}
         </button>
       </div>
     </div>
-
   </div>
 
 </div>

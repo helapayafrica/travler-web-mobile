@@ -904,11 +904,15 @@
       "previous": "Previous",
       "next": "Next"
     }
+  },
+
+  "notFound": {
+    "errorCode": "404",
+    "title": "Route Not Found",
+    "subtitle": "Looks like this destination isn't on our map. Let's get you back on track!",
+    "buttons": {
+      "goBack": "← Go Back",
+      "home": "🏠 Home"
+    }
   }
-
-
-
-
-
-
 }
