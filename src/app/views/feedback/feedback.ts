@@ -4,13 +4,15 @@ import {FormsModule} from '@angular/forms';
 import {NgClass} from '@angular/common';
 import {PaymentSocketService} from '../../services/payment-socket-service';
 import {askConfirmation} from '@angular/cli/src/utilities/prompt';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-feedback',
   imports: [
     BusInfoComponent,
     FormsModule,
-    NgClass
+    NgClass,
+    TranslatePipe
   ],
   templateUrl: './feedback.html',
   styleUrl: './feedback.scss'

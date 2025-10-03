@@ -1,11 +1,10 @@
+<div class="payment-verification-container">
+  <h4 class="text-center fw-semibold">{{ 'paymentVerificationPage.title' | translate }}</h4>
 
-<div class = "payment-verification-container">
-  <h4 class="text-center fw-semibold">Payment Processing</h4>
+  <div class="payment-confirmation-card bg-danger-subtle">
+    <ng-container [ngSwitch]="status()">
 
-<!-- Enhanced Payment Confirmation Component -->
-<div class="payment-confirmation-card bg-danger-subtle">
-  <ng-container [ngSwitch]="status()">
-        <!-- Idle State -->
+      <!-- Idle State -->
       <div *ngSwitchCase="'idle'" class="payment-state processing-state">
         <div class="icon-container">
           <div class="processing-spinner">
@@ -14,68 +13,68 @@
             <div class="spinner-ring"></div>
           </div>
         </div>
-        <h4 class="state-title">Initializing...</h4>
-        <p class="state-description">Preparing payment verification...</p>
+        <h4 class="state-title">{{ 'paymentVerificationPage.states.idle.title' | translate }}</h4>
+        <p class="state-description">{{ 'paymentVerificationPage.states.idle.description' | translate }}</p>
       </div>
 
-    <!-- Processing State -->
-    <div *ngSwitchCase="'processing'" class="payment-state processing-state">
-      <div class="icon-container">
-        <div class="processing-spinner">
-          <div class="spinner-ring"></div>
-          <div class="spinner-ring"></div>
-          <div class="spinner-ring"></div>
+      <!-- Processing State -->
+      <div *ngSwitchCase="'processing'" class="payment-state processing-state">
+        <div class="icon-container">
+          <div class="processing-spinner">
+            <div class="spinner-ring"></div>
+            <div class="spinner-ring"></div>
+            <div class="spinner-ring"></div>
+          </div>
+        </div>
+        <h4 class="state-title">{{ 'paymentVerificationPage.states.processing.title' | translate }}</h4>
+        <p class="state-description">{{ 'paymentVerificationPage.states.processing.description' | translate }}</p>
+        <div class="progress-dots">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
         </div>
       </div>
-      <h4 class="state-title">Processing Payment</h4>
-      <p class="state-description">Please wait while we confirm your payment...</p>
-      <div class="progress-dots">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-      </div>
-    </div>
 
-    <!-- Success State -->
-    <div *ngSwitchCase="'success'" class="payment-state success-state">
-      <div class="icon-container">
-        <div class="success-checkmark">
-          <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-            <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
-            <path class="checkmark-check" fill="none" d="m14.1 27.2l7.1 7.2 16.7-16.8"/>
-          </svg>
+      <!-- Success State -->
+      <div *ngSwitchCase="'success'" class="payment-state success-state">
+        <div class="icon-container">
+          <div class="success-checkmark">
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+              <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+              <path class="checkmark-check" fill="none" d="m14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+          </div>
+        </div>
+        <h4 class="state-title success-title">{{ 'paymentVerificationPage.states.success.title' | translate }}</h4>
+        <p class="state-description">{{ 'paymentVerificationPage.states.success.description' | translate }}</p>
+        <div class="success-details">
+          <!-- Optional additional details -->
         </div>
       </div>
-      <h4 class="state-title success-title">Payment Successful!</h4>
-      <p class="state-description">Your payment has been processed successfully</p>
-      <div class="success-details">
-        <!-- <small class="text-muted">Transaction completed at {{ getCurrentTime() }}</small> -->
-      </div>
-    </div>
 
-    <!-- Failed State -->
-    <div *ngSwitchCase="'failed'" class="payment-state failed-state">
-      <div class="icon-container">
-        <div class="failed-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-            <circle class="error-circle" cx="26" cy="26" r="25" fill="none"/>
-            <path class="error-cross" fill="none" d="m16 16 20 20 m0-20-20 20"/>
-          </svg>
+      <!-- Failed State -->
+      <div *ngSwitchCase="'failed'" class="payment-state failed-state">
+        <div class="icon-container">
+          <div class="failed-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+              <circle class="error-circle" cx="26" cy="26" r="25" fill="none"/>
+              <path class="error-cross" fill="none" d="m16 16 20 20 m0-20-20 20"/>
+            </svg>
+          </div>
+        </div>
+        <h4 class="state-title failed-title">{{ 'paymentVerificationPage.states.failed.title' | translate }}</h4>
+        <p class="state-description">{{ 'paymentVerificationPage.states.failed.description' | translate }}</p>
+        <div class="failed-actions">
+          <button class="btn btn-retry" (click)="retry()">
+            <i class="retry-icon">↻</i>
+            {{ 'paymentVerificationPage.states.failed.retry' | translate }}
+          </button>
+          <button class="btn btn-secondary" (click)="goBack()">
+            {{ 'paymentVerificationPage.states.failed.goBack' | translate }}
+          </button>
         </div>
       </div>
-      <h4 class="state-title failed-title">Payment Failed</h4>
-      <p class="state-description">We couldn't process your payment. Please try again.</p>
-      <div class="failed-actions">
-        <button class="btn btn-retry" (click)="retry()">
-          <i class="retry-icon">↻</i>
-          Try Again
-        </button>
-        <button class="btn btn-secondary" (click)="goBack()">
-          Go Back
-        </button>
-      </div>
-    </div>
 
-  </ng-container>
-</div>
+    </ng-container>
+  </div>
 </div>

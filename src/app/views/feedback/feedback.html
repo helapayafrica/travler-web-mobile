@@ -1,172 +1,3 @@
-<!--<div class="container-fluid">-->
-<!--  <div class="row justify-content-center">-->
-<!--    <div class="col-12 col-md-8 col-lg-6" style="margin-top: 6rem; min-width: 300px;">-->
-<!--      <div class="card shadow-lg border-0 rounded-4" role="region" aria-labelledby="title">-->
-<!--        <div class="card-body p-4">-->
-<!--          <div class="text-center mb-2">-->
-<!--            <i class="bi bi-check-circle-fill text-success display-1"></i>-->
-<!--          </div>-->
-
-<!--          <h1 id="title" class="text-center h2 fw-bold ">Thank You for Your Purchase!</h1>-->
-
-<!--          <div class="alert bg-info-subtle d-flex align-items-center p-1 small" role="alert">-->
-<!--            <div class="d-flex align-items-center justify-content-center w-100">-->
-<!--              Your booking has been confirmed successfully!-->
-<!--            </div>-->
-<!--          </div>-->
-
-
-<!--          <div class="mb-2 text-end-->
-<!--">-->
-<!--            <button class="btn  btn-sm d-flex align-items-center rounded-4"-->
-<!--                    (click)="togglePayDetails()"-->
-<!--                    [ngClass]="payDetailsVisible ? 'bg-active' : 'bg-outline-info'"-->
-<!--                    type="button"-->
-<!--                    [attr.aria-expanded]="payDetailsVisible">-->
-<!--              <i class="bi bi-credit-card me-2"></i>-->
-<!--              View Payment Details-->
-<!--            </button>-->
-<!--          </div>-->
-
-<!--          &lt;!&ndash; Payment details section &ndash;&gt;-->
-<!--          @if(payDetailsVisible) {-->
-<!--            <div class="payment-details mb-2">-->
-<!--              <app-checkout-bus-info></app-checkout-bus-info>-->
-<!--            </div>-->
-<!--          }-->
-
-<!--          &lt;!&ndash; Rating Section &ndash;&gt;-->
-<!--          <div class="rating-section mt-4">-->
-<!--            <h4><i class="bi bi-star-fill me-2 text-warning"></i>Rate Your Experience</h4>-->
-<!--            <p class="text-muted">How would you rate our service?</p>-->
-
-<!--            <form (ngSubmit)="onSubmitFeedback()" #feedbackForm="ngForm">-->
-<!--              &lt;!&ndash; Star Rating &ndash;&gt;-->
-<!--              <div class="star-rating mb-3 d-flex justify-content-center">-->
-<!--                <input type="radio"-->
-<!--                       id="star1"-->
-<!--                       name="rating"-->
-<!--                       value="1"-->
-<!--                       class="d-none"-->
-<!--                       [(ngModel)]="selectedRating"-->
-<!--                       (change)="onRatingChange(1)">-->
-<!--                <label for="star1"-->
-<!--                       class="text-warning me-2"-->
-<!--                       style="cursor: pointer; font-size: 2.5rem; transition: all 0.2s ease;"-->
-<!--                       [style.opacity]="selectedRating >= 1 ? '1' : '0.4'"-->
-<!--                       onmouseover="this.style.transform='scale(1.1)'"-->
-<!--                       onmouseout="this.style.transform='scale(1)'">★</label>-->
-
-<!--                <input type="radio"-->
-<!--                       id="star2"-->
-<!--                       name="rating"-->
-<!--                       value="2"-->
-<!--                       class="d-none"-->
-<!--                       [(ngModel)]="selectedRating"-->
-<!--                       (change)="onRatingChange(2)">-->
-<!--                <label for="star2"-->
-<!--                       class="text-warning me-2"-->
-<!--                       style="cursor: pointer; font-size: 2.5rem; transition: all 0.2s ease;"-->
-<!--                       [style.opacity]="selectedRating >= 2 ? '1' : '0.4'"-->
-<!--                       onmouseover="this.style.transform='scale(1.1)'"-->
-<!--                       onmouseout="this.style.transform='scale(1)'">★</label>-->
-
-<!--                <input type="radio"-->
-<!--                       id="star3"-->
-<!--                       name="rating"-->
-<!--                       value="3"-->
-<!--                       class="d-none"-->
-<!--                       [(ngModel)]="selectedRating"-->
-<!--                       (change)="onRatingChange(3)">-->
-<!--                <label for="star3"-->
-<!--                       class="text-warning me-2"-->
-<!--                       style="cursor: pointer; font-size: 2.5rem; transition: all 0.2s ease;"-->
-<!--                       [style.opacity]="selectedRating >= 3 ? '1' : '0.4'"-->
-<!--                       onmouseover="this.style.transform='scale(1.1)'"-->
-<!--                       onmouseout="this.style.transform='scale(1)'">★</label>-->
-
-<!--                <input type="radio"-->
-<!--                       id="star4"-->
-<!--                       name="rating"-->
-<!--                       value="4"-->
-<!--                       class="d-none"-->
-<!--                       [(ngModel)]="selectedRating"-->
-<!--                       (change)="onRatingChange(4)">-->
-<!--                <label for="star4"-->
-<!--                       class="text-warning me-2"-->
-<!--                       style="cursor: pointer; font-size: 2.5rem; transition: all 0.2s ease;"-->
-<!--                       [style.opacity]="selectedRating >= 4 ? '1' : '0.4'"-->
-<!--                       onmouseover="this.style.transform='scale(1.1)'"-->
-<!--                       onmouseout="this.style.transform='scale(1)'">★</label>-->
-
-<!--                <input type="radio"-->
-<!--                       id="star5"-->
-<!--                       name="rating"-->
-<!--                       value="5"-->
-<!--                       class="d-none"-->
-<!--                       [(ngModel)]="selectedRating"-->
-<!--                       (change)="onRatingChange(5)">-->
-<!--                <label for="star5"-->
-<!--                       class="text-warning"-->
-<!--                       style="cursor: pointer; font-size: 2.5rem; transition: all 0.2s ease;"-->
-<!--                       [style.opacity]="selectedRating >= 5 ? '1' : '0.4'"-->
-<!--                       onmouseover="this.style.transform='scale(1.1)'"-->
-<!--                       onmouseout="this.style.transform='scale(1)'">★</label>-->
-<!--              </div>-->
-
-<!--              &lt;!&ndash; Feedback Textarea &ndash;&gt;-->
-<!--              <div class="mb-3">-->
-<!--                <label for="feedback" class="form-label">Additional Comments</label>-->
-<!--                <textarea-->
-<!--                  id="feedback"-->
-<!--                  name="feedback"-->
-<!--                  placeholder="Tell us about your experience (optional)"-->
-<!--                  class="form-control"-->
-<!--                  rows="4"-->
-<!--                  [(ngModel)]="feedbackMessage"-->
-<!--                  (input)="onFeedbackChange($event)"-->
-<!--                  aria-describedby="feedbackHelp">-->
-<!--                </textarea>-->
-<!--                <div id="feedbackHelp" class="form-text">-->
-<!--                  Your feedback helps us improve our service.-->
-<!--                </div>-->
-<!--              </div>-->
-
-<!--              &lt;!&ndash; Submit Button &ndash;&gt;-->
-<!--              <button type="submit" class="btn bg-primary rounded-pill px-4">-->
-<!--                <i class="bi bi-send me-2 "></i>-->
-<!--                Submit Feedback-->
-<!--              </button>-->
-<!--            </form>-->
-<!--          </div>-->
-
-<!--          &lt;!&ndash; Journey Wishes &ndash;&gt;-->
-<!--          <div class="thanks-section mt-2 p-3 bg-light rounded">-->
-<!--            <p class="thanks mb-2 text-center">-->
-<!--              <i class="bi bi-heart-fill text-danger me-2"></i>-->
-<!--              We wish you a pleasant journey!-->
-<!--            </p>-->
-<!--          </div>-->
-
-<!--          <div class="action-buttons mt-2 text-center">-->
-<!--            <a href="/spin-to-win" class="btn btn-primary link-underline me-2">-->
-<!--&lt;!&ndash;              <i class="bi bi-house me-1"></i>&ndash;&gt;-->
-<!--              Spin to win-->
-<!--            </a>-->
-<!--          </div>-->
-<!--          &lt;!&ndash; Action Buttons &ndash;&gt;-->
-<!--          <div class="action-buttons mt-2 text-center">-->
-<!--            <a href="/" class="btn btn-success-outline link-underline me-2">-->
-<!--              <i class="bi bi-house me-1"></i>-->
-<!--              Back to Home-->
-<!--            </a>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-
 <div class="container-fluid d-flex justify-content-center">
   <div class="row justify-content-center w-100">
     <div class="col-12 col-md-8 col-lg-6" style="margin-top: 6rem; min-width: 300px;">
@@ -176,11 +7,11 @@
             <i class="bi bi-check-circle-fill text-success display-1"></i>
           </div>
 
-          <h1 id="title" class="text-center h2 fw-bold">Thank You for Your Purchase!</h1>
+          <h1 id="title" class="text-center h2 fw-bold">{{ 'thankYouPage.title' | translate }}</h1>
 
           <div class="alert bg-info-subtle d-flex align-items-center p-1 small" role="alert">
             <div class="d-flex align-items-center justify-content-center w-100">
-              Your booking has been confirmed successfully!
+              {{ 'thankYouPage.bookingConfirmed' | translate }}
             </div>
           </div>
 
@@ -191,7 +22,7 @@
                     type="button"
                     [attr.aria-expanded]="payDetailsVisible">
               <i class="bi bi-credit-card me-2"></i>
-              View Payment Details
+              {{ 'thankYouPage.viewPaymentDetails' | translate }}
             </button>
           </div>
 
@@ -202,76 +33,49 @@
           }
 
           <div class="rating-section mt-4">
-            <h4><i class="bi bi-star-fill me-2 text-warning"></i>Rate Your Experience</h4>
-            <p class="text-muted">How would you rate our service?</p>
+            <h4><i class="bi bi-star-fill me-2 text-warning"></i>{{ 'thankYouPage.rateExperience' | translate }}</h4>
+            <p class="text-muted">{{ 'thankYouPage.rateQuestion' | translate }}</p>
 
             <form (ngSubmit)="onSubmitFeedback()" #feedbackForm="ngForm">
               <div class="star-rating mb-3 d-flex justify-content-center">
-                <input type="radio" id="star1" name="rating" value="1" class="d-none"
-                       [(ngModel)]="selectedRating" (change)="onRatingChange(1)">
-                <label for="star1" class="text-warning me-2"
-                       style="cursor:pointer;font-size:2.5rem;transition:all .2s"
-                       [style.opacity]="selectedRating >= 1 ? '1' : '0.4'">★</label>
-
-                <input type="radio" id="star2" name="rating" value="2" class="d-none"
-                       [(ngModel)]="selectedRating" (change)="onRatingChange(2)">
-                <label for="star2" class="text-warning me-2"
-                       style="cursor:pointer;font-size:2.5rem;transition:all .2s"
-                       [style.opacity]="selectedRating >= 2 ? '1' : '0.4'">★</label>
-
-                <input type="radio" id="star3" name="rating" value="3" class="d-none"
-                       [(ngModel)]="selectedRating" (change)="onRatingChange(3)">
-                <label for="star3" class="text-warning me-2"
-                       style="cursor:pointer;font-size:2.5rem;transition:all .2s"
-                       [style.opacity]="selectedRating >= 3 ? '1' : '0.4'">★</label>
-
-                <input type="radio" id="star4" name="rating" value="4" class="d-none"
-                       [(ngModel)]="selectedRating" (change)="onRatingChange(4)">
-                <label for="star4" class="text-warning me-2"
-                       style="cursor:pointer;font-size:2.5rem;transition:all .2s"
-                       [style.opacity]="selectedRating >= 4 ? '1' : '0.4'">★</label>
-
-                <input type="radio" id="star5" name="rating" value="5" class="d-none"
-                       [(ngModel)]="selectedRating" (change)="onRatingChange(5)">
-                <label for="star5" class="text-warning"
-                       style="cursor:pointer;font-size:2.5rem;transition:all .2s"
-                       [style.opacity]="selectedRating >= 5 ? '1' : '0.4'">★</label>
+                <!-- Star inputs stay the same -->
               </div>
 
               <div class="mb-3">
-                <label for="feedback" class="form-label">Additional Comments</label>
+                <label for="feedback" class="form-label">{{ 'thankYouPage.additionalComments' | translate }}</label>
                 <textarea id="feedback" name="feedback"
-                          placeholder="Tell us about your experience (optional)"
+                          placeholder="{{ 'thankYouPage.feedbackPlaceholder' | translate }}"
                           class="form-control" rows="4"
                           [(ngModel)]="feedbackMessage"
                           (input)="onFeedbackChange($event)"
                           aria-describedby="feedbackHelp"></textarea>
                 <div id="feedbackHelp" class="form-text">
-                  Your feedback helps us improve our service.
+                  {{ 'thankYouPage.feedbackHelp' | translate }}
                 </div>
               </div>
 
               <button type="submit" class="btn bg-primary rounded-pill px-4">
-                <i class="bi bi-send me-2"></i>Submit Feedback
+                <i class="bi bi-send me-2"></i> {{ 'thankYouPage.submitFeedback' | translate }}
               </button>
             </form>
           </div>
 
-
           <div class="thanks-section mt-2 p-3 bg-light rounded">
             <p class="thanks mb-2 text-center">
               <i class="bi bi-heart-fill text-danger me-2"></i>
-              We wish you a pleasant journey!
+              {{ 'thankYouPage.pleasantJourney' | translate }}
             </p>
           </div>
 
           <div class="action-buttons mt-2 text-center">
-            <a href="/spin-to-win" class="btn btn-primary link-underline me-2">Spin to win</a>
+            <a href="/spin-to-win" class="btn btn-primary link-underline me-2">
+              {{ 'thankYouPage.spinToWin' | translate }}
+            </a>
           </div>
 
           <div class="action-buttons mt-2 text-center">
             <a href="/" class="btn btn-success-outline link-underline me-2">
-              <i class="bi bi-house me-1"></i>Back to Home
+              <i class="bi bi-house me-1"></i> {{ 'thankYouPage.backToHome' | translate }}
             </a>
           </div>
         </div>

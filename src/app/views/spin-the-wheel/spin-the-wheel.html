@@ -1,56 +1,30 @@
 <div class="component-container">
 
+  <div class="wheel-container">
+    <h2 class="text-center mb-4 fw-bold">{{ 'wheelOfFortune.title' | translate }}</h2>
 
-<div class="wheel-container">
-  <h2 class="text-center mb-4 fw-bold">🎡 Spin For a Chance to Win! 🎉</h2>
+    <!-- Canvas for the wheel -->
+    <canvas #wheelCanvas width="300" height="300" id="canvas">
+      {{ 'wheelOfFortune.canvasFallback' | translate }}
+    </canvas>
+    <div class="wheel-pointer"></div>
 
-  <!-- Canvas for the wheel -->
-  <canvas #wheelCanvas width="300" height="300" id="canvas">
-    Canvas not supported, use another browser.
-  </canvas>
-  <div class="wheel-pointer"></div>
-  <!-- Controls -->
-  <div class="controls">
-    <button
-      (click)="startSpin()"
-      [disabled]="isSpinning"
-      class="spin-button">
-      @if (isSpinning) {
-        {{' Spinning...' }}
-      } @else {
-        {{" Spin" }}
-      }
-    </button>
-    <button (click)="resetWheel()" class="reset-button">Reset</button>
+    <!-- Controls -->
+    <div class="controls">
+      <button
+        (click)="startSpin()"
+        [disabled]="isSpinning"
+        class="spin-button">
+        {{ isSpinning ? ('wheelOfFortune.buttons.spinning' | translate) : ('wheelOfFortune.buttons.spin' | translate) }}
+      </button>
+      <button (click)="resetWheel()" class="reset-button">
+        {{ 'wheelOfFortune.buttons.reset' | translate }}
+      </button>
+    </div>
   </div>
-</div>
-
-
-  <!-- Add this section after your existing controls -->
-<!--  <div class="control-section">-->
-<!--    <h4>Control Panel</h4>-->
-<!--    <div class="segment-controls">-->
-<!--      <button-->
-<!--        *ngFor="let segment of wheelSegments; let i = index"-->
-<!--        (click)="spinToSpecificSegment(i + 1)"-->
-<!--        [disabled]="isSpinning"-->
-<!--        class="segment-button"-->
-<!--        [style.background-color]="segment.fillStyle">-->
-<!--        Win {{ segment.text }}-->
-<!--      </button>-->
-<!--    </div>-->
-<!--  </div>-->
-
-  <!-- Add this before the control section -->
-<!--  <div class="probability-display">-->
-<!--    <h4>Win Chances</h4>-->
-<!--    <div *ngFor="let prob of getSegmentProbabilities()" class="prob-item">-->
-<!--      {{ prob.text }}: {{ prob.probability }}%-->
-<!--    </div>-->
-<!--  </div>-->
 
   <!-- Results -->
   <div *ngIf="lastResult" class="result">
-    <h3>🎉 Winner: {{ lastResult.text }} 🎉</h3>
+    <h3>{{ 'wheelOfFortune.results.winner' | translate:{text: lastResult.text} }}</h3>
   </div>
 </div>

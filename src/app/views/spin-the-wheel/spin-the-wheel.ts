@@ -1,11 +1,13 @@
 import {ChangeDetectorRef, Component, ElementRef, NgZone, OnInit, ViewChild} from '@angular/core';
 import {NgIf} from '@angular/common';
+import {TranslatePipe} from '@ngx-translate/core';
 declare var Winwheel: any;
 
 @Component({
   selector: 'app-spin-the-wheel',
   imports: [
-    NgIf
+    NgIf,
+    TranslatePipe
   ],
   templateUrl: './spin-the-wheel.html',
   styleUrl: './spin-the-wheel.scss',

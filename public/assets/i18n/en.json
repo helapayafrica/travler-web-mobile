@@ -661,17 +661,80 @@
       "newDateLabel": "New Date:",
       "submitButton": "Confirm Reschedule"
     }
+  },
+
+  "wheelOfFortune": {
+    "title": "🎡 Spin For a Chance to Win! 🎉",
+    "buttons": {
+      "spin": "Spin",
+      "spinning": "Spinning...",
+      "reset": "Reset"
+    },
+    "results": {
+      "winner": "🎉 Winner: {{text}} 🎉"
+    },
+    "canvasFallback": "Canvas not supported, use another browser."
   }
+,
 
+  "thankYouPage": {
+    "title": "Thank You for Your Purchase!",
+    "bookingConfirmed": "Your booking has been confirmed successfully!",
+    "viewPaymentDetails": "View Payment Details",
+    "rateExperience": "Rate Your Experience",
+    "rateQuestion": "How would you rate our service?",
+    "additionalComments": "Additional Comments",
+    "feedbackPlaceholder": "Tell us about your experience (optional)",
+    "feedbackHelp": "Your feedback helps us improve our service.",
+    "submitFeedback": "Submit Feedback",
+    "pleasantJourney": "We wish you a pleasant journey!",
+    "spinToWin": "Spin to win",
+    "backToHome": "Back to Home"
+  }
+,
 
+  "tripFeedbackPage": {
+    "title": "Thank You for Your Trip!",
+    "journeyCompleted": "Your journey has been completed successfully!",
+    "viewTripDetails": "View Trip Details",
+    "rateExperience": "Rate Your Experience",
+    "rateQuestion": "Help us improve our service by rating your trip",
+    "overallRating": "Overall Rating",
+    "serviceRating": "Service Rating",
+    "busQuality": "Bus Quality",
+    "punctuality": "Punctuality",
+    "staffBehaviour": "Staff Behaviour",
+    "writeReview": "Write Your Review",
+    "reviewPlaceholder": "Your Review About Journey (Min 50 characters)",
+    "feedbackHelp": "Your feedback helps us improve our service.",
+    "submit": "Submit",
+    "thankYouMessage": "Thank you for choosing our service!",
+    "backToHome": "Back to Home"
+  },
 
-
-
-
-
-
-
-
+  "paymentVerificationPage": {
+    "title": "Payment Processing",
+    "states": {
+      "idle": {
+        "title": "Initializing...",
+        "description": "Preparing payment verification..."
+      },
+      "processing": {
+        "title": "Processing Payment",
+        "description": "Please wait while we confirm your payment..."
+      },
+      "success": {
+        "title": "Payment Successful!",
+        "description": "Your payment has been processed successfully"
+      },
+      "failed": {
+        "title": "Payment Failed",
+        "description": "We couldn't process your payment. Please try again.",
+        "retry": "Try Again",
+        "goBack": "Go Back"
+      }
+    }
+  }
 
 
 }

@@ -6,12 +6,13 @@ import { PaymentSocketService } from '../../services/payment-socket-service';
 import { Router } from '@angular/router';
 import { NgSwitch, NgSwitchCase } from '@angular/common';
 import { BookingService } from '../../services/booking';
+import {TranslatePipe} from '@ngx-translate/core';
 
 type PaymentStatus = 'idle' | 'processing' | 'success' | 'failed';
 
 @Component({
   selector: 'app-payment-verification',
-  imports: [NgSwitch, NgSwitchCase],
+  imports: [NgSwitch, NgSwitchCase, TranslatePipe],
   templateUrl: './payment-verification.html',
   styleUrl: './payment-verification.scss',
 })

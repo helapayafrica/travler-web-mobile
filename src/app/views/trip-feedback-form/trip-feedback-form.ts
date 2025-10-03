@@ -2,13 +2,15 @@ import { Component } from '@angular/core';
 import { BusInfoComponent } from '../checkout/sections/bus-info/bus-info.component';
 import { FormsModule } from '@angular/forms';
 import { NgClass } from '@angular/common';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-feedback',
   imports: [
     BusInfoComponent,
     FormsModule,
-    NgClass
+    NgClass,
+    TranslatePipe
   ],
   templateUrl: './trip-feedback-form.html',
   styleUrl: './trip-feedback-form.scss'
