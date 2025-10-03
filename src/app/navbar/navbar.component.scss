@@ -101,3 +101,15 @@ align-items: center;
   background: linear-gradient(to top right, var(--gray-50),white);
   //background: yellow;
 }
+
+.language{
+  background: linear-gradient(var(--secondary-color-500), var(--secondary-color-400));
+  color : white;
+  padding: 4px 8px;
+  border-radius:50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align : center
+}

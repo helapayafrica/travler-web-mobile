@@ -1,0 +1,906 @@
+{
+  "navbar": {
+    "home": "Nyumbani",
+    "about": "Kuhusu Travler",
+    "ticket": "Print Tiketi",
+    "api": "API",
+    "contact": "Wasiliana Nasi",
+    "blogs": "Blogu",
+    "support": "Msaada",
+    "myAccount": "Akaunti Yangu",
+    "dashboard": "Dashibodi",
+    "bookings": "Matiketi",
+    "wallet": "Mkoba",
+    "account": "Akaunti Yangu",
+    "changePassword": "Badilisha Nenosiri",
+    "usersList": "Orodha ya Watumiaji",
+    "logout": "Toka"
+  },
+
+  "offcanvas": {
+    "bookTicket": "Tiketi",
+    "signUp": "Jisajili",
+    "signIn": "Ingia",
+    "dashboard": "Dashibodi",
+    "bookings": "Matiketi",
+    "wallet": "Mkoba",
+    "account": "Akaunti Yangu",
+    "changePassword": "Badilisha Nenosiri",
+    "usersList": "Orodha ya Watumiaji",
+    "logout": "Toka"
+  },
+
+  "footer": {
+    "downloadApp": "Pakua Programu",
+    "links": {
+      "about": "Kuhusu Travler",
+      "ticket": "Print Tiketi",
+      "contact": "Wasiliana Nasi",
+      "faqs": "Maswali Yanayoulizwa Mara Kwa Mara",
+      "terms": "Sheria na Masharti"
+    },
+    "contact": {
+      "email": "info@iabiri.com"
+    }
+  },
+
+  "loading": {
+    "spinner": "Inapakua...",
+    "searchingBuses": "Inatafuta mabasi yanayopatikana...",
+    "mayTakeTime": "Hii inaweza kuchukua muda",
+    "seatsSpinner": "Inapakua viti...",
+    "seats": "Inapakua viti vinavyopatikana...",
+    "seatsWait": "Tafadhali subiri tunapopata taarifa za viti"
+  },
+  "empty": {
+    "noBuses": "Hakuna mabasi yanayopatikana",
+    "noResults": "Hatukuweza kupata mabasi yoyote kwa njia na tarehe uliyochagua.",
+    "tryAgain": "Jaribu kubadilisha vigezo vyako vya utafutaji au angalia tena baadaye."
+  },
+  "badge": {
+    "highway": "Barabara Kuu"
+  },
+  "bus": {
+    "availableSeats": "Viti Vinavyopatikana"
+  },
+  "drawer": {
+    "seatSelection": "Uchaguzi wa Kit"
+  },
+  "error": {
+    "loadSeatsTitle": "Imeshindwa kupakua viti",
+    "loadSeatsMessage": "Hitilafu fulani imetokea wakati wa kupakua taarifa za viti.",
+    "tryAgain": "Jaribu Tena"
+  },
+  "button": {
+    "close": "Funga",
+    "viewSeats": "Angalia Viti"
+  },
+
+  "search": {
+    "tripType": {
+      "oneWay": "Safari Moja",
+      "roundTrip": "Safari ya Kwenda na Kurudi"
+    },
+    "labels": {
+      "from": "Kutoka",
+      "to": "Kwenda",
+      "travelDate": "Tarehe ya safari",
+      "returnDate": "Tarehe ya kurudi"
+    },
+    "placeholders": {
+      "from": "Kutoka",
+      "to": "Kwenda",
+      "travelDate": "Chagua tarehe",
+      "returnDate": "Chagua tarehe ya kurudi"
+    },
+    "tooltips": {
+      "from": "Weka Jiji la Kupanda",
+      "to": "Weka jiji lako la kuelekea",
+      "travelDate": "Chagua tarehe yako ya kusafiri",
+      "returnDate": "Chagua tarehe yako ya kurudi"
+    },
+    "quick": {
+      "today": "Leo",
+      "tomorrow": "Kesho"
+    },
+    "actions": {
+      "submit": "Tafuta Basi"
+    },
+    "validation": {
+      "fromRequired": "Jiji la kuanzia linahitajika. *",
+      "destinationRequired": "Jiji la kuelekea linahitajika. *",
+      "dateRequired": "*Tarehe inahitajika.",
+      "futureDate": "*Tafadhali chagua tarehe ya baadaye.",
+      "futureReturnDate": "*Tafadhali chagua tarehe ya kurudi ya baadaye.",
+      "returnAfterTravel": "Tarehe ya kurudi haiwezi kuwa kabla ya tarehe ya safari."
+    }
+  },
+  "drawer.sortFilterTitle": "Panga na Chuja mabasi",
+  "tabs.priceRange": "Kiwango cha Bei",
+  "tabs.duration": "Muda",
+  "tabs.services": "Huduma",
+  "priceRange.title": "Kiwango cha Bei",
+  "duration.title": "Muda",
+  "services.title": "Huduma",
+  "actions.clear": "Futa",
+  "actions.save": "Hifadhi",
+
+  "bottomNav": {
+    "home": "Nyumbani",
+    "printTicket": "Print Tiketi",
+    "help": "Msaada",
+    "account": "Akaunti",
+    "login": "Ingia",
+    "signUp": "Jisajili",
+    "booking": "Matiketi",
+    "wallet": "Mkoba",
+    "changePassword": "Badilisha Nenosiri",
+    "logout": "Toka"
+  },
+  "coupons": {
+    "offersForYou": "Ofa kwako."
+  },
+  "testimonials": {
+    "heading": "Wateja Wasema Nini",
+    "customer": "Mteja"
+  },
+  "partners": {
+    "heading": "Washirika Wetu wa Usafiri"
+  },
+
+  "faqs": {
+    "title": "Maswali Yanayoulizwa Mara Kwa Mara Kuhusu Uagizaji wa Tiketi za Basi",
+    "nav": {
+      "general": "Jumla",
+      "tickets": "Uagizaji wa Tiketi",
+      "payment": "Malipo"
+    },
+    "general": {
+      "q1": {
+        "question": "Je, naweza kufuatilia eneo la basi nililolibuka mtandaoni?",
+        "answer": "Ndio, unaweza kufuatilia eneo la basi lako lililobukwa mtandaoni kupkia kipengele cha kufuatilia cha Travler (ikiwa kampuni ya basi inasaidia ufuatiliaji wa moja kwa moja)."
+      },
+      "q2": {
+        "question": "Je, ni faida gani za kununua tiketi ya basi kupitia Travler?",
+        "answer": "Travler inatoa faida kama vile uagizaji rahisi, chaguzi nyingi za malipo, punguzo, msaada wa wateja masaa 24, na upatikanaji wa kampuni za binafsi na za serikali."
+      },
+      "q3": {
+        "question": "Kwa nini kuagiza tiketi za basi mtandaoni kwenye Travler?",
+        "answer": "Kwa Travler, unaokoa pesa, unapata pointi kwa kila uagizaji, na unafurahia upatikanaji wa njia na kampuni nyingi."
+      },
+      "q4": {
+        "question": "Je, nahitaji kujisajili kwenye tovuti ya Travler ili kuagiza tiketi yangu ya basi?",
+        "answer": "Hapana, unaweza kuagiza bila kujisajili, lakini kuwa na akaunti kunafanya iwe rahisi kudhibiti maagizo na kupata ofa."
+      },
+      "q5": {
+        "question": "Je, kuagiza basi mtandaoni kunanigharimu zaidi?",
+        "answer": "Hapana, uagizaji wa mtandaoni kwa kawaida unagharmu sawa na uagizaji wa nje, na unaweza hata kupata punguzo au ofa za kurudishwa pesa."
+      },
+      "q6": {
+        "question": "Je, nawezaje kupata punguzo kwenye uagizaji wa basi?",
+        "answer": "Unaweza kutumia nambari za promoshini, ofa za msimu, au pointi za uaminifu zinazopatikana kwenye Travler kupata punguzo."
+      }
+    },
+    "tickets": {
+      "q1": {
+        "question": "Ninaagiza tiketi vipi?",
+        "step1": "Hatua ya 1: Tafuta Mabasi",
+        "step1.desc": "Weka maelezo yako ya safari (Kutoka, Kwenda, Tarehe) na bofya Tafuta.",
+        "step1.note": "Kumbuka: \"Samahani, hakuna kiti kinachopatikana\" inamaanisha mabasi yamejaa kabisa.",
+        "step2": "Hatua ya 2: Chagua Kiti Chako",
+        "step2.desc": "Bofya \"Angalia Viti\" na uchague kiti unachopenda.",
+        "step3": "Hatua ya 3: Chagua Maeneo",
+        "step3.desc": "Chagua Kituo chako cha Kupanda na Kituo cha Kushuka kutoka kwenye chaguzi zilizopo.",
+        "step4": "Hatua ya 4: Weka Maelezo",
+        "step4.desc": "Endelea kama Mgeni na jaza maelezo yako binafsi.",
+        "step5": "Hatua ya 5: Kamilisha Malipo",
+        "step5.opt1": "Tumia mchakato wa malipo wa mkono, au",
+        "step5.opt2": "Bofya kitufe cha Malipo → weka PIN kwenye kidirisha cha simu"
+      },
+      "q2": {
+        "question": "Je, naweza kufuta au kubadilisha ratiba ya tiketi yangu?",
+        "answer": "Ndio, chaguzi za kufuta na kubadilisha ratiba zinapatikana kulingana na sera ya kampuni ya basi."
+      },
+      "q3": {
+        "question": "Ninawezaje kuona tiketi zangu zilizoagizwa?",
+        "answer": "Maagizo yako yote yanaweza kuonekana kwenye sehemu ya \"Tiketi Zangu\" baada ya kuingia kwenye akaunti yako ya Travler. Unaweza pia kupakua au kuchapisha tiketi yako kutoka hapo."
+      }
+    },
+    "payment": {
+      "q1": {
+        "question": "Je, Travler inakubali njia gani za malipo?",
+        "answer": "Travler inakubali pesa za mkononi"
+      },
+      "q2": {
+        "question": "Je, ni salama kulipa mtandaoni kwa Travler?",
+        "answer": "Ndio, malipo yote yanashughulikiwa kupitia milango salama ili kulinda taarifa zako za kifedha."
+      },
+      "q3": {
+        "question": "Je, naweza kupata rejesho la malipo yangu?",
+        "answer": "Marejesho yanashughulikiwa kulingana na sera ya kampuni ya basi. Ikiwa unastahiki, kiasi kitarudishwa kwenye njia yako ya asili ya malipo ndani ya siku chache za kazi."
+      }
+    }
+  },
+
+  "support": {
+    "heading": "Msaada wa Wateja wa Traveller",
+    "tagline": "Msaada wa Wateja Masaa 24",
+    "subheading": "Tuko hapa kukusaidia wakati wowote",
+    "intro": "Kwa maswali, sifa au malalamiko, unaweza kutufikia kupitia njia zifuatazo za msaada:",
+    "callUs": "Tupe Simu",
+    "emailUs": "Tutumie Barua Pepe",
+    "liveChat": "Gumzo Moja kwa Moja",
+    "liveChatDescription": "Inapatikana moja kwa moja kwenye tovuti yetu na programu ya rununu",
+    "availability": "Upatikanaji",
+    "availabilityDescription": "Masaa 24, ikijumuishwa wikendi na siku za mapumziko"
+  },
+
+  "contactus": {
+    "altGraphic": "Mchoro wa mstari wa marudio ya safari",
+    "hero": {
+      "title1": "Safiri Kwa Akili Zaidi &",
+      "title2": "okoa zaidi",
+      "title3": "kwa Travler",
+      "description": "Gundua njia zenye akili zaidi, makubaliano yasiyoshindika, na uzoefu mwepesi wa uagizaji — yote kwa sehemu moja. Safiri vyema, kwa bei nafuu."
+    },
+    "sectionTitle": "Wasiliana Nasi",
+    "contactDetails": "Maelezo ya Mawasiliano",
+    "officeTitle": "Travler - Makao Makuu:",
+    "officeAddressLine1": "Sakafu ya 9, Majumba ya Parkside,",
+    "officeAddressLine2": "Barabara ya Mombasa, Nairobi Kenya",
+    "phoneTitle": "Travler - Makao Makuu:",
+    "form": {
+      "firstName": {
+        "label": "Jina la Kwanza",
+        "placeholder": "Weka jina la kwanza"
+      },
+      "lastName": {
+        "label": "Jina la Mwisho",
+        "placeholder": "Weka jina la mwisho"
+      },
+      "email": {
+        "label": "Anwani ya Barua Pepe",
+        "placeholder": "Weka anwani ya barua pepe"
+      },
+      "mobile": {
+        "label": "Nambari ya Simu",
+        "placeholder": "Weka nambari ya simu"
+      },
+      "subject": {
+        "label": "Somo",
+        "placeholder": "Weka somo la hoja / ujumbe wako"
+      },
+      "message": {
+        "label": "Ujumbe",
+        "placeholder": "Ujumbe wako"
+      },
+      "sendButton": "Tuma Ujumbe"
+    }
+  },
+
+  "terms": {
+    "title": "SHERIA ZA TIKETI",
+    "conditions": {
+      "1": "Tiketi hii ni halali kwa muda na tarehe ya safari tu.",
+      "2": "Tiketi haiwezi kubadilishwa, kuuzwa tena, kuhamishwa au kurudishwa.",
+      "3": "Ikiwa kwa sababu yoyote mmiliki atashindwa kufika kabla ya wakati wa kuondoka, kampuni haikubali jukumu kwa abiria kama huyo.",
+      "4": "Tiketi inachukuliwa kama iliyotumika ikiwa mmiliki atashindwa kuitumia kama ilivyoonyeshwa.",
+      "5": "Mmiliki wa tiketi lazima afike kwenye ofisi ya uagizaji dakika 30 kabla ya wakati maalum ulioonyeshwa kwenye tiketi.",
+      "6": "Kunyai pombe yoyote, kutafuna miraa au kuvuta sigara kwenye basi ni marufuku.",
+      "7": "Mizigo hubebwa hatarini kwa mmiliki. Kampuni haiwezi kuchukuliwa kuwa na hatia kwa uharibifu, hasara au ucheleweshaji. Abiria wanapaswa kujitunza mizigo yao.",
+      "8": "Mizigo ya kilo 20 inaruhusiwa bure. Zaidi itakubaliwa kwa malipo ikiwa nafasi itaruhusu.",
+      "9": "Usimamizi una haki ya kubadilisha basi bila taarifa ya awali au rejesho.",
+      "10": "Ikiwa kwa bahati mbaya abiria atavunja safari yake njiani hakuna rejesho litafanyika.",
+      "11": "Abiria anaruhusiwa mtoto mmoja tu bure. Kikomo cha umri miaka 5.",
+      "12": "Abiria wanaombwa kuhakikisha usahihi wa ofisi ya uagizaji kwani makosa hayawezi kurekebishwa baadaye.",
+      "13": "Kwa makini hakuna mzigo unapaswa kupitishwa kwenye dirisha.",
+      "14": "Abiria anapaswa kuhakikisha kuwa kiasi kilicholipwa kimeonyeshwa wazi kwenye tiketi kulingana na marudio ya mtu.",
+      "15": "Muda na tarehe ya uagizaji yanapaswa kuonekana wazi kwenye tiketi."
+    }
+  },
+
+  "ticket": {
+    "title": "Print Tiketi",
+    "form": {
+      "ticketNumber": {
+        "label": "Nambari ya Tiketi",
+        "placeholder": "Weka nambari yako ya tiketi",
+        "error": "Tafadhali weka nambari halali ya tiketi"
+      },
+      "mobileNumber": {
+        "label": "Nambari ya Simu",
+        "placeholder": "Weka nambari yako ya simu",
+        "error": "Tafadhali weka nambari halali ya simu"
+      },
+      "submit": "Print Tiketi"
+    }
+  },
+
+  "busSeatSelector": {
+    "selectSeats": "Chagua Viti Vyako",
+    "selected": "Imechaguliwa",
+    "orientationMessage": "Mpangilio wima kwa rununu",
+    "door": "Mlango",
+    "legend": {
+      "vip": "VIP",
+      "normal": "Kawaida",
+      "business": "Biashara",
+      "booked": "Imeagizwa"
+    },
+    "summary": {
+      "title": "Viti Vilivyochaguliwa",
+      "seats": "Viti",
+      "noSeats": "Hakuna viti vilivyochaguliwa",
+      "totalAmount": "Jumla ya Kiasi"
+    },
+    "form": {
+      "boarding": {
+        "label": "Kituo cha Kupanda",
+        "placeholder": "Chagua kituo cha kupanda"
+      },
+      "dropping": {
+        "label": "Kituo cha Kushuka",
+        "placeholder": "Chagua kituo cha kushuka"
+      }
+    },
+    "buttons": {
+      "checkout": "Endelea kwenye Malipo",
+      "return": "Endelea kwenye Kurudi",
+      "reschedule": "Endelea kwenye Kubadilisha Ratiba",
+      "completeForm": "Kamilisha Fomu ili Kuendelea",
+      "selectSeat": "Chagua angalau kiti kimoja"
+    }
+  },
+
+  "booking": {
+    "passengerForm": {
+      "title": "Maelezo Binafsi",
+      "help": "Unahitaji msaada? Tupe simu",
+      "contact": "Barua Pepe: {{email}} | Simu: +254709215215",
+      "cancellation": {
+        "title": "Ulinzi wa Kufuta",
+        "fee": "KSH 50 kwa abiria"
+      },
+      "fields": {
+        "name": "Jina",
+        "age": "Umri",
+        "gender": "Jinsia",
+        "idNo": "Nambari ya Kitambulisho/Pasipoti",
+        "email": "Barua Pepe",
+        "nationality": "Uraia",
+        "phoneCode": "Msimbo",
+        "phoneNumber": "Nambari ya Simu"
+      },
+      "primaryPassenger": "Abiria Mkuu",
+      "coPassenger": "Abiria Mwenzio",
+      "travelInsurance": {
+        "title": "Bima ya Safari",
+        "subtitle": "Linda safari yako kwa bima kamili ya safari",
+        "none": "Sitaki bima",
+        "benefits": "Faida",
+        "dialog": {
+          "close": "Funga"
+        }
+      },
+      "button": {
+        "proceed": "Endelea Kulipa"
+      }
+    }
+  },
+
+  "busInfo": {
+    "onwardTrip": "Safari ya Kwenda",
+    "returnTrip": "Safari ya Kurudi",
+    "departure": "Kuondoka",
+    "arrival": "Kufika",
+    "boardingPoint": "Kituo cha Kupanda",
+    "droppingPoint": "Kituo cha Kushuka",
+    "selectedSeats": "Viti Vilivyochaguliwa",
+    "fareBreakup": "MUUNGANISHO WA NAULI",
+    "onwardJourney": "Safari ya Kwenda",
+    "returnJourney": "Safari ya Kurudi",
+    "onwardFare": "Nauli ya Kwenda",
+    "returnFare": "Nauli ya Kurudi",
+    "additionalFees": "Ada Za Ziada",
+    "insurance": "Bima",
+    "cancellationProtect": "Ulinzi wa Kufuta",
+    "platformFees": "Ada ya Jukwaa",
+    "discount": "Punguzo",
+    "totalPayable": "Jumla ya Kulipwa"
+  },
+
+  "paymentForm": {
+    "ticketCheckout": "MALIPO YA TIKETI",
+    "viewBusInfo": "Angalia Maelezo ya Basi",
+    "paymentDetails": "Maelezo ya Malipo",
+    "remainingTime": "Muda Uliosalia",
+    "selectPaymentMethod": "Chagua Njia ya Malipo",
+    "mpesa": "Mpesa",
+    "airtelMoney": "Airtel Money",
+    "phoneNumber": "Nambari ya Simu",
+    "voucher": "bofya ili kutumia vocha",
+    "voucherPlaceholder": "Msimbo wa vocha",
+    "apply": "Tumia",
+    "note": "Kumbuka: Mara tu viti vinapochaguliwa na kulipwa, tiketi hazirudishwi.",
+    "consent": "Kwa kuendelea, nakubali Travler ikusanye na kuhifadhi taarifa zangu kulingana na",
+    "privacyPolicy": "Sera ya Faragha",
+    "termsConditions": "Sheria na Masharti",
+    "paySecurely": "Lipa Kwa Salama Na"
+  },
+  "filterSort": {
+    "buttonLabel": "Chuja & Panga",
+    "drawerHeader": "Panga na Chuja mabasi",
+    "tabs": {
+      "company": "Jina la Kampuni",
+      "boardingPoint": "Kituo cha Kupanda",
+      "droppingPoint": "Kituo cha Kushuka",
+      "departureTime": "Wakati wa Kuondoka",
+      "amenities": "Vifaa"
+    },
+    "placeholders": {
+      "searchCompanies": "Tafuta kampuni...",
+      "searchBoardingPoints": "Tafuta Kituo cha Kupanda...",
+      "searchDroppingPoints": "Tafuta Vituo vya Kushuka...",
+      "searchTimeRanges": "Tafuta Mipaka ya Muda...",
+      "searchAmenities": "Tafuta Vifaa..."
+    },
+    "labels": {
+      "busCompanies": "Kampuni za Mabasi",
+      "boardingPoints": "Vituo vya Kupanda",
+      "droppingPoints": "Vituo vya Kushuka",
+      "departureTime": "Wakati wa kuondoka",
+      "amenities": "Vifaa"
+    },
+    "buttons": {
+      "clear": "Futa",
+      "save": "Hifadhi"
+    }
+  },
+
+  "loginModal": {
+    "title": "INGIA",
+    "labels": {
+      "code": "MSIMBO",
+      "phoneNumber": "NAMBARI YA SIMU",
+      "password": "NENOSIRI",
+      "rememberMe": "Nikumbuke"
+    },
+    "placeholders": {
+      "phoneNumber": "700000000"
+    },
+    "validation": {
+      "phoneNumberRequired": "Weka nambari halali ya simu",
+      "phoneNumberInvalid": "Tafadhali weka nambari halali ya simu",
+      "passwordRequired": "Nenosiri linahitajika",
+      "passwordMinLength": "Nenosiri lazima liwe na angalau herufi 6"
+    },
+    "buttons": {
+      "signIn": "INGIA",
+      "asGuest": "KAMA MGENI"
+    },
+    "links": {
+      "forgotPassword": "Umesahau nenosiri?",
+      "signUp": "Jisajili"
+    },
+    "orContinue": "AU ENDELEA"
+  },
+
+  "signup": {
+    "title": "Jisajili",
+    "labels": {
+      "name": "Jina",
+      "code": "Msimbo",
+      "phoneNumber": "Simu",
+      "email": "Barua Pepe",
+      "gender": "Jinsia",
+      "dateOfBirth": "Tarehe ya Kuzaliwa",
+      "promoCode": "Msimbo wa Promoshini",
+      "password": "Nenosiri",
+      "confirmPassword": "Thibitisha Nenosiri",
+      "terms": "Nakubaliana na sheria na masharti",
+      "havePromoCode": "Una msimbo wa promoshini?"
+    },
+    "placeholders": {
+      "name": "Weka jina lako",
+      "phoneNumber": "Weka nambari yako ya simu",
+      "email": "Weka barua pepe yako",
+      "gender": "Chagua Jinsia",
+      "dateOfBirth": "Chagua tarehe yako ya kuzaliwa",
+      "promoCode": "Weka msimbo wa kuponi",
+      "password": "Weka nenosiri",
+      "confirmPassword": "Thibitisha nenosiri",
+      "code": "Chagua Msimbo"
+    },
+    "validation": {
+      "nameRequired": "Jina linahitajika",
+      "codeRequired": "Msimbo unahitajika",
+      "phoneRequired": "Nambari ya simu inahitajika",
+      "emailRequired": "Barua pepe inahitajika",
+      "emailInvalid": "Umbo batili la barua pepe",
+      "dobRequired": "Tarehe ya kuzaliwa inahitajika",
+      "dobUnderage": "Lazima uwe na umri wa angalau miaka 13 ili kujisajili",
+      "passwordRequired": "Nenosiri linahitajika",
+      "passwordMinLength": "Nenosiri lazima liwe na angalau herufi 5",
+      "confirmPasswordRequired": "Uthibitisho wa nenosiri unahitajika",
+      "passwordsMustMatch": "Nenosiri lazima zifanane",
+      "termsRequired": "Lazima ukubaliane na sheria na masharti"
+    },
+    "buttons": {
+      "signUp": "Jisajili",
+      "creatingAccount": "Inaunda Akaunti..."
+    },
+    "links": {
+      "signIn": "Ingia"
+    }
+  },
+
+  "login": {
+    "title": "Ingia",
+    "labels": {
+      "code": "Msimbo",
+      "phoneNumber": "Nambari ya Simu",
+      "password": "Nenosiri",
+      "rememberMe": "Nikumbuke",
+      "forgotPassword": "Umesahau nenosiri?",
+      "signUpLink": "Huna akaunti? Jisajili"
+    },
+    "placeholders": {
+      "code": "Chagua Msimbo",
+      "phoneNumber": "mfano. 700 123456",
+      "password": "Weka nenosiri"
+    },
+    "validation": {
+      "codeRequired": "Msimbo unahitajika",
+      "phoneRequired": "Nambari ya simu inahitajika",
+      "passwordRequired": "Nenosiri linahitajika",
+      "passwordMinLength": "Nenosiri lazima liwe na angalau herufi 6"
+    },
+    "buttons": {
+      "signIn": "Ingia",
+      "loggingIn": "Inaingia..."
+    }
+  },
+
+  "privacyPolicy": {
+    "title": "SERA YA FARAGHA",
+    "intro1": "Mtandao ni zana ya kushangaza. Ina uwezo wa kubadilisha jinsi tunavyoishi, na tunaanza kuona uwezo huo leo. Kwa vibonye vichache tu vya kipanya, unaweza kufuata habari, kutafuta ukweli, kununua bidhaa na huduma, na kuwasiliana na wengine kutoka duniani kote. Ni muhimu kwa iabiri kusaidia wateja wetu kudumia faragha yao wanapofaidika na yote mtandao unayotoa.",
+    "intro2": "Tunaamini biashara yako sio ya mwingine yeyote. Faragha yako ni muhimu kwako na kwetu. Kwa hivyo tutalinda taarifa unazoshiriki nasi. Ili kulinda faragha yako, iabiri inafuata kanuni tofauti kulingana na desturi za kimataifa za faragha ya mteja na ulinzi wa data.",
+    "principles": {
+      "item1": "Hatuuza wala tutoi jina lako, anwani ya posta, nambari ya simu, anwani ya barua pepe au taarifa nyingine yoyote kwa mtu yeyote.",
+      "item2": "Tutatumia hatua za kisasa za usalama kulinda taarifa zako kutoka kwa watumiaji wasioidhinishwa."
+    },
+    "notice": {
+      "title": "TAARIFA",
+      "text": "Tutauliza wakati tunahitaji taarifa ambazo zinakutambulisha wewe mwenyewe (taarifa za kibinafsi) au zinaruhusu tuwasiliane nawe. Kwa ujumla, taarifa hii huombwa wakati unaunda Kitambulisho cha Usajili kwenye tovuti au wakati unapakua programu bure, kuingia kwenye shindano, kuagiza jarida la barua pepe au kujiunga na tovuti ya premium yenye ufikiaji mdogo. Tunatumia Taarifa Zako Binafsi kwa madhumuni makuu manne:",
+      "purposes": {
+        "item1": "Kufanya tovuti iwe rahisi kwako kutumia kwa kutoweka kuingiza taarifa zaidi ya mara moja.",
+        "item2": "Kukusaidia upate programu, huduma au taarifa haraka.",
+        "item3": "Kutusaidia kuunda yaliyomo yanayohusika zaidi nawe.",
+        "item4": "Kukualika kwa usasishaji wa bidhaa, ofa maalum, taarifa zilizosasishwa na huduma zingine mpya kutoka kwa iabiri."
+      }
+    },
+    "consent": {
+      "title": "IDHINI",
+      "text1": "Ikiwa uchagua kutojisajili au kutoa taarifa za kibinafsi, bado unaweza kutumia sehemu kubwa ya www.iabiri.com. Lakini hutaweza kufikia maeneo yanayohitaji usajili.",
+      "text2": "Ikiwa utaamua kujisajili, utaweza kuchagua aina za taarifa unazotaka kupokea kutoka kwetu kwa kujisajili kwa huduma mbalimbali, kama vile jarida letu la barua pepe. Ikiwa hutaki tuwasiliane nawe kuhusu ofa zingine kuhusu bidhaa za iabiri, programu, matukio, au huduma kwa barua pepe, barua pepe, au simu, unaweza kuchagua chaguo linalosema kuwa hutaki kupokea ujumbe wa uuzaji.",
+      "text3": "iabiri mara kwa mara huruhusu kampuni zingine kuwapa wateja wetu waliosajiliwa taarifa kuhusu bidhaa na huduma zao, kwa kutumia barua pepe tu. Ikiwa hutaki kupokea ofa hizi, unaweza kuchagua chaguo linalosema kuwa hutaki kupokea nyenzo za uuzaji kutoka kwa wahusika wengine."
+    },
+    "access": {
+      "title": "UFIKIAJI",
+      "text": "Tutakupa njia za kuhakikisha kuwa taarifa zako za kibinafsi ni sahihi na za sasa. Unaweza kupitia na kusasisha taarifa hii wakati wowote kwenye Kituo cha Wageni. Huko, unaweza:",
+      "actions": {
+        "item1": "Tazama na hariri taarifa za kibinafsi ambazo tayari umetupa.",
+        "item2": "Tuambie ikiwa unataka tutumie taarifa za uuzaji, au ikiwa unataka wahusika wengine watumie ofa zao kwa barua pepe.",
+        "item3": "Jisajili kwa jarida la barua pepe kuhusu huduma na bidhaa zetu.",
+        "item4": "Jisajili. Mara tu utakapojisajili, hutahitaji kuufanya tena. Popote unapoenda kwenye www.iabiri.com, taarifa zako zinakaa nawe."
+      }
+    },
+    "security": {
+      "title": "USALAMA",
+      "paragraph1": "iabiri imechukua hatua madhubuti za kulinda usalama wa taarifa zako za kibinafsi na kuhakikisha kuwa chaguzi zako kwa matumizi yake yanakuheshimiwa. Tunachukua tahadhari kubwa za kulinda data yako kutoka kwa hasara, matumizi mabaya, ufikiaji usioidhinishwa au ufichuzi, mabadiliko, au uharibifu.",
+      "paragraph2": "Tunahakikisha manunuzi yako ya kibiashara kuwa salama 100%. Unapoagiza au kufikia taarifa za akaunti yako binafsi, unatumia programu salama ya seva SSL, ambayo inaficha taarifa zako za kibinafsi kabla ya kutumwa kupitia Mtandao. SSL ni moja wapo ya teknolojia salama zaidi za usimbu fiche zinazopatikana.",
+      "paragraph3": "iabiri inalinda kwa ukali usalama wa taarifa zako za kibinafsi na inaheshimu chaguzi zako kwa matumizi yake. Tunazilinda kwa uangalifu data zako kutoka kwa hasara, matumizi mabaya, ufikiaji usioidhinishwa au ufichuzi, mabadiliko, au uharibifu.",
+      "paragraph4": "Taarifa zako za kibinafsi hazishirikiwi nje ya kampuni bila idhini yako, isipokuwa chini ya hali zilizoainishwa hapo juu. Ndani ya kampuni, data huhifadhiwa kwenye seva zilizodhibitiwa na nenosiri na ufikiaji mdogo. Taarifa zako zinaweza kuhifadhiwa na kushughulikiwa nchini Kenya au nchi nyingine yoyote ambayo iabiri, kampuni zake tanzu, washirika au mawakala wapo.",
+      "paragraph5": "Pia una jukumu muhimu katika kulinda taarifa zako. Hakuna mtu anaweza kuona au kuhariri taarifa zako za kibinafsi bila kujua jina lako la mtumiaji na nenosiri, kwa hivyo usishiriki hizi na wengine."
+    },
+    "noticeToParents": {
+      "title": "TAARIFA KWA WAZAZI",
+      "text1": "Wazazi au walezi: tunataka kukusaidia kulinda faragha ya watoto wako. Tunakuhimiza kuongea na watoto wako kuhusu matumizi salama na ya kuwajibika ya Taarifa Zao Binafsi wakati wanatumia Mtandao.",
+      "text2": "Tovuti ya iabiri haichapishi yaliyomo yanayolengwa kwa watoto. Hata hivyo, ikiwa una wasiwasi kuhusu watoto wako wakitoa iabiri taarifa yoyote ya kibinafsi bila idhini yako, iabiri inatoa akaunti ya Watoto. Inaruhusu wazazi kutoa idhini ya wazazi kwa ukusanyaji, matumizi na kushiriki taarifa za kibinafsi za watoto (wenye umri wa miaka 12 na chini) mtandaoni."
+    },
+    "enforcement": {
+      "title": "UTEKelezaji",
+      "contact": "Ikiwa kwa sababu fulani unaamini iabiri haijafuata kanuni hizi, tafadhali tutaarishe kwa barua pepe kwa <strong><a href='mailto:info@iabiri.com'>info@iabiri.com</a></strong>, na tutafanya uhalisi wetu wa kuamua na kurekebisha tatizo haraka. Hakikisha maneno Sera ya Faragha yako kwenye mstari wa Somo."
+    },
+    "electronicRegistration": {
+      "title": "USAJILI WA BIDHAA ZA KIelektroniki",
+      "text": "Unaponunua na kusanikisha bidhaa mpya, tunaweza kukuuliza usajili ununuzi wako kielektroniki. Unapofanya hivyo, tunachaunganisha taarifa zako za usajili na taarifa yoyote ambayo tayari umeacha nasi (tunaiita taarifa hiyo wasifu wako binafsi). Ikiwa hujajisajili na sisi hapo awali, tunaunda wasifu wako binafsi kutoka kwa taarifa zako za usajili wa bidhaa. Ikiwa umewahi kupitia au kusasisha taarifa hiyo, unaweza kutembelea Kituo cha Wasifu, bofya kwenye Sasisha Wasifu, na kuhariri Taarifa Yoyote ya Kibinafsi kwenye wasifu wako. Ikiwa hujaanzisha Kitambulisho cha Usajili, tutakuuliza ufanye hivyo. Hii inahakikisha kuwa wewe tu unaweza kufikia taarifa zako."
+    },
+    "customerProfiles": {
+      "title": "WASIFU WA WATEJA",
+      "text": "Kama ilivyotajwa hapo juu, kila mteja aliyesajiliwa ana wasifu wa kipekee binafsi. Kila wasifu unapewa nambari ya kipekee ya utambulisho, ambayo inatusaidia kuhakikisha kuwa wewe tu unaweza kufikia wasifu wako.",
+      "cookieInfo": "Unapojisajili, tunaunda wasifu wako, tunakabidhi nambari ya kipekee ya utambulisho, kisha hutuma nambari hii ya kipekee ya utambulisho nyuma kwenye kifaa chako kihardishi kwa mfumo wa kuki, ambayo ni kipande kidogo sana cha msimbo. Msimbo huu ni wako wa kipekee. Ni pasipoti yako kwa usafiri bila mpasuko kwenye www.iabiri.com, ikikuruhusu kupakua programu bure, kuagiza jarida la barua pepe, na kutembelea tovuti za hali ya juu bila kujazisha fomu za usajili na taarifa ambazo tayari umetoa. Hata ukibadilisha kompyuta, hutalazimika kujisajili tena — tumia tu Kitambulisho chako cha Usajili kujitambulisha."
+    },
+    "informationUsage": {
+      "title": "TUNAFANYA NINI NA TAARIFA UNACHOSHIRIKI",
+      "text1": "Unapojiunga nasi, unatupatia maelezo yako ya mawasiliano, ikiwemo Majina, Nambari za Simu, Umri, Jinsia, Nambari ya Kitambulisho na anwani ya barua pepe. Tunatumia taarifa hii kukutumia visasisho kuhusu agizo lako, dodoso za kupima kuridhika kwako na huduma yetu na matangazo kuhusu huduma mpya na ya kusisimua tunayotoa. Unapoagiza kutoka kwetu, tunauliza nambari yako ya kadi ya mkopo na anwani ya bili. Tunatumia taarifa hii tu kukulipia bidhaa unazoagiza wakati huo. Kwa urahisi wako, tunahifadhi taarifa za bili ikiwa utataka kuagiza kutoka kwetu tena, lakini hatutumii tena taarifa hii bila idhini yako.",
+      "text2": "Mara kwa mara tunaajiri kampuni zingine kutoa huduma ndogo kwa niaba yetu, ikiwemo kufunga, kutuma na kutoa ununuzi, kujibu maswali ya wateja kuhusu bidhaa au huduma, kutuma barua pepe na kusajili matukio. Tutatoa tu kampuni hizo taarifa wanazohitaji kutoa huduma, na haziruhusiwi kutumia taarifa hizo kwa madhumuni mengine yoyote.",
+      "text3": "iabiri itafichua taarifa zako za kibinafsi, bila taarifa, ikiwa tu inahitajika kufanya hivyo na sheria au kwa imani nzuri kwamba hatua kama hiyo ni muhimu: (a) kufuata maagizo ya sheria au kufuata mchakato wa kisheria uliotolewa kwa iabiri au tovuti; (b) kulinda na kutetea haki za mali ya iabiri na familia yake ya Nje, na, (c) kutenda katika hali za dharura kulinda usalama wa kibinafsi wa watumiaji wa iabiri, Nje zake, au umma."
+    }
+  },
+
+  "rescheduleBooking": {
+    "title": "Badilisha Ratiba ya Uagizaji",
+    "note": {
+      "title": "Kumbuka:",
+      "infoText": "Unaweza kubadilisha ratiba ya safari yako ikiwa tu iko",
+      "timeCondition": "masaa 8+ mbali",
+      "details": "Mabadiliko ya muda tu—maeneo yanabaki sawa."
+    },
+    "selectDateText": "Chagua tarehe mpya ya uagizaji wako",
+    "form": {
+      "ticketLabel": "Nambari ya Tiketi:",
+      "ticketPlaceholder": "Weka Nambari ya Tiketi",
+      "newDateLabel": "Tarehe Mpya:",
+      "submitButton": "Thibitisha Kubadilisha Ratiba"
+    }
+  },
+
+  "wheelOfFortune": {
+    "title": "🎡 Piga kwa Nafasi ya Kushinda! 🎉",
+    "buttons": {
+      "spin": "Piga",
+      "spinning": "Inazunguka...",
+      "reset": "Weka Upya"
+    },
+    "results": {
+      "winner": "🎉 Mshindi: {{text}} 🎉"
+    },
+    "canvasFallback": "Haitumiki, tumia kivinjari kingine."
+  },
+
+  "thankYouPage": {
+    "title": "Asante Kwa Ununuzi Wako!",
+    "bookingConfirmed": "Uagizaji wako umehakikishiwa kwa mafanikio!",
+    "viewPaymentDetails": "Angalia Maelezo ya Malipo",
+    "rateExperience": "Kadiria Uzoefu Wako",
+    "rateQuestion": "Unawezaje kukadiria huduma yetu?",
+    "additionalComments": "Maoni Ya Ziada",
+    "feedbackPlaceholder": "Tuambie kuhusu uzoefu wako (hiari)",
+    "feedbackHelp": "Maoni yako yanatusaidia kuboresha huduma yetu.",
+    "submitFeedback": "Wasilisha Maoni",
+    "pleasantJourney": "Tunakutakia safari ya kupendeza!",
+    "spinToWin": "Piga ili kushinda",
+    "backToHome": "Rudi Nyumbani"
+  },
+
+  "tripFeedbackPage": {
+    "title": "Asante Kwa Safari Yako!",
+    "journeyCompleted": "Safari yako imekamilika kwa mafanikio!",
+    "viewTripDetails": "Angalia Maelezo ya Safari",
+    "rateExperience": "Kadiria Uzoefu Wako",
+    "rateQuestion": "Tusaidie kuboresha huduma yetu kwa kukadiria safari yako",
+    "overallRating": "Uhakiki Wa Jumla",
+    "serviceRating": "Uhakiki Wa Huduma",
+    "busQuality": "Ubora Wa Basi",
+    "punctuality": "Uhakika Wa Muda",
+    "staffBehaviour": "Tabia Ya Wafanyikazi",
+    "writeReview": "Andika Ukaguzi Wako",
+    "reviewPlaceholder": "Ukaguzi Wako Kuhusu Safari (Herufi 50)",
+    "feedbackHelp": "Maoni yako yanatusaidia kuboresha huduma yetu.",
+    "submit": "Wasilisha",
+    "thankYouMessage": "Asante kwa kuchagua huduma yetu!",
+    "backToHome": "Rudi Nyumbani"
+  },
+
+  "paymentVerificationPage": {
+    "title": "Inachakata Malipo",
+    "states": {
+      "idle": {
+        "title": "Inaanzisha...",
+        "description": "Inaandaa uthibitishaji wa malipo..."
+      },
+      "processing": {
+        "title": "Inachakata Malipo",
+        "description": "Tafadhali subiri tunapothibitisha malipo yako..."
+      },
+      "success": {
+        "title": "Malipo Yamefanikiwa!",
+        "description": "Malipo yako yameshughulikiwa kwa mafanikio"
+      },
+      "failed": {
+        "title": "Malipo Yameshindwa",
+        "description": "Hatukuweza kushughulikia malipo yako. Tafadhali jaribu tena.",
+        "retry": "Jaribu Tena",
+        "goBack": "Rudi Nyuma"
+      }
+    }
+  },
+  "userProfilePage": {
+    "dashboard": "Dashibodi",
+    "myTrips": "Safari Zangu",
+    "wallet": "Mkoba",
+    "myAccount": "Akaunti Yangu",
+    "userList": "Orodha ya Watumiaji",
+    "profilePictureAlt": "Picha ya Wasifu",
+    "cameraIconAlt": "Fungua Kidirisha cha Kamera"
+  },
+
+  "dashboard": {
+    "totalItemsLabel": "Jumla ya Vitu",
+    "dateRangeLabel": "Mpaka wa Tarehe",
+    "currencyLabel": "Sarafu",
+    "userSelectLabel": "Tafuta kwa mtumiaji",
+    "userSelectPlaceholder": "Tafuta kwa mtumiaji",
+    "table": {
+      "companyName": "Jina la Kampuni",
+      "ticketNo": "Nambari ya Tiketi",
+      "totalSale": "Jumla ya Mauzo",
+      "commission": "Tume",
+      "selfCommission": "Tume Binafsi",
+      "walletBalance": "Salio la Mkoba",
+      "noData": "Data haipatikani."
+    },
+    "pagination": {
+      "previous": "Iliyopita",
+      "next": "Ijayo"
+    }
+  },
+  "myTripsPage": {
+    "tabs": {
+      "upcoming": "Ijayo",
+      "completed": "Imekamilika"
+    },
+    "status": {
+      "confirmed": "Imethibitishwa",
+      "pending": "Inasubiri",
+      "cancelled": "Imefutwa",
+      "completed": "Imekamilika"
+    },
+    "labels": {
+      "route": "Njia",
+      "date": "Tarehe",
+      "seat": "Kiti",
+      "bus": "Basi",
+      "amount": "Kiasi",
+      "company": "Kampuni",
+      "boarding": "Kupanda"
+    },
+    "actions": {
+      "view": "Tazama",
+      "download": "Pakua",
+      "cancel": "Futa"
+    },
+    "noData": {
+      "title": "Hakuna maagizo ya {{tab}}",
+      "subtitle": "Hakuna maagizo ya {{tab}} ya kuonyesha."
+    }
+  },
+
+  "walletPage": {
+    "balance": {
+      "title": "Salio Lako la Mkoba"
+    },
+    "voucher": {
+      "label": "Tumia Vocha",
+      "placeholder": "Weka msimbo wa vocha",
+      "button": "Tumia Vocha"
+    },
+    "table": {
+      "headers": {
+        "amount": "Kiasi",
+        "status": "Hali",
+        "comment": "Maoni"
+      },
+      "emptyState": "Historia ya mkoba haipatikani!"
+    }
+  },
+
+  "accountDetails": {
+    "buttons": {
+      "editProfile": "Hariri Wasifu",
+      "changePassword": "Badilisha Nenosiri"
+    },
+    "sections": {
+      "personalDetails": "Maelezo Binafsi",
+      "businessDetails": "Maelezo ya Biashara",
+      "contactDetails": "Maelezo ya Mawasiliano"
+    },
+    "labels": {
+      "name": "Jina",
+      "identity": "Utambulisho",
+      "age": "Umri",
+      "gender": "Jinsia",
+      "businessName": "Jina la Biashara",
+      "area": "Eneo",
+      "county": "Kaunti",
+      "city": "Jiji",
+      "road": "Barabara",
+      "email": "Barua Pepe",
+      "phone": "Nambari ya Simu",
+      "address": "Anwani"
+    },
+    "documents": {
+      "identityPhotoAlt": "Picha ya Kitambulisho",
+      "businessPhotoAlt": "Picha ya Biashara"
+    }
+  },
+
+  "changePassword": {
+    "title": "Badilisha Nenosiri",
+    "labels": {
+      "oldPassword": "Nenosiri la Zamani",
+      "newPassword": "Nenosiri Jipya",
+      "confirmPassword": "Thibitisha Nenosiri"
+    },
+    "placeholders": {
+      "oldPassword": "Weka nenosiri lako la zamani",
+      "newPassword": "Weka nenosiri jipya",
+      "confirmPassword": "Thibitisha nenosiri jipya"
+    },
+    "errors": {
+      "oldPasswordRequired": "Nenosiri la zamani linahitajika",
+      "newPasswordRequired": "Nenosiri jipya linahitajika",
+      "newPasswordMinLength": "Nenosiri lazima liwe na angalau herufi 8",
+      "confirmPasswordRequired": "Tafadhali thibitisha nenosiri lako",
+      "passwordMismatch": "Nenosiri hazifanani"
+    },
+    "buttons": {
+      "submit": "Wasilisha"
+    }
+  },
+  "userList": {
+    "title": "Orodha ya Watumiaji",
+    "buttons": {
+      "addUser": "Ongeza Mtumiaji",
+      "search": "Tafuta",
+      "view": "Tazama",
+      "edit": "Hariri",
+      "delete": "Futa"
+    },
+    "labels": {
+      "totalItems": "Jumla ya Vitu",
+      "searchPlaceholder": "Tafuta watumiaji..."
+    },
+    "tableHeaders": {
+      "index": "#",
+      "name": "Jina",
+      "email": "Barua Pepe",
+      "phone": "Simu",
+      "role": "Wadhifa",
+      "status": "Hali",
+      "actions": "Vitendo"
+    },
+    "status": {
+      "active": "Inatumika",
+      "inactive": "Haitumiki"
+    },
+    "messages": {
+      "noUsers": "Hakuna watumiaji waliopatikana."
+    },
+    "pagination": {
+      "previous": "Iliyopita",
+      "next": "Ijayo"
+    }
+  },
+
+  "notFound": {
+    "errorCode": "404",
+    "title": "Njia Haipatikani",
+    "subtitle": "Inaonekana marudio haya hayako kwenye ramani yetu. Tukupatie mwelekeo!",
+    "buttons": {
+      "goBack": "← Rudi Nyuma",
+      "home": "🏠 Nyumbani"
+    }
+  },
+
+  "messages": {
+    "whereTo": "Unaenda Wapi?",
+    "fromCity": "Habari! Utaanza safari yako wapi?",
+    "toCity": "Vizuri! Na ungependa kwenda wapi?",
+    "travelDate": "Unataka kusafiri lini?",
+    "returnDate": "Safari ya kurudi na kurudi – bainisha wakati wa kurudi.",
+    "default": "Karibu kwenye Wasafiri"
+  }
+
+}

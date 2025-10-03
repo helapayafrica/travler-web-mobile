@@ -9,6 +9,10 @@
 
           <!-- Mobile navigation drawer -->
           <div class="d-flex d-lg-none flex-row gap-4 justify-content-center align-items-center">
+            <div class= "language" (click)="toggleLanguage()">
+              {{language}}
+            </div>
+
             <app-layout-navbar-drawer></app-layout-navbar-drawer>
           </div>
 

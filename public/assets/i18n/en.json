@@ -30,9 +30,7 @@
     "logout": "Logout"
   },
 
-
-
-"footer": {
+  "footer": {
     "downloadApp": "Download App",
     "links": {
       "about": "About Travler",
@@ -78,7 +76,6 @@
     "viewSeats": "View Seats"
   },
 
-
   "search": {
     "tripType": {
       "oneWay": "One Way",
@@ -117,7 +114,7 @@
       "futureReturnDate": "*Please select a future return date.",
       "returnAfterTravel": "Return date cannot be earlier than travel date."
     }
-},
+  },
   "drawer.sortFilterTitle": "Sort and Filter buses",
   "tabs.priceRange": "Price Range",
   "tabs.duration": "Duration",
@@ -139,7 +136,7 @@
     "wallet": "Wallet",
     "changePassword": "Change Password",
     "logout": "Logout"
-},
+  },
   "coupons": {
     "offersForYou": "Offers for you."
   },
@@ -236,8 +233,7 @@
     "liveChatDescription": "Available directly on our website and mobile app",
     "availability": "Availability",
     "availabilityDescription": "24/7, including weekends & public holidays"
-},
-
+  },
 
   "contactus": {
     "altGraphic": "Travel destination line graphic",
@@ -280,7 +276,7 @@
       },
       "sendButton": "Send Message"
     }
-},
+  },
 
   "terms": {
     "title": "TICKET CONDITIONS",
@@ -301,7 +297,7 @@
       "14": "The passenger should ensure that the amount paid is clearly indicated on the ticket as per one's destination.",
       "15": "Time and date of booking should appear clearly on the ticket."
     }
-},
+  },
 
   "ticket": {
     "title": "Print Ticket",
@@ -318,7 +314,7 @@
       },
       "submit": "Print Ticket"
     }
-},
+  },
 
   "busSeatSelector": {
     "selectSeats": "Select Your Seats",
@@ -354,8 +350,7 @@
       "completeForm": "Complete Form to Proceed",
       "selectSeat": "Select at least one seat"
     }
-
-},
+  },
 
   "booking": {
     "passengerForm": {
@@ -391,9 +386,7 @@
         "proceed": "Proceed to Pay"
       }
     }
-  }
-,
-
+  },
   "busInfo": {
     "onwardTrip": "Onward Trip",
     "returnTrip": "Return Trip",
@@ -432,8 +425,7 @@
     "privacyPolicy": "Privacy Policy",
     "termsConditions": "Terms & Conditions",
     "paySecurely": "Pay Securely with"
-
-},
+  },
   "filterSort": {
     "buttonLabel": "Filter & Sort",
     "drawerHeader": "Sort and Filter buses",
@@ -462,9 +454,7 @@
       "clear": "Clear",
       "save": "Save"
     }
-  }
-,
-
+  },
   "loginModal": {
     "title": "SIGN IN",
     "labels": {
@@ -492,7 +482,6 @@
     },
     "orContinue": "OR CONTINUE"
   },
-
 
   "signup": {
     "title": "Sign up",
@@ -638,8 +627,7 @@
     }
   },
 
-
-"rescheduleBooking": {
+  "rescheduleBooking": {
     "title": "Reschedule Booking",
     "note": {
       "title": "Note:",
@@ -667,9 +655,7 @@
       "winner": "🎉 Winner: {{text}} 🎉"
     },
     "canvasFallback": "Canvas not supported, use another browser."
-  }
-,
-
+  },
   "thankYouPage": {
     "title": "Thank You for Your Purchase!",
     "bookingConfirmed": "Your booking has been confirmed successfully!",
@@ -683,9 +669,7 @@
     "pleasantJourney": "We wish you a pleasant journey!",
     "spinToWin": "Spin to win",
     "backToHome": "Back to Home"
-  }
-,
-
+  },
   "tripFeedbackPage": {
     "title": "Thank You for Your Trip!",
     "journeyCompleted": "Your journey has been completed successfully!",
@@ -736,9 +720,7 @@
     "userList": "User List",
     "profilePictureAlt": "Profile Picture",
     "cameraIconAlt": "Open Camera Modal"
-  }
-,
-
+  },
   "dashboard": {
     "totalItemsLabel": "Total Items",
     "dateRangeLabel": "Date Range",
@@ -807,7 +789,6 @@
       },
       "emptyState": "Wallet history not found!"
     }
-
   },
 
   "accountDetails": {
@@ -862,8 +843,7 @@
     "buttons": {
       "submit": "Submit"
     }
-  }
-,
+  },
   "userList": {
     "title": "User List",
     "buttons": {
@@ -907,5 +887,13 @@
       "goBack": "← Go Back",
       "home": "🏠 Home"
     }
+  },
+  "messages": {
+    "whereTo":"Where to?",
+    "fromCity": "Hi there! Where will you start your journey?",
+    "toCity": "Great! And where would you like to go?",
+    "travelDate": "When would you like to travel?",
+    "returnDate": "Round trip – specify return time.",
+    "default": "Welcome aboard Travellers"
   }
 }

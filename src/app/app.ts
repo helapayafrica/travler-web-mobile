@@ -8,6 +8,8 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {BottomNav} from './views/home/sections/bottom-nav/bottom-nav';
 import {VerifyContactComponent} from './shared/verify-contact/verify-contact.component';
 import {TranslateService} from '@ngx-translate/core';
+import { BookingService } from './services/booking';
+import { LanguageService } from './services/language-service';
 
 @Component({
   selector: 'app-root',
@@ -23,11 +25,12 @@ export class App implements OnInit, OnDestroy {
   protected readonly title = signal('travler-mobile');
   private screenWidth = signal(this.getWindowWidth());
   protected isSmOrAbove = signal(false);
+  bookingService = inject(BookingService)
+  languageService = inject(LanguageService)
+
 
   constructor() {
-    this.translate.addLangs(['ks', 'en']);
-    this.translate.setFallbackLang('en');
-    this.translate.use('en');
+    this.languageService.getLanguage()
     // Initialize signals
     this.updateScreenSize();
 

@@ -1,4 +1,4 @@
-import {Component, HostListener} from '@angular/core';
+import {Component, HostListener, inject} from '@angular/core';
 import {RouterLink, RouterModule} from '@angular/router';
 import {DrawerComponent} from './drawer/drawer.component';
 import {CommonModule, NgClass} from '@angular/common';
@@ -7,6 +7,7 @@ import {LogoComponent} from '../shared/logo/logo.component';
 import {ModalService} from '../services/modal';
 import {AuthService} from '../services/auth';
 import {TranslatePipe} from '@ngx-translate/core';
+import { LanguageService } from '../services/language-service';
 
 
 @Component({
@@ -28,6 +29,7 @@ export class NavbarComponent {
   expandedNav = false;
   loggedIn:any=false;
   user:any={};
+  languageService = inject(LanguageService)
 
   //added a boolean to determin if angent or customer
   isAgent:boolean=false;
@@ -40,8 +42,10 @@ export class NavbarComponent {
   }
 
 
-
+  language  = ''
   ngOnInit() {
+    this.language = this.languageService.language()
+    
     this.onScroll();
   }
   @HostListener('window:scroll', ['$event'])
@@ -53,5 +57,9 @@ export class NavbarComponent {
   }
 logout(){
   this.authService.logout()
+}
+
+toggleLanguage(){
+  this.languageService.toggleLanguage()
 }
 }

@@ -1,54 +1,33 @@
-import {Injectable, signal} from '@angular/core';
+import { Injectable, signal } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MessageService {
-  readonly message = signal('Where to?')
+  readonly message;
+
+  constructor(private translate: TranslateService) {
+    this.message = signal(this.translate.instant('whereTo'));
+  }
 
   setMessage(state: string) {
+
     switch (state) {
-      case "fromCity":
-        this.message.set("Hi there!  Where will you start your journey?");
+      case 'fromCity':
+        this.message.set(this.translate.instant('messages.fromCity'));
         break;
-      case "toCity":
-        this.message.set("Great! And where would you like to go?");
+      case 'toCity':
+        this.message.set(this.translate.instant('messages.toCity'));
         break;
-      case "travelDate":
-        this.message.set("When would you like to travel?");
+      case 'travelDate':
+        this.message.set(this.translate.instant('messages.travelDate'));
         break;
-      case "returnDate":
-        // this.message.set("Planning a round trip? When should we bring you back?");
-        this.message.set("Round trip – specify return time.");
+      case 'returnDate':
+        this.message.set(this.translate.instant('messages.returnDate'));
         break;
       default:
-        this.message.set("Welcome aboard Travellers");
+        this.message.set(this.translate.instant('messages.default'));
     }
-  }
-  // setMessage(state: string) {
-  //   switch (state) {
-  //     case "fromCity":
-  //       this.message.set("🚌 Which city are you leaving from?");
-  //       break;
-  //     case "toCity":
-  //       this.message.set("📍 Which city are you going to?");
-  //       break;
-  //     case "travelDate":
-  //       this.message.set("📅 When will you travel?");
-  //       break;
-  //     case "returnDate":
-  //       this.message.set("🔄 When is your return trip?");
-  //       break;
-  //     default:
-  //       this.message.set("👋 Welcome aboard! Let’s get started.");
-  //   }
-  // }
-
-
-
-
-
-  getMessage(){
-    return this.message
   }
 }
