@@ -25,7 +25,7 @@ export class App implements OnInit, OnDestroy {
   protected isSmOrAbove = signal(false);
 
   constructor() {
-    this.translate.addLangs(['de', 'en']);
+    this.translate.addLangs(['ks', 'en']);
     this.translate.setFallbackLang('en');
     this.translate.use('en');
     // Initialize signals

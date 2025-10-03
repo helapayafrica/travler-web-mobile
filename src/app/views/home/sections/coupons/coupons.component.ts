@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import {BackendService} from '../../../../services/backend';
 import {Carousel} from 'primeng/carousel';
 import {PrimeTemplate} from 'primeng/api';
+import {TranslatePipe} from '@ngx-translate/core';
 
 
 interface Offer {
@@ -71,6 +72,7 @@ interface User {
     RouterModule,
     Carousel,
     PrimeTemplate,
+    TranslatePipe,
   ],
   templateUrl: './coupons.component.html',
   styleUrl: './coupons.component.scss',

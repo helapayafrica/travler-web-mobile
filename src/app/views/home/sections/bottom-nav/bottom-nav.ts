@@ -4,6 +4,7 @@ import {Drawer} from 'primeng/drawer';
 import {Button, ButtonDirective} from 'primeng/button';
 import {AuthService} from '../../../../services/auth';
 import {NgIf} from '@angular/common';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-bottom-nav',
@@ -12,6 +13,7 @@ import {NgIf} from '@angular/common';
     RouterLinkActive,
     Drawer,
     NgIf,
+    TranslatePipe,
   ],
   templateUrl: './bottom-nav.html',
   styleUrl: './bottom-nav.scss'

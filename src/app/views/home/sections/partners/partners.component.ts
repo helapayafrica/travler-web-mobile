@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterLink} from '@angular/router';
+import {TranslatePipe} from '@ngx-translate/core';
 
 interface Partner {
   name: string;
@@ -20,6 +21,7 @@ interface PartnerBenefit {
   imports: [
     CommonModule,
     RouterLink,
+    TranslatePipe,
   ],
   templateUrl: './partners.component.html',
   styleUrl: './partners.component.scss'

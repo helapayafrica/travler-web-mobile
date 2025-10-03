@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule, NgForOf } from '@angular/common';
+import {TranslatePipe} from '@ngx-translate/core';
 
 interface Testimonial {
   name: string;
@@ -12,7 +13,7 @@ interface Testimonial {
 @Component({
   selector: 'app-home-testimonials',
   standalone: true,
-  imports: [CommonModule,],
+  imports: [CommonModule, TranslatePipe,],
   templateUrl: './testimonials.component.html',
   styleUrls: ['./testimonials.component.scss'],
 })
