@@ -1,3 +1,4 @@
+<!-- Contactus.component.html -->
 <div class="d-flex flex-column gap-3">
   <section class="py-5 section text-white">
     <div class="container">
@@ -5,41 +6,38 @@
         <div class="col-10 col-md-6 mx-auto order-1 order-md-2 mb-4 mb-md-0">
           <img src="../../../assets/WEBP"
                class="img-fluid"
-               alt="Travel destination line graphic">
+               alt="{{ 'contactus.altGraphic' | translate }}">
         </div>
-
 
         <div class="col-12 col-md-6 order-2 order-md-1">
           <h1 class="display-5 fw-semibold">
-            Travel Smarter &amp; <br class="d-none d-md-block">
-            <span class="my-gradient-text fw-bold display-5">save more</span> with Travler
+            {{ 'contactus.hero.title1' | translate }} <br class="d-none d-md-block">
+            <span class="my-gradient-text fw-bold display-5">{{ 'contactus.hero.title2' | translate }}</span>
+            {{ 'contactus.hero.title3' | translate }}
           </h1>
 
           <p class="lead mt-3 mb-0">
-            Discover smarter routes, unbeatable deals, and a seamless<br class="d-none d-lg-block">
-            booking experience&nbsp;— all in one place. Travel better, for less.
+            {{ 'contactus.hero.description' | translate }}
           </p>
         </div>
-
       </div>
     </div>
   </section>
 
   <div class="container py-3">
-    <h1 class="text-center mb-5">Get In Touch</h1>
-
+    <h1 class="text-center mb-5">{{ 'contactus.sectionTitle' | translate }}</h1>
 
     <div class="row g-0 mx-auto bg-white border border-1 rounded-4 overflow-hidden"
          style="max-width: 1000px;">
       <div class="col-lg-5 p-4 d-flex flex-column">
-        <h4 class="mb-3 fw-semibold">Contact Details</h4>
+        <h4 class="mb-3 fw-semibold">{{ 'contactus.contactDetails' | translate }}</h4>
         <hr class="opacity-25 mb-4">
 
-        <h5 class="fw-semibold">Travler&nbsp;- Head Office:</h5>
-        <p class="mb-1">9th Floor, Parkside Towers,</p>
-        <p class="mb-4">Mombasa Road, Nairobi Kenya</p>
+        <h5 class="fw-semibold">{{ 'contactus.officeTitle' | translate }}</h5>
+        <p class="mb-1">{{ 'contactus.officeAddressLine1' | translate }}</p>
+        <p class="mb-4">{{ 'contactus.officeAddressLine2' | translate }}</p>
 
-        <h5 class="fw-semibold">Travler&nbsp;- Head Office:</h5>
+        <h5 class="fw-semibold">{{ 'contactus.phoneTitle' | translate }}</h5>
         <div class="phone-numbers">
           <p>0730 790 215</p>
           <p>0709 215 215</p>
@@ -56,37 +54,41 @@
           <form>
             <div class="row g-3">
               <div class="col-md-6">
-                <label for="first_name" class="form-label">First Name</label>
-                <input id="first_name" type="text" class="form-control" placeholder="Enter first name">
+                <label for="first_name" class="form-label">{{ 'contactus.form.firstName.label' | translate }}</label>
+                <input id="first_name" type="text" class="form-control"
+                       placeholder="{{ 'contactus.form.firstName.placeholder' | translate }}">
               </div>
               <div class="col-md-6">
-                <label for="last_name" class="form-label">Last Name</label>
-                <input id="last_name" type="text" class="form-control" placeholder="Enter last name">
+                <label for="last_name" class="form-label">{{ 'contactus.form.lastName.label' | translate }}</label>
+                <input id="last_name" type="text" class="form-control"
+                       placeholder="{{ 'contactus.form.lastName.placeholder' | translate }}">
               </div>
 
               <div class="col-md-6">
-                <label for="email" class="form-label">Email Address</label>
-                <input id="email" type="email" class="form-control" placeholder="Enter email address">
+                <label for="email" class="form-label">{{ 'contactus.form.email.label' | translate }}</label>
+                <input id="email" type="email" class="form-control"
+                       placeholder="{{ 'contactus.form.email.placeholder' | translate }}">
               </div>
               <div class="col-md-6">
-                <label for="mobile" class="form-label">Mobile Number</label>
-                <input id="mobile" type="tel" class="form-control" placeholder="Enter mobile number">
+                <label for="mobile" class="form-label">{{ 'contactus.form.mobile.label' | translate }}</label>
+                <input id="mobile" type="tel" class="form-control"
+                       placeholder="{{ 'contactus.form.mobile.placeholder' | translate }}">
               </div>
 
               <div class="col-12">
-                <label for="subject" class="form-label">Subject</label>
+                <label for="subject" class="form-label">{{ 'contactus.form.subject.label' | translate }}</label>
                 <input id="subject" type="text" class="form-control"
-                       placeholder="Enter subject of enquiry / your message">
+                       placeholder="{{ 'contactus.form.subject.placeholder' | translate }}">
               </div>
 
               <div class="col-12">
-                <label for="message" class="form-label">Message</label>
+                <label for="message" class="form-label">{{ 'contactus.form.message.label' | translate }}</label>
                 <textarea id="message" rows="4" class="form-control"
-                          placeholder="Your message"></textarea>
+                          placeholder="{{ 'contactus.form.message.placeholder' | translate }}"></textarea>
               </div>
 
               <div class="col-12 d-flex justify-content-start mt-2">
-                <button type="submit" class="btn btn-send">Send Message</button>
+                <button type="submit" class="btn btn-send">{{ 'contactus.form.sendButton' | translate }}</button>
               </div>
             </div>
           </form>
@@ -94,5 +96,4 @@
       </div>
     </div>
   </div>
-
 </div>

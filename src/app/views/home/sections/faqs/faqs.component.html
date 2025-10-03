@@ -1,8 +1,8 @@
 <div class="faqs-container">
-  <div class="container mt-5 ">
+  <div class="container mt-5">
 
     <div class="container mb-4">
-      <h4 class="fs-4 fw-bold" i18n="faqs.title">FAQs related to Bus Tickets Booking</h4>
+      <h4 class="fs-4 fw-bold">{{ 'faqs.title' | translate }}</h4>
     </div>
 
     <nav class="nav">
@@ -10,20 +10,17 @@
          [ngClass]="generalTab ? 'active': ''"
          class="nav-link me-2"
          aria-current="page"
-         (click)="openGeneralTab()"
-         i18n="faqs.nav.general">General</a>
+         (click)="openGeneralTab()">{{ 'faqs.nav.general' | translate }}</a>
 
       <a style="font-size: var(--font-size)"
          [ngClass]="ticketsTab ? 'active': ''"
          class="nav-link me-2"
-         (click)="openTicketsTab()"
-         i18n="faqs.nav.tickets">Ticket Booking</a>
+         (click)="openTicketsTab()">{{ 'faqs.nav.tickets' | translate }}</a>
 
       <a style="font-size: var(--font-size)"
          [ngClass]="paymentTab ? 'active': ''"
          class="nav-link"
-         (click)="openPaymentTab()"
-         i18n="faqs.nav.payment">Payment</a>
+         (click)="openPaymentTab()">{{ 'faqs.nav.payment' | translate }}</a>
     </nav>
 
     @if(generalTab){
@@ -33,15 +30,14 @@
           <h2 class="accordion-header" id="flush-headingOne">
             <button class="accordion-button collapsed" type="button"
                     data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
-                    aria-expanded="false" aria-controls="flush-collapseOne"
-                    i18n="faqs.general.q1.question">
-              Can I track the location of my booked bus online?
+                    aria-expanded="false" aria-controls="flush-collapseOne">
+              {{ 'faqs.general.q1.question' | translate }}
             </button>
           </h2>
           <div id="flush-collapseOne" class="accordion-collapse collapse"
                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body" i18n="faqs.general.q1.answer">
-              Yes, you can track your booked bus location online through the Travler tracking feature (if the bus operator supports live tracking).
+            <div class="accordion-body">
+              {{ 'faqs.general.q1.answer' | translate }}
             </div>
           </div>
         </div>
@@ -49,15 +45,14 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingTwo">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo"
-                    i18n="faqs.general.q2.question">
-              What are the advantages of purchasing a bus ticket with Travler?
+                    data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+              {{ 'faqs.general.q2.question' | translate }}
             </button>
           </h2>
           <div id="flush-collapseTwo" class="accordion-collapse collapse"
                aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body" i18n="faqs.general.q2.answer">
-              Travler offers benefits such as easy booking, multiple payment options, discounts, 24/7 customer support, and access to both private and government bus operators.
+            <div class="accordion-body">
+              {{ 'faqs.general.q2.answer' | translate }}
             </div>
           </div>
         </div>
@@ -65,15 +60,14 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingThree">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree"
-                    i18n="faqs.general.q3.question">
-              Why book bus tickets online on Travler?
+                    data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+              {{ 'faqs.general.q3.question' | translate }}
             </button>
           </h2>
           <div id="flush-collapseThree" class="accordion-collapse collapse"
                aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body" i18n="faqs.general.q3.answer">
-              With Travler, you save money, earn credits on every booking, and enjoy access to multiple routes and operators.
+            <div class="accordion-body">
+              {{ 'faqs.general.q3.answer' | translate }}
             </div>
           </div>
         </div>
@@ -81,15 +75,14 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingFour">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour"
-                    i18n="faqs.general.q4.question">
-              Do I need to create an account on the Travler site to book my bus ticket?
+                    data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+              {{ 'faqs.general.q4.question' | translate }}
             </button>
           </h2>
           <div id="flush-collapseFour" class="accordion-collapse collapse"
                aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body" i18n="faqs.general.q4.answer">
-              No, you can book without creating an account, but having an account makes it easier to manage bookings and get offers.
+            <div class="accordion-body">
+              {{ 'faqs.general.q4.answer' | translate }}
             </div>
           </div>
         </div>
@@ -97,15 +90,14 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingFive">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive"
-                    i18n="faqs.general.q5.question">
-              Does bus booking online cost me more?
+                    data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+              {{ 'faqs.general.q5.question' | translate }}
             </button>
           </h2>
           <div id="flush-collapseFive" class="accordion-collapse collapse"
                aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body" i18n="faqs.general.q5.answer">
-              No, online booking typically costs the same as offline booking, and you may even get extra discounts or cashback offers.
+            <div class="accordion-body">
+              {{ 'faqs.general.q5.answer' | translate }}
             </div>
           </div>
         </div>
@@ -113,15 +105,14 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingSix">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix"
-                    i18n="faqs.general.q6.question">
-              How can I get the discounts on the bus booking?
+                    data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+              {{ 'faqs.general.q6.question' | translate }}
             </button>
           </h2>
           <div id="flush-collapseSix" class="accordion-collapse collapse"
                aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body" i18n="faqs.general.q6.answer">
-              You can use promo codes, seasonal offers, or loyalty points available on Travler to get discounts.
+            <div class="accordion-body">
+              {{ 'faqs.general.q6.answer' | translate }}
             </div>
           </div>
         </div>
@@ -134,31 +125,30 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingOne">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne"
-                    i18n="faqs.tickets.q1.question">
-              How do I book a ticket?
+                    data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              {{ 'faqs.tickets.q1.question' | translate }}
             </button>
           </h2>
           <div id="flush-collapseOne" class="accordion-collapse collapse"
                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
-              <h6 i18n="faqs.tickets.q1.step1">Step 1: Search for Buses</h6>
-              <p i18n="faqs.tickets.q1.step1.desc">Enter your travel details (From, To, Date) and click Search.</p>
-              <p><em i18n="faqs.tickets.q1.step1.note">Note: "Sorry, no seat available" means buses are fully booked.</em></p>
+              <h6>{{ 'faqs.tickets.q1.step1' | translate }}</h6>
+              <p>{{ 'faqs.tickets.q1.step1.desc' | translate }}</p>
+              <p><em>{{ 'faqs.tickets.q1.step1.note' | translate }}</em></p>
 
-              <h6 i18n="faqs.tickets.q1.step2">Step 2: Select Your Seat</h6>
-              <p i18n="faqs.tickets.q1.step2.desc">Click "View Seats" and choose your preferred seat(s).</p>
+              <h6>{{ 'faqs.tickets.q1.step2' | translate }}</h6>
+              <p>{{ 'faqs.tickets.q1.step2.desc' | translate }}</p>
 
-              <h6 i18n="faqs.tickets.q1.step3">Step 3: Choose Locations</h6>
-              <p i18n="faqs.tickets.q1.step3.desc">Select your Pick Point and Drop Point from available options.</p>
+              <h6>{{ 'faqs.tickets.q1.step3' | translate }}</h6>
+              <p>{{ 'faqs.tickets.q1.step3.desc' | translate }}</p>
 
-              <h6 i18n="faqs.tickets.q1.step4">Step 4: Enter Details</h6>
-              <p i18n="faqs.tickets.q1.step4.desc">Continue as Guest and fill in your personal information.</p>
+              <h6>{{ 'faqs.tickets.q1.step4' | translate }}</h6>
+              <p>{{ 'faqs.tickets.q1.step4.desc' | translate }}</p>
 
-              <h6 i18n="faqs.tickets.q1.step5">Step 5: Complete Payment</h6>
+              <h6>{{ 'faqs.tickets.q1.step5' | translate }}</h6>
               <ul>
-                <li i18n="faqs.tickets.q1.step5.opt1">Use manual payment procedure, or</li>
-                <li i18n="faqs.tickets.q1.step5.opt2">Click Payment button → enter PIN in phone pop-up</li>
+                <li>{{ 'faqs.tickets.q1.step5.opt1' | translate }}</li>
+                <li>{{ 'faqs.tickets.q1.step5.opt2' | translate }}</li>
               </ul>
             </div>
           </div>
@@ -167,15 +157,14 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingTwo">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo"
-                    i18n="faqs.tickets.q2.question">
-              Can I cancel or reschedule my ticket?
+                    data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+              {{ 'faqs.tickets.q2.question' | translate }}
             </button>
           </h2>
           <div id="flush-collapseTwo" class="accordion-collapse collapse"
                aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body" i18n="faqs.tickets.q2.answer">
-              Yes, cancellation and rescheduling options are available based on the bus operator’s policy.
+            <div class="accordion-body">
+              {{ 'faqs.tickets.q2.answer' | translate }}
             </div>
           </div>
         </div>
@@ -183,15 +172,14 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingThree">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree"
-                    i18n="faqs.tickets.q3.question">
-              How do I view my booked tickets?
+                    data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+              {{ 'faqs.tickets.q3.question' | translate }}
             </button>
           </h2>
           <div id="flush-collapseThree" class="accordion-collapse collapse"
                aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body" i18n="faqs.tickets.q3.answer">
-              All your bookings can be viewed in the “My Tickets” section after logging into your Travler account. You can also download or print your ticket from there.
+            <div class="accordion-body">
+              {{ 'faqs.tickets.q3.answer' | translate }}
             </div>
           </div>
         </div>
@@ -205,15 +193,14 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingOne">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne"
-                    i18n="faqs.payment.q1.question">
-              What payment methods does Travler accept?
+                    data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              {{ 'faqs.payment.q1.question' | translate }}
             </button>
           </h2>
           <div id="flush-collapseOne" class="accordion-collapse collapse"
                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body" i18n="faqs.payment.q1.answer">
-              Travler accepts mobile money
+            <div class="accordion-body">
+              {{ 'faqs.payment.q1.answer' | translate }}
             </div>
           </div>
         </div>
@@ -221,15 +208,14 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingTwo">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo"
-                    i18n="faqs.payment.q2.question">
-              Is it safe to pay online with Travler?
+                    data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+              {{ 'faqs.payment.q2.question' | translate }}
             </button>
           </h2>
           <div id="flush-collapseTwo" class="accordion-collapse collapse"
                aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body" i18n="faqs.payment.q2.answer">
-              Yes, all payments are processed through secure, encrypted gateways to protect your financial information.
+            <div class="accordion-body">
+              {{ 'faqs.payment.q2.answer' | translate }}
             </div>
           </div>
         </div>
@@ -237,15 +223,14 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingThree">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree"
-                    i18n="faqs.payment.q3.question">
-              Can I get a refund for my payment?
+                    data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+              {{ 'faqs.payment.q3.question' | translate }}
             </button>
           </h2>
           <div id="flush-collapseThree" class="accordion-collapse collapse"
                aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body" i18n="faqs.payment.q3.answer">
-              Refunds are processed according to the bus operator’s policy. If eligible, the amount will be returned to your original payment method within a few business days.
+            <div class="accordion-body">
+              {{ 'faqs.payment.q3.answer' | translate }}
             </div>
           </div>
         </div>

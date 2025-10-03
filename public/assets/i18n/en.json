@@ -221,6 +221,105 @@
         "answer": "Refunds are processed according to the bus operator’s policy. If eligible, the amount will be returned to your original payment method within a few business days."
       }
     }
-  }
+  },
+
+  "support": {
+    "heading": "Traveller Customer Support",
+    "tagline": "24/7 Customer Support",
+    "subheading": "We are here to help you anytime",
+    "intro": "For enquiries, compliments or complaints, you can reach us through the following support channels:",
+    "callUs": "Call Us",
+    "emailUs": "Email Us",
+    "liveChat": "Live Chat",
+    "liveChatDescription": "Available directly on our website and mobile app",
+    "availability": "Availability",
+    "availabilityDescription": "24/7, including weekends & public holidays"
+},
+
+
+  "contactus": {
+    "altGraphic": "Travel destination line graphic",
+    "hero": {
+      "title1": "Travel Smarter &",
+      "title2": "save more",
+      "title3": "with Travler",
+      "description": "Discover smarter routes, unbeatable deals, and a seamless booking experience — all in one place. Travel better, for less."
+    },
+    "sectionTitle": "Get In Touch",
+    "contactDetails": "Contact Details",
+    "officeTitle": "Travler - Head Office:",
+    "officeAddressLine1": "9th Floor, Parkside Towers,",
+    "officeAddressLine2": "Mombasa Road, Nairobi Kenya",
+    "phoneTitle": "Travler - Head Office:",
+    "form": {
+      "firstName": {
+        "label": "First Name",
+        "placeholder": "Enter first name"
+      },
+      "lastName": {
+        "label": "Last Name",
+        "placeholder": "Enter last name"
+      },
+      "email": {
+        "label": "Email Address",
+        "placeholder": "Enter email address"
+      },
+      "mobile": {
+        "label": "Mobile Number",
+        "placeholder": "Enter mobile number"
+      },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "Enter subject of enquiry / your message"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Your message"
+      },
+      "sendButton": "Send Message"
+    }
+},
+
+  "terms": {
+    "title": "TICKET CONDITIONS",
+    "conditions": {
+      "1": "This ticket is valid for the time and date of travel only.",
+      "2": "The ticket cannot be altered, resold, transferred or refunded.",
+      "3": "If for any reason the holder fails to report before departure time, the company accepts no responsibility for such passenger.",
+      "4": "The ticket is treated as used if the holder fails to utilize it as indicated thereon.",
+      "5": "The ticket holder must report at the booking office 30 minutes before the time specified on the ticket.",
+      "6": "Drinking any alcohol, chewing miraa or smoking in the coach is prohibited.",
+      "7": "Luggage carried at owner's risk. The company cannot be held responsible for damage, losses or delay. Passengers are to take care of their own luggage.",
+      "8": "20kgs of luggage is allowed free. Additional will be accepted on charge if space permits.",
+      "9": "The management reserves the right to change the coach without prior notice or refund.",
+      "10": "If in case a passenger breaks his journey en-route no refund shall be made.",
+      "11": "A passenger is allowed free one baby only. Age limit 5 years.",
+      "12": "Passengers are requested to ensure correctness of the booking office as mistakes cannot be rectified later.",
+      "13": "Strictly no luggage should be passed through the window.",
+      "14": "The passenger should ensure that the amount paid is clearly indicated on the ticket as per one's destination.",
+      "15": "Time and date of booking should appear clearly on the ticket."
+    }
+},
+
+  "ticket": {
+    "title": "Print Ticket",
+    "form": {
+      "ticketNumber": {
+        "label": "Ticket Number",
+        "placeholder": "Enter your ticket number",
+        "error": "Please enter a valid ticket number"
+      },
+      "mobileNumber": {
+        "label": "Mobile Number",
+        "placeholder": "Enter your mobile number",
+        "error": "Please enter a valid mobile number"
+      },
+      "submit": "Print Ticket"
+    }
+}
+
+
+
+
 
 }

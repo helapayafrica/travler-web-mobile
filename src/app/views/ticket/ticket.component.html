@@ -1,39 +1,40 @@
-<div class="container  app-container">
+<div class="container app-container">
   <div class="row justify-content-center">
-    <div
-      style="width: 650px;"
-      class=" section shadow p-3 bg-form">
-      <h3 class="text-start fw-bold  ">Print Ticket</h3>
-      <form [formGroup]="printTicketForm" (ngSubmit)="onSubmit()" class="row g-3 ">
+    <div style="width: 650px;" class="section shadow p-3 bg-form">
+      <h3 class="text-start fw-bold">{{ 'ticket.title' | translate }}</h3>
+
+      <form [formGroup]="printTicketForm" (ngSubmit)="onSubmit()" class="row g-3">
 
         <!-- Ticket Number -->
         <div class="col-md-6">
-          <label class="form-label">Ticket Number</label>
+          <label class="form-label">{{ 'ticket.form.ticketNumber.label' | translate }}</label>
           <input type="text" formControlName="ticketNumber" class="form-control"
-                 placeholder="Enter your ticket number" />
-          <div *ngIf="submitted && printTicketForm.controls['ticketNumber'].invalid" class="text-danger small">
-            Please enter a valid ticket number
+                 [placeholder]="'ticket.form.ticketNumber.placeholder' | translate" />
+          <div *ngIf="submitted && printTicketForm.controls['ticketNumber'].invalid"
+               class="text-danger small">
+            {{ 'ticket.form.ticketNumber.error' | translate }}
           </div>
         </div>
 
         <!-- Mobile Number -->
         <div class="col-md-6">
-          <label class="form-label">Mobile Number</label>
+          <label class="form-label">{{ 'ticket.form.mobileNumber.label' | translate }}</label>
           <input type="text" formControlName="mobileNumber" class="form-control"
-                 placeholder="Enter your mobile number" />
-          <div *ngIf="submitted && printTicketForm.controls['mobileNumber'].invalid" class="text-danger small">
-            Please enter a valid mobile number
+                 [placeholder]="'ticket.form.mobileNumber.placeholder' | translate" />
+          <div *ngIf="submitted && printTicketForm.controls['mobileNumber'].invalid"
+               class="text-danger small">
+            {{ 'ticket.form.mobileNumber.error' | translate }}
           </div>
         </div>
 
-
         <!-- Submit Button -->
         <div class="col-md-12 text-end">
-          <button type="submit" class="btn btn-primary text-white rounded-pill">Print Ticket</button>
+          <button type="submit" class="btn btn-primary text-white rounded-pill">
+            {{ 'ticket.form.submit' | translate }}
+          </button>
         </div>
 
       </form>
     </div>
   </div>
 </div>
-

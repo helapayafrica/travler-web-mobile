@@ -1,68 +1,67 @@
+<!-- support.component.html -->
 <section class="support">
   <div class="container h-100vh">
     <!-- Heading -->
     <div class="d-flex flex-column align-items-center justify-content-center ">
-      <h1>Traveller Customer Support</h1>
+      <h1>{{ 'support.heading' | translate }}</h1>
     </div>
 
     <!-- Illustration + tagline -->
-    <div class="d-flex flex-column align-items-center justify-content-center " >
+    <div class="d-flex flex-column align-items-center justify-content-center ">
       <img src="/assets/images/desktop-support.svg" alt="Desktop Support" width="350" height="350"/>
-      <h3 class="fw-bold mt-3">24/7 Customer Support</h3>
+      <h3 class="fw-bold mt-3">{{ 'support.tagline' | translate }}</h3>
     </div>
 
     <!-- Support Content -->
     <div class="container">
       <div class="d-flex flex-column align-items-center justify-content-center text-center">
-        <h4>We are here to help you anytime</h4>
+        <h4>{{ 'support.subheading' | translate }}</h4>
         <p>
-          For enquiries, compliments or complaints, you can reach us through the following support channels:
+          {{ 'support.intro' | translate }}
         </p>
 
         <div class="row mt-5">
 
-        <!-- Support Numbers -->
-        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-          <h5 class="fw-bold">
-            <i class="bi bi-telephone-fill text-info-emphasis fs-4 me-2"></i>
-            Call Us</h5>
-         <p class="">0709215215</p>
-         <p class="">0730790215</p>
-         <p class="">0709215200</p>
-<!--         <p>0730790200</p>-->
-<!--         <p>0709215400</p>-->
-<!--         <p>0730790400</p>-->
-        </div>
+          <!-- Support Numbers -->
+          <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <h5 class="fw-bold">
+              <i class="bi bi-telephone-fill text-info-emphasis fs-4 me-2"></i>
+              {{ 'support.callUs' | translate }}
+            </h5>
+            <p class="">0709215215</p>
+            <p class="">0730790215</p>
+            <p class="">0709215200</p>
+          </div>
 
-        <!-- Email -->
-        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-          <h5 class="fw-bold">
-            <i class="bi bi-envelope-fill text-warning-emphasis fs-4 me-2"></i>
-            Email Us</h5>
-          <p>support&#64;traveller.com</p>
-        </div>
+          <!-- Email -->
+          <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <h5 class="fw-bold">
+              <i class="bi bi-envelope-fill text-warning-emphasis fs-4 me-2"></i>
+              {{ 'support.emailUs' | translate }}
+            </h5>
+            <p>support&#64;traveller.com</p>
+          </div>
 
-        <!-- Live Chat -->
-        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-          <h5 class="fw-bold">
-            <i class="bi bi-chat-dots-fill icon-color fs-4 me-2"></i>
-            Live Chat</h5>
-          <p>Available directly on our website and mobile app</p>
-        </div>
+          <!-- Live Chat -->
+          <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <h5 class="fw-bold">
+              <i class="bi bi-chat-dots-fill icon-color fs-4 me-2"></i>
+              {{ 'support.liveChat' | translate }}
+            </h5>
+            <p>{{ 'support.liveChatDescription' | translate }}</p>
+          </div>
 
-        <!-- Working Hours -->
-        <div
-          class="col-12 col-md-6 col-lg-4 col-xl-3">
-          <h5 class="fw-bold">
-            <i class="bi bi bi-alarm  text-success fs-4 me-2"></i>
-            Availability</h5>
-          <p>24/7, including weekends & public holidays</p>
-        </div>
+          <!-- Working Hours -->
+          <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <h5 class="fw-bold">
+              <i class="bi bi bi-alarm  text-success fs-4 me-2"></i>
+              {{ 'support.availability' | translate }}
+            </h5>
+            <p>{{ 'support.availabilityDescription' | translate }}</p>
+          </div>
 
         </div>
       </div>
     </div>
   </div>
 </section>
-
-

@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import {TranslatePipe} from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-ticket',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TranslatePipe],
   templateUrl: './ticket.component.html',
   styleUrl: './ticket.component.scss'
 })

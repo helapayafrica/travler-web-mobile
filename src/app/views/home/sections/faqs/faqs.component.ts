@@ -1,12 +1,14 @@
 import {Component, ElementRef, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {NgClass, NgIf, NgStyle} from '@angular/common';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-faqs',
   standalone: true,
   imports: [
     NgClass,
+    TranslatePipe,
   ],
   templateUrl: './faqs.component.html',
   styleUrl: './faqs.component.scss',
