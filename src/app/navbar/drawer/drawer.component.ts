@@ -4,13 +4,14 @@ import {RouterLink, RouterLinkActive} from '@angular/router';
 import {LogoComponent} from '../../shared/logo/logo.component';
 import {CommonModule} from '@angular/common';
 import {AuthService} from '../../services/auth';
+import {TranslatePipe} from '@ngx-translate/core';
 
 
 
 @Component({
   selector: 'app-layout-navbar-drawer',
   standalone: true,
-  imports: [NgbDatepickerModule, RouterLink, LogoComponent,CommonModule],
+  imports: [NgbDatepickerModule, RouterLink, LogoComponent, CommonModule, TranslatePipe],
   templateUrl: './drawer.component.html',
   styleUrl: './drawer.component.scss',
 })

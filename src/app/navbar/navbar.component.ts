@@ -6,6 +6,7 @@ import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
 import {LogoComponent} from '../shared/logo/logo.component';
 import {ModalService} from '../services/modal';
 import {AuthService} from '../services/auth';
+import {TranslatePipe} from '@ngx-translate/core';
 
 
 @Component({
@@ -17,7 +18,8 @@ import {AuthService} from '../services/auth';
     DrawerComponent,
     NgbDropdownModule,
     CommonModule,
-    RouterModule
+    RouterModule,
+    TranslatePipe
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'

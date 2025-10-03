@@ -1,0 +1,48 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About Travler",
+    "ticket": "Print Ticket",
+    "api": "API",
+    "contact": "Contact Us",
+    "blogs": "Blogs",
+    "support": "Support",
+    "myAccount": "My Account",
+    "dashboard": "Dashboard",
+    "bookings": "Bookings",
+    "wallet": "Wallet",
+    "account": "My Account",
+    "changePassword": "Change Password",
+    "usersList": "Users List",
+    "logout": "Logout"
+  },
+
+  "offcanvas": {
+    "bookTicket": "Book Ticket",
+    "signUp": "Sign Up",
+    "signIn": "Sign In",
+    "dashboard": "Dashboard",
+    "bookings": "Bookings",
+    "wallet": "Wallet",
+    "account": "My Account",
+    "changePassword": "Change Password",
+    "usersList": "Users List",
+    "logout": "Logout"
+  },
+
+
+
+"footer": {
+    "downloadApp": "Download App",
+    "links": {
+      "about": "About Travler",
+      "ticket": "Print Ticket",
+      "contact": "Get In Touch",
+      "faqs": "FAQs",
+      "terms": "Terms"
+    },
+    "contact": {
+      "email": "info@iabiri.com"
+    }
+  }
+}

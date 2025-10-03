@@ -9,6 +9,8 @@ import Lara from '@primeuix/themes/Lara';
 import Aura from '@primeuix/themes/Aura';
 import {httpInterceptor} from './services/interceptor';
 import { provideServiceWorker } from '@angular/service-worker';
+import {provideTranslateService} from '@ngx-translate/core';
+import {provideTranslateHttpLoader} from '@ngx-translate/http-loader';
 
 
 export const appConfig: ApplicationConfig = {
@@ -26,9 +28,18 @@ export const appConfig: ApplicationConfig = {
           darkModeSelector: false // or 'none'
         }
       }
-    }), provideServiceWorker('ngsw-worker.js', {
+    }),
+    provideServiceWorker('ngsw-worker.js', {
             enabled: !isDevMode(),
             registrationStrategy: 'registerWhenStable:30000'
-          })
+          }),
+    provideTranslateService({
+      loader: provideTranslateHttpLoader({
+        prefix: '/assets/i18n/',
+        suffix: '.json'
+      }),
+      fallbackLang: 'en',
+      lang: 'en'
+    })
   ]
 };

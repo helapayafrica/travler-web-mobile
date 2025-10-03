@@ -1,4 +1,4 @@
-import { Component, signal, OnInit, OnDestroy, effect } from '@angular/core';
+import {Component, signal, OnInit, OnDestroy, effect, inject} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { fromEvent } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
@@ -7,6 +7,7 @@ import {FooterComponent} from './layout/footer/footer.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {BottomNav} from './views/home/sections/bottom-nav/bottom-nav';
 import {VerifyContactComponent} from './shared/verify-contact/verify-contact.component';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,9 @@ export class App implements OnInit, OnDestroy {
   protected isSmOrAbove = signal(false);
 
   constructor() {
+    this.translate.addLangs(['de', 'en']);
+    this.translate.setFallbackLang('en');
+    this.translate.use('en');
     // Initialize signals
     this.updateScreenSize();
 
@@ -37,6 +41,7 @@ export class App implements OnInit, OnDestroy {
         // window.location.href = this.DESKTOP_SITE_URL;
       }
     });
+
   }
 
   ngOnInit() {
@@ -48,6 +53,10 @@ export class App implements OnInit, OnDestroy {
       this.resizeSubscription.unsubscribe();
     }
   }
+
+  private translate = inject(TranslateService);
+
+
 
   /**
    * Get current window width
