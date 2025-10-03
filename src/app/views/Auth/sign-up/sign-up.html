@@ -1,136 +1,216 @@
-<h2 class="text-center mb-4">{{ 'signup.title' | translate }}</h2>
-<form (ngSubmit)="onSubmit()" [formGroup]="signupForm">
 
-  <!-- Name -->
-  <label class="fw-medium" for="name">{{ 'signup.labels.name' | translate }}</label>
-  <input formControlName="name"
-         id="name"
-         pInputText
-         type="text"
-         placeholder="{{ 'signup.placeholders.name' | translate }}">
-  <small *ngIf="signupForm.get('name')?.touched && signupForm.get('name')?.errors?.['required']"
-         class="text-danger">
-    {{ 'signup.validation.nameRequired' | translate }}
-  </small>
+<div style="margin-top: 7rem;" class="container">
+  <!-- sign up card -->
+  <div class="card shadow p-4 my-3">
+    <div class="text-center">
+      <img src="assets/WEBP/logo.webp" width="180px" height="auto" alt="logo">
+    </div>
+    <h2 class="text-center mb-4">{{ 'signup.title' | translate }}</h2>
+    <form (ngSubmit)="onSubmit()" [formGroup]="signupForm">
+      <div class="row">
 
-  <!-- Code -->
-  <label class="fw-medium" for="code">{{ 'signup.labels.code' | translate }}</label>
-  <p-select [options]="codes"
-            formControlName="country_code"
-            id="code"
-            optionLabel="label"
-            placeholder="{{ 'signup.placeholders.code' | translate }}">
-  </p-select>
-  <small *ngIf="signupForm.get('country_code')?.touched && signupForm.get('country_code')?.errors?.['required']"
-         class="text-danger">
-    {{ 'signup.validation.codeRequired' | translate }}
-  </small>
+        <!-- Name -->
+        <div class="mt-2 col-12">
+          <div class="d-flex flex-column gap-1">
+            <label class="fw-medium" for="name">{{ 'signup.labels.name' | translate }}</label>
+            <input formControlName="name"
+                   id="name"
+                   pInputText
+                   type="text"
+                   placeholder="{{ 'signup.placeholders.name' | translate }}"
+                   class="w-100">
+            <small *ngIf="signupForm.get('name')?.touched && signupForm.get('name')?.errors?.['required']"
+                   class="text-danger">
+              {{ 'signup.validation.nameRequired' | translate }}
+            </small>
+          </div>
+        </div>
 
-  <!-- Phone -->
-  <label class="fw-medium" for="phone">{{ 'signup.labels.phoneNumber' | translate }}</label>
-  <input formControlName="phone_number"
-         id="phone"
-         type="number"
-         placeholder="{{ 'signup.placeholders.phoneNumber' | translate }}">
-  <small *ngIf="signupForm.get('phone_number')?.touched && signupForm.get('phone_number')?.errors?.['required']"
-         class="text-danger">
-    {{ 'signup.validation.phoneRequired' | translate }}
-  </small>
+        <!-- Code -->
+        <div class="mt-2 col-4">
+          <div class="d-flex flex-column gap-1">
+            <label class="fw-medium" for="code">{{ 'signup.labels.code' | translate }}</label>
+            <p-select [options]="codes"
+                      formControlName="country_code"
+                      id="code"
+                      optionLabel="label"
+                      placeholder="{{ 'signup.placeholders.code' | translate }}"
+                      class="w-100">
+            </p-select>
+            <small *ngIf="signupForm.get('country_code')?.touched && signupForm.get('country_code')?.errors?.['required']"
+                   class="text-danger">
+              {{ 'signup.validation.codeRequired' | translate }}
+            </small>
+          </div>
+        </div>
 
-  <!-- Email -->
-  <label class="fw-medium" for="email">{{ 'signup.labels.email' | translate }}</label>
-  <input formControlName="email"
-         id="email"
-         type="email"
-         placeholder="{{ 'signup.placeholders.email' | translate }}">
-  <small *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['required']"
-         class="text-danger">
-    {{ 'signup.validation.emailRequired' | translate }}
-  </small>
-  <small *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['email']"
-         class="text-danger">
-    {{ 'signup.validation.emailInvalid' | translate }}
-  </small>
+        <!-- Phone -->
+        <div class="mt-2 col-8">
+          <div class="d-flex flex-column gap-1">
+            <label class="fw-medium" for="phone">{{ 'signup.labels.phoneNumber' | translate }}</label>
+            <input formControlName="phone_number"
+                   id="phone"
+                   pInputText
+                   type="number"
+                   placeholder="{{ 'signup.placeholders.phoneNumber' | translate }}"
+                   class="w-100">
+            <small *ngIf="signupForm.get('phone_number')?.touched && signupForm.get('phone_number')?.errors?.['required']"
+                   class="text-danger">
+              {{ 'signup.validation.phoneRequired' | translate }}
+            </small>
+          </div>
+        </div>
 
-  <!-- Gender -->
-  <label class="fw-medium" for="gender">{{ 'signup.labels.gender' | translate }}</label>
-  <p-select [options]="[{ label: 'Male', value: 'M' },{ label: 'Female', value: 'F' }]"
-            formControlName="gender"
-            id="gender"
-            optionLabel="label"
-            placeholder="{{ 'signup.placeholders.gender' | translate }}">
-  </p-select>
+        <!-- Email -->
+        <div class="mt-2 col-12">
+          <div class="d-flex flex-column gap-1">
+            <label class="fw-medium" for="email">{{ 'signup.labels.email' | translate }}</label>
+            <input formControlName="email"
+                   id="email"
+                   pInputText
+                   type="email"
+                   placeholder="{{ 'signup.placeholders.email' | translate }}"
+                   class="w-100">
+            <small *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['required']"
+                   class="text-danger">
+              {{ 'signup.validation.emailRequired' | translate }}
+            </small>
+            <small *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['email']"
+                   class="text-danger">
+              {{ 'signup.validation.emailInvalid' | translate }}
+            </small>
+          </div>
+        </div>
 
-  <!-- Date of Birth -->
-  <label class="fw-medium" for="date-of-birth">{{ 'signup.labels.dateOfBirth' | translate }}</label>
-  <p-date-picker formControlName="date_of_birth"
-                 [maxDate]="maxDOB"
-                 placeholder="{{ 'signup.placeholders.dateOfBirth' | translate }}">
-  </p-date-picker>
-  <small *ngIf="signupForm.get('date_of_birth')?.touched && signupForm.get('date_of_birth')?.errors?.['required']"
-         class="text-danger">
-    {{ 'signup.validation.dobRequired' | translate }}
-  </small>
-  <small *ngIf="signupForm.get('date_of_birth')?.touched && signupForm.get('date_of_birth')?.errors?.['underage']"
-         class="text-danger">
-    {{ 'signup.validation.dobUnderage' | translate }}
-  </small>
+        <!-- Gender -->
+        <div class="mt-2 col-12">
+          <div class="d-flex flex-column gap-1">
+            <label class="fw-medium" for="gender">{{ 'signup.labels.gender' | translate }}</label>
+            <p-select [options]="[{ label: 'Male', value: 'M' },{ label: 'Female', value: 'F' }]"
+                      formControlName="gender"
+                      id="gender"
+                      optionLabel="label"
+                      placeholder="{{ 'signup.placeholders.gender' | translate }}"
+                      class="w-100">
+            </p-select>
+          </div>
+        </div>
 
-  <!-- Promo Code Checkbox -->
-  <p-checkbox formControlName="more" [binary]="true" inputId="coupon_code"></p-checkbox>
-  <label for="coupon_code">{{ 'signup.labels.havePromoCode' | translate }}</label>
+        <!-- Date of Birth -->
+        <div class="mt-2 col-12">
+          <div class="d-flex flex-column gap-1">
+            <label class="fw-medium" for="date-of-birth">{{ 'signup.labels.dateOfBirth' | translate }}</label>
+            <p-date-picker formControlName="date_of_birth"
+                           [maxDate]="maxDOB"
+                           placeholder="{{ 'signup.placeholders.dateOfBirth' | translate }}"
+                           class="w-100">
+            </p-date-picker>
+            <small *ngIf="signupForm.get('date_of_birth')?.touched && signupForm.get('date_of_birth')?.errors?.['required']"
+                   class="text-danger">
+              {{ 'signup.validation.dobRequired' | translate }}
+            </small>
+            <small *ngIf="signupForm.get('date_of_birth')?.touched && signupForm.get('date_of_birth')?.errors?.['underage']"
+                   class="text-danger">
+              {{ 'signup.validation.dobUnderage' | translate }}
+            </small>
+          </div>
+        </div>
 
-  <!-- Promo Code Input -->
-  <label class="fw-medium" for="coupon">{{ 'signup.labels.promoCode' | translate }}</label>
-  <input formControlName="coupon_code"
-         id="coupon"
-         placeholder="{{ 'signup.placeholders.promoCode' | translate }}">
+        <!-- Promo Code Checkbox -->
+        <div class="my-3 col-12">
+          <div class="d-flex align-items-center gap-2">
+            <p-checkbox formControlName="more" [binary]="true" inputId="coupon_code"></p-checkbox>
+            <label class="small" for="coupon_code">{{ 'signup.labels.havePromoCode' | translate }}</label>
+          </div>
+        </div>
 
-  <!-- Password -->
-  <label class="fw-medium" for="password">{{ 'signup.labels.password' | translate }}</label>
-  <p-password formControlName="password"
-              [toggleMask]="true"
-              placeholder="{{ 'signup.placeholders.password' | translate }}">
-  </p-password>
-  <small *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['required']"
-         class="text-danger">
-    {{ 'signup.validation.passwordRequired' | translate }}
-  </small>
-  <small *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['minlength']"
-         class="text-danger">
-    {{ 'signup.validation.passwordMinLength' | translate }}
-  </small>
+        <!-- Promo Code Input -->
+        @if (signupForm.get('more')?.value) {
+          <div class="mt-2 col-12">
+            <div class="d-flex flex-column gap-1">
+              <label class="fw-medium" for="coupon">{{ 'signup.labels.promoCode' | translate }}</label>
+              <input formControlName="coupon_code"
+                     id="coupon"
+                     pInputText
+                     placeholder="{{ 'signup.placeholders.promoCode' | translate }}"
+                     class="w-100">
+            </div>
+          </div>
+        }
 
-  <!-- Confirm Password -->
-  <label class="fw-medium" for="confPassword">{{ 'signup.labels.confirmPassword' | translate }}</label>
-  <p-password formControlName="confirmPassword"
-              [toggleMask]="true"
-              placeholder="{{ 'signup.placeholders.confirmPassword' | translate }}">
-  </p-password>
-  <small *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.errors?.['required']"
-         class="text-danger">
-    {{ 'signup.validation.confirmPasswordRequired' | translate }}
-  </small>
-  <small *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.errors?.['mustMatch']"
-         class="text-danger">
-    {{ 'signup.validation.passwordsMustMatch' | translate }}
-  </small>
+        <!-- Password -->
+        <div class="mt-2 col-6">
+          <div class="d-flex flex-column gap-1">
+            <label class="fw-medium" for="password">{{ 'signup.labels.password' | translate }}</label>
+            <p-password formControlName="password"
+                        [feedback]="false"
+                        [toggleMask]="true"
+                        inputStyleClass="w-100"
+                        placeholder="{{ 'signup.placeholders.password' | translate }}">
+            </p-password>
+            <small *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['required']"
+                   class="text-danger">
+              {{ 'signup.validation.passwordRequired' | translate }}
+            </small>
+            <small *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['minlength']"
+                   class="text-danger">
+              {{ 'signup.validation.passwordMinLength' | translate }}
+            </small>
+          </div>
+        </div>
 
-  <!-- Terms -->
-  <p-checkbox formControlName="terms" [binary]="true" inputId="terms"></p-checkbox>
-  <label for="terms">{{ 'signup.labels.terms' | translate }}</label>
-  <small *ngIf="signupForm.get('terms')?.touched && signupForm.get('terms')?.errors?.['required']"
-         class="text-danger">
-    {{ 'signup.validation.termsRequired' | translate }}
-  </small>
+        <!-- Confirm Password -->
+        <div class="mt-2 col-6">
+          <div class="d-flex flex-column gap-1">
+            <label class="fw-medium" for="confPassword">{{ 'signup.labels.confirmPassword' | translate }}</label>
+            <p-password formControlName="confirmPassword"
+                        [feedback]="false"
+                        [toggleMask]="true"
+                        inputStyleClass="w-100"
+                        placeholder="{{ 'signup.placeholders.confirmPassword' | translate }}">
+            </p-password>
+            <small *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.errors?.['required']"
+                   class="text-danger">
+              {{ 'signup.validation.confirmPasswordRequired' | translate }}
+            </small>
+            <small *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.errors?.['mustMatch']"
+                   class="text-danger">
+              {{ 'signup.validation.passwordsMustMatch' | translate }}
+            </small>
+          </div>
+        </div>
 
-  <!-- Submit -->
-  <button type="submit">
-    <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm me-2"></span>
-    {{ isSubmitting ? ('signup.buttons.creatingAccount' | translate) : ('signup.buttons.signUp' | translate) }}
-  </button>
+        <!-- Terms -->
+        <div class="mt-3 col-12">
+          <div class="d-flex align-items-center gap-2">
+            <p-checkbox formControlName="terms" [binary]="true" inputId="terms"></p-checkbox>
+            <label for="terms">{{ 'signup.labels.terms' | translate }}</label>
+          </div>
+          <small *ngIf="signupForm.get('terms')?.touched && signupForm.get('terms')?.errors?.['required']"
+                 class="text-danger">
+            {{ 'signup.validation.termsRequired' | translate }}
+          </small>
+        </div>
 
-  <!-- Login Link -->
-  <p>Already have an account? <a routerLink="/login">{{ 'signup.links.signIn' | translate }}</a></p>
+        <!-- Submit -->
+        <div class="col-12 mt-4">
+          <button type="submit"
+                  class="w-100 rounded-pill p-2 bg-primary text-white border-0"
+                  [disabled]="signupForm.invalid || isSubmitting">
+            <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm me-2"></span>
+            {{ isSubmitting ? ('signup.buttons.creatingAccount' | translate) : ('signup.buttons.signUp' | translate) }}
+          </button>
+        </div>
 
-</form>
+        <!-- Login Link -->
+        <div class="col-12 text-center mt-2">
+          <p class="mb-0">
+            Already have an account?
+            <a routerLink="/login" class="link-underline">{{ 'signup.links.signIn' | translate }}</a>
+          </p>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>
