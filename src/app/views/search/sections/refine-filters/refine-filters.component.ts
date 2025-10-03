@@ -7,11 +7,12 @@ import {Drawer} from 'primeng/drawer';
 import {FormsModule} from '@angular/forms';
 import {BackendService} from '../../../../services/backend';
 import {BookingService} from '../../../../services/booking';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-search-refine-filters',
   standalone: true,
-  imports: [NgxSliderModule, Button, TabPanel, Drawer, Tabs, TabList, Tab, FormsModule, TabPanels, NgForOf],
+  imports: [NgxSliderModule, Button, TabPanel, Drawer, Tabs, TabList, Tab, FormsModule, TabPanels, NgForOf, TranslatePipe],
   templateUrl: './refine-filters.component.html',
   styleUrl: './refine-filters.component.scss'
 })

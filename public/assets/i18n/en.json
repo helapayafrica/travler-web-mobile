@@ -316,7 +316,154 @@
       },
       "submit": "Print Ticket"
     }
-}
+},
+
+  "busSeatSelector": {
+    "selectSeats": "Select Your Seats",
+    "selected": "Selected",
+    "orientationMessage": "Vertical layout for mobile",
+    "door": "Door",
+    "legend": {
+      "vip": "VIP",
+      "normal": "Normal",
+      "business": "Business",
+      "booked": "Booked"
+    },
+    "summary": {
+      "title": "Selected Seats",
+      "seats": "Seats",
+      "noSeats": "No seats selected",
+      "totalAmount": "Total Amount"
+    },
+    "form": {
+      "boarding": {
+        "label": "Boarding Point",
+        "placeholder": "Select a boarding point"
+      },
+      "dropping": {
+        "label": "Dropping Point",
+        "placeholder": "Select a dropping point"
+      }
+    },
+    "buttons": {
+      "checkout": "Proceed to Checkout",
+      "return": "Proceed to Return",
+      "reschedule": "Proceed to Reschedule",
+      "completeForm": "Complete Form to Proceed",
+      "selectSeat": "Select at least one seat"
+    }
+
+},
+
+  "booking": {
+    "passengerForm": {
+      "title": "Personal Information",
+      "help": "Do you need help? Call us",
+      "contact": "Email: {{email}} | Phone: +254709215215",
+      "cancellation": {
+        "title": "Cancellation Protection",
+        "fee": "KSH 50 per passenger"
+      },
+      "fields": {
+        "name": "Name",
+        "age": "Age",
+        "gender": "Gender",
+        "idNo": "ID/Passport Number",
+        "email": "Email",
+        "nationality": "Nationality",
+        "phoneCode": "Code",
+        "phoneNumber": "Phone Number"
+      },
+      "primaryPassenger": "Primary Passenger",
+      "coPassenger": "Co Passenger",
+      "travelInsurance": {
+        "title": "Travel Insurance",
+        "subtitle": "Protect your journey with comprehensive travel insurance",
+        "none": "I don't want insurance",
+        "benefits": "Benefits",
+        "dialog": {
+          "close": "Close"
+        }
+      },
+      "button": {
+        "proceed": "Proceed to Pay"
+      }
+    }
+  }
+,
+
+  "busInfo": {
+    "onwardTrip": "Onward Trip",
+    "returnTrip": "Return Trip",
+    "departure": "Departure",
+    "arrival": "Arrival",
+    "boardingPoint": "Boarding Point",
+    "droppingPoint": "Dropping Point",
+    "selectedSeats": "Selected Seats",
+    "fareBreakup": "FARE BREAKUP",
+    "onwardJourney": "Onward Journey",
+    "returnJourney": "Return Journey",
+    "onwardFare": "Onward Fare",
+    "returnFare": "Return Fare",
+    "additionalFees": "Additional Fees",
+    "insurance": "Insurance",
+    "cancellationProtect": "Cancellation Protect",
+    "platformFees": "Platform Fees",
+    "discount": "Discount",
+    "totalPayable": "Total Payable"
+  },
+
+  "paymentForm": {
+    "ticketCheckout": "TICKET CHECKOUT",
+    "viewBusInfo": "View Bus Info",
+    "paymentDetails": "Payment Details",
+    "remainingTime": "Remaining",
+    "selectPaymentMethod": "Select Payment Method",
+    "mpesa": "Mpesa",
+    "airtelMoney": "Airtel Money",
+    "phoneNumber": "Phone Number",
+    "voucher": "click to apply voucher",
+    "voucherPlaceholder": "Voucher code",
+    "apply": "Apply",
+    "note": "Note: Once seats are selected and paid for, tickets are non-refundable.",
+    "consent": "By proceeding, I consent to Travler collecting and storing my information in accordance with the",
+    "privacyPolicy": "Privacy Policy",
+    "termsConditions": "Terms & Conditions",
+    "paySecurely": "Pay Securely with"
+
+},
+  "filterSort": {
+    "buttonLabel": "Filter & Sort",
+    "drawerHeader": "Sort and Filter buses",
+    "tabs": {
+      "company": "Company Name",
+      "boardingPoint": "Boarding Point",
+      "droppingPoint": "Dropping Point",
+      "departureTime": "Departure Time",
+      "amenities": "Amenities"
+    },
+    "placeholders": {
+      "searchCompanies": "Search companies...",
+      "searchBoardingPoints": "Search Boarding Point...",
+      "searchDroppingPoints": "Search Dropping Points...",
+      "searchTimeRanges": "Search Time Ranges...",
+      "searchAmenities": "Search Amenities..."
+    },
+    "labels": {
+      "busCompanies": "Bus Companies",
+      "boardingPoints": "Boarding Points",
+      "droppingPoints": "Dropping Points",
+      "departureTime": "Departure time",
+      "amenities": "Amenities"
+    },
+    "buttons": {
+      "clear": "Clear",
+      "save": "Save"
+    }
+  }
+
+
+
 
 
 

@@ -3,12 +3,13 @@ import {AfterViewInit, ChangeDetectorRef, Component, effect, inject, OnInit, Vie
 import {BookingFormComponent} from '../booking-form/booking-form.component';
 import {BookingService} from '../../../../services/booking';
 import {CouponInsuredService} from '../../../../services/coupon-insured.service';
+import {TranslatePipe} from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-checkout-bus-info',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './bus-info.component.html',
   styleUrl: './bus-info.component.scss'
 })

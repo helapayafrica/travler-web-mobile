@@ -22,6 +22,7 @@ import {LoginModalService} from '../../services/login-modal';
 import {BookingService} from '../../services/booking';
 import {Select} from 'primeng/select';
 import {Router} from '@angular/router';
+import {TranslatePipe} from '@ngx-translate/core';
 
 interface SeatData {
   left: string;
@@ -45,7 +46,7 @@ interface PriceData {
 @Component({
   selector: 'app-component-bus-seat-selector',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, Select],
+  imports: [CommonModule, ReactiveFormsModule, Select, TranslatePipe],
   animations: [seatAnimations, tooltipAnimations, fadeInAnimation],
   templateUrl: './bus-seat-selector.component.html',
   styleUrl: './bus-seat-selector.component.scss',

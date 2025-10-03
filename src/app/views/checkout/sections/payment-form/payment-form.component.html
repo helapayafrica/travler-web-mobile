@@ -129,39 +129,32 @@
 <div class="section">
   <div class="container">
     <div class="section-title mt-4">
-      <h6 class="fw-bolder text-center">TICKET CHECKOUT</h6>
+      <h6 class="fw-bolder text-center">{{ 'paymentForm.ticketCheckout' | translate }}</h6>
     </div>
 
     <div class="text-end mb-2">
       <p-button
-        label="View Bus Info"
+        label="{{ 'paymentForm.viewBusInfo' | translate }}"
         icon="bi bi-info-circle"
         (click)="busInfoVisible = true"
         styleClass="bg-custom p-button-sm mt-2">
       </p-button>
     </div>
 
-
-
     <div class="row app-container">
-      <!-- Left side: booking form -->
       <div class="col-12 col-md-6 col-lg-8 vstack gap-2">
         <div class="card shadow-sm border-0 rounded-3 p-4 h-100">
           <div>
-
-            <!-- Title + Timer -->
             <div class="d-flex justify-content-between align-items-center mb-4">
-              <h4 class="fw-bold mb-0">Payment Details</h4>
+              <h4 class="fw-bold mb-0">{{ 'paymentForm.paymentDetails' | translate }}</h4>
               <span class="badge bg-danger text-white rounded-pill px-3 py-2 small">
-                ⏱ {{ formattedTime }} Remaining
+                ⏱ {{ formattedTime }} {{ 'paymentForm.remainingTime' | translate }}
               </span>
             </div>
 
             <form [formGroup]="paymentForm" class="needs-validation">
-
-              <!-- Payment Method -->
               <div class="mb-4">
-                <label class="form-label fw-semibold">Select Payment Method</label>
+                <label class="form-label fw-semibold">{{ 'paymentForm.selectPaymentMethod' | translate }}</label>
                 <div class="d-flex gap-3">
                   <!-- Mpesa -->
                   <label class="flex-fill border rounded-3 p-2 text-center cursor-pointer"
@@ -169,7 +162,7 @@
                     <input class="d-none" type="radio" formControlName="paymentMethod" id="mpesa"
                            value="mpesa" (change)="updatePlaceholder()">
                     <img src="assets/mpesa.png" alt="Mpesa" width="80" class="mb-1"><br>
-                    <span class="fw-bold small">Mpesa</span>
+                    <span class="fw-bold small">{{ 'paymentForm.mpesa' | translate }}</span>
                   </label>
 
                   <!-- Airtel -->
@@ -178,14 +171,14 @@
                     <input class="d-none" type="radio" formControlName="paymentMethod" id="airtel"
                            value="airtel" (change)="updatePlaceholder()">
                     <img src="assets/airtel.png" alt="Airtel Money" width="80" class="mb-1"><br>
-                    <span class="fw-bold small">Airtel Money</span>
+                    <span class="fw-bold small">{{ 'paymentForm.airtelMoney' | translate }}</span>
                   </label>
                 </div>
               </div>
 
               <!-- Phone Number -->
               <div class="mb-4">
-                <label class="form-label fw-semibold">Phone Number</label>
+                <label class="form-label fw-semibold">{{ 'paymentForm.phoneNumber' | translate }}</label>
                 <div class="input-group">
                   <select class="form-select flex-shrink-0" style="max-width: 110px;"
                           formControlName="countryCode" (change)="updateValidation()">
@@ -204,18 +197,20 @@
                 </div>
               </div>
 
-              <!-- Voucher (collapsible) -->
+              <!-- Voucher -->
               <div class="mb-4">
-                <a class="text-decoration-none  text-primary"
+                <a class="text-decoration-none text-primary"
                    data-bs-toggle="collapse" href="#voucherCollapse">
                   <i class="bi bi-ticket-perforated me-1"></i>
-                  click to apply voucher
+                  {{ 'paymentForm.voucher' | translate }}
                 </a>
                 <div id="voucherCollapse" class="collapse mt-2">
                   <div class="input-group">
                     <input type="text" class="form-control rounded-2"
-                         placeholder="Voucher code">
-                    <button class="btn btn-outline-success rounded-2" type="button">Apply</button>
+                           placeholder="{{ 'paymentForm.voucherPlaceholder' | translate }}">
+                    <button class="btn btn-outline-success rounded-2" type="button">
+                      {{ 'paymentForm.apply' | translate }}
+                    </button>
                   </div>
                 </div>
               </div>
@@ -223,10 +218,7 @@
               <!-- Note -->
               <div class="alert alert-warning d-flex align-items-center py-2">
                 <i class="bi bi-exclamation-triangle-fill me-2"></i>
-                <span class="small">
-                  <strong>Note:</strong> Once seats are selected and paid for,
-                  tickets are <b>non-refundable</b>.
-                </span>
+                <span class="small">{{ 'paymentForm.note' | translate }}</span>
               </div>
 
               <!-- Consent -->
@@ -234,10 +226,9 @@
                 <input class="form-check-input" type="checkbox"
                        formControlName="consent" id="consentCheck">
                 <label class="form-check-label" for="consentCheck">
-                  By proceeding, I consent to Travler collecting and storing my information
-                  in accordance with the
-                  <a href="#" target="_blank">Privacy Policy</a> and
-                  <a href="#" target="_blank">Terms & Conditions</a>.
+                  {{ 'paymentForm.consent' | translate }}
+                  <a href="#" target="_blank">{{ 'paymentForm.privacyPolicy' | translate }}</a> and
+                  <a href="#" target="_blank">{{ 'paymentForm.termsConditions' | translate }}</a>.
                 </label>
               </div>
 
@@ -247,15 +238,13 @@
                         [disabled]="isTimeExpired || paymentForm.invalid"
                         (click)="submitPayment()">
                   <i class="bi bi-lock-fill me-2"></i>
-                  Pay Securely with {{ paymentForm.value.paymentMethod | titlecase }}
+                  {{ 'paymentForm.paySecurely' | translate }} {{ paymentForm.value.paymentMethod | titlecase }}
                 </button>
               </div>
 
             </form>
           </div>
         </div>
-        <!-- Button to toggle drawer -->
-
       </div>
     </div>
   </div>
@@ -263,7 +252,7 @@
 
 <!-- Drawer for Bus Info -->
 <p-drawer
-  header="Bus Information"
+  header="{{ 'paymentForm.viewBusInfo' | translate }}"
   [(visible)]="busInfoVisible"
   position="bottom"
   class="p-2"
@@ -272,8 +261,9 @@
 
   <div class="mt-2">
     <button
-    class="btn btn-success py-2 px-4 rounded-pill custom-btn fs-6 fw-semibold shadow w-100"
-    (click)="busInfoVisible = false"
-    > Proceed to Pay </button>
+      class="btn btn-success py-2 px-4 rounded-pill custom-btn fs-6 fw-semibold shadow w-100"
+      (click)="busInfoVisible = false">
+      {{ 'paymentForm.paySecurely' | translate }} {{ paymentForm.value.paymentMethod | titlecase }}
+    </button>
   </div>
 </p-drawer>

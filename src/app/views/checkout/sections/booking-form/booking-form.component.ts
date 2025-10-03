@@ -9,11 +9,12 @@ import {BackendService} from '../../../../services/backend';
 import {Dialog} from 'primeng/dialog';
 import {InputText} from 'primeng/inputtext';
 import {Button} from 'primeng/button';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-checkout-booking-form',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, FormsModule, TypeaheadModule, Dialog, Button,],
+  imports: [ReactiveFormsModule, CommonModule, FormsModule, TypeaheadModule, Dialog, Button, TranslatePipe,],
   templateUrl: './booking-form.component.html',
   styleUrl: './booking-form.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

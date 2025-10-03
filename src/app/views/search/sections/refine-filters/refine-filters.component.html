@@ -151,174 +151,148 @@
   (click)="filterVisible=true"
   icon="bi bi-sliders2"
   iconPos="left"
-  label="Filter & Sort"
+  label="{{ 'filterSort.buttonLabel' | translate }}"
   size="small"
   styleClass="custom-btn p-button-sm">
 </p-button>
 
-
 <p-drawer [(visible)]="filterVisible"
           [style]="{ height: 'auto', overflow: 'auto', maxHeight: '80vh', minHeight: '40vh'}"
-          header="Sort and Filter buses"
+          header="{{ 'filterSort.drawerHeader' | translate }}"
           position="bottom"
           size="small">
 
   <p-tabs value="0">
     <p-tablist class="scroll-tabs">
-      <p-tab value="0">Company Name</p-tab>
-      <p-tab value="1">Boarding Point</p-tab>
-      <p-tab value="2">Dropping Point</p-tab>
-      <p-tab value="3">Departure Time</p-tab>
-      <p-tab value="4">Amenities</p-tab>
+      <p-tab value="0">{{ 'filterSort.tabs.company' | translate }}</p-tab>
+      <p-tab value="1">{{ 'filterSort.tabs.boardingPoint' | translate }}</p-tab>
+      <p-tab value="2">{{ 'filterSort.tabs.droppingPoint' | translate }}</p-tab>
+      <p-tab value="3">{{ 'filterSort.tabs.departureTime' | translate }}</p-tab>
+      <p-tab value="4">{{ 'filterSort.tabs.amenities' | translate }}</p-tab>
     </p-tablist>
 
     <p-tabpanels>
-      <!--      bus /companies-->
+      <!-- Companies -->
       <p-tabpanel value="0">
-        <h5 class="fs-6 fw-bold mb-2 text-muted">Bus Companies</h5>
-        <!-- Add search input -->
+        <h5 class="fs-6 fw-bold mb-2 text-muted">{{ 'filterSort.labels.busCompanies' | translate }}</h5>
         <div class="mb-3">
-          <input
-            type="text"
-            class="form-control form-control-sm"
-            placeholder="Search companies..."
-            [(ngModel)]="companySearchTerm"
-            (input)="filterCompanies()">
+          <input type="text"
+                 class="form-control form-control-sm"
+                 placeholder="{{ 'filterSort.placeholders.searchCompanies' | translate }}"
+                 [(ngModel)]="companySearchTerm"
+                 (input)="filterCompanies()">
         </div>
-
         <div class="d-flex flex-column gap-2">
           <label *ngFor="let bus of filteredBusNames;" class="block gap-2 fw-normal fst-normal">
-            <input
-              (change)="onCompanySelectionChange($event)"
-              [value]="bus.id"
-              class="me-2"
-              type="checkbox"
-            />
+            <input (change)="onCompanySelectionChange($event)"
+                   [value]="bus.id"
+                   class="me-2"
+                   type="checkbox">
             {{ bus.name }}
           </label>
         </div>
       </p-tabpanel>
-      <!--      Amenities ✅-->
-      <!-- Amenities -->
-      <p-tabpanel value="4">
-        <h5 class="fs-6 fw-bold mb-2 text-muted">Amenities</h5>
-        <!-- Add search input for amenities -->
-        <div class="mb-3">
-          <input
-            type="text"
-            class="form-control form-control-sm"
-            placeholder="Search Amenities..."
-            [(ngModel)]="amenitiesSearchTerm"
-            (input)="filterAmenities()">
-        </div>
 
+      <!-- Boarding Points -->
+      <p-tabpanel value="1">
+        <h5 class="fs-6 fw-bold mb-2 text-muted">{{ 'filterSort.labels.boardingPoints' | translate }}</h5>
+        <div class="mb-3">
+          <input type="text"
+                 class="form-control form-control-sm"
+                 placeholder="{{ 'filterSort.placeholders.searchBoardingPoints' | translate }}"
+                 [(ngModel)]="boardingPointSearchTerm"
+                 (input)="filterBoardingPoints()">
+        </div>
         <div class="d-flex flex-column gap-2">
-          <label *ngFor="let point of filteredAmenities;"
-                 [for]="point.id"
-                 class="block gap-2 fw-normal fst-normal">
-            <input
-              (change)="onAmenitiesSelectionChange($event)"
-              [id]="point.id"
-              [value]="point.id"
-              class="me-2"
-              type="checkbox"
-            />
+          <label *ngFor="let point of filteredBoardingPoints;" class="block gap-2 fw-normal fs-6">
+            <input (change)="onBoardingPointSelectionChange($event)"
+                   [value]="point.id"
+                   class="me-2"
+                   type="checkbox">
             {{ point.name }}
           </label>
         </div>
       </p-tabpanel>
 
-      <!-- Dropping points -->
+      <!-- Dropping Points -->
       <p-tabpanel value="2">
-        <h5 class="fs-6 fw-bold mb-2 text-muted">Dropping Points</h5>
-        <!-- Add search input for dropping points -->
+        <h5 class="fs-6 fw-bold mb-2 text-muted">{{ 'filterSort.labels.droppingPoints' | translate }}</h5>
         <div class="mb-3">
-          <input
-            type="text"
-            class="form-control form-control-sm"
-            placeholder="Search Dropping Points..."
-            [(ngModel)]="droppingPointSearchTerm"
-            (input)="filterDroppingPoints()">
+          <input type="text"
+                 class="form-control form-control-sm"
+                 placeholder="{{ 'filterSort.placeholders.searchDroppingPoints' | translate }}"
+                 [(ngModel)]="droppingPointSearchTerm"
+                 (input)="filterDroppingPoints()">
         </div>
-
         <div class="d-flex flex-column gap-2">
           <label *ngFor="let point of filteredDroppingPoints;"
                  [for]="point.id"
                  class="block gap-2 fw-normal fst-normal">
-            <input
-              (change)="onDroppingPointSelectionChange($event)"
-              [id]="point.id"
-              [value]="point.id"
-              class="me-2"
-              type="checkbox"
-            />
+            <input (change)="onDroppingPointSelectionChange($event)"
+                   [id]="point.id"
+                   [value]="point.id"
+                   class="me-2"
+                   type="checkbox">
             {{ point.name }}
           </label>
         </div>
       </p-tabpanel>
 
-      <!-- Departure time -->
+      <!-- Departure Time -->
       <p-tabpanel value="3">
-        <h5 class="fs-6 fw-bold mb-2 text-muted">Departure time</h5>
-        <!-- Add search input for time ranges -->
+        <h5 class="fs-6 fw-bold mb-2 text-muted">{{ 'filterSort.labels.departureTime' | translate }}</h5>
         <div class="mb-3">
-          <input
-            type="text"
-            class="form-control form-control-sm"
-            placeholder="Search Time Ranges..."
-            [(ngModel)]="departureTimeSearchTerm"
-            (input)="filterDepartureTime()">
+          <input type="text"
+                 class="form-control form-control-sm"
+                 placeholder="{{ 'filterSort.placeholders.searchTimeRanges' | translate }}"
+                 [(ngModel)]="departureTimeSearchTerm"
+                 (input)="filterDepartureTime()">
         </div>
-
         <div class="d-flex flex-column gap-2">
           <label *ngFor="let time of filteredTimeRanges"
                  [for]="time.id"
                  class="block gap-2 fw-normal fst-normal">
-            <input
-              (change)="onDepartureTimeSelectionChange($event)"
-              [id]="time.id"
-              [value]="time.name"
-              class="me-2"
-              type="checkbox"
-            />
+            <input (change)="onDepartureTimeSelectionChange($event)"
+                   [id]="time.id"
+                   [value]="time.name"
+                   class="me-2"
+                   type="checkbox">
             {{ time.name }}
           </label>
         </div>
       </p-tabpanel>
-      <!--      Boarding Points ✅-->
-      <p-tabpanel value="1">
-        <h5 class="fs-6 fw-bold mb-2 text-muted">Boarding Points</h5>
 
+      <!-- Amenities -->
+      <p-tabpanel value="4">
+        <h5 class="fs-6 fw-bold mb-2 text-muted">{{ 'filterSort.labels.amenities' | translate }}</h5>
         <div class="mb-3">
-          <input
-            type="text"
-            class="form-control form-control-sm"
-            placeholder="Search Boarding Point..."
-            [(ngModel)]="boardingPointSearchTerm"
-            (input)="filterBoardingPoints()">
+          <input type="text"
+                 class="form-control form-control-sm"
+                 placeholder="{{ 'filterSort.placeholders.searchAmenities' | translate }}"
+                 [(ngModel)]="amenitiesSearchTerm"
+                 (input)="filterAmenities()">
         </div>
-
         <div class="d-flex flex-column gap-2">
-          <label *ngFor="let point of filteredBoardingPoints;" class="block gap-2 fw-normal fs-6">
-            <input
-              (change)="onBoardingPointSelectionChange($event)"
-              [value]="point.id"
-              class="me-2"
-              type="checkbox"
-            />
+          <label *ngFor="let point of filteredAmenities;"
+                 [for]="point.id"
+                 class="block gap-2 fw-normal fst-normal">
+            <input (change)="onAmenitiesSelectionChange($event)"
+                   [id]="point.id"
+                   [value]="point.id"
+                   class="me-2"
+                   type="checkbox">
             {{ point.name }}
           </label>
         </div>
-
-
       </p-tabpanel>
+
     </p-tabpanels>
   </p-tabs>
 
   <!-- Footer buttons -->
   <div class="row p-3">
     <div class="col-6">
-      <p-button label="Clear"
+      <p-button label="{{ 'filterSort.buttons.clear' | translate }}"
                 (click)="clearAllFilters()"
                 size="large"
                 styleClass="p-button-outlined p-button-secondary p-button-rounded w-100">
@@ -326,11 +300,10 @@
     </div>
     <div class="col-6">
       <p-button (click)="filterVisible = false; applyFilter()"
-                label="Save"
+                label="{{ 'filterSort.buttons.save' | translate }}"
                 size="large"
                 styleClass="p-button-rounded w-100">
       </p-button>
     </div>
   </div>
-
 </p-drawer>

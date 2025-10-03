@@ -12,11 +12,12 @@ import {Observable, of} from 'rxjs';
 import Swal from 'sweetalert2';
 import {catchError, map} from 'rxjs/operators';
 import {PaymentSocketService} from '../../../../services/payment-socket-service';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-checkout-payment-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule, BusInfoComponent, Button, Drawer,
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, BusInfoComponent, Button, Drawer, TranslatePipe,
   ],
   templateUrl: './payment-form.component.html',
   styleUrl: './payment-form.component.scss'
