@@ -1,10 +1,8 @@
-
-
-<div class="container  px-4 partners-section">
+<div class="container px-4 partners-section">
 
   <!-- Section title -->
   <h3 class="fs-4 text-start pb-0 fw-bold section-title">
-    Our Travel Partners
+    {{ 'partners.heading' | translate }}
   </h3>
 
   <!-- Carousel -->
@@ -15,16 +13,15 @@
     <div class="carousel-inner">
       <!-- First slide (active) -->
       <div class="carousel-item active">
-        <div class="d-flex  gap-2 flex-wrap">
+        <div class="d-flex gap-2 flex-wrap">
           <div
             routerLink="/search"
             *ngFor="let partner of partnerSlides[0]; let i = index"
-               class="text-center">
+            class="text-center">
             <div class="partner-circle shadow-sm">
               <img [src]="partner.logo" loading="lazy"
-                   [alt]=" (partner.name) + '| online Booking'">
+                   [alt]="partner.name + ' | online Booking'">
             </div>
-
             <p class="d-block mt-2">
               {{ partner.name }}
             </p>
@@ -32,21 +29,6 @@
         </div>
       </div>
 
-      <!-- Other slides -->
-<!--      <div class="carousel-item"-->
-<!--           *ngFor="let slide of partnerSlides.slice(1)">-->
-<!--        <div class=" gap-5 flex-wrap">-->
-<!--          <div *ngFor="let partner of slide; let i = index"-->
-<!--              class="d-flex justify-content-center align-items-center" >-->
-<!--            <div class="partner-circle shadow-sm">-->
-<!--              <img [src]="partner.logo"  loading="lazy" [alt]="partner.name">-->
-<!--            </div>-->
-<!--            <p class="d-block mt-2">-->
-<!--              {{ partner.name }}-->
-<!--            </p>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
       <!-- Other slides -->
       <div class="carousel-item"
            *ngFor="let slide of partnerSlides.slice(1)">

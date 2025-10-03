@@ -21,60 +21,186 @@
   </div>
 </div>
 
-<!-- Highway Badge -->
-<div class="highwayPatch text-center" *ngIf="item.highWayDirectRoute === 'Highway'">
-  {{ 'badge.highway' | translate }}
-</div>
+<!-- Bus Results Content -->
+<div *ngIf="!isLoading && !isEmpty">
+  <div
+    class="d-flex flex-column gap-2"
+    *ngFor="let item of buses; let i = index">
+    <div
+      (click)="getSelectedBus(item)"
+      [ngClass]="collapseState[i] ? 'bg-custom' : 'card-selected'"
+      class="d-flex flex-column d-md-none p-3 card rounded-4 shadow-sm gap-1 position-relative"
+      style="min-width:300px">
 
-<!-- Available Seats -->
-<p>
-  <span *ngIf="item.amenities"></span>
-  <span *ngFor="let amenity of getAmenityArray(item.amenities)"
-        [innerHTML]="(amenity?.toString() || '') | displayAmenity"></span> •
-  <span *ngIf="item.available_seat_count">
-    {{ 'bus.availableSeats' | translate }} :
-    <span class="fw-bold text-primary-emphasis">{{item.available_seat_count}}</span>
-  </span>
-</p>
-
-<!-- Seat Selection Drawer -->
-<p-drawer header="{{ 'drawer.seatSelection' | translate }}"
-          [(visible)]="visibleState[i]"
-          position="bottom"
-          (onHide)="toggleCollapse(i)"
-          [style]="{ height: '800px' }">
-
-  <!-- Loading seats -->
-  <div *ngIf="isLoadingSeats[i]" class="d-flex justify-content-center align-items-center py-5" style="height: 800px">
-    <div class="text-center">
-      <div class="spinner-border text-primary" role="status" style="width: 2.5rem; height: 2.5rem;">
-        <span class="visually-hidden">{{ 'loading.seatsSpinner' | translate }}</span>
+      <!-- Highway Badge -->
+      <div class="highwayPatch text-center" *ngIf="item.highWayDirectRoute === 'Highway'">
+        {{ 'badge.highway' | translate }}
       </div>
-      <p class="mt-3 text-muted">{{ 'loading.seats' | translate }}</p>
-      <small class="text-muted">{{ 'loading.seatsWait' | translate }}</small>
-    </div>
-  </div>
 
-  <!-- Error state -->
-  <div *ngIf="!isLoadingSeats[i] && seatLoadError[i]" class="text-center py-5">
-    <div class="mb-4">
-      <i class="bi bi-exclamation-triangle text-warning" style="font-size: 3rem;"></i>
-      <h5 class="text-muted mt-3">{{ 'error.loadSeatsTitle' | translate }}</h5>
-      <p class="text-muted">{{ 'error.loadSeatsMessage' | translate }}</p>
-      <button class="btn btn-outline-primary" (click)="reloadSeats(item, i)">
-        <i class="bi bi-arrow-clockwise me-2"></i>
-        {{ 'error.tryAgain' | translate }}
-      </button>
-    </div>
-  </div>
+      <!-- Main Content Container -->
+      <div class="d-flex flex-column gap-2">
+        <div class="d-flex flex-row gap-2 align-items-start">
+          <div class="d-flex align-items-center justify-content-start gap-3">
+            <img
+              alt="{{item.company_name}} | cheap bus tickets"
+              src="{{item.company_logo}}" height="55" width="55"
+              [ngClass]="item.highWayDirectRoute === 'Highway' ? 'ms-4':''"
+              class="img-thumbnail border-0 text-end">
+          </div>
 
-  <!-- Close button -->
-  <div class="text-end pb-2 mt-3">
-    <button
-      class="btn btn-sm btn-outline-secondary bg-secondary-subtle d-flex align-items-center rounded-3 text-dark"
-      (click)="toggleCollapse(i)">
-      <i class="bi bi-chevron-bar-up me-1"></i>
-      {{ 'button.close' | translate }}
-    </button>
+          <div class="d-flex justify-content-between align-items-center w-100">
+            <!-- Company Details -->
+            <div class="d-flex align-items-center gap-2 w-100">
+              <div class="w-100">
+                <div class="d-flex align-items-center justify-content-between gap-2 mb-1">
+                  <span class="fw-semibold text-dark" style="font-size: 14px">{{ item.company_name }}</span>
+                  <span>{{ item.highWayDirectRoute }}</span>
+                </div>
+                <div class="small text-muted d-flex justify-content-between w-100 gap-1">
+                  <p>
+                    <span *ngIf="item.amenities"></span>
+                    <span class="" *ngFor="let amenity of getAmenityArray(item.amenities)"
+                          [innerHTML]="(amenity?.toString() || '') | displayAmenity"></span> •
+                    <span *ngIf="item.available_seat_count">
+                      {{ 'bus.availableSeats' | translate }} :
+                      <span class="fw-bold text-primary-emphasis">{{item.available_seat_count}}</span>
+                    </span>
+                  </p>
+
+                  <div
+                    style="max-height: 18px"
+                    class="d-flex justify-content-end mt-1 text-end">
+                    <span class="badge text-white d-flex align-items-center gap-1 px-2 py-1"
+                          style="background-color: #28a745; border-radius: 4px">
+                      ★ {{ item.avg_rating || '4.3' }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Time and Price Row -->
+        <div class="d-flex flex-col justify-content-between align-items-start">
+          <!-- Time Section -->
+          <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+              <span style="font-size: 15px" class="fw-semibold mb-0 text-dark">{{ item.departure_time }}</span>
+              <span class="text-muted mx-2">—</span>
+              <span style="font-size: 15px" class="mb-0 fw-normal text-muted">{{ item.arrival_time }}</span>
+            </div>
+            <div class="text-info-emphasis small text-start">
+              <span
+                class="fw-medium"
+                style="font-size: 14px"
+                *ngFor="let schedule of item.defaultTripPriceList; let last = last">
+                {{ schedule.seatType }} : {{ schedule.amount | number }} {{ !last ? ' | ' : '' }}
+              </span>
+            </div>
+          </div>
+          <!-- Price Section -->
+          <div class="text-end">
+            <div class="h5 fw-bold mb-0 text-dark">
+              <span style="font-size: 10px; margin-right:4px">KSH</span>
+              {{ getPreferredAmount(item) | number }}
+            </div>
+            <div class="small mb-1">
+              {{ getPreferredSeat(item)?.seatType | uppercase }}
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Button -->
+        <div class="d-flex justify-content-end">
+          <button
+            (click)="toggleCollapse(i); searchSeats(item, i); $event.stopPropagation()"
+            [attr.aria-expanded]="!collapseState[i]"
+            [ngClass]="collapseState[i] ? 'btn-primary' : 'btn-outline-secondary'"
+            [disabled]="isLoadingSeats[i]"
+            class="btn btn-sm px-4 position-relative rounded-4">
+
+            <!-- Loading spinner -->
+            <span *ngIf="isLoadingSeats[i]" class="spinner-border spinner-border-sm me-2" role="status">
+              <span class="visually-hidden">{{ 'loading.spinner' | translate }}</span>
+            </span>
+
+            <!-- Button text -->
+            <span *ngIf="!isLoadingSeats[i]">
+              {{ collapseState[i] ? ('button.viewSeats' | translate) : ('button.close' | translate) }}
+            </span>
+            <span *ngIf="isLoadingSeats[i]">
+              {{ 'loading.loading' | translate }}
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seat Selection Drawer -->
+    <p-drawer header="{{ 'drawer.seatSelection' | translate }}"
+              [(visible)]="visibleState[i]"
+              position="bottom"
+              (onHide)="toggleCollapse(i)"
+              [style]="{ height: '800px' }">
+
+      <!-- Loading state for seat selection -->
+      <div *ngIf="isLoadingSeats[i]" class="d-flex justify-content-center align-items-center py-5"
+           style="height: 800px">
+        <div class="text-center">
+          <div class="spinner-border text-primary" role="status" style="width: 2.5rem; height: 2.5rem;">
+            <span class="visually-hidden">{{ 'loading.seatsSpinner' | translate }}</span>
+          </div>
+          <p class="mt-3 text-muted">{{ 'loading.seats' | translate }}</p>
+          <small class="text-muted">{{ 'loading.seatsWait' | translate }}</small>
+        </div>
+      </div>
+
+      <!-- Error state for seat loading -->
+      <div *ngIf="!isLoadingSeats[i] && seatLoadError[i]" class="text-center py-5">
+        <div class="mb-4">
+          <i class="bi bi-exclamation-triangle text-warning" style="font-size: 3rem;"></i>
+          <h5 class="text-muted mt-3">{{ 'error.loadSeatsTitle' | translate }}</h5>
+          <p class="text-muted">{{ 'error.loadSeatsMessage' | translate }}</p>
+          <button class="btn btn-outline-primary" (click)="reloadSeats(item, i)">
+            <i class="bi bi-arrow-clockwise me-2"></i>
+            {{ 'error.tryAgain' | translate }}
+          </button>
+        </div>
+      </div>
+
+      <!-- Seat selector content -->
+      <div *ngIf="!isLoadingSeats[i] && !seatLoadError[i]"
+           style="overflow-x: hidden; overflow-y: scroll;" class="py-4">
+        <div #collapse="ngbCollapse" [(ngbCollapse)]="collapseState[i]" class="m-1 col-12 d-lg-none">
+          <div class="rounded">
+            <div class="row g-3 mx-0">
+              <div class="col-12">
+                <div>
+                  <!-- Seat selector component -->
+                  <app-component-bus-seat-selector
+                    *ngIf="seat_data"
+                    [payload]="seat_data"
+                    (close)="closeDrawerFromEmmiter($event, i)"
+                    [current]="i"
+                    [type]="type">
+                  </app-component-bus-seat-selector>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Close button -->
+      <div class="text-end pb-2 mt-3">
+        <button
+          class="btn btn-sm btn-outline-secondary bg-secondary-subtle d-flex align-items-center rounded-3 text-dark"
+          (click)="toggleCollapse(i)">
+          <i class="bi bi-chevron-bar-up me-1"></i>
+          {{ 'button.close' | translate }}
+        </button>
+      </div>
+    </p-drawer>
   </div>
-</p-drawer>
+</div>

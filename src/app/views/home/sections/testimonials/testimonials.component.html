@@ -1,37 +1,41 @@
 <div class="container">
-<div class="testimonials-container" (swipe)="onSwipe($event)">
+  <div class="testimonials-container" (swipe)="onSwipe($event)">
 
-  <h3 class="fw-bold mb-4 hero-animate fs-4">What Customers Say</h3>
+    <h3 class="fw-bold mb-4 hero-animate fs-4">
+      {{ 'testimonials.heading' | translate }}
+    </h3>
 
-  <div class="carousel-wrapper hero-animate">
-    <div class="carousel-track" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
-      <div class="carousel-card" *ngFor="let testimonial of visibleTestimonials">
-        <div class="testimonial-card">
-          <div class="rating mb-2">
-            <i class="bi bi-star-fill text-warning" *ngFor="let star of [1,2,3,4,5].slice(0, testimonial.rating)"></i>
-            <i class="bi bi-star text-warning" *ngFor="let star of [1,2,3,4,5].slice(testimonial.rating)"></i>
-          </div>
-          <p class="testimonial-text">{{ testimonial.text }}</p>
-          <div class="d-flex align-items-center mt-3">
-            <img [src]="testimonial.avatar" loading="lazy" alt="Customer" class="avatar me-3" />
-            <div>
-              <h6 class="mb-0">{{ testimonial.name }}</h6>
-              <small class="text-muted">{{ testimonial.partnerName }} Customer</small>
+    <div class="carousel-wrapper hero-animate">
+      <div class="carousel-track" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+        <div class="carousel-card" *ngFor="let testimonial of visibleTestimonials">
+          <div class="testimonial-card">
+            <div class="rating mb-2">
+              <i class="bi bi-star-fill text-warning" *ngFor="let star of [1,2,3,4,5].slice(0, testimonial.rating)"></i>
+              <i class="bi bi-star text-warning" *ngFor="let star of [1,2,3,4,5].slice(testimonial.rating)"></i>
+            </div>
+            <p class="testimonial-text">{{ testimonial.text }}</p>
+            <div class="d-flex align-items-center mt-3">
+              <img [src]="testimonial.avatar" loading="lazy" alt="Customer" class="avatar me-3" />
+              <div>
+                <h6 class="mb-0">{{ testimonial.name }}</h6>
+                <small class="text-muted">
+                  {{ testimonial.partnerName }} {{ 'testimonials.customer' | translate }}
+                </small>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Optional nav buttons -->
-  <div class="nav-buttons">
-    <button (click)="prev()" class="btn btn-light rounded-circle">
-      <i class="bi bi-chevron-left"></i>
-    </button>
-    <button (click)="next()" class="btn btn-light rounded-circle">
-      <i class="bi bi-chevron-right"></i>
-    </button>
+    <!-- Optional nav buttons -->
+    <div class="nav-buttons">
+      <button (click)="prev()" class="btn btn-light rounded-circle">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+      <button (click)="next()" class="btn btn-light rounded-circle">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
   </div>
-</div>
 </div>
