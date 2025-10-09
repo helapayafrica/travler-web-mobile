@@ -76,18 +76,24 @@ export class LoginComponent implements OnInit {
     }
 
     this.isSubmitting = true;
-    let data:any={"username":this.loginForm.value.phone_number,"password":this.loginForm.value.password,"gcm_token":"","country_code":this.loginForm.value.country_code,"sourcetype":"web"}
+    const username = this.loginForm.value.phone_number.replace(/^0+/, '').trim()
+
+    let data:any={"username":username,"password":this.loginForm.value.password.trim(),"gcm_token":"","country_code":this.loginForm.value.country_code,"sourcetype":"web"}
+
     this.service.login(data).subscribe((res)=>{
-      if(data.isSuccess){
+      console.log(res)
+      if(res.isSuccess){
         this.isSubmitting = false;
+        this.toastr.success('Logged in successfully.');
         this.authService.login(res.data);
         this.router.navigateByUrl('/');
       }else {
         // this.toastr.error(res.errors.password?.[0] || res.errors.username?.[0] || 'Invalid credentials', 'Login Failed');
         this.toastr.error(
-          res.errors.password?.[0] || res.errors.username?.[0] || 'Invalid credentials',
-          'Login Failed',
-          { positionClass: 'toast-bottom-right' }   // bottom center
+          res.errors.password?.[0] || res.errors.email?.[0] || 'Invalid credentials',
+          'Login Failed'
+          // ,
+          // { positionClass: '' }   // bottom center
         );
 
         this.isSubmitting = false;
@@ -97,7 +103,7 @@ export class LoginComponent implements OnInit {
   }
 
 
-  sign() {
-
+  signUp() {
+    this.router.navigate(['/sign-up'])
   }
 }

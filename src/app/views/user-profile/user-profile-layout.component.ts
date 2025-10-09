@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import {NgbDropdownModule, NgbModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {UploadPhotoModalComponent} from './modal/upload-photo-modal/upload-photo-modal.component';
 import {TranslatePipe} from '@ngx-translate/core';
+import {AuthService} from '../../services/auth';
+import {BookingService} from '../../services/booking';
 
 interface UserProfile {
   id: string;
@@ -28,21 +30,31 @@ interface UserProfile {
   ]
 })
 export class UserProfileLayoutComponent implements OnInit {
-  isAgent = true;
-  userProfile: UserProfile = {
-    id: 'usr123456',
-    firstName: 'Davis',
-    lastName: 'Mutuku',
+  isAgent = false;
+  service = inject((BookingService))
+  userDetails: UserDetails = {
+    name: 'Davis Mutuku',
+    age: 0,
+    gender: 'Male',
+    identityNumber: '0000',
     email: 'davis@helapay.africa',
-    phone: '+254 777777777',
-    profilePicture: 'https://placehold.co/600x400'
+    mobileNumber: '+254 777777777',
+    businessName: 'Davis Mutinda',
+    area: 'Nairobi',
+    road: 'Mombasa Road',
+    address: 'MVH2+H54, Likoni Rd, Nairobi, Kenya',
+    city: 'NAIROBI',
+    county: 'Nairobi'
   };
 
-  constructor() { }
+  constructor() {
+  }
 
   private modalService = inject(NgbModal);
+
   ngOnInit(): void {
     // You would typically fetch user data from a service
+    this.getUserDetails()
   }
 
   openCameraModal() {
@@ -53,7 +65,7 @@ export class UserProfileLayoutComponent implements OnInit {
     modalRef.result
       .then((result) => {
         if (result === 'confirm') {
-            // Upload the photo
+          // Upload the photo
         }
       })
       .catch(() => {
@@ -61,4 +73,40 @@ export class UserProfileLayoutComponent implements OnInit {
       });
   }
 
+  getUserDetails() {
+    console.log(']data[')
+    const userData: any = this.service.getConfig('userData')
+    console.log(userData);
+    if (userData) {
+      this.userDetails.name = userData.name + ' ' + userData.last_name
+      this.userDetails.age = userData.age
+      this.userDetails.gender = userData.gender
+      this.userDetails.identityNumber = userData.identityNumber
+      this.userDetails.email = userData.email
+      this.userDetails.mobileNumber = userData.mobileNumber
+      this.userDetails.businessName = userData.name + ' ' + userData.last_name
+
+    }
+
+  }
 }
+
+interface UserDetails {
+  name: string;
+  age: number;
+  gender: string;
+  identityNumber: string;
+  email: string;
+  mobileNumber: string;
+  businessName: string;
+  area: string;
+  road: string;
+  address: string;
+  city: string;
+  county: string;
+  identityPhoto?: string;
+  businessPhoto?: string;
+  signature?: string;
+}
+
+

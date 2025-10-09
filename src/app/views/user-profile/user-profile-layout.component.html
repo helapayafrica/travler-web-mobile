@@ -15,7 +15,7 @@
               </div>
             </div>
 
-            <h5 class="user-name">{{ userProfile.firstName }} {{ userProfile.lastName }}</h5>
+            <h5 class="user-name">{{userDetails.name }}</h5>
 
             <ul class="nav nav-tabs">
               <li *ngIf="isAgent" class="nav-item" routerLinkActive="active">
@@ -65,7 +65,7 @@
                  title="{{ 'userProfilePage.cameraIconAlt' | translate }}"></i>
             </div>
           </div>
-          <h5 class="user-name">{{ userProfile.firstName }} {{ userProfile.lastName }}</h5>
+          <h5 class="user-name">{{ userDetails.name }}</h5>
         </div>
 
         <ul class="nav-menu nav flex-column mt-2">

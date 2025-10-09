@@ -30,7 +30,7 @@ interface UserDetails {
   imports: [CommonModule, RouterLink, TranslatePipe]
 })
 export class AccountDetailsComponent implements OnInit {
-  userDetails: any = {
+  userDetails: UserDetails = {
     name: 'Davis Mutuku',
     age: 0,
     gender: 'Male',
@@ -59,7 +59,9 @@ export class AccountDetailsComponent implements OnInit {
   }
 
   getUserDetails(){
+    console.log(']data[')
     const userData: any = this.service.getConfig('userData')
+    console.log(userData);
     if(userData){
        this.userDetails.name = userData.name + ' ' + userData.last_name
       this.userDetails.age = userData.age

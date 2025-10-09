@@ -11,6 +11,10 @@ export class MessageService {
     this.message = signal(this.translate.instant('whereTo'));
   }
 
+  getMessage() {
+    return this.message;
+  }
+
   setMessage(state: string) {
 
     switch (state) {
