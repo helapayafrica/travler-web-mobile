@@ -408,3 +408,7 @@ body {
 .modal-backdrop {
   z-index: 1500;
 }
+.swal2-container {
+  z-index: 20000 !important;
+}
+

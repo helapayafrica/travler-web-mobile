@@ -23,6 +23,8 @@ import {BookingService} from '../../services/booking';
 import {Select} from 'primeng/select';
 import {Router} from '@angular/router';
 import {TranslatePipe} from '@ngx-translate/core';
+import {AuthService} from '../../services/auth';
+import Swal from 'sweetalert2';
 
 interface SeatData {
   left: string;
@@ -177,12 +179,52 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
   isSelected(seat: SeatData): boolean {
     return this.selectedSeats.some((s) => s.seat_id === seat.seat_id);
   }
+  //
+  // toggleSeat(seat: SeatData): void {
+  //   // che if logged in max seats is 6 if not logged in mmxa is 2
+  //   if (!seat.selection_status) {
+  //     const updatedSelection = this.busSeatService.toggleSeat(seat, this.selectedSeats);
+  //     this.busSeatService.updateSelectedSeats(updatedSelection);
+  //   }
+  // }
+  async toggleSeat(seat: SeatData): Promise<void> {
+    const loggedIn = this.bookingService.getConfig('loggedInStatus');
+    const maxSeats = loggedIn ? 6 : 2;
 
-  toggleSeat(seat: SeatData): void {
-    if (!seat.selection_status) {
-      const updatedSelection = this.busSeatService.toggleSeat(seat, this.selectedSeats);
-      this.busSeatService.updateSelectedSeats(updatedSelection);
+    // If user is not logged in and already reached 2 seats
+    if (!loggedIn && !seat.selection_status && this.selectedSeats.length >= maxSeats) {
+      const result = await Swal.fire({
+        title: 'Login Required',
+        text: 'You can only select up to 2 seats without logging in. Login to book more seats.',
+        icon: 'info',
+        showCancelButton: true,
+        confirmButtonText: 'Login',
+        cancelButtonText: 'Cancel',
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+      });
+
+      if (result.isConfirmed) {
+        this.loginModalService.openModal(); // your existing modal method
+      }
+      return;
     }
+
+    // If logged in and already reached 6 seats
+    if (loggedIn && !seat.selection_status && this.selectedSeats.length >= maxSeats) {
+      await Swal.fire({
+        title: 'Limit Reached',
+        text: `You can select up to ${maxSeats} seats per booking.`,
+        icon: 'warning',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#3085d6',
+      });
+      return;
+    }
+
+    // Proceed normally
+    const updatedSelection = this.busSeatService.toggleSeat(seat, this.selectedSeats);
+    this.busSeatService.updateSelectedSeats(updatedSelection);
   }
 
   getSelectedSeatsString(): string {
@@ -245,11 +287,19 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
   //     this.loginModalService.openModal();
   //   }
   // }
+  authService  = inject(AuthService)
   async proceedToCheckout(): Promise<void> {
+    const user = await this.authService.getCurrentUser()
+    const loggedInStatus  = this.bookingService.getConfig('loggedInStatus');
     if (this.type === 'onward') {
       this.bookingService.setConfig('pickup', this.boardingForm.value);
       await this.bookingService.saveOutward();
-      this.loginModalService.openModal();
+      if(user && loggedInStatus == true) {
+        await this.router.navigateByUrl('/checkout');
+      } else {
+        this.loginModalService.openModal();
+      }
+
     } else {
       this.bookingService.setConfig('pickup', this.boardingForm.value);
       await this.bookingService.saveReturn();
