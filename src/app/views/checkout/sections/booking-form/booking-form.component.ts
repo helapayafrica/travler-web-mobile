@@ -228,4 +228,49 @@ export class BookingFormComponent implements OnInit {
   getSelectedInsurance(passengerIndex: number): string {
     return this.passengerInsuranceMap[passengerIndex] || 'none';
   }
+
+  validateField(fieldName: string, value: any, index: number): string {
+  const field = fieldName.split('_')[0]; // name, age, gender, etc.
+  
+  switch(field) {
+    case 'name':
+      return !value || value.trim().length < 2 ? 'Name must be at least 2 characters' : '';
+    case 'age':
+      return !value || value < 1 || value > 120 ? 'Enter valid age (1-120)' : '';
+    case 'email':
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return !emailRegex.test(value) ? 'Enter valid email' : '';
+    case 'mobile':
+      return !value || value.toString().length < 9 ? 'Enter valid phone number' : '';
+    case 'id':
+      return !value ? 'ID number is required' : '';
+    case 'nationality':
+      return !value ? 'Nationality is required' : '';
+    default:
+      return '';
+  }
+}
+
+// In your component class
+formErrors: { [key: string]: string } = {};
+touchedFields: Set<string> = new Set();
+
+onFieldBlur(fieldName: string, value: any, index: number) {
+  this.touchedFields.add(fieldName + index);
+  const error = this.validateField(fieldName, value, index);
+  if (error) {
+    this.formErrors[fieldName + index] = error;
+  } else {
+    delete this.formErrors[fieldName + index];
+  }
+  this.cdr.markForCheck();
+}
+
+hasError(fieldName: string, index: number): boolean {
+  return this.touchedFields.has(fieldName + index) && !!this.formErrors[fieldName + index];
+}
+
+hasFormErrors(): boolean {
+  return Object.keys(this.formErrors).length > 0;
+}
 }

@@ -51,50 +51,143 @@
         <!-- Passenger Fields -->
         <div class="col-8">
           <label class="form-label" [for]="'name' + index">{{ 'booking.passengerForm.fields.name' | translate }}</label>
-          <input [(ngModel)]="item.name" class="form-control" [id]="'name' + index" [name]="'seat' + item.seat_name" placeholder="{{ 'booking.passengerForm.fields.name' | translate }}" required type="text">
+          <input 
+            [(ngModel)]="item.name" 
+            (blur)="onFieldBlur('name', item.name, index)"
+            [class.is-invalid]="hasError('name', index)"
+            class="form-control" 
+            [id]="'name' + index" 
+            [name]="'seat' + item.seat_name" 
+            placeholder="{{ 'booking.passengerForm.fields.name' | translate }}" 
+            required 
+            type="text">
+          <div *ngIf="hasError('name', index)" class="invalid-feedback d-block">
+            {{ formErrors['name' + index] }}
+          </div>
         </div>
+
         <div class="col-4">
           <label class="form-label" [for]="'age' + index">{{ 'booking.passengerForm.fields.age' | translate }}</label>
-          <input [(ngModel)]="item.age" class="form-control" [id]="'age' + index" [name]="'age' + item.seat_name" placeholder="{{ 'booking.passengerForm.fields.age' | translate }}" required type="number">
+          <input 
+            [(ngModel)]="item.age" 
+            (blur)="onFieldBlur('age', item.age, index)"
+            [class.is-invalid]="hasError('age', index)"
+            class="form-control" 
+            [id]="'age' + index" 
+            [name]="'age' + item.seat_name" 
+            placeholder="{{ 'booking.passengerForm.fields.age' | translate }}" 
+            required 
+            type="number">
+          <div *ngIf="hasError('age', index)" class="invalid-feedback d-block">
+            {{ formErrors['age' + index] }}
+          </div>
         </div>
 
         <div class="col-4 mt-2">
           <label class="form-label" [for]="'gender' + index">{{ 'booking.passengerForm.fields.gender' | translate }}</label>
-          <select [(ngModel)]="item.gender" class="form-select" [id]="'gender' + index" [name]="'gender' + item.seat_name" required>
+          <select 
+            [(ngModel)]="item.gender" 
+            (blur)="onFieldBlur('gender', item.gender, index)"
+            [class.is-invalid]="hasError('gender', index)"
+            class="form-select" 
+            [id]="'gender' + index" 
+            [name]="'gender' + item.seat_name" 
+            required>
+            <option value="">Select Gender</option>
             <option value="F">Female</option>
             <option value="M">Male</option>
           </select>
+          <div *ngIf="hasError('gender', index)" class="invalid-feedback d-block">
+            {{ formErrors['gender' + index] }}
+          </div>
         </div>
 
         <div class="col-8 mt-2">
           <label class="form-label" [for]="'id' + index">{{ 'booking.passengerForm.fields.idNo' | translate }}</label>
-          <input [(ngModel)]="item.id_no" class="form-control" [name]="'id_no' + item.seat_name" placeholder="{{ 'booking.passengerForm.fields.idNo' | translate }}" required type="number">
+          <input 
+            [(ngModel)]="item.id_no" 
+            (blur)="onFieldBlur('id', item.id_no, index)"
+            [class.is-invalid]="hasError('id', index)"
+            class="form-control" 
+            [name]="'id_no' + item.seat_name" 
+            placeholder="{{ 'booking.passengerForm.fields.idNo' | translate }}" 
+            required 
+            type="number">
+          <div *ngIf="hasError('id', index)" class="invalid-feedback d-block">
+            {{ formErrors['id' + index] }}
+          </div>
         </div>
 
         <div class="col-12 mt-2">
           <label class="form-label" [for]="'email' + index">{{ 'booking.passengerForm.fields.email' | translate }}</label>
-          <input [(ngModel)]="item.email" class="form-control" [name]="'email' + item.seat_name" placeholder="{{ 'booking.passengerForm.fields.email' | translate }}" required email type="text">
+          <input 
+            [(ngModel)]="item.email" 
+            (blur)="onFieldBlur('email', item.email, index)"
+            [class.is-invalid]="hasError('email', index)"
+            class="form-control" 
+            [name]="'email' + item.seat_name" 
+            placeholder="{{ 'booking.passengerForm.fields.email' | translate }}" 
+            required 
+            email 
+            type="text">
+          <div *ngIf="hasError('email', index)" class="invalid-feedback d-block">
+            {{ formErrors['email' + index] }}
+          </div>
         </div>
 
         <div class="col-12 mt-2">
           <label class="form-label" [for]="'nationality' + index">{{ 'booking.passengerForm.fields.nationality' | translate }}</label>
-          <input [(ngModel)]="item.nationality" [typeaheadOptionField]="'value'" [typeahead]="nationalities" class="form-control" [name]="'nationality' + item.seat_name" placeholder="{{ 'booking.passengerForm.fields.nationality' | translate }}" required type="text">
+          <input 
+            [(ngModel)]="item.nationality" 
+            (blur)="onFieldBlur('nationality', item.nationality, index)"
+            [class.is-invalid]="hasError('nationality', index)"
+            [typeaheadOptionField]="'value'" 
+            [typeahead]="nationalities" 
+            class="form-control" 
+            [name]="'nationality' + item.seat_name" 
+            placeholder="{{ 'booking.passengerForm.fields.nationality' | translate }}" 
+            required 
+            type="text">
+          <div *ngIf="hasError('nationality', index)" class="invalid-feedback d-block">
+            {{ formErrors['nationality' + index] }}
+          </div>
         </div>
 
         <div class="col-12 mt-2">
           <div class="row mb-2">
             <div class="col-4">
               <label class="form-label" [for]="'mobileId' + index">{{ 'booking.passengerForm.fields.phoneCode' | translate }}</label>
-              <select [(ngModel)]="item.mobileId" class="form-select" [name]="'mobileId' + item.seat_name" required>
+              <select 
+                [(ngModel)]="item.mobileId" 
+                (blur)="onFieldBlur('mobileId', item.mobileId, index)"
+                [class.is-invalid]="hasError('mobileId', index)"
+                class="form-select" 
+                [name]="'mobileId' + item.seat_name" 
+                required>
+                <option value="">Code</option>
                 <option *ngFor="let code of country_codes" [value]="code.code">+{{ code.code }}</option>
               </select>
+              <div *ngIf="hasError('mobileId', index)" class="invalid-feedback d-block">
+                {{ formErrors['mobileId' + index] }}
+              </div>
             </div>
 
             <div class="col-8">
               <label class="form-label" [for]="'phone' + index">{{ 'booking.passengerForm.fields.phoneNumber' | translate }}</label>
               <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-telephone-plus"></i></span>
-                <input [(ngModel)]="item.mobile" class="form-control" [name]="'phone' + item.seat_name" placeholder="700000000" required type="number">
+                <input 
+                  [(ngModel)]="item.mobile" 
+                  (blur)="onFieldBlur('mobile', item.mobile, index)"
+                  [class.is-invalid]="hasError('mobile', index)"
+                  class="form-control" 
+                  [name]="'phone' + item.seat_name" 
+                  placeholder="700000000" 
+                  required 
+                  type="number">
+              </div>
+              <div *ngIf="hasError('mobile', index)" class="invalid-feedback d-block">
+                {{ formErrors['mobile' + index] }}
               </div>
             </div>
           </div>
@@ -151,7 +244,10 @@
   </div>
 
   <div *ngIf="!isSuccess" class="card-footer border-0 text-end">
-    <button (click)="proceed()" [disabled]="passengerForm.invalid" class="btn btn-primary py-2 px-3 rounded-pill">
+    <button 
+      (click)="proceed()" 
+    [disabled]="passengerForm.invalid || hasFormErrors()"
+      class="btn btn-primary py-2 px-3 rounded-pill">
       {{ 'booking.passengerForm.button.proceed' | translate }}
     </button>
   </div>
