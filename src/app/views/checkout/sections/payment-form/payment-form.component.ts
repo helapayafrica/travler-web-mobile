@@ -8,7 +8,7 @@ import {BackendService} from '../../../../services/backend';
 import {Button} from 'primeng/button';
 import {Drawer} from 'primeng/drawer';
 import {Router} from '@angular/router';
-import {Observable, of} from 'rxjs';
+import {filter, Observable, of, switchMap, tap} from 'rxjs';
 import Swal from 'sweetalert2';
 import {catchError, map} from 'rxjs/operators';
 import {PaymentSocketService} from '../../../../services/payment-socket-service';
@@ -24,27 +24,27 @@ import {TranslatePipe} from '@ngx-translate/core';
 })
 export class PaymentFormComponent implements OnInit {
   paymentForm!: FormGroup;
-  promotionForm !:FormGroup;
+  promotionForm !: FormGroup;
   interval: any;
   isTimeExpired: boolean = false;
   selectedPaymentMethod: string = 'mpesa'; // Default selection
   timeLeft: number = 600; // Time remaining
   totalDuration: number = 600; // ✅ Set the total duration of the timer
 
-  countryCodes =[
-    { code: '254', country: 'Kenya' },
-    { code: '255', country: 'Tanzania' },
-    { code: '256', country: 'Uganda' },
-    { code: '250', country: 'Rwanda' }
+  countryCodes = [
+    {code: '254', country: 'Kenya'},
+    {code: '255', country: 'Tanzania'},
+    {code: '256', country: 'Uganda'},
+    {code: '250', country: 'Rwanda'}
   ];
 
   router = inject(Router)
   paymentSocketService = inject(PaymentSocketService)
 
 
-  constructor(private fb: FormBuilder,public bookingService:BookingService,public service:BackendService,private toastr: ToastrService) {
+  constructor(private fb: FormBuilder, public bookingService: BookingService, public service: BackendService, private toastr: ToastrService) {
 
-    this.bookingService.referenceNumber$.subscribe((res)=>{
+    this.bookingService.referenceNumber$.subscribe((res) => {
 
 
     })
@@ -55,7 +55,7 @@ export class PaymentFormComponent implements OnInit {
     this.paymentForm = this.fb.group({
       paymentMethod: ['mpesa', Validators.required], // Default to Mpesa
       mobileNumber: ['', [Validators.required]],
-      consent: [true,[Validators.requiredTrue]],
+      consent: [true, [Validators.requiredTrue]],
       countryCode: ['', Validators.required]
     });
 
@@ -68,11 +68,17 @@ export class PaymentFormComponent implements OnInit {
 
   }
 
-  async getTicket(){{
-  let payload:any= await this.bookingService.getConfig('ticket');
+  async getTicket() {
+    {
+      let payload: any = await this.bookingService.getConfig('ticket');
 
-  this.paymentForm.patchValue({countryCode:payload.ticketDetail.onwardticket.passenger[0]['mobileId'],mobileNumber:payload.ticketDetail.onwardticket.passenger[0]['mobile']})
-  }}
+      this.paymentForm.patchValue({
+        countryCode: payload.ticketDetail.onwardticket.passenger[0]['mobileId'],
+        mobileNumber: payload.ticketDetail.onwardticket.passenger[0]['mobile']
+      })
+    }
+  }
+
   // Function to update the mobile number placeholder and pattern
   updatePlaceholder() {
     this.selectedPaymentMethod = this.paymentForm.value.paymentMethod;
@@ -136,6 +142,7 @@ export class PaymentFormComponent implements OnInit {
 
   // Submit Payment Function
   busInfoVisible: boolean = true;
+
   submitPayment() {
     // console.log(this.paymentForm.valid);
     if (this.paymentForm.invalid) {
@@ -152,6 +159,7 @@ export class PaymentFormComponent implements OnInit {
     console.log('Payment Submitted:', this.paymentForm.value);
     this.makePayment();
   }
+
   updateValidation() {
     const countryCode = this.paymentForm.get('countryCode')?.value;
     const mobileControl = this.paymentForm.get('mobileNumber');
@@ -167,50 +175,86 @@ export class PaymentFormComponent implements OnInit {
     mobileControl?.updateValueAndValidity();
 
   }
-  async makePayment(){
-    let formData=this.paymentForm.value
-    console.log(formData)
-    let ref_no =  await this.bookingService.getConfig('booking_reference')
-    let data ={"bookingRef":ref_no,"queryoption":2,"queryvalue":formData.countryCode+formData.mobileNumber,"requestType":"ticket","additionalInfo":{"onward":{"sponsorTrip":false,"discountId":0},"return":{"sponsorTrip":false,"discountId":0}},"isWalletApply":false,"sourcetype":"web"}
 
-    this.checkWallet().subscribe(isValid=>{
+  async makePayment() {
+    let formData = this.paymentForm.value
+    console.log(formData)
+    let ref_no = await this.bookingService.getConfig('booking_reference')
+    let data = {
+      "bookingRef": ref_no,
+      "queryoption": 2,
+      "queryvalue": formData.countryCode + formData.mobileNumber,
+      "requestType": "ticket",
+      "additionalInfo": {
+        "onward": {"sponsorTrip": false, "discountId": 0},
+        "return": {"sponsorTrip": false, "discountId": 0}
+      },
+      "isWalletApply": false,
+      "sourcetype": "web"
+    }
+
+    this.checkWallet().subscribe(isValid => {
       const newData = {
         ...data,
         isWalletApply: isValid
       }
 
-      console.log(data)
-      console.log(newData)
-      this.service.makePayment(newData).subscribe((res)=>{
+      // console.log(data)
+      console.log("Booking Ref")
+      console.log(newData.bookingRef)
+      this.service.makePayment(newData).subscribe((res) => {
 
-        console.log("['Payment Response']", res);
+        // console.log("['Payment Response']", res);
+        //
+        // console.log(res);
+        // join the socketroom for payment  confirmation
+        // this.bookingService.setConfig("roomIdRef","payment_"+res.bookingRef )
+        console.log("payment_" + newData.bookingRef)
 
-        console.log(res);
-        // // join the socketroom for payment  confirmation
-        // this.paymentSocketService.joinPaymentRoom((res.invoiceRef));
-        // // this.paymentSocketService.disconnect()
+        this.paymentSocketService.isConnected$
+          .pipe(
+            filter(connected => connected),
+            tap(() => {
+              console.log("Joinning room")
+              this.paymentSocketService.joinPaymentRoom("payment_" + newData.bookingRef);
+            }),
+            switchMap(() => {
+              console.log('[Payment Formation socket]')
+               return this.paymentSocketService.paymentConfirmation$
+            })
+          )
+          .subscribe({
+            next: (confirmation) => {
+              console.log('[Confirmation]', confirmation);
+              if (confirmation) {
+                console.log("Conformation Recieved")
+                // this.handlePaymentSuccess(confirmation);
+              }
+            },
+            error: (err) => console.error(err)
+          });
 
-        console.log(res)
+
+
+        // console.log(res)
         this.startTimer()
-        if(res.isSuccess){
-
-
+        if (res.isSuccess) {
           Swal.fire({
             icon: 'success',
             title: 'Payment Initiated',
-            text:res.msg,
+            text: res.msg,
             timer: 3000, // Auto-close after 3 seconds
             showConfirmButton: false
           });
-        setTimeout(()=>{
-          this.router.navigate(['/confirm-payment'])
+          setTimeout(() => {
+            // this.router.navigate(['/confirm-payment'])
           }, 3000)
 
-        }else{
+        } else {
           Swal.fire({
             icon: 'error',
             title: 'Payment Failed',
-            text:res.msg,
+            text: res.msg,
             timer: 5000, // Auto-close after 3 seconds
             cancelButtonText: 'Cancel',
             showCancelButton: true,
@@ -226,7 +270,7 @@ export class PaymentFormComponent implements OnInit {
   checkWallet(): Observable<boolean> {
     const userData: any = this.bookingService.getConfig('userData');
     if (!userData) return of(false);
-    if(!userData.userId) return of(false);
+    if (!userData.userId) return of(false);
 
     return this.service.getUserWalletData(userData.userId).pipe(
       map((wallet: any) => wallet.data.amount >= 1),
@@ -236,7 +280,6 @@ export class PaymentFormComponent implements OnInit {
       })
     );
   }
-
 
 
 }

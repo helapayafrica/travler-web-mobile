@@ -1,9 +1,32 @@
 import { Injectable } from '@angular/core';
 import { io, Socket } from 'socket.io-client';
 import { BehaviorSubject, Observable } from 'rxjs';
-import {PaymentConfirmation, RoomStatus} from '../Models';
 
+export interface PaymentConfirmation {
+  type: string;
+  invoice_ref: string;
+  timestamp: string;
+  data: {
+    TransactionType: string;
+    TransID: string;
+    TransTime: string;
+    TransAmount: string;
+    BusinessShortCode: string;
+    BillRefNumber: string;
+    InvoiceNumber: string;
+    OrgAccountBalance: string;
+    ThirdPartyTransID: string;
+    MSISDN: string;
+    FirstName: string;
+  };
+}
 
+export interface RoomStatus {
+  room: string;
+  invoice_ref: string;
+  message: string;
+  timeout: number;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +45,7 @@ export class PaymentSocketService {
 
   private initializeSocket(): void {
     // Replace with your server URL
-    this.socket = io('http://localhost:6535', {
+    this.socket = io('http://18.191.130.168:6535', {
       transports: ['websocket', 'polling']
     });
 

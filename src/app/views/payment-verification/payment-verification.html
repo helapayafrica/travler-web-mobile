@@ -5,17 +5,17 @@
     <ng-container [ngSwitch]="status()">
 
       <!-- Idle State -->
-      <div *ngSwitchCase="'idle'" class="payment-state processing-state">
-        <div class="icon-container">
-          <div class="processing-spinner">
-            <div class="spinner-ring"></div>
-            <div class="spinner-ring"></div>
-            <div class="spinner-ring"></div>
-          </div>
-        </div>
-        <h4 class="state-title">{{ 'paymentVerificationPage.states.idle.title' | translate }}</h4>
-        <p class="state-description">{{ 'paymentVerificationPage.states.idle.description' | translate }}</p>
-      </div>
+<!--      <div *ngSwitchCase="'idle'" class="payment-state processing-state">-->
+<!--        <div class="icon-container">-->
+<!--          <div class="processing-spinner">-->
+<!--            <div class="spinner-ring"></div>-->
+<!--            <div class="spinner-ring"></div>-->
+<!--            <div class="spinner-ring"></div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <h4 class="state-title">{{ 'paymentVerificationPage.states.idle.title' | translate }} idle</h4>-->
+<!--        <p class="state-description">{{ 'paymentVerificationPage.states.idle.description' | translate }}</p>-->
+<!--      </div>-->
 
       <!-- Processing State -->
       <div *ngSwitchCase="'processing'" class="payment-state processing-state">
