@@ -90,7 +90,8 @@ export class LoginModalComponent {
     if (this.modalInstance) {
       this.modalInstance.hide();
     }
-    this.router.navigateByUrl('/checkout');
+    // this.router.navigateByUrl('/checkout');
+    this.loginModalService.navigateToUrl();
   }
   onSubmit(): void {
     if (this.loginForm.invalid) {
@@ -108,11 +109,20 @@ export class LoginModalComponent {
     // })
     this.service.login(data).subscribe((res)=>{
       console.log("data")
-      if(data.isSuccess){
+      console.log(res.isSuccess);
+      
+      if(res.isSuccess){
+        console.log("Is  successfull");
+        
         console.log(res)
         this.isSubmitting = false;
+        this.loading = false;
         this.authService.login(res.data);
-        this.router.navigateByUrl('/checkout');
+        this.closeModal()
+        // this.router.navigateByUrl('/checkout');
+      this.loginModalService.navigateToUrl();
+      this.toastr.success("Login Successfull")
+
       }else {
         console.log(res)
         this.toastr.error(res.errors.password?.[0] || res.errors.username?.[0] || 'Invalid credentials', 'Login Failed');
@@ -133,7 +143,6 @@ export class LoginModalComponent {
   sign(){
     this.modalService.closeModal();
     this.router.navigateByUrl('/sign-up');
-
   }
 
 

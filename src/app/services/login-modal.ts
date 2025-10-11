@@ -1,10 +1,14 @@
-import {Injectable, OnInit, signal, Signal} from '@angular/core';
+import {inject, Injectable, OnInit, signal, Signal} from '@angular/core';
 import {LoginModalComponent} from '../shared/login-modal/login-modal.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginModalService{
+  currentUrl = "/";
+  router = inject(Router)
+  
   private modalInstance!: LoginModalComponent;
   isLoginRequired: Signal<boolean> = signal(false);
 
@@ -12,11 +16,16 @@ export class LoginModalService{
     this.modalInstance = modal;
   }
 
-  openModal() {
-    // console.log("HEoolo World")
+  openModal(currentUrl: string) {
     if (this.modalInstance) {
-      // console.log("THis isnatas id ok")
+      this.currentUrl = currentUrl
       this.modalInstance.openModal();
     }
+  }
+
+  navigateToUrl(){
+    console.log(this.currentUrl);
+    this.router.navigate([this.currentUrl]);
+  
   }
 }

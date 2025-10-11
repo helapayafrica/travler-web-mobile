@@ -21,7 +21,7 @@ import {ResultsComponent} from '../../views/search/sections/results/results.comp
 import {LoginModalService} from '../../services/login-modal';
 import {BookingService} from '../../services/booking';
 import {Select} from 'primeng/select';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {TranslatePipe} from '@ngx-translate/core';
 import {AuthService} from '../../services/auth';
 import Swal from 'sweetalert2';
@@ -88,6 +88,8 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
       this.selectedTab = res;
     });
   }
+
+
 
   ngOnInit() {
     this.boardingForm = this.fb.group({
@@ -216,7 +218,7 @@ async toggleSeat(seat: SeatData): Promise<void> {
       });
 
       if (result.isConfirmed) {
-        this.loginModalService.openModal();
+        this.loginModalService.openModal(this.router.url);
       }
     } else {
       await Swal.fire({
@@ -291,7 +293,7 @@ async toggleSeat(seat: SeatData): Promise<void> {
   //   } else {
   //     this.bookingService.setConfig('pickup', this.boardingForm.value);
   //     await this.bookingService.saveReturn();
-  //     this.loginModalService.openModal();
+  //     this.loginModalService.openModal(this.router.url);
   //   }
   // }
   authService  = inject(AuthService)
@@ -304,13 +306,13 @@ async toggleSeat(seat: SeatData): Promise<void> {
       if(user && loggedInStatus == true) {
         await this.router.navigateByUrl('/checkout');
       } else {
-        this.loginModalService.openModal();
+        this.loginModalService.openModal('/checkout');
       }
 
     } else {
       this.bookingService.setConfig('pickup', this.boardingForm.value);
       await this.bookingService.saveReturn();
-      this.loginModalService.openModal();
+      this.loginModalService.openModal('/checkout');
     }
   }
 
