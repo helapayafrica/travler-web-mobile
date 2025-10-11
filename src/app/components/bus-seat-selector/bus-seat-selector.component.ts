@@ -187,12 +187,23 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
   //     this.busSeatService.updateSelectedSeats(updatedSelection);
   //   }
   // }
-  async toggleSeat(seat: SeatData): Promise<void> {
-    const loggedIn = this.bookingService.getConfig('loggedInStatus');
-    const maxSeats = loggedIn ? 6 : 2;
+async toggleSeat(seat: SeatData): Promise<void> {
+  const loggedIn = this.bookingService.getConfig('loggedInStatus');
+  const maxSeats = loggedIn ? 6 : 2;
 
-    // If user is not logged in and already reached 2 seats
-    if (!loggedIn && !seat.selection_status && this.selectedSeats.length >= maxSeats) {
+  // Check if seat is already selected
+  const isAlreadySelected = this.isSelected(seat)
+
+  // If deselecting, always allow it
+  if (isAlreadySelected) {
+    const updatedSelection = this.busSeatService.toggleSeat(seat, this.selectedSeats);
+    this.busSeatService.updateSelectedSeats(updatedSelection);
+    return;
+  }
+
+  // Now check limits only for NEW selections
+  if (this.selectedSeats.length >= maxSeats) {
+    if (!loggedIn) {
       const result = await Swal.fire({
         title: 'Login Required',
         text: 'You can only select up to 2 seats without logging in. Login to book more seats.',
@@ -205,13 +216,9 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
       });
 
       if (result.isConfirmed) {
-        this.loginModalService.openModal(); // your existing modal method
+        this.loginModalService.openModal();
       }
-      return;
-    }
-
-    // If logged in and already reached 6 seats
-    if (loggedIn && !seat.selection_status && this.selectedSeats.length >= maxSeats) {
+    } else {
       await Swal.fire({
         title: 'Limit Reached',
         text: `You can select up to ${maxSeats} seats per booking.`,
@@ -219,14 +226,14 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
         confirmButtonText: 'OK',
         confirmButtonColor: '#3085d6',
       });
-      return;
     }
-
-    // Proceed normally
-    const updatedSelection = this.busSeatService.toggleSeat(seat, this.selectedSeats);
-    this.busSeatService.updateSelectedSeats(updatedSelection);
+    return;
   }
 
+  // Proceed with new selection
+  const updatedSelection = this.busSeatService.toggleSeat(seat, this.selectedSeats);
+  this.busSeatService.updateSelectedSeats(updatedSelection);
+}
   getSelectedSeatsString(): string {
     return this.selectedSeats
       .map((seat) => seat.seat_name)
