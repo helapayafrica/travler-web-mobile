@@ -25,8 +25,6 @@ export const httpInterceptor: HttpInterceptorFn = (
     const userData:any = service.getConfig('userData');
     if(userData){
       const  token = userData.api_token;
-      console.log('USER DATTTAAAA')
-      console.log(token);
       req = req.clone({ headers: req.headers.set('Authorization', token),body:data});
 
     }else {

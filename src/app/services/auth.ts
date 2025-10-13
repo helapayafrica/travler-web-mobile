@@ -17,7 +17,7 @@ export class AuthService {
   constructor() {
     // ✅ Load logged-in status from localStorage
     const storedStatus = localStorage.getItem(this.loggedInKey);
-    console.log('testing',storedStatus);
+    // console.log('testing',storedStatus);
     this.loggedInSubject = new BehaviorSubject<boolean>(storedStatus === 'true');
 
     // ✅ Load user data from localStorage

@@ -152,43 +152,27 @@
     "title": "FAQs related to Bus Tickets Booking",
     "nav": {
       "general": "General",
-      "tickets": "Ticket Booking",
+      "tickets": "Booking",
       "payment": "Payment"
     },
     "general": {
       "q1": {
-        "question": "Can I track the location of my booked bus online?",
-        "answer": "Yes, you can track your booked bus location online through the Travler tracking feature (if the bus operator supports live tracking)."
+        "question": "Can i travel with children?",
+        "answer": "A passenger is allowed only one baby for free. The age limit is 5 years. Children above 5 years are required to pay for their seats"
       },
       "q2": {
-        "question": "What are the advantages of purchasing a bus ticket with Travler?",
-        "answer": "Travler offers benefits such as easy booking, multiple payment options, discounts, 24/7 customer support, and access to both private and government bus operators."
-      },
-      "q3": {
-        "question": "Why book bus tickets online on Travler?",
-        "answer": "With Travler, you save money, earn credits on every booking, and enjoy access to multiple routes and operators."
-      },
-      "q4": {
-        "question": "Do I need to create an account on the Travler site to book my bus ticket?",
-        "answer": "No, you can book without creating an account, but having an account makes it easier to manage bookings and get offers."
-      },
-      "q5": {
-        "question": "Does bus booking online cost me more?",
-        "answer": "No, online booking typically costs the same as offline booking, and you may even get extra discounts or cashback offers."
-      },
-      "q6": {
-        "question": "How can I get the discounts on the bus booking?",
-        "answer": "You can use promo codes, seasonal offers, or loyalty points available on Travler to get discounts."
+        "question": "How much luggage is required?",
+        "answer": "20kgs of luggage is allowed free. Additional will be accepted on a charge if space permits"
       }
     },
     "tickets": {
       "q1": {
-        "question": "How do I book a ticket?",
+        "question": "How do I book my ticket on TRAVLER?",
         "step1": "Step 1: Search for Buses",
         "step1.desc": "Enter your travel details (From, To, Date) and click Search.",
-        "step1.note": "Note: \"Sorry, no seat available\" means buses are fully booked.",
+        "step1.note": "Note: \"Sorry, no seat available\" means the buses are fully booked.",
         "step2": "Step 2: Select Your Seat",
-        "step2.desc": "Click \"View Seats\" and choose your preferred seat(s).",
+        "step2.desc": "Click \"View Seats\" and proceed choose your preferred seat(s).",
         "step3": "Step 3: Choose Locations",
         "step3.desc": "Select your Pick Point and Drop Point from available options.",
         "step4": "Step 4: Enter Details",
@@ -198,26 +182,27 @@
         "step5.opt2": "Click Payment button → enter PIN in phone pop-up"
       },
       "q2": {
-        "question": "Can I cancel or reschedule my ticket?",
-        "answer": "Yes, cancellation and rescheduling options are available based on the bus operator’s policy."
+        "question": "Can I change the date of my journey after I have booked a bus ticket",
+        "answer": "Yes, cancellation and rescheduling options are available based on the bus operator’s policy.",
+        "step1" : "1. Log in to your app",
+        "step2" : "2. Go to trip history",
+        "step3" : "3. Select the trip and click  reschedule",
+        "step4": "4. Proceed to input your desired changes"
       },
-      "q3": {
-        "question": "How do I view my booked tickets?",
-        "answer": "All your bookings can be viewed in the “My Tickets” section after logging into your Travler account. You can also download or print your ticket from there."
+      "q3" : {
+        "question":"How do i book using a voucher code",
+        "step1": "1. Log in to your account.",
+        "step2": "2. Click the profile button at the bottom of the screen.",
+        "step3": "3. Select wallet, click Redeem Voucher, and enter your code.",
+        "step4": "4. Amount is successfully loaded into your account.",
+        "step5": "5.  Book using the usual booking process and select Pay from Wallet at the last step."
+
       }
     },
     "payment": {
       "q1": {
-        "question": "What payment methods does Travler accept?",
-        "answer": "Travler accepts mobile money"
-      },
-      "q2": {
-        "question": "Is it safe to pay online with Travler?",
-        "answer": "Yes, all payments are processed through secure, encrypted gateways to protect your financial information."
-      },
-      "q3": {
-        "question": "Can I get a refund for my payment?",
-        "answer": "Refunds are processed according to the bus operator’s policy. If eligible, the amount will be returned to your original payment method within a few business days."
+        "question": "What are the different payment options available for bus ticket booking?",
+        "answer": "The payment methods available on TRAVLER are Mpesa for Kshs, Airtel Money for UGX, and Tigo & Vodacom for TSHS"
       }
     }
   },
@@ -878,7 +863,6 @@
       "next": "Next"
     }
   },
-
   "notFound": {
     "errorCode": "404",
     "title": "Route Not Found",

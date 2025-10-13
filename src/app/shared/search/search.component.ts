@@ -218,7 +218,6 @@ export class SearchComponent implements OnInit {
   onSubmit(): void {
     this.couponService.clearCancellationProtectionAndInsuredSeats()
     let data = this.searchForm.value;
-    console.log('Form data:', data);
     const date = this.formatDateForConfig(data.date);
     const return_date = this.formatDateForConfig(data.return_date);
 

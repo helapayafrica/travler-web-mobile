@@ -66,7 +66,7 @@ export class BookingFormComponent implements OnInit {
     // Add this line
     // this.data.insuranceDetails = this.getInsuranceBookingData();
 
-    console.log('[this booking data],', this.getInsuranceBookingData())
+    // console.log('[this booking data],', this.getInsuranceBookingData())
     this.data.ticketDetail.onwardticket.passenger.forEach((element: any, i: any) => {
       this.data.ticketDetail.onwardticket.c_email = element.email;
       if (Object.keys(this.data.ticketDetail.returnticket).length > 0) {
@@ -81,7 +81,7 @@ export class BookingFormComponent implements OnInit {
         this.data.ticketDetail.returnticket.passenger[i].mobile = element.mobile
       }
     });
-    console.log('[this booking data],', this.data)
+    // console.log('[this booking data],', this.data)
     this.service.bookingTicket(this.data).subscribe((res) => {
       this.isSuccess = true
       this.bookingService.setConfig('booking_reference', res.booking_reference);
@@ -231,7 +231,7 @@ export class BookingFormComponent implements OnInit {
 
   validateField(fieldName: string, value: any, index: number): string {
   const field = fieldName.split('_')[0]; // name, age, gender, etc.
-  
+
   switch(field) {
     case 'name':
       return !value || value.trim().length < 2 ? 'Name must be at least 2 characters' : '';

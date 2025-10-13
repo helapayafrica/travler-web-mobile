@@ -122,7 +122,7 @@ export class RefineFiltersComponent implements OnInit {
   onBoardingPointSelectionChange(event: Event) {
     const value = (event.target as HTMLInputElement).value;
     const idx = this.selectedBoardingPoints.indexOf(value);
-    console.log(idx)
+    // console.log(idx)
 
     if (idx > -1) {
       // id already selected → remove it
@@ -138,7 +138,7 @@ export class RefineFiltersComponent implements OnInit {
   onDroppingPointSelectionChange(event: Event) {
     const value = (event.target as HTMLInputElement).value;
     const idx = this.selectedDroppingPoints.indexOf(value);
-    console.log(idx)
+    // console.log(idx)
 
     if (idx > -1) {
       // id already selected → remove it
@@ -170,7 +170,7 @@ export class RefineFiltersComponent implements OnInit {
   onAmenitiesSelectionChange(event: Event) {
     const amenity = (event.target as HTMLInputElement).value;
     const idx = this.selectedAmenities.indexOf(amenity);
-    console.log(idx)
+    // console.log(idx)
 
     if (idx > -1) {
       // id already selected → remove it
@@ -186,7 +186,7 @@ export class RefineFiltersComponent implements OnInit {
   onCompanySelectionChange(event: Event) {
     const c_name = (event.target as HTMLInputElement).value;
     const idx = this.selectedBusNames.indexOf(c_name);
-    console.log(idx)
+    // console.log(idx)
     if (idx > -1) {
       // id already selected → remove i
       this.selectedBusNames.splice(idx, 1);
@@ -217,7 +217,7 @@ export class RefineFiltersComponent implements OnInit {
       companyNames: this.selectedBusNames,
       time_range: this.selectedRanges,
     }
-    console.log('[ITMe]', this.selectedRanges,)
+    // console.log('[ITMe]', this.selectedRanges,)
     this.filterChangeEmitter.emit(filters)
 
   }

@@ -95,7 +95,7 @@ export class PaymentFormComponent implements OnInit {
 
   // Start a countdown timer for 10 minutes
   startTimer() {
-    console.log(" Timer Started")
+    // console.log(" Timer Started")
     if (this.interval) {
       clearInterval(this.interval); // ✅ Prevent multiple intervals
     }
@@ -156,7 +156,7 @@ export class PaymentFormComponent implements OnInit {
     }
 
     // Proceed with payment logic here
-    console.log('Payment Submitted:', this.paymentForm.value);
+    // console.log('Payment Submitted:', this.paymentForm.value);
     this.makePayment();
   }
 
@@ -178,7 +178,7 @@ export class PaymentFormComponent implements OnInit {
 
   async makePayment() {
     let formData = this.paymentForm.value
-    console.log(formData)
+    // console.log(formData)
     let ref_no = await this.bookingService.getConfig('booking_reference')
     let data = {
       "bookingRef": ref_no,
@@ -199,63 +199,28 @@ export class PaymentFormComponent implements OnInit {
         isWalletApply: isValid
       }
 
-      // console.log(data)
-      console.log("Booking Ref")
-      console.log(newData.bookingRef)
+
       this.service.makePayment(newData).subscribe((res) => {
 
-        // console.log("['Payment Response']", res);
-        //
-        // console.log(res);
-        // join the socketroom for payment  confirmation
-        // this.bookingService.setConfig("roomIdRef","payment_"+res.bookingRef )
-        console.log("payment_" + newData.bookingRef)
-
-        // this.paymentSocketService.isConnected$
-        //   .pipe(
-        //     filter(connected => connected),
-        //     tap(() => {
-        //       console.log("Joinning room")
-        //       this.paymentSocketService.joinPaymentRoom("payment_" + newData.bookingRef);
-        //     }),
-        //     switchMap(() => {
-        //       console.log('[Payment Formation socket]')
-        //        return this.paymentSocketService.paymentConfirmation$
-        //     })
-        //   )
-        //   .subscribe({
-        //     next: (confirmation) => {
-        //       console.log('[Confirmation]', confirmation);
-        //       if (confirmation) {
-        //         console.log("Conformation Recieved")
-        //         // this.handlePaymentSuccess(confirmation);
-        //       }
-        //     },
-        //     error: (err) => console.error(err)
-        //   });
-        // "payment_" +
-       // const invoiceRef = "payment_" +newData.bookingRef
         const invoiceRef : any =newData.bookingRef
 
-this.paymentSocketService.isConnected$
-  .pipe(
-    filter(connected => connected),
-    take(1),
-    tap(() => {
-      console.log("Joining room");
-      this.paymentSocketService.joinPaymentRoom(invoiceRef);
-
-      // Show waiting message
-      Swal.fire({
-        title: 'Waiting for Payment',
-        text: 'Please complete the M-Pesa payment on your phone',
-        icon: 'info',
-        allowOutsideClick: false,
-        showConfirmButton: false,
-        didOpen: () => {
-          Swal.showLoading();
-        }
-      });
+        this.paymentSocketService.isConnected$
+          .pipe(
+            filter(connected => connected),
+            take(1),
+            tap(() => {
+                // this.paymentSocketService.joinPaymentRoom(invoiceRef);
+              // Show waiting message
+              Swal.fire({
+                title: 'Waiting for Payment',
+                icon: 'info',
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                didOpen: () => {
+                  Swal.showLoading();
+                }
+              });
+              this.paymentSocketService.joinPaymentRoom(invoiceRef);
     }),
     switchMap(() =>
       merge(
@@ -275,15 +240,20 @@ this.paymentSocketService.isConnected$
       Swal.close(); // Close loading dialog
 
       if (result.type === 'payment') {
-        console.log('Payment confirmed:', result.data);
+        // console.log('Payment confirmed:', result.data);
 
-        Swal.fire({
-          title: 'Payment Successful!',
-          text: `Payment of KES ${result.data.data.TransAmount} received`,
-          icon: 'success',
-          confirmButtonText: 'OK'
-        });
-        // Handle success
+        setTimeout(() => {
+          Swal.fire({
+            title: 'Payment Successful!',
+            text: `Payment of KES ${result.data.data.TransAmount} received`,
+            icon: 'success',
+            confirmButtonText: 'OK'
+          });
+          // Handle success
+          this.router.navigate(['/spin-to-win']);
+
+        }, 3000)
+
 
       } else if (result.type === 'timeout') {
         console.log('Payment timeout:', result.data);
@@ -292,8 +262,15 @@ this.paymentSocketService.isConnected$
           title: 'Payment Timeout',
           text: 'Payment window has expired. Please try again.',
           icon: 'error',
-          confirmButtonText: 'OK'
+          confirmButtonText: 'Retry'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // 👇 handle confirm click here
+            this.makePayment()
+            // this.retryPayment(); // example
+          }
         });
+
         // Handle timeout
       }
 

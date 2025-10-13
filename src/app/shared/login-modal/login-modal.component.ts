@@ -108,12 +108,10 @@ export class LoginModalComponent {
     //   this.modalService.closeModal();
     // })
     this.service.login(data).subscribe((res)=>{
-      console.log("data")
       console.log(res.isSuccess);
-      
+
       if(res.isSuccess){
-        console.log("Is  successfull");
-        
+
         console.log(res)
         this.isSubmitting = false;
         this.loading = false;

@@ -38,14 +38,14 @@ export class NavbarComponent {
       this.loggedIn=res;
     })
     this.user=this.authService.getCurrentUser();
-    console.log(this.user);
+    // console.log(this.user);
   }
 
 
   language  = ''
   ngOnInit() {
     this.language = this.languageService.language()
-    
+
     this.onScroll();
   }
   @HostListener('window:scroll', ['$event'])

@@ -67,7 +67,6 @@ export class PaymentSocketService {
     });
 
     this.socket.on('payment_confirmation', (data: any) => {
-      console.log('[Socket payment confirmation]', data)
       this.paymentConfirmation.next(data);
     });
 
@@ -95,10 +94,6 @@ export class PaymentSocketService {
   }
 
   get paymentConfirmation$(): Observable<PaymentConfirmation | null> {
-    console.log(
-      '[Socket: payment confirmation]',
-
-    )
     return this.paymentConfirmation.asObservable();
   }
 
@@ -114,14 +109,12 @@ export class PaymentSocketService {
   joinPaymentRoom(invoiceRef: string): void {
     if (this.socket && this.socket.connected) {
       this.socket.emit('join_payment_room', { invoice_ref: invoiceRef });
-      console.log('[Socket : Joined payment room]')
     }
   }
 
   leavePaymentRoom(invoiceRef: string): void {
     if (this.socket && this.socket.connected) {
       this.socket.emit('leave_payment_room', { invoice_ref: invoiceRef });
-      console.log('[Socket: Left Payment Room]')
     }
   }
 

@@ -27,7 +27,7 @@ export class DrawerComponent {
       this.loggedIn=res;
     })
     this.user=this.authService.getCurrentUser();
-    console.log(this.user);
+    // console.log(this.user);
   }
 
 

@@ -149,78 +149,63 @@
   },
 
   "faqs": {
-    "title": "Maswali Yanayoulizwa Mara Kwa Mara Kuhusu Uagizaji wa Tiketi za Basi",
+    "title": "Maswali Yanayoulizwa Mara kwa Mara Kuhusu Kuhifadhi Tiketi za Basi",
     "nav": {
-      "general": "Jumla",
-      "tickets": "Uagizaji wa Tiketi",
+      "general": "Ya Kawaida",
+      "tickets": "Uhifadhi",
       "payment": "Malipo"
     },
     "general": {
       "q1": {
-        "question": "Je, naweza kufuatilia eneo la basi nililolibuka mtandaoni?",
-        "answer": "Ndio, unaweza kufuatilia eneo la basi lako lililobukwa mtandaoni kupkia kipengele cha kufuatilia cha Travler (ikiwa kampuni ya basi inasaidia ufuatiliaji wa moja kwa moja)."
+        "question": "Je, naweza kusafiri na watoto?",
+        "answer": "Abiria anaruhusiwa mtoto mmoja tu bila malipo. Kikomo cha umri ni miaka 5. Watoto zaidi ya miaka 5 wanatakiwa kulipia viti vyao."
       },
       "q2": {
-        "question": "Je, ni faida gani za kununua tiketi ya basi kupitia Travler?",
-        "answer": "Travler inatoa faida kama vile uagizaji rahisi, chaguzi nyingi za malipo, punguzo, msaada wa wateja masaa 24, na upatikanaji wa kampuni za binafsi na za serikali."
-      },
-      "q3": {
-        "question": "Kwa nini kuagiza tiketi za basi mtandaoni kwenye Travler?",
-        "answer": "Kwa Travler, unaokoa pesa, unapata pointi kwa kila uagizaji, na unafurahia upatikanaji wa njia na kampuni nyingi."
-      },
-      "q4": {
-        "question": "Je, nahitaji kujisajili kwenye tovuti ya Travler ili kuagiza tiketi yangu ya basi?",
-        "answer": "Hapana, unaweza kuagiza bila kujisajili, lakini kuwa na akaunti kunafanya iwe rahisi kudhibiti maagizo na kupata ofa."
-      },
-      "q5": {
-        "question": "Je, kuagiza basi mtandaoni kunanigharimu zaidi?",
-        "answer": "Hapana, uagizaji wa mtandaoni kwa kawaida unagharmu sawa na uagizaji wa nje, na unaweza hata kupata punguzo au ofa za kurudishwa pesa."
-      },
-      "q6": {
-        "question": "Je, nawezaje kupata punguzo kwenye uagizaji wa basi?",
-        "answer": "Unaweza kutumia nambari za promoshini, ofa za msimu, au pointi za uaminifu zinazopatikana kwenye Travler kupata punguzo."
+        "question": "Ni mzigo kiasi gani unaruhusiwa?",
+        "answer": "Kilo 20 za mizigo zinakubaliwa bila malipo. Zaidi ya hapo zitakubaliwa kwa malipo endapo kutakuwa na nafasi."
       }
     },
     "tickets": {
       "q1": {
-        "question": "Ninaagiza tiketi vipi?",
+        "question": "Ninawezaje kuhifadhi tiketi yangu kwenye TRAVLER?",
         "step1": "Hatua ya 1: Tafuta Mabasi",
-        "step1.desc": "Weka maelezo yako ya safari (Kutoka, Kwenda, Tarehe) na bofya Tafuta.",
-        "step1.note": "Kumbuka: \"Samahani, hakuna kiti kinachopatikana\" inamaanisha mabasi yamejaa kabisa.",
+        "step1.desc": "Weka maelezo yako ya safari (Kutoka, Kwenda, Tarehe) kisha bonyeza Tafuta.",
+        "step1.note": "Kumbuka: \"Samahani, hakuna kiti kilichopo\" inamaanisha mabasi yamejaa.",
         "step2": "Hatua ya 2: Chagua Kiti Chako",
-        "step2.desc": "Bofya \"Angalia Viti\" na uchague kiti unachopenda.",
-        "step3": "Hatua ya 3: Chagua Maeneo",
-        "step3.desc": "Chagua Kituo chako cha Kupanda na Kituo cha Kushuka kutoka kwenye chaguzi zilizopo.",
+        "step2.desc": "Bonyeza \"Angalia Viti\" kisha uchague kiti au viti unavyopendelea.",
+        "step3": "Hatua ya 3: Chagua Sehemu",
+        "step3.desc": "Chagua Sehemu ya Kupanda na Kushuka kutoka kwa chaguo zilizopo.",
         "step4": "Hatua ya 4: Weka Maelezo",
-        "step4.desc": "Endelea kama Mgeni na jaza maelezo yako binafsi.",
+        "step4.desc": "Endelea kama mgeni na ujaze taarifa zako binafsi.",
         "step5": "Hatua ya 5: Kamilisha Malipo",
-        "step5.opt1": "Tumia mchakato wa malipo wa mkono, au",
-        "step5.opt2": "Bofya kitufe cha Malipo → weka PIN kwenye kidirisha cha simu"
+        "step5.opt1": "Tumia njia ya malipo ya mikono, au",
+        "step5.opt2": "Bonyeza kitufe cha Malipo → ingiza PIN kwenye dirisha la simu."
       },
       "q2": {
-        "question": "Je, naweza kufuta au kubadilisha ratiba ya tiketi yangu?",
-        "answer": "Ndio, chaguzi za kufuta na kubadilisha ratiba zinapatikana kulingana na sera ya kampuni ya basi."
+        "question": "Je, naweza kubadilisha tarehe ya safari yangu baada ya kuhifadhi tiketi?",
+        "answer": "Ndiyo, chaguo la kufuta au kupanga upya lipo kulingana na sera ya kampuni ya basi.",
+        "step1": "1. Ingia kwenye programu yako",
+        "step2": "2. Nenda kwenye historia ya safari",
+        "step3": "3. Chagua safari na bonyeza kupanga upya",
+        "step4": "4. Endelea kuweka mabadiliko unayotaka"
       },
       "q3": {
-        "question": "Ninawezaje kuona tiketi zangu zilizoagizwa?",
-        "answer": "Maagizo yako yote yanaweza kuonekana kwenye sehemu ya \"Tiketi Zangu\" baada ya kuingia kwenye akaunti yako ya Travler. Unaweza pia kupakua au kuchapisha tiketi yako kutoka hapo."
+        "question": "Ninawezaje kuhifadhi kwa kutumia msimbo wa vocha?",
+        "step1": "1. Ingia kwenye akaunti yako.",
+        "step2": "2. Bonyeza kitufe cha wasifu chini ya skrini.",
+        "step3": "3. Chagua pochi, bonyeza Tumia Vocha, na weka msimbo wako.",
+        "step4": "4. Kiasi kitaongezwa kwenye akaunti yako kwa mafanikio.",
+        "step5": "5. Hifadhi kama kawaida na chagua Lipa Kutoka Pochi katika hatua ya mwisho."
       }
     },
     "payment": {
       "q1": {
-        "question": "Je, Travler inakubali njia gani za malipo?",
-        "answer": "Travler inakubali pesa za mkononi"
-      },
-      "q2": {
-        "question": "Je, ni salama kulipa mtandaoni kwa Travler?",
-        "answer": "Ndio, malipo yote yanashughulikiwa kupitia milango salama ili kulinda taarifa zako za kifedha."
-      },
-      "q3": {
-        "question": "Je, naweza kupata rejesho la malipo yangu?",
-        "answer": "Marejesho yanashughulikiwa kulingana na sera ya kampuni ya basi. Ikiwa unastahiki, kiasi kitarudishwa kwenye njia yako ya asili ya malipo ndani ya siku chache za kazi."
+        "question": "Ni njia gani tofauti za malipo zinazopatikana kwa kuhifadhi tiketi za basi?",
+        "answer": "Njia za malipo zinazopatikana kwenye TRAVLER ni Mpesa kwa Kshs, Airtel Money kwa UGX, na Tigo & Vodacom kwa TSHS."
       }
     }
   },
+
 
   "support": {
     "heading": "Msaada wa Wateja wa Traveller",

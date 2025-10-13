@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class LoginModalService{
   currentUrl = "/";
   router = inject(Router)
-  
+
   private modalInstance!: LoginModalComponent;
   isLoginRequired: Signal<boolean> = signal(false);
 
@@ -24,8 +24,7 @@ export class LoginModalService{
   }
 
   navigateToUrl(){
-    console.log(this.currentUrl);
     this.router.navigate([this.currentUrl]);
-  
+
   }
 }
