@@ -1,24 +1,27 @@
 import {Component, inject} from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import {TranslatePipe} from '@ngx-translate/core';
-import {BookingService} from '../../../services/booking';
+import {NgClass, NgIf} from "@angular/common";
+import {Password} from "primeng/password";
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {TranslatePipe} from "@ngx-translate/core";
 import {BackendService} from '../../../services/backend';
-import {Password} from 'primeng/password';
 
 @Component({
-  selector: 'app-view-user-profile-change-password',
-  templateUrl: './change-password.component.html',
-  styleUrls: ['./change-password.component.scss'],
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, TranslatePipe, Password]
+  selector: 'app-reset-password',
+  imports: [
+    NgIf,
+    Password,
+    ReactiveFormsModule,
+    TranslatePipe,
+    NgClass
+  ],
+  templateUrl: './reset-password.html',
+  styleUrl: './reset-password.scss'
 })
-export class ChangePasswordComponent {
+export class ResetPassword {
   passwordForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.passwordForm = this.fb.group({
-      oldPassword: ['', [Validators.required]],
       newPassword: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', [Validators.required]]
     }, { validators: this.passwordMatchValidator });
@@ -41,9 +44,10 @@ export class ChangePasswordComponent {
     if (this.passwordForm.valid) {
       // Implement password change logic
       console.log('Password change submitted', this.passwordForm.value);
-      this.backend.changePassword(this.passwordForm.value).subscribe({
+      this.backend.resetPassword(this.passwordForm.value).subscribe({
         next: (res) => {
           console.log(res)
+          // navigate to login
         },
         error: (err) => {
           console.log(err)

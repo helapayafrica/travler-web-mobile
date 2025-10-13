@@ -125,9 +125,6 @@ export class SignupComponent implements OnInit {
     // console.log(this.signupForm.value)
 
     if (this.signupForm.invalid) {
-      console.log('Form is invalvalid')
-      console.log(this.signupForm.errors)
-
       Object.keys(this.signupForm.controls).forEach(key => {
         const control = this.signupForm.get(key);
         control?.markAsTouched();

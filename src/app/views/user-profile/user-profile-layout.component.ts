@@ -74,7 +74,7 @@ export class UserProfileLayoutComponent implements OnInit {
   }
 
   getUserDetails() {
-    console.log(']data[')
+    // console.log(']data[')
     const userData: any = this.service.getConfig('userData')
     // console.log(userData);
     if (userData) {

@@ -84,6 +84,11 @@ export class BackendService {
       map(this.extractData));
   }
 
+  forgotPassword(data: any){
+    return this.http.post(endpoint + '/AppUser/ForgotPassword', data).pipe(
+      map(this.extractData)
+    )
+  }
   getNationality(): Observable<any> {
     return this.http.post(endpoint + '/common/GetNationality', {"sourcetype":"web"} ).pipe(
       map(this.extractData));
@@ -151,4 +156,11 @@ export class BackendService {
     return this.http.post(endpoint + '/Ticket/RescheduleTicket', data).pipe(
       map(this.extractData));
     }
+
+  resetPassword(data: any) {
+    return this.http.post(endpoint + '/AppUser/ChangeForgotPassword', data).pipe(
+      map(this.extractData)
+    )
+
+  }
 }

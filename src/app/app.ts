@@ -10,10 +10,11 @@ import {VerifyContactComponent} from './shared/verify-contact/verify-contact.com
 import {TranslateService} from '@ngx-translate/core';
 import { BookingService } from './services/booking';
 import { LanguageService } from './services/language-service';
+import {VefiyResetPasswordOtp} from './shared/vefiy-reset-password-otp/vefiy-reset-password-otp';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, LoginModalComponent, FooterComponent, BottomNav, NavbarComponent, VerifyContactComponent],
+  imports: [RouterOutlet, LoginModalComponent, FooterComponent, BottomNav, NavbarComponent, VerifyContactComponent, VefiyResetPasswordOtp],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

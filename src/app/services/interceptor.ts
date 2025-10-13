@@ -16,7 +16,17 @@ export const httpInterceptor: HttpInterceptorFn = (
   // console.log('[Interceptor]')
 
   if(req.url.endsWith('ChangePassword')){
+    console.log("Reaching here [intecepstor]")
+    // user
     // req = req.clone({ headers: req.headers.set('Authorization',JSON.parse(sessionStorage.getItem('loggedUser')).api_token),body:data});
+    const userData:any = service.getConfig('userData');
+    if(userData){
+      const  token = userData.api_token;
+      console.log("Using Userdata", token)
+      req = req.clone({ headers: req.headers.set('Authorization', token),body:data});
+      console.log("THIS is the request")
+      console.log(req)
+    }
   }else if(req.url.endsWith('json')){
 
   }
@@ -25,6 +35,7 @@ export const httpInterceptor: HttpInterceptorFn = (
     const userData:any = service.getConfig('userData');
     if(userData){
       const  token = userData.api_token;
+      console.log("Using Userdata")
       req = req.clone({ headers: req.headers.set('Authorization', token),body:data});
 
     }else {

@@ -7,6 +7,8 @@ import {authGuard} from './utils/auth-guard';
 import {PaymentConfirmationComponent} from './views/payment-confirmation-component/payment-confirmation-component';
 import {TripFeedbackForm} from './views/trip-feedback-form/trip-feedback-form';
 import {PaymentVerification} from './views/payment-verification/payment-verification';
+import {ForgotPassword} from './views/Auth/forgot-password/forgot-password';
+import {ResetPassword} from './views/Auth/reset-password/reset-password';
 
 export const routes: Routes = [
   {
@@ -37,6 +39,22 @@ export const routes: Routes = [
     data: {
       description: 'Sign in to your Traveler account',
     },
+  },
+  {
+    path: "forgot-password",
+    loadComponent: () => import('./views/Auth/forgot-password/forgot-password').then((m)=> ForgotPassword),
+    title :'Forgot Password | Cheap bus ticket Kenya',
+    data: {
+      description:  'Forgort Password'
+    }
+
+  },{
+      path :"reset-password",
+    loadComponent: () => import('./views/Auth/reset-password/reset-password').then((m) => ResetPassword),
+    title :'Reset Password | Cheap bus ticket Kenya',
+    data: {
+      description:  'Reset Password'
+    }
   },
   {
     path: 'search',
