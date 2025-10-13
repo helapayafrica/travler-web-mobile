@@ -6,9 +6,11 @@ import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import {TranslatePipe} from '@ngx-translate/core';
 
 interface WalletTransaction {
-  amount: string;
-  status: string;
-  comment: string;
+ key: number;
+  name: string;
+ data : { amount: string;
+   amountStatus: string;
+   comments: string;}[]
 }
 
 @Component({
@@ -48,24 +50,28 @@ export class WalletComponent implements OnInit {
   }
 
   getWalletData(){
-    const userDate:any = this.service.getConfig('userDate');
-    const userId = userDate.userId
+    const userData:any = this.service.getConfig('userData');
+    const userId = userData.userId
+    console.log(userId)
 
     this.backendService.getUserWalletData(userId).subscribe({
-      next: (data: any) => {
-        this.walletBalance = data.amount;
+      next: (res: any) => {
+        // console.log(r)
+        this.walletBalance = res.data[0].amount;
       }
     })
   }
 
 
   getWalletHistory(){
-    const userDate:any = this.service.getConfig('userDate');
-    const userId = userDate.userId
+    const userData:any = this.service.getConfig('userData');
+    const userId = userData.userId
 
     this.backendService.getWalletHistoryData(userId).subscribe({
       next: (data: any) => {
-        this.transactions = data;
+        this.transactions = data.data;
+        // console.log(data.data)
+
       },
       error: (error: any) => {
         console.error('Error fetching wallet history:', error);

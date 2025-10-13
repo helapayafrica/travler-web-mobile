@@ -55,34 +55,32 @@ export class DashboardComponent implements OnInit {
   backendService = inject(BackendService)
 
   getCommissionReport() {
-
     const today = new Date().toISOString().split('T')[0]; // Format: YYYY-MM-DD
-
     const request = {
       agentId: null,
       currencyId: this.currency,
       endDate: today,
-      page: 1,
+      // page: 1,
       perPage: this.perPage,
       startDate: today,
       sourcetype: "web",
     }
-    this.backendService.getCommissionReport(request).subscribe({
-      next:(response)=>{
-        console.log(response);
-        if (response.isSuccess){
-          this.bookings = response.data
-        }else{
-          this.bookings = []
-        }
-      },
-      error:(error)=>{
-        console.error(error)
-      },
-      complete:()=>{
-        console.log("complete")
-      }
-    })
+    // this.backendService.getCommissionReport(request).subscribe({
+    //   next:(response)=>{
+    //     console.log(response);
+    //     if (response.isSuccess){
+    //       this.bookings = response.data
+    //     }else{
+    //       this.bookings = []
+    //     }
+    //   },
+    //   error:(error)=>{
+    //     console.error(error)
+    //   },
+    //   complete:()=>{
+    //     console.log("complete")
+    //   }
+    // })
   }
 
   getCurrencies(){

@@ -167,15 +167,7 @@ export class BackendService {
    today = new Date().toISOString().split('T')[0]; // Format: YYYY-MM-DD
 
   getCommissionReport(
-    page?: {
-      agentId: null;
-      currencyId: string;
-      endDate: string;
-      page: number;
-      perPage: number;
-      startDate: string;
-      sourcetype: string
-    },
+    page?:string,
     perPage: number = 10,
     currencyId: string = "1",
     agentId: any = null,
@@ -201,5 +193,26 @@ export class BackendService {
     return this.http.get(endpoint + '/common/getCurrencyList').pipe(
       map(this.extractData)
     )
+  }
+
+  getAllSubAgentList( page?:string,
+                      perPage: number = 10,
+                      currencyId: string = "1",
+                      agentId: any = null,
+                      startData = this.today,
+                      endDate = this.today,) {
+    const data = {
+      page,
+      perPage: String(perPage),
+      currencyId: String(currencyId),
+      agentId,
+      startDate: startData,
+      endDate: endDate,
+      sourcetype: "web"
+    }
+    return this.http.post(endpoint + 'agency/getAllSubAgentList', {data}).pipe(      map(
+      this.extractData
+    ))
+
   }
 }

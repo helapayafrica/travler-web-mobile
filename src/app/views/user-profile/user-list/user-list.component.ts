@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {TranslatePipe} from '@ngx-translate/core';
+import {BookingService} from '../../../services/booking';
+import {BackendService} from '../../../services/backend';
 
 interface User {
   id: string;
@@ -27,8 +29,7 @@ export class UserListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // In a real app, fetch users from a service
-    // For demo purposes, we'll create some sample data
+    this.getAllSubAgentList()
     this.users = [
       {
         id: '001',
@@ -73,4 +74,17 @@ export class UserListComponent implements OnInit {
   deleteUser(userId: string): void {
     // console.log('Delete user:', userId);
   }
+
+
+  backendService = inject(BackendService)
+  getAllSubAgentList(): void {
+    this.backendService.getAllSubAgentList().subscribe({
+      next :(data)=> {
+        console.log(data);
+      },
+      error :(error)=> {},
+      complete:()=>{}
+    })
+  }
 }
+

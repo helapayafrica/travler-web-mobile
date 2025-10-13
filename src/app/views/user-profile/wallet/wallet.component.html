@@ -4,7 +4,7 @@
       <i class="bi bi-wallet2-fill"></i>
     </div>
     <div class="wallet-balance">
-      <h2>KES 0.00</h2>
+      <h2>{{walletBalance | currency : 'Ksh'}}</h2>
       <p>{{ 'walletPage.balance.title' | translate }}</p>
     </div>
     <div class="wallet-actions">
@@ -49,9 +49,16 @@
         </td>
       </tr>
       <tr *ngFor="let transaction of transactions">
-        <td>{{ transaction.amount }}</td>
-        <td>{{ transaction.status }}</td>
-        <td>{{ transaction.comment }}</td>
+        @for (data of transaction.data; track $index) {
+          <td>{{ data.amount | currency : 'Ksh ' }}</td>
+          <td>
+            <p class="p-1 rounded fw-semibold d-flex flex-column justify-content-center align-items-center"
+               [ngClass]="data.amountStatus == 'credited' ? 'bg-success-subtle text-success' : 'bg-danger-subtle text-danger' ">
+              {{ data.amountStatus }}
+            </p>
+            </td>
+          <td>{{ data.comments }}</td>
+        }
       </tr>
       </tbody>
     </table>
