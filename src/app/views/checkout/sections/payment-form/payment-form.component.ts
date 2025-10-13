@@ -234,7 +234,9 @@ export class PaymentFormComponent implements OnInit {
         //     error: (err) => console.error(err)
         //   });
         // "payment_" +
-       const invoiceRef = "payment_" +newData.bookingRef
+       // const invoiceRef = "payment_" +newData.bookingRef
+        const invoiceRef : any =newData.bookingRef
+
 this.paymentSocketService.isConnected$
   .pipe(
     filter(connected => connected),
@@ -242,7 +244,7 @@ this.paymentSocketService.isConnected$
     tap(() => {
       console.log("Joining room");
       this.paymentSocketService.joinPaymentRoom(invoiceRef);
-      
+
       // Show waiting message
       Swal.fire({
         title: 'Waiting for Payment',
@@ -255,7 +257,7 @@ this.paymentSocketService.isConnected$
         }
       });
     }),
-    switchMap(() => 
+    switchMap(() =>
       merge(
         this.paymentSocketService.paymentConfirmation$.pipe(
           filter(conf => conf !== null),
@@ -271,10 +273,10 @@ this.paymentSocketService.isConnected$
   .subscribe({
     next: (result) => {
       Swal.close(); // Close loading dialog
-      
+
       if (result.type === 'payment') {
         console.log('Payment confirmed:', result.data);
-        
+
         Swal.fire({
           title: 'Payment Successful!',
           text: `Payment of KES ${result.data.data.TransAmount} received`,
@@ -282,10 +284,10 @@ this.paymentSocketService.isConnected$
           confirmButtonText: 'OK'
         });
         // Handle success
-        
+
       } else if (result.type === 'timeout') {
         console.log('Payment timeout:', result.data);
-        
+
         Swal.fire({
           title: 'Payment Timeout',
           text: 'Payment window has expired. Please try again.',
@@ -294,7 +296,7 @@ this.paymentSocketService.isConnected$
         });
         // Handle timeout
       }
-      
+
       this.paymentSocketService.leavePaymentRoom(invoiceRef);
     },
     error: (err) => {
