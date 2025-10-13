@@ -61,60 +61,60 @@
           </div>
         </div>
 
-        <!-- Email -->
-        <div class="mt-2 col-12">
-          <div class="d-flex flex-column gap-1">
-            <label class="fw-medium" for="email">{{ 'signup.labels.email' | translate }}</label>
-            <input formControlName="email"
-                   id="email"
-                   pInputText
-                   type="email"
-                   placeholder="{{ 'signup.placeholders.email' | translate }}"
-                   class="w-100">
-            <small *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['required']"
-                   class="text-danger">
-              {{ 'signup.validation.emailRequired' | translate }}
-            </small>
-            <small *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['email']"
-                   class="text-danger">
-              {{ 'signup.validation.emailInvalid' | translate }}
-            </small>
-          </div>
-        </div>
+<!--        &lt;!&ndash; Email &ndash;&gt;-->
+<!--        <div class="mt-2 col-12">-->
+<!--          <div class="d-flex flex-column gap-1">-->
+<!--            <label class="fw-medium" for="email">{{ 'signup.labels.email' | translate }}</label>-->
+<!--            <input formControlName="email"-->
+<!--                   id="email"-->
+<!--                   pInputText-->
+<!--                   type="email"-->
+<!--                   placeholder="{{ 'signup.placeholders.email' | translate }}"-->
+<!--                   class="w-100">-->
+<!--            <small *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['required']"-->
+<!--                   class="text-danger">-->
+<!--              {{ 'signup.validation.emailRequired' | translate }}-->
+<!--            </small>-->
+<!--            <small *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['email']"-->
+<!--                   class="text-danger">-->
+<!--              {{ 'signup.validation.emailInvalid' | translate }}-->
+<!--            </small>-->
+<!--          </div>-->
+<!--        </div>-->
 
-        <!-- Gender -->
-        <div class="mt-2 col-12">
-          <div class="d-flex flex-column gap-1">
-            <label class="fw-medium" for="gender">{{ 'signup.labels.gender' | translate }}</label>
-            <p-select [options]="[{ label: 'Male', value: 'M' },{ label: 'Female', value: 'F' }]"
-                      formControlName="gender"
-                      id="gender"
-                      optionLabel="label"
-                      placeholder="{{ 'signup.placeholders.gender' | translate }}"
-                      class="w-100">
-            </p-select>
-          </div>
-        </div>
+<!--        &lt;!&ndash; Gender &ndash;&gt;-->
+<!--        <div class="mt-2 col-12">-->
+<!--          <div class="d-flex flex-column gap-1">-->
+<!--            <label class="fw-medium" for="gender">{{ 'signup.labels.gender' | translate }}</label>-->
+<!--            <p-select [options]="[{ label: 'Male', value: 'M' },{ label: 'Female', value: 'F' }]"-->
+<!--                      formControlName="gender"-->
+<!--                      id="gender"-->
+<!--                      optionLabel="label"-->
+<!--                      placeholder="{{ 'signup.placeholders.gender' | translate }}"-->
+<!--                      class="w-100">-->
+<!--            </p-select>-->
+<!--          </div>-->
+<!--        </div>-->
 
-        <!-- Date of Birth -->
-        <div class="mt-2 col-12">
-          <div class="d-flex flex-column gap-1">
-            <label class="fw-medium" for="date-of-birth">{{ 'signup.labels.dateOfBirth' | translate }}</label>
-            <p-date-picker formControlName="date_of_birth"
-                           [maxDate]="maxDOB"
-                           placeholder="{{ 'signup.placeholders.dateOfBirth' | translate }}"
-                           class="w-100">
-            </p-date-picker>
-            <small *ngIf="signupForm.get('date_of_birth')?.touched && signupForm.get('date_of_birth')?.errors?.['required']"
-                   class="text-danger">
-              {{ 'signup.validation.dobRequired' | translate }}
-            </small>
-            <small *ngIf="signupForm.get('date_of_birth')?.touched && signupForm.get('date_of_birth')?.errors?.['underage']"
-                   class="text-danger">
-              {{ 'signup.validation.dobUnderage' | translate }}
-            </small>
-          </div>
-        </div>
+<!--        &lt;!&ndash; Date of Birth &ndash;&gt;-->
+<!--        <div class="mt-2 col-12">-->
+<!--          <div class="d-flex flex-column gap-1">-->
+<!--            <label class="fw-medium" for="date-of-birth">{{ 'signup.labels.dateOfBirth' | translate }}</label>-->
+<!--            <p-date-picker formControlName="date_of_birth"-->
+<!--                           [maxDate]="maxDOB"-->
+<!--                           placeholder="{{ 'signup.placeholders.dateOfBirth' | translate }}"-->
+<!--                           class="w-100">-->
+<!--            </p-date-picker>-->
+<!--            <small *ngIf="signupForm.get('date_of_birth')?.touched && signupForm.get('date_of_birth')?.errors?.['required']"-->
+<!--                   class="text-danger">-->
+<!--              {{ 'signup.validation.dobRequired' | translate }}-->
+<!--            </small>-->
+<!--            <small *ngIf="signupForm.get('date_of_birth')?.touched && signupForm.get('date_of_birth')?.errors?.['underage']"-->
+<!--                   class="text-danger">-->
+<!--              {{ 'signup.validation.dobUnderage' | translate }}-->
+<!--            </small>-->
+<!--          </div>-->
+<!--        </div>-->
 
         <!-- Promo Code Checkbox -->
         <div class="my-3 col-12">

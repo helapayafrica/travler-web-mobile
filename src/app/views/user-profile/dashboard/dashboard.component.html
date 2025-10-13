@@ -4,7 +4,7 @@
     <div class="filter-group">
       <label>{{ 'dashboard.totalItemsLabel' | translate }}</label>
       <select class="form-select" [(ngModel)]="totalItems">
-        <option value="10">10</option>
+        <option selected value="10">10</option>
         <option value="20">20</option>
         <option value="50">50</option>
       </select>
@@ -17,9 +17,9 @@
 
     <div class="filter-group currency-select">
       <select class="form-select" [(ngModel)]="currency">
-        <option value="KES">KES</option>
-        <option value="USD">USD</option>
-        <option value="EUR">EUR</option>
+       @for(currency of currencies; track $index){
+         <option [value]="currency.id">{{ currency.code}}</option>
+       }
       </select>
     </div>
 

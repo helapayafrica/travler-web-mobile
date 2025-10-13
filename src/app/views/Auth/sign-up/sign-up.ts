@@ -20,7 +20,7 @@ import {TranslatePipe} from '@ngx-translate/core';
 @Component({
   selector: 'app-view-auth-signup',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NgxLoadingModule, InputText, Checkbox, DatePicker, RouterLink,
+  imports: [CommonModule, ReactiveFormsModule, NgxLoadingModule, InputText, Checkbox, RouterLink,
     DatePickerModule, Password, Select, TranslatePipe],
   templateUrl: './sign-up.html',
   styleUrl: './sign-up.scss'
@@ -74,14 +74,14 @@ export class SignupComponent implements OnInit {
   initForm(): void {
     this.signupForm = this.fb.group({
       name: ['', [Validators.required]],
-      last_name: [' ', [Validators.required]],
-      date_of_birth: [ this.maxDOB, [Validators.required, ageValidator()]],
+      // last_name: [' ', [Validators.required]],
+      // date_of_birth: [ this.maxDOB, [Validators.required, ageValidator()]],
       more: [false, [Validators.required]],
       coupon_code:[''],
-      gender: [''],
+      // gender: [''],
       phone_number:['', [Validators.required]],
       country_code:['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
+      // email: ['', [Validators.required, Validators.email]],
       password: ['', [
         Validators.required,
         Validators.minLength(5),
@@ -139,8 +139,8 @@ export class SignupComponent implements OnInit {
     this.loading=true;
     this.payload.device_number= Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     this.payload.phone=data.phone_number
-    this.payload.gender=data.gender.value
-    this.payload.country_code=data.country_code.value
+    // this.payload.gender=data.gender.value
+    // this.payload.country_code=data.country_code.value
     console.log(this.payload)
     this.service.sendOtp(this.payload).subscribe((res)=>{
       this.loading=false;
@@ -148,6 +148,17 @@ export class SignupComponent implements OnInit {
         this.modalService.openModal('verificationModal');
         let info={"otp_number":"","device_number":Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),"gcm_token":"","phone":data.phone_number,"verification_key":res.verification_key,"country_code":data.country_code,"sourcetype":"web"}
         this.bookingService.setConfig('verification',info);
+        const registeringUser = {
+          name : this.payload.name,
+          phone: this.payload.phone,
+          country_code: this.payload.country_code,
+          coupon_code: this.payload.coupon_code,
+          verification_key: "",
+          currency_code: "",
+          gcm_token: ""
+        }
+        this.bookingService.setConfig('registeringUser', registeringUser)
+
         this.loading=false;
       }else{
         Swal.fire({

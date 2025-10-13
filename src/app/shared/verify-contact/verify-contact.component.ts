@@ -18,6 +18,7 @@ import {BookingService} from '../../services/booking';
 })
 export class VerifyContactComponent implements OnInit {
   otpControl = new FormControl('');
+  backendService = inject(BackendService);
   loadingConfig = {
     animationType: ngxLoadingAnimationTypes.chasingDots,
     backdropBorderRadius: '10px',
@@ -57,20 +58,79 @@ export class VerifyContactComponent implements OnInit {
     payload.otp_number=this.otpControl.value
     console.log(payload);
     this.loading=true
+
     this.service.verifyOtp(payload).subscribe((res)=>{
       this.loading=false;
       if(res.isSuccess){
-        Swal.fire({
-          icon: 'success',
-          title: 'Created',
-          text:'Your account has been created',
-          timer: 3000, // Auto-close after 3 seconds
-          width: '350px',
-          customClass: {
-            popup: 'tiny-swal',
-            icon: 'tiny-icon'
+        // Swal.fire({
+        //   icon: 'success',
+        //   title: 'Created',
+        //   text:'Your account has been created',
+        //   timer: 3000, // Auto-close after 3 seconds
+        //   width: '350px',
+        //   customClass: {
+        //     popup: 'tiny-swal',
+        //     icon: 'tiny-icon'
+        //   }
+        // });
+        const verification_key = res.data.verification_key
+        const registeringUserData = this.bookingService.getConfig('registeringUser')
+        if(registeringUserData){
+          const payload = {
+            ...registeringUserData,
+            verification_key: verification_key ? verification_key : ""
           }
-        });
+          this.backendService.signup(payload).subscribe({
+            next:(response)=>{
+              if (response.isSuccess){
+                Swal.fire({
+                  icon: 'success',
+                  title: 'Created',
+                  text:'Your account has been created',
+                  timer: 3000, // Auto-close after 3 seconds
+                  width: '350px',
+                  customClass: {
+                    popup: 'tiny-swal',
+                    icon: 'tiny-icon'
+                  }
+                });
+                this.router.navigate(['/']);
+
+              }else{
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Request Failed',
+                  text:"Registration Failed, Please Try again",
+                  width: '350px',
+                  showCancelButton:true,
+                  customClass: {
+                    popup: 'tiny-swal',
+                    icon: 'tiny-icon'
+                  }
+                });
+
+                this.router.navigate(['/sign-up']);
+              }
+            },
+            error: (error) => {
+              console.log(error)
+              Swal.fire({
+                icon: 'error',
+                title: 'Request Failed',
+                text:"Registration Failed, Please Try again",
+                width: '350px',
+                showCancelButton:true,
+                customClass: {
+                  popup: 'tiny-swal',
+                  icon: 'tiny-icon'
+                }
+              });
+
+              this.router.navigate(['/sign-up']);
+            }
+          })
+        }
+
       }else{
         Swal.fire({
           icon: 'error',
