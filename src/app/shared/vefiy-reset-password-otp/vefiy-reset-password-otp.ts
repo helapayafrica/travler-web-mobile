@@ -22,8 +22,8 @@ export class VefiyResetPasswordOtp implements OnInit {
   loadingConfig = {
     animationType: ngxLoadingAnimationTypes.chasingDots,
     backdropBorderRadius: '10px',
-    primaryColour: 'red',
-    secondaryColour: 'black',
+    primaryColour: 'blue',
+    secondaryColour: 'red',
     fullScreenBackdrop:true,
     tertiaryColour: '#ffffff'
   };
@@ -46,6 +46,7 @@ export class VefiyResetPasswordOtp implements OnInit {
   }
   ngOnInit(): void {
     this.otpControl.valueChanges.subscribe((otp) => {
+      console.log(this.otpConfig.length)
       if (otp && otp.length === this.otpConfig.length) {
         this.verifyOtp();
       }
@@ -53,9 +54,20 @@ export class VefiyResetPasswordOtp implements OnInit {
   }
 
   async verifyOtp() {
+    console.log("Reaching here")
     console.log('OTP Entered:', this.otpControl.value);
-    let payload:any = await this.bookingService.getConfig('verification');
-    payload.otp_number=this.otpControl.value
+    let payload:any = await this.bookingService.getConfig('forgotPasswordDetails');
+    // OTP Payload
+    // {"otp_number":"183850","device_number":"yhvloxss3tmf9amvarbzr","gcm_token":"",
+    // "phone":"768488012","verification_key":63273168,"country_code":"254","sourcetype":"web"}
+
+
+    payload = {
+      ...payload,
+      otp_number: this.otpControl.value,
+      sourcetype:"web",
+      gcm_token:"",
+    }
     console.log(payload);
     this.loading=true
     this.service.verifyOtp(payload).subscribe((res)=>{

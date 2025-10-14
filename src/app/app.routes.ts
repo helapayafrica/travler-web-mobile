@@ -9,6 +9,7 @@ import {TripFeedbackForm} from './views/trip-feedback-form/trip-feedback-form';
 import {PaymentVerification} from './views/payment-verification/payment-verification';
 import {ForgotPassword} from './views/Auth/forgot-password/forgot-password';
 import {ResetPassword} from './views/Auth/reset-password/reset-password';
+import {resetPasswordGuard} from './utils/reset-password-guard';
 
 export const routes: Routes = [
   {
@@ -50,11 +51,12 @@ export const routes: Routes = [
 
   },{
       path :"reset-password",
-    loadComponent: () => import('./views/Auth/reset-password/reset-password').then((m) => ResetPassword),
-    title :'Reset Password | Cheap bus ticket Kenya',
-    data: {
-      description:  'Reset Password'
-    }
+      canActivate: [resetPasswordGuard],
+      loadComponent: () => import('./views/Auth/reset-password/reset-password').then((m) => ResetPassword),
+      title :'Reset Password | Cheap bus ticket Kenya',
+      data: {
+        description:  'Reset Password'
+      }
   },
   {
     path: 'search',

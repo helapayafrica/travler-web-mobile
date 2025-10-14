@@ -21,7 +21,7 @@ interface WalletTransaction {
   imports: [CommonModule, ReactiveFormsModule, TranslatePipe]
 })
 export class WalletComponent implements OnInit {
-  walletBalance: string = 'KES 0.00';
+  walletBalance: string = '0';
   service = inject(BookingService)
   backendService = inject(BackendService)
   transactions: WalletTransaction[] = [];

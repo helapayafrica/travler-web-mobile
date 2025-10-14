@@ -1,38 +1,34 @@
 <div class="filter-controls">
-  <div class="filter-row">
-
-    <div class="filter-group">
-      <label>{{ 'dashboard.totalItemsLabel' | translate }}</label>
+  <div class="row mb-4">
+    <div class="col-6">
+      <label class = "form-label">{{ 'dashboard.totalItemsLabel' | translate }}</label>
       <select class="form-select" [(ngModel)]="totalItems">
-        <option selected value="10">10</option>
-        <option value="20">20</option>
-        <option value="50">50</option>
+        <option class="form-control" selected value="10">10</option>
+        <option class="form-control" value="20">20</option>
+        <option class="form-control" value="50">50</option>
       </select>
     </div>
 
-    <div class="filter-group date-range ms-auto">
-      <input type="date" class="form-control" [(ngModel)]="dateRange" readonly
-             placeholder="{{ 'dashboard.dateRangeLabel' | translate }}">
-    </div>
 
-    <div class="filter-group currency-select">
+    <div class="col-6">
+      <label class="form-label">Currency</label>
       <select class="form-select" [(ngModel)]="currency">
-       @for(currency of currencies; track $index){
-         <option [value]="currency.id">{{ currency.code}}</option>
-       }
+        @for(currency of currencies; track $index){
+          <option class="form-control" [value]="currency.id">{{ currency.code}}</option>
+        }
       </select>
     </div>
 
-    <div class="filter-group user-select">
+    <div class="col-12 mt-2">
+      <label class="form-label">{{ 'dashboard.userSelectLabel' | translate }}</label>
       <select class="form-select" aria-label="{{ 'dashboard.userSelectLabel' | translate }}">
-        <option selected>{{ 'dashboard.userSelectPlaceholder' | translate }}</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+        <option class="form-control" selected>{{ 'dashboard.userSelectPlaceholder' | translate }}</option>
+        <option class="form-control" value="1">One</option>
+        <option class="form-control" value="2">Two</option>
+        <option class="form-control" value="3">Three</option>
       </select>
     </div>
   </div>
-
   <!-- Data table -->
   <div class="data-table-container">
     <table class="table table-responsive">

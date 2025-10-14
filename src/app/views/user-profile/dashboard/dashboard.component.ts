@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {BackendService} from '../../../services/backend';
 import {TranslatePipe} from '@ngx-translate/core';
+import {NgbDate, NgbDatepicker, NgbDateStruct, NgbInputDatepicker} from '@ng-bootstrap/ng-bootstrap';
 
 
 interface Booking {
@@ -30,15 +31,16 @@ export class DashboardComponent implements OnInit {
   bookings: Booking[] = [];
   currencies: any[] = [];
   perPage = 10
-  // currencyId = 1
-  // start_date: Date;
-  // end_date: Date;
+  currencyId = 1
+  start_date: Date = new Date();
+  end_date: Date = new Date();
 
 
   constructor(public service:BackendService) {
   }
 
   ngOnInit(): void {
+
     // You would fetch data from a service in a real app
     // For now, leaving it empty to match the screenshot
     this.getCurrencies()
@@ -65,22 +67,24 @@ export class DashboardComponent implements OnInit {
       startDate: today,
       sourcetype: "web",
     }
-    // this.backendService.getCommissionReport(request).subscribe({
-    //   next:(response)=>{
-    //     console.log(response);
-    //     if (response.isSuccess){
-    //       this.bookings = response.data
-    //     }else{
-    //       this.bookings = []
-    //     }
-    //   },
-    //   error:(error)=>{
-    //     console.error(error)
-    //   },
-    //   complete:()=>{
-    //     console.log("complete")
-    //   }
-    // })
+    console.log('[The REquest]')
+    console.log(request)
+    this.backendService.getCommissionReport().subscribe({
+      next:(response)=>{
+        console.log(response);
+        if (response.isSuccess){
+          this.bookings = response.data
+        }else{
+          this.bookings = []
+        }
+      },
+      error:(error)=>{
+        console.error(error)
+      },
+      complete:()=>{
+        console.log("complete")
+      }
+    })
   }
 
   getCurrencies(){
