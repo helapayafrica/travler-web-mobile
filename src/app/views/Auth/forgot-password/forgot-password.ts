@@ -1,6 +1,6 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {TranslatePipe} from "@ngx-translate/core";
-import {NgIf} from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Select} from 'primeng/select';
 import {BackendService} from '../../../services/backend';
@@ -17,7 +17,8 @@ import {BookingService} from '../../../services/booking';
     ReactiveFormsModule,
     Select,
     FormsModule,
-    RouterLink
+    RouterLink,
+    NgForOf
   ],
   templateUrl: './forgot-password.html',
   styleUrl: './forgot-password.scss'
