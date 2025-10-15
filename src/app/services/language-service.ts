@@ -1,11 +1,11 @@
-import { inject, Injectable, signal } from '@angular/core';
+import {inject, Injectable, OnInit, signal} from '@angular/core';
 import { BookingService } from './booking';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root',
 })
-export class LanguageService {
+export class LanguageService implements  OnInit{
   private bookingService = inject(BookingService);
   private translate = inject(TranslateService);
   language = signal<string>('en');
@@ -15,7 +15,10 @@ export class LanguageService {
     this.translate.setDefaultLang('en');
     this.getLanguage();
   }
-
+  ngOnInit() {
+    console.log("LanguageService ngOnInit");
+    console.log( this.language );
+  }
   getLanguage() {
     const lang: string | null = this.bookingService.getConfig('lang');
 

@@ -19,3 +19,33 @@
   color: var(--primary-color-600); /* Bootstrap primary */
   text-decoration: underline;
 }
+
+
+
+:host ::ng-deep .modify-btn {
+  background: var(--primary-color-500);
+  border: 1px solid var(--primary-color-600);
+  color: var(--primary-color-100);
+}
+
+:host ::ng-deep .modify-btn:hover {
+  background: var(--primary-color-600);
+  border: 1px solid var(--primary-color-700);
+  color: var(--primary-color-100);
+}
+
+:host ::ng-deep .modify-btn:active,
+:host ::ng-deep .modify-btn:focus {
+  background: var(--primary-color-700);
+  border: 1px solid var(--primary-color-800);
+  color: var(--primary-color-100);
+  box-shadow: 0 0 0 0.2rem rgba(var(--primary-color-rgb), 0.5);
+}
+
+:host ::ng-deep .modify-btn:disabled {
+  background: var(--primary-color-500);
+  border: 1px solid var(--primary-color-600);
+  color: var(--primary-color-100);
+  opacity: 0.6;
+  cursor: not-allowed;
+}

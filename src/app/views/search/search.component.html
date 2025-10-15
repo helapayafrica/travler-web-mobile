@@ -1,54 +1,22 @@
 <div>
-  <div class="search-section">
-    <div class="container d-flex flex-row justify-content-between align-items-center w-100">
-      <!-- Breadcrumb -->
-<!--      <p-breadcrumb-->
-<!--        [style]="{'background': 'transparent'}"-->
-<!--        class="bg-transparent"-->
-<!--        [model]="items"-->
-<!--        [home]="home">-->
-<!--        <ng-template pTemplate="item" let-item let-index="index">-->
-<!--          &lt;!&ndash; Home breadcrumb &ndash;&gt;-->
-<!--          <p-->
-<!--            *ngIf="index === 0; else otherItems"-->
-<!--            [routerLink]="['/', item.routerLink]"-->
-<!--            routerLinkActive="active-crumb"-->
-<!--            [routerLinkActiveOptions]="{ exact: true }"-->
-<!--            class="cursor-pointer active-crumb"-->
-<!--          >-->
-<!--            Home-->
-<!--&lt;!&ndash;            {{ item.label || item.text }}&ndash;&gt;-->
-<!--          </p>-->
+  <div class="search-section ">
+    <div class="container d-flex flex-row justify-content-between align-items-center w-100 mt-1">
+      <p-button
+        (click)="toggleForm()"
+        icon="bi bi-pencil"
+        iconPos="left"
+        label="Modify Trip"
+        size="small"
+        styleClass="modify-btn p-button-sm">
+      </p-button>
 
-<!--          &lt;!&ndash; Other breadcrumbs &ndash;&gt;-->
-<!--          <ng-template #otherItems>-->
-<!--            <a-->
-<!--              [routerLink]="item.routerLink"-->
-<!--              routerLinkActive="active-crumb"-->
-<!--              style="text-decoration: none;"-->
-<!--              class="cursor-pointer nav-item"-->
-<!--              (click)="toggleForm()"-->
-<!--            >-->
-<!--              Modify trip-->
-<!--&lt;!&ndash;              {{ item.label || item.text }}&ndash;&gt;-->
-<!--            </a>-->
-<!--          </ng-template>-->
-<!--        </ng-template>-->
-
-<!--        <ng-template pTemplate="separator">-->
-<!--          <span> > </span>-->
-<!--        </ng-template>-->
-<!--      </p-breadcrumb>-->
-      <div class="d-flex justify-content-center align-items-start">
-      <p class="p-2 fs-5 link-underline" (click)="toggleForm()">Modify Trip</p>
-      </div>
       <!-- filter section -->
       <app-search-refine-filters
         (filterChangeEmitter)="getFilterChanges($event)">
       </app-search-refine-filters>
     </div>
 
-    <div *ngIf="isFormOpen" class="py-4 container">
+    <div *ngIf="isFormOpen" class="py-2 container">
       <app-shared-search></app-shared-search>
     </div>
   </div>
@@ -57,7 +25,45 @@
     <div class="container py-3">
       <div class="row">
         <div class="col-12">
-          <app-search-results [isLoading]="isLoading" [data]="buses"></app-search-results>
+
+          <!-- Loading State -->
+          <div *ngIf="isLoading" class="text-center py-5">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="mt-2 text-muted">Searching for buses...</p>
+          </div>
+
+          <!-- Results Component (only show when we have data and not loading) -->
+          <app-search-results
+            *ngIf="!isLoading && hasData()"
+            [isLoading]="isLoading"
+            [data]="buses">
+          </app-search-results>
+
+          <!-- Empty State (show when search is complete but no results) -->
+          <div *ngIf="showEmptyState()" class="text-center py-5">
+            <div class="empty-state">
+              <i class="bi bi-bus-front fs-1 text-muted"></i>
+              <h4 class="mt-3 text-muted">No Buses Found</h4>
+              <p class="text-muted">We couldn't find any buses matching your criteria.</p>
+              <p-button
+                label="Modify Search"
+                (click)="toggleForm()"
+                styleClass="p-button-outlined">
+              </p-button>
+            </div>
+          </div>
+
+          <!-- Initial State (show before any search is performed) -->
+          <div *ngIf="!hasSearched && !isLoading" class="text-center py-5">
+            <div class="initial-state">
+              <i class="bi bi-search fs-1 text-muted"></i>
+              <h4 class="mt-3 text-muted">Ready to Search</h4>
+              <p class="text-muted">Preparing your search results...</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, signal, SimpleChanges} from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnChanges, signal, SimpleChanges} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RefineFiltersComponent } from "../refine-filters/refine-filters.component";
 import { trigger, state, style, transition, animate } from '@angular/animations';
@@ -10,8 +10,6 @@ import {BusSeatSelectorComponent} from '../../../../components/bus-seat-selector
 import {BookingService} from '../../../../services/booking';
 import {BackendService} from '../../../../services/backend';
 
-
-
 @Component({
   selector: 'app-search-results',
   standalone: true,
@@ -20,7 +18,7 @@ import {BackendService} from '../../../../services/backend';
     CommonModule,
     RefineFiltersComponent,
     BusSeatSelectorComponent
-],
+  ],
   templateUrl: './results.component.html',
   styleUrl: './results.component.scss',
   animations: [
@@ -32,27 +30,37 @@ import {BackendService} from '../../../../services/backend';
   ]
 })
 export class ResultsComponent implements OnChanges {
-
   selectedTab: string = '';
   type: any = '';
   payload: any = {};
   return_buses = [];
+
   constructor(
     public bookingService: BookingService,
-    public backendService: BackendService
+    public backendService: BackendService,
+    private cdr: ChangeDetectorRef
   ) {
     this.getTripType();
     this.getTab();
     this.getReturnPayload();
   }
+
   isReturnDisabled = true;
   @Input() data: any[] = [];
-  @Input() isLoading : boolean = false;
+  @Input() isLoading: boolean = false;
+
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data']) {
-      // console.log('Array updated:', this.data);
+      console.log('Data changed - length:', this.data?.length);
+      // Force update by triggering change detection
+      this.cdr.detectChanges();
+    }
+
+    if (changes['isLoading']) {
+      console.log('Loading changed:', this.isLoading);
     }
   }
+
   async getTripType() {
     this.type = await this.bookingService.getConfig('trip_type');
     this.payload.date = await this.bookingService.getConfig('travel_date');
@@ -66,6 +74,7 @@ export class ResultsComponent implements OnChanges {
       'return_date'
     );
   }
+
   selectTab(tab: string) {
     if (!this.isReturnDisabled || tab === 'onward') {
       this.selectedTab = tab;
@@ -73,12 +82,10 @@ export class ResultsComponent implements OnChanges {
     this.selectedTab = tab;
 
     if (tab === 'return' || tab == '') {
-      // Reset previously emitted seat data
       this.busdata = null;
       this.seat_data = null;
       this.isViewSeatOpen.set(false);
     }
-
   }
 
   getTab() {
@@ -86,6 +93,7 @@ export class ResultsComponent implements OnChanges {
       this.selectedTab = res;
     });
   }
+
   isReturnSelected(): boolean {
     return this.selectedTab === 'return';
   }
@@ -96,15 +104,15 @@ export class ResultsComponent implements OnChanges {
       this.return_buses = res.data;
     });
   }
+
   changeTrip() {
     if (this.selectedTab === 'return') {
       this.selectedTab = 'onward';
     } else {
       this.selectedTab = 'return';
-        // Reset previously emitted seat data
-        this.busdata = null;
-        this.seat_data = null;
-        this.isViewSeatOpen.set(false);
+      this.busdata = null;
+      this.seat_data = null;
+      this.isViewSeatOpen.set(false);
     }
   }
 
@@ -115,26 +123,22 @@ export class ResultsComponent implements OnChanges {
   }
 
   closeView() {
-    // console.log('reached THe Seeter method')
     this.isViewSeatOpen.set(false);
-    // console.log()
   }
-
-
 
   collapseState: { [key: number]: boolean } = {};
   seat_data: any = {};
   emmitedType: any = '';
-  busdata : any ={}
-getCollapseSeatState($event: EmmitedSeatData) {
-    // console.log('[Collapse state received]', $event);
-  this.collapseState = $event.collapseState;
-  this.seat_data = $event.seatData;
-  this.emmitedType = $event.type;
-  this.busdata = $event.busData;
+  busdata: any = {}
 
-  this.isViewSeatOpen.set(
-    Object.values(this.collapseState).some((val) => !val)
-  );
-}
+  getCollapseSeatState($event: EmmitedSeatData) {
+    this.collapseState = $event.collapseState;
+    this.seat_data = $event.seatData;
+    this.emmitedType = $event.type;
+    this.busdata = $event.busData;
+
+    this.isViewSeatOpen.set(
+      Object.values(this.collapseState).some((val) => !val)
+    );
+  }
 }
