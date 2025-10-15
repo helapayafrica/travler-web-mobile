@@ -210,9 +210,21 @@ export class BackendService {
       endDate: endDate,
       sourcetype: "web"
     }
-    return this.http.post(endpoint + 'agency/getAllSubAgentList', {data}).pipe(      map(
+    return this.http.post(endpoint + '/agency/getAllSubAgentList', {data}).pipe(      map(
       this.extractData
     ))
 
+  }
+
+  getCounties() {
+    return this.http.get((endpoint + '/common/getCounty')).pipe(
+      map(this.extractData)
+    )
+  }
+
+  updateProfile(payload: any){
+    return this.http.post(endpoint + "/appUser/Update", payload).pipe(
+      map(this.extractData)
+    )
   }
 }

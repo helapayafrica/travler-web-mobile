@@ -27,7 +27,7 @@
 
 <!-- Hero Section -->
 <div
-  style="margin-top:7rem" class="component-container">
+  style="margin-top:6rem" class="component-container">
   <app-generic-skeleton
     *ngIf="loadingStates.heroSection"
     [config]="skeletonConfigs.hero">
@@ -49,15 +49,15 @@
 </div>
 
 <!-- Testimonials Section -->
-<div class="component-container">
-  <app-generic-skeleton
-    *ngIf="loadingStates.testimonials"
-    [config]="skeletonConfigs.testimonials">
-  </app-generic-skeleton>
-  <app-home-testimonials
-    *ngIf="!loadingStates.testimonials">
-  </app-home-testimonials>
-</div>
+<!--<div class="component-container">-->
+<!--  <app-generic-skeleton-->
+<!--    *ngIf="loadingStates.testimonials"-->
+<!--    [config]="skeletonConfigs.testimonials">-->
+<!--  </app-generic-skeleton>-->
+<!--  <app-home-testimonials-->
+<!--    *ngIf="!loadingStates.testimonials">-->
+<!--  </app-home-testimonials>-->
+<!--</div>-->
 
 
 

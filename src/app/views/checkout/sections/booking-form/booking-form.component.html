@@ -1,48 +1,18 @@
 <div class="card mb-3">
-  <div class="card-header border-0">
-    <h5 class="card-title fw-semibold text-center">{{ 'booking.passengerForm.title' | translate }}</h5>
 
-    <div class="d-flex flex-column flex-md-row gap-1 text-center text-md-start">
-      <p class="mb-0 small">{{ 'booking.passengerForm.help' | translate }}</p>
-      <a href="mailto:info@Travler.com" class="fw-medium text-decoration-none ms-md-2">
-        {{ 'booking.passengerForm.contact' | translate:{email: email} }}
-      </a>
-    </div>
-  </div>
 
   <div class="card-body border-0">
-    <form #passengerForm="ngForm" class="gap-3">
-      <!-- Cancellation Fee -->
-      <div class="col-12 col-md-8 col-lg-6 mb-3">
-        <div class="d-flex justify-content-between align-items-center rounded-2 bg-custom shadow-sm py-1 px-3">
-          <div class="p-2">
-            <div class="d-flex flex-column">
-              <p class="mb-0 fw-bold">{{ 'booking.passengerForm.cancellation.title' | translate }}</p>
-              <p class="mb-0 text-dark">{{ 'booking.passengerForm.cancellation.fee' | translate }}</p>
-            </div>
-          </div>
-          <div class="form-check form-switch">
-            <input
-              (change)="updateCancellationProtection($event)"
-              [ngModel]="protectionInsuranceService.isCancellationProtection()"
-              class="form-check-input custom-switch"
-              id="cancellationSwitch"
-              name="cancellationSwitch"
-              type="checkbox"
-            >
-          </div>
-        </div>
-      </div>
-
-      <div *ngFor="let item of data?.ticketDetail.onwardticket?.passenger; let index = index" class="row">
-        <div class="col-sm-8">
+    <form #passengerForm="ngForm" class="gap-2">
+      <div *ngFor="let item of data?.ticketDetail.onwardticket?.passenger; let index = index" class="row
+      mb-2">
+        <div class="col-8">
           <h5>
             <span *ngIf="index == 0" class="primary-passenger">{{ 'booking.passengerForm.primaryPassenger' | translate }}</span>
             <span *ngIf="index > 0" class="co-passenger">{{ 'booking.passengerForm.coPassenger' | translate }}</span>
           </h5>
         </div>
 
-        <div class="col-sm-4 text-end" style="font-size: 0.875rem;">
+        <div class="col-4 text-end" style="font-size: 0.875rem;">
           <img alt="Seat Icon" class="mb-2 me-2" height="20" src="/assets/images/seat.png" width="20">
           Seat: <b class="fw-semibold">{{ item.seat_name }}</b>
           <b *ngIf="data?.returnticket?.passenger" class="fw-semibold">, {{ data.returnticket.passenger[index].seat_name }}</b>
@@ -93,7 +63,7 @@
             [id]="'gender' + index"
             [name]="'gender' + item.seat_name"
             required>
-            <option value="">Select Gender</option>
+            <option value="" selected disabled>Select Gender</option>
             <option value="F">Female</option>
             <option value="M">Male</option>
           </select>
@@ -119,7 +89,7 @@
           </div>
         </div>
 
-        <div class="col-12 mt-2">
+        <div class="col-7 mt-2">
           <label class="form-label" [for]="'email' + index">{{ 'booking.passengerForm.fields.email' | translate }}</label>
           <input
             [(ngModel)]="item.email"
@@ -136,7 +106,7 @@
           </div>
         </div>
 
-        <div class="col-12 mt-2">
+        <div class="col-5 mt-2">
           <label class="form-label" [for]="'nationality' + index">{{ 'booking.passengerForm.fields.nationality' | translate }}</label>
           <input
             [(ngModel)]="item.nationality"
@@ -147,6 +117,7 @@
             class="form-control"
             [name]="'nationality' + item.seat_name"
             placeholder="{{ 'booking.passengerForm.fields.nationality' | translate }}"
+            [dropup]="true"
             required
             type="text">
           <div *ngIf="hasError('nationality', index)" class="invalid-feedback d-block">
@@ -154,46 +125,80 @@
           </div>
         </div>
 
-        <div class="col-12 mt-2">
-          <div class="row mb-2">
-            <div class="col-4">
-              <label class="form-label" [for]="'mobileId' + index">{{ 'booking.passengerForm.fields.phoneCode' | translate }}</label>
-              <select
-                [(ngModel)]="item.mobileId"
-                (blur)="onFieldBlur('mobileId', item.mobileId, index)"
-                [class.is-invalid]="hasError('mobileId', index)"
-                class="form-select"
-                [name]="'mobileId' + item.seat_name"
-                required>
-                <option value="">Code</option>
-                <option *ngFor="let code of country_codes" [value]="code.code">+{{ code.code }}</option>
-              </select>
-              <div *ngIf="hasError('mobileId', index)" class="invalid-feedback d-block">
-                {{ formErrors['mobileId' + index] }}
-              </div>
-            </div>
+<!--        Code and Phone Number-->
+<!--        <div class="col-12 mt-2 ">-->
+<!--          <div class="row mb-2 gx-0">-->
+<!--            <div class="col-4">-->
+<!--              <label class="form-label" [for]="'mobileId' + index">{{ 'booking.passengerForm.fields.phoneCode' | translate }}</label>-->
+<!--              <select-->
+<!--                [(ngModel)]="item.mobileId"-->
+<!--                (blur)="onFieldBlur('mobileId', item.mobileId, index)"-->
+<!--                [class.is-invalid]="hasError('mobileId', index)"-->
+<!--                class="form-select"-->
+<!--                [name]="'mobileId' + item.seat_name"-->
+<!--                required>-->
+<!--                <option value="">Code</option>-->
+<!--                <option *ngFor="let code of country_codes" [value]="code.code">+{{ code.code }}</option>-->
+<!--              </select>-->
+<!--              <div *ngIf="hasError('mobileId', index)" class="invalid-feedback d-block">-->
+<!--                {{ formErrors['mobileId' + index] }}-->
+<!--              </div>-->
+<!--            </div>-->
 
-            <div class="col-8">
-              <label class="form-label" [for]="'phone' + index">{{ 'booking.passengerForm.fields.phoneNumber' | translate }}</label>
-              <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-telephone-plus"></i></span>
-                <input
-                  [(ngModel)]="item.mobile"
-                  (blur)="onFieldBlur('mobile', item.mobile, index)"
-                  [class.is-invalid]="hasError('mobile', index)"
-                  class="form-control"
-                  [name]="'phone' + item.seat_name"
-                  placeholder="700000000"
-                  required
-                  type="number">
-              </div>
-              <div *ngIf="hasError('mobile', index)" class="invalid-feedback d-block">
-                {{ formErrors['mobile' + index] }}
-              </div>
-            </div>
+<!--            <div class="col-8">-->
+<!--              <label class="form-label" [for]="'phone' + index">{{ 'booking.passengerForm.fields.phoneNumber' | translate }}</label>-->
+<!--              <div class="input-group">-->
+<!--                <span class="input-group-text"><i class="bi bi-telephone-plus"></i></span>-->
+<!--                <input-->
+<!--                  [(ngModel)]="item.mobile"-->
+<!--                  (blur)="onFieldBlur('mobile', item.mobile, index)"-->
+<!--                  [class.is-invalid]="hasError('mobile', index)"-->
+<!--                  class="form-control"-->
+<!--                  [id]=" 'mobile' + index"-->
+<!--                  [name]="'phone' + item.seat_name"-->
+<!--                  placeholder="700000000"-->
+<!--                  required-->
+<!--                  type="number">-->
+<!--              </div>-->
+<!--              <div *ngIf="hasError('mobile', index)" class="invalid-feedback d-block">-->
+<!--                {{ formErrors['mobile' + index] }}-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+        <div class="col-12 mt-2">
+          <label class="form-label" [for]="'phone' + index">{{ 'booking.passengerForm.fields.phoneNumber' | translate }}</label>
+          <div class="input-group">
+            <select
+              [(ngModel)]="item.mobileId"
+              (blur)="onFieldBlur('mobileId', item.mobileId, index)"
+              [class.is-invalid]="hasError('mobileId', index) || hasError('mobile', index)"
+              class="form-select"
+              [name]="'mobileId' + item.seat_name"
+              style="max-width: 120px;"
+              required>
+              <option value="" disabled selected>Code</option>
+              <option *ngFor="let code of country_codes" [value]="code.code">+{{ code.code }}</option>
+            </select>
+<!--            <span class="input-group-text"><i class="bi bi-telephone-plus"></i></span>-->
+            <input
+              [(ngModel)]="item.mobile"
+              (blur)="onFieldBlur('mobile', item.mobile, index)"
+              [class.is-invalid]="hasError('mobileId', index) || hasError('mobile', index)"
+              class="form-control"
+              [id]="'mobile' + index"
+              [name]="'phone' + item.seat_name"
+              placeholder="e.g 712345678"
+              required
+              type="tel">
+          </div>
+          <div *ngIf="hasError('mobileId', index)" class="invalid-feedback d-block">
+            {{ formErrors['mobileId' + index] }}
+          </div>
+          <div *ngIf="hasError('mobile', index)" class="invalid-feedback d-block">
+            {{ formErrors['mobile' + index] }}
           </div>
         </div>
-
         <!-- Travel Insurance -->
         <div class="card d-flex flex-column gap-3 p-3">
           <p class="fw-bold fs-4 mb-0">{{ 'booking.passengerForm.travelInsurance.title' | translate }}</p>
@@ -228,7 +233,6 @@
                 <input type="radio" [name]="'insurance-passenger-' + index" class="form-check-input custom-check" [value]="ins.name" (change)="onSelect(ins.name, index)" [checked]="getSelectedInsurance(index) === ins.name" />
               </div>
             </label>
-
             <!-- Insurance Dialog -->
             <p-dialog header="{{ selectedInsurance?.name }} Benefits" [modal]="true" [(visible)]="dialog" [style]="{ width: '25rem' }">
               <ul class="list-disc pl-6 mb-6 text-sm">
@@ -238,10 +242,37 @@
                 <p-button label="{{ 'booking.passengerForm.travelInsurance.dialog.close' | translate }}" severity="secondary" (click)="dialog = false"></p-button>
               </div>
             </p-dialog>
+
+
+
           </div>
         </div>
       </div>
     </form>
+  </div>
+
+  <div class="container">
+    <!-- Cancellation Fee -->
+    <div class="col-12 col-md-8 col-lg-6 mb-3">
+      <div class="d-flex justify-content-between align-items-center rounded-2 bg-custom shadow-sm py-1 px-3">
+        <div class="p-2">
+          <div class="d-flex flex-column">
+            <p class="mb-0 fw-bold">{{ 'booking.passengerForm.cancellation.title' | translate }}</p>
+            <p class="mb-0 text-dark">{{ 'booking.passengerForm.cancellation.fee' | translate }}</p>
+          </div>
+        </div>
+        <div class="form-check form-switch">
+          <input
+            (change)="updateCancellationProtection($event)"
+            [ngModel]="protectionInsuranceService.isCancellationProtection()"
+            class="form-check-input custom-switch"
+            id="cancellationSwitch"
+            name="cancellationSwitch"
+            type="checkbox"
+          >
+        </div>
+      </div>
+    </div>
   </div>
 
   <div *ngIf="!isSuccess" class="card-footer border-0 text-end">
@@ -251,5 +282,16 @@
       class="btn btn-primary py-2 px-3 rounded-pill">
       {{ 'booking.passengerForm.button.proceed' | translate }}
     </button>
+  </div>
+</div>
+
+<div class="card-header border-0">
+  <h5 class="card-title fw-semibold text-center">{{ 'booking.passengerForm.title' | translate }}</h5>
+
+  <div class="d-flex flex-column flex-md-row gap-1 text-center text-md-start">
+    <p class="mb-0 small">{{ 'booking.passengerForm.help' | translate }}</p>
+    <a href="mailto:info@Travler.com" class="fw-medium text-decoration-none ms-md-2">
+      {{ 'booking.passengerForm.contact' | translate:{email: email} }}
+    </a>
   </div>
 </div>

@@ -1,4 +1,8 @@
-
+.coupons-container{
+  overflow: hidden;
+  position: relative;
+  padding: 0 1rem;
+}
 .card{
   font-size: 12px;
   width: 22rem;
@@ -73,7 +77,7 @@
 
 .carousel-card {
   //min-width: 300px; /* Adjust based on your card width */
-  height: 200px;
+  height: 180px;
   //width: 296px;
   width:max( 296px, 97%);
   padding : 16px;

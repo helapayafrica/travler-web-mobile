@@ -11,6 +11,7 @@ import {Drawer} from 'primeng/drawer';
 import {AmenitiesPipe} from '../../utils/Pipes/amenities-pipe-pipe';
 import {Router} from '@angular/router';
 import {TranslatePipe} from '@ngx-translate/core';
+import {CapitalizePipe} from '../../utils/Pipes/capitalize-pipe';
 
 interface BusSchedule {
   companyName: string;
@@ -48,6 +49,7 @@ export interface EmmitedSeatData{
     Drawer,
     AmenitiesPipe,
     TranslatePipe,
+    CapitalizePipe,
   ],
   templateUrl: './search-results-card.component.html',
   styleUrl: './search-results-card.component.scss',

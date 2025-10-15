@@ -32,6 +32,7 @@ interface UserProfile {
 export class UserProfileLayoutComponent implements OnInit {
   isAgent = false;
   service = inject((BookingService))
+  bookingService = inject((BookingService))
   userDetails: UserDetails = {
     name: 'Davis Mutuku',
     age: 0,
@@ -47,7 +48,10 @@ export class UserProfileLayoutComponent implements OnInit {
     county: 'Nairobi'
   };
 
+
   constructor() {
+   const isAgent:boolean| null =  this.bookingService.getConfig('isAgent')
+    this.isAgent = isAgent ?? false
   }
 
   private modalService = inject(NgbModal);

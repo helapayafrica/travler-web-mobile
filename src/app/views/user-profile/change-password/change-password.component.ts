@@ -5,6 +5,7 @@ import {TranslatePipe} from '@ngx-translate/core';
 import {BookingService} from '../../../services/booking';
 import {BackendService} from '../../../services/backend';
 import {Password} from 'primeng/password';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-view-user-profile-change-password',
@@ -42,9 +43,34 @@ export class ChangePasswordComponent {
       // Implement password change logic
       console.log('Password change submitted', this.passwordForm.value);
       this.backend.changePassword(this.passwordForm.value).subscribe({
-        next: (res) => {
-          console.log(res)
-        },
+          next: (res) => {
+            if (res.isSuccess == true) {
+              Swal.fire({
+                icon: 'success',
+                title: "Password change Success",
+                text:res.msg,
+                timer: 3000, // Auto-close after 3 seconds
+                width: '350px',
+                customClass: {
+                  popup: 'tiny-swal',
+                  icon: 'tiny-icon'
+                }
+              });
+              this.passwordForm.reset()
+            }else {
+              Swal.fire({
+                icon: 'error',
+                title: 'Failed',
+                text:res.msg,
+                timer: 3000, // Auto-close after 3 seconds
+                width: '350px',
+                customClass: {
+                  popup: 'tiny-swal',
+                  icon: 'tiny-icon'
+                }
+              });
+            }
+          },
         error: (err) => {
           console.log(err)
         }

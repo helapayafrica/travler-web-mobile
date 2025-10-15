@@ -42,7 +42,7 @@
         <div class="d-flex flex-row gap-2 align-items-start">
           <div class="d-flex align-items-center justify-content-start gap-3">
             <img
-              alt="{{item.company_name}} | cheap bus tickets"
+              alt="{{item.company_name}}"
               src="{{item.company_logo}}" height="55" width="55"
               [ngClass]="item.highWayDirectRoute === 'Highway' ? 'ms-4':''"
               class="img-thumbnail border-0 text-end">
@@ -57,10 +57,8 @@
                   <span>{{ item.highWayDirectRoute }}</span>
                 </div>
                 <div class="small text-muted d-flex justify-content-between w-100 gap-1">
-                  <p>
-                    <span *ngIf="item.amenities"></span>
-                    <span class="" *ngFor="let amenity of getAmenityArray(item.amenities)"
-                          [innerHTML]="(amenity?.toString() || '') | displayAmenity"></span> •
+                  <p class="mb-0">
+<!--                    <span *ngIf="item.amenities"></span>-->
                     <span *ngIf="item.available_seat_count">
                       {{ 'bus.availableSeats' | translate }} :
                       <span class="fw-bold text-primary-emphasis">{{item.available_seat_count}}</span>
@@ -95,7 +93,7 @@
                 class="fw-medium"
                 style="font-size: 14px"
                 *ngFor="let schedule of item.defaultTripPriceList; let last = last">
-                {{ schedule.seatType }} : {{ schedule.amount | number }} {{ !last ? ' | ' : '' }}
+                {{ schedule.seatType | capitalize }} : {{ schedule.amount | number }} {{ !last ? ' | ' : '' }}
               </span>
             </div>
           </div>
@@ -112,7 +110,11 @@
         </div>
 
         <!-- Action Button -->
-        <div class="d-flex justify-content-end">
+        <div class="d-flex justify-content-between">
+          <div class="d-flex gap-1">
+              <span class="" *ngFor="let amenity of getAmenityArray(item.amenities)"
+                    [innerHTML]="(amenity?.toString() || '') | displayAmenity"></span>
+          </div>
           <button
             (click)="toggleCollapse(i); searchSeats(item, i); $event.stopPropagation()"
             [attr.aria-expanded]="!collapseState[i]"
@@ -171,7 +173,7 @@
 
       <!-- Seat selector content -->
       <div *ngIf="!isLoadingSeats[i] && !seatLoadError[i]"
-           style="overflow-x: hidden; overflow-y: scroll;" class="py-4">
+           style="overflow-x: hidden; overflow-y: scroll;" class="">
         <div #collapse="ngbCollapse" [(ngbCollapse)]="collapseState[i]" class="m-1 col-12 d-lg-none">
           <div class="rounded">
             <div class="row g-3 mx-0">
@@ -192,15 +194,15 @@
         </div>
       </div>
 
-      <!-- Close button -->
-      <div class="text-end pb-2 mt-3">
-        <button
-          class="btn btn-sm btn-outline-secondary bg-secondary-subtle d-flex align-items-center rounded-3 text-dark"
-          (click)="toggleCollapse(i)">
-          <i class="bi bi-chevron-bar-up me-1"></i>
-          {{ 'button.close' | translate }}
-        </button>
-      </div>
+<!--      &lt;!&ndash; Close button &ndash;&gt;-->
+<!--      <div class="text-end pb-2 mt-3">-->
+<!--        <button-->
+<!--          class="btn btn-sm btn-outline-secondary bg-secondary-subtle d-flex align-items-center rounded-3 text-dark"-->
+<!--          (click)="toggleCollapse(i)">-->
+<!--          <i class="bi bi-chevron-bar-up me-1"></i>-->
+<!--          {{ 'button.close' | translate }}-->
+<!--        </button>-->
+<!--      </div>-->
     </p-drawer>
   </div>
 </div>

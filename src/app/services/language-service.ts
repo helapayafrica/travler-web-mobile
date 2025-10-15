@@ -11,7 +11,7 @@ export class LanguageService {
   language = signal<string>('en');
 
   constructor() {
-    this.translate.addLangs(['ks', 'en']);
+    this.translate.addLangs(['sw', 'en']);
     this.translate.setDefaultLang('en');
     this.getLanguage();
   }
@@ -38,7 +38,7 @@ export class LanguageService {
     }
 
   toggleLanguage() {
-    const newLang = this.language() === 'en' ? 'ks' : 'en';
+    const newLang = this.language() === 'en' ? 'sw' : 'en';
     this.setLanguage(newLang);
   }
 }

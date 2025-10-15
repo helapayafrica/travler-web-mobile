@@ -44,11 +44,15 @@ export class AccountDetailsComponent implements OnInit {
     city: 'NAIROBI',
     county: 'Nairobi'
   };
+  isAgent: boolean= false
 
   constructor() { }
   service = inject((BookingService))
 
+
   ngOnInit(): void {
+    const isAgent: boolean | null = this.service.getConfig('isAgent')
+    this.isAgent = isAgent ?? false
     // You would fetch account details from a service in a real app
     this.getUserDetails();
   }

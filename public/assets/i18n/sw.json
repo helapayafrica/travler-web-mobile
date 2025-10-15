@@ -64,7 +64,7 @@
     "availableSeats": "Viti Vinavyopatikana"
   },
   "drawer": {
-    "seatSelection": "Uchaguzi wa Kit"
+    "seatSelection": "Uchaguzi wa Kiti"
   },
   "error": {
     "loadSeatsTitle": "Imeshindwa kupakua viti",
@@ -208,7 +208,7 @@
 
 
   "support": {
-    "heading": "Msaada wa Wateja wa Traveller",
+    "heading": "Msaada wa Wateja wa Travler",
     "tagline": "Msaada wa Wateja Masaa 24",
     "subheading": "Tuko hapa kukusaidia wakati wowote",
     "intro": "Kwa maswali, sifa au malalamiko, unaweza kutufikia kupitia njia zifuatazo za msaada:",

@@ -8,7 +8,8 @@ export const authGuard: CanActivateFn = (route, state) => {
   const router  = inject(Router);
 
   const status   = service.getConfig('loggedInStatus');
-  const userData = service.getConfig('userData');
+  const bookingService = inject(BookingService);
+  const userData:any = service.getConfig('userData');
 
   // if not logged in or missing userData -> redirect
   if (!status || !userData) {
@@ -16,6 +17,11 @@ export const authGuard: CanActivateFn = (route, state) => {
     return router.createUrlTree(['/login'], {
       queryParams: { returnUrl: state.url }
     });
+  }
+  if(userData.agentDetails){
+    bookingService.setConfig('isAgent', true)
+  }else{
+    bookingService.setConfig('isAgent', false)
   }
   return true; // allow navigation
 };

@@ -1,5 +1,5 @@
 .hero-section {
-  min-height: 55vh;
+  min-height: 50vh;
   padding: clamp(5rem, 8vw, 10rem) 0 8rem;
   display: flex;
   align-items: flex-end;

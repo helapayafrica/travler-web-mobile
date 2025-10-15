@@ -15,19 +15,26 @@
 <!--</div>-->
 <div class="section">
   <div class="container">
-    <div class="section-title mt-4">
-      <h6 class="fw-bolder">TICKET CHECKOUT</h6>
-    </div>
+    <div class="row p-2">
+      <div class="col-6">
+        <div class="section-title mt-4">
+          <h6 class="fw-bolder">Passengers Info</h6>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="text-end mb-2">
+          <p-button
+            label="View Bus Info"
+            icon="bi bi-info-circle"
+            (click)="busInfoVisible = true"
+            styleClass="p-button bg-custom p-button-sm mt-2">
+          </p-button>
+        </div>
 
-    <div class="text-end mb-2">
-      <p-button
-        label="View Bus Info"
-        icon="bi bi-info-circle"
-        (click)="busInfoVisible = true"
-        styleClass="p-button bg-custom p-button-sm mt-2">
-      </p-button>
-    </div>
+      </div>
 
+
+    </div>
 
 
     <div class="row app-container">

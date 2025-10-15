@@ -23,7 +23,7 @@ import {TranslatePipe} from '@ngx-translate/core';
 @Component({
   selector: 'app-login-modal',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NgxLoadingModule, TranslatePipe],
+  imports: [CommonModule, ReactiveFormsModule, NgxLoadingModule, TranslatePipe, RouterLink],
   templateUrl: './login-modal.component.html',
   styleUrl: './login-modal.component.scss'
 })

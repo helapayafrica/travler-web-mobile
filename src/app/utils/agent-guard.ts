@@ -12,8 +12,11 @@ export const agentGuard: CanActivateFn = (route, state) => {
     });
   }
   if(userData.agentDetails){
+    bookingService.setConfig('isAgent', true)
     return true
   }
+
+  bookingService.setConfig('isAgent', false)
   return router.createUrlTree(['/user-profile/bookings'], {
     queryParams: { returnUrl: state.url }
   });

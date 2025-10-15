@@ -10,6 +10,7 @@ import {PaymentVerification} from './views/payment-verification/payment-verifica
 import {ForgotPassword} from './views/Auth/forgot-password/forgot-password';
 import {ResetPassword} from './views/Auth/reset-password/reset-password';
 import {resetPasswordGuard} from './utils/reset-password-guard';
+import {agentGuard} from './utils/agent-guard';
 
 export const routes: Routes = [
   {
@@ -20,7 +21,7 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    title: 'Home | Cheap bus ticket Kenya',
+    title: 'Home | East Africa\'s largest Booking Platform',
     data: {
       description: 'Welcome to Traveler - Your trusted platform for travel bookings',
     },
@@ -28,7 +29,7 @@ export const routes: Routes = [
   {
     path: 'sign-up',
     loadComponent: () => import('./views/Auth/sign-up/sign-up').then((m) => m.SignupComponent),
-    title: 'Sign Up | Cheap bus ticket Kenya',
+    title: 'Sign Up | East Africa\'s largest Booking Platform',
     data: {
       description: 'Create your Traveler account to start booking travel services',
     },
@@ -36,7 +37,7 @@ export const routes: Routes = [
   {
     path: 'login',
     loadComponent: () => import('./views/Auth/login/login').then((m) => m.LoginComponent),
-    title: 'Login | Cheap bus ticket Kenya',
+    title: 'Login | East Africa\'s largest Booking Platform',
     data: {
       description: 'Sign in to your Traveler account',
     },
@@ -44,7 +45,7 @@ export const routes: Routes = [
   {
     path: "forgot-password",
     loadComponent: () => import('./views/Auth/forgot-password/forgot-password').then((m)=> ForgotPassword),
-    title :'Forgot Password | Cheap bus ticket Kenya',
+    title :'Forgot Password | East Africa\'s largest Booking Platform',
     data: {
       description:  'Forgort Password'
     }
@@ -53,7 +54,7 @@ export const routes: Routes = [
       path :"reset-password",
       canActivate: [resetPasswordGuard],
       loadComponent: () => import('./views/Auth/reset-password/reset-password').then((m) => ResetPassword),
-      title :'Reset Password | Cheap bus ticket Kenya',
+      title :'Reset Password | East Africa\'s largest Booking Platform',
       data: {
         description:  'Reset Password'
       }
@@ -61,7 +62,7 @@ export const routes: Routes = [
   {
     path: 'search',
     loadComponent: () => import('./views/search/search.component').then((m) => m.SearchComponent),
-    title: 'Search | Cheap bus ticket Kenya',
+    title: 'Search | East Africa\'s largest Booking Platform',
     data: {
       description: 'Search for travel options and services',
     },
@@ -70,7 +71,7 @@ export const routes: Routes = [
     path: 'faqs',
     loadComponent: () =>
       import('./views/home/sections/faqs/faqs.component').then((m) => m.FAQSComponent),
-    title: 'FAQs | Cheap bus ticket Kenya',
+    title: 'FAQs | East Africa\'s largest Booking Platform',
     data: {
       description: 'Frequently Asked Questions about Traveler services',
     },
@@ -79,7 +80,7 @@ export const routes: Routes = [
     path: 'checkout',
     loadComponent: () =>
       import('./views/checkout/checkout.component').then((m) => m.CheckoutComponent),
-    title: 'Checkout | Cheap bus ticket Kenya',
+    title: 'Checkout | East Africa\'s largest Booking Platform',
     data: {
       description: 'Complete your booking payment',
     },
@@ -90,7 +91,7 @@ export const routes: Routes = [
       import('./views/checkout/sections/payment-form/payment-form.component').then(
         (m) => m.PaymentFormComponent
       ),
-    title: 'Payment | Cheap bus ticket Kenya',
+    title: 'Payment | East Africa\'s largest Booking Platform',
     data: {
       description: 'Secure payment processing',
     },
@@ -99,7 +100,7 @@ export const routes: Routes = [
     path: 'contact',
     loadComponent: () =>
       import('./views/contactus/contactus.component').then((m) => m.ContactusComponent),
-    title: 'Contact Us | Cheap bus ticket Kenya',
+    title: 'Contact Us | East Africa\'s largest Booking Platform',
     data: {
       description: 'Get in touch with our support team',
     },
@@ -107,7 +108,7 @@ export const routes: Routes = [
   {
     path: 'terms',
     loadComponent: () => import('./views/terms/terms').then((m) => m.Terms),
-    title: 'Terms | Cheap bus ticket Kenya',
+    title: 'Terms | East Africa\'s largest Booking Platform',
     data: {
       description: 'Terms and conditions for using Traveler services',
     },
@@ -115,7 +116,7 @@ export const routes: Routes = [
   {
     path: 'privacy',
     loadComponent: () => import('./views/privacy/privacy').then((m) => m.Privacy),
-    title: 'Privacy | Cheap bus ticket Kenya',
+    title: 'Privacy | East Africa\'s largest Booking Platform',
     data: {
       description: 'Privacy policy for Traveler services',
     },
@@ -124,7 +125,7 @@ export const routes: Routes = [
     path: 'about',
     loadComponent: () =>
       import('./views/aboutus/aboutus.component').then((m) => m.AboutusComponent),
-    title: 'About Us | Cheap bus ticket Kenya',
+    title: 'About Us | East Africa\'s largest Booking Platform',
     data: {
       description: 'Learn more about Traveler and our services',
     },
@@ -132,7 +133,7 @@ export const routes: Routes = [
   {
     path: 'ticket',
     loadComponent: () => import('./views/ticket/ticket.component').then((m) => m.TicketComponent),
-    title: 'Ticket | Cheap bus ticket Kenya',
+    title: 'Ticket | East Africa\'s largest Booking Platform',
     data: {
       description: 'View your travel ticket details',
     },
@@ -140,7 +141,7 @@ export const routes: Routes = [
   {
     path: 'reschedule',
     loadComponent: () => import('./views/reschedule/reschedule').then((m) => m.Reschedule),
-    title: 'Reschedule | Cheap bus ticket Kenya',
+    title: 'Reschedule | East Africa\'s largest Booking Platform',
     data: {
       description: 'View your travel ticket details',
     },
@@ -149,7 +150,7 @@ export const routes: Routes = [
     path: 'support',
     loadComponent: () =>
       import('./views/support/support.component').then((m) => m.SupportComponent),
-    title: 'Support | Cheap bus ticket Kenya',
+    title: 'Support | East Africa\'s largest Booking Platform',
     data: {
       description: 'Customer support and help center',
     },
@@ -158,7 +159,7 @@ export const routes: Routes = [
     path: 'spin-to-win',
     loadComponent: () =>
       import('./views/spin-the-wheel/spin-the-wheel').then((m) => m.SpinTheWheel),
-    title: 'Spin | Cheap bus ticket Kenya',
+    title: 'Spin | East Africa\'s largest Booking Platform',
     data: {
       description: 'Customer support and help center',
     },
@@ -166,7 +167,7 @@ export const routes: Routes = [
   {
     path: 'feedback',
     loadComponent: () => import('./views/feedback/feedback').then((m) => m.Feedback),
-    title: 'Feedback | Cheap bus ticket Kenya',
+    title: 'Feedback | East Africa\'s largest Booking Platform',
     data: {
       description: 'Customer support and help center',
     },
@@ -174,7 +175,7 @@ export const routes: Routes = [
   {
     path: 'trip-feedback',
     component: TripFeedbackForm,
-    title: 'Trip Feedback | Cheap bus ticket Kenya',
+    title: 'Trip Feedback | East Africa\'s largest Booking Platform',
     data: {
       description: 'Customer support and help center',
     },
@@ -182,7 +183,7 @@ export const routes: Routes = [
   {
     path: 'confirm-payment',
     component: PaymentVerification,
-    title: 'Confirm Payment | Cheap bus ticket Kenya',
+    title: 'Confirm Payment | East Africa\'s largest Booking Platform',
     data: {
       description: 'Customer support and help center',
     },
@@ -194,7 +195,7 @@ export const routes: Routes = [
       import('./views/user-profile/user-profile-layout.component').then(
         (m) => m.UserProfileLayoutComponent
       ),
-    title: 'Profile | Cheap bus ticket Kenya',
+    title: 'Profile | East Africa\'s largest Booking Platform',
     data: {
       description: 'Manage your Traveler account',
     },
@@ -206,11 +207,12 @@ export const routes: Routes = [
       },
       {
         path: 'dashboard',
+        canActivate:[agentGuard],
         loadComponent: () =>
           import('./views/user-profile/dashboard/dashboard.component').then(
             (m) => m.DashboardComponent
           ),
-        title: 'Dashboard | Cheap bus ticket Kenya',
+        title: 'Dashboard | East Africa\'s largest Booking Platform',
         data: {
           description: 'Your Traveler account dashboard',
         },
@@ -221,7 +223,7 @@ export const routes: Routes = [
           import('./views/user-profile/bookings/bookings.component').then(
             (m) => m.BookingsComponent
           ),
-        title: 'My Bookings | Cheap bus ticket Kenya',
+        title: 'My Bookings | East Africa\'s largest Booking Platform',
         data: {
           description: 'View and manage your bookings',
         },
@@ -230,7 +232,7 @@ export const routes: Routes = [
         path: 'wallet',
         loadComponent: () =>
           import('./views/user-profile/wallet/wallet.component').then((m) => m.WalletComponent),
-        title: 'Wallet | Cheap bus ticket Kenya',
+        title: 'Wallet | East Africa\'s largest Booking Platform',
         data: {
           description: 'Manage your Traveler wallet',
         },
@@ -241,10 +243,17 @@ export const routes: Routes = [
           import('./views/user-profile/account-details/account-details.component').then(
             (m) => m.AccountDetailsComponent
           ),
-        title: 'Account Details | Cheap bus ticket Kenya',
+        title: 'Account Details | East Africa\'s largest Booking Platform',
         data: {
           description: 'Manage your account information',
         },
+      },{
+      path :'edit-profile',
+        loadComponent: () => import('./views/user-profile/account-details/edit-profile-component/edit-profile-component').then((m) => m.EditProfileComponent),
+        title: 'Edit Profile | East Africa\'s largest Booking Platform',
+        data: {
+          description: 'Edit  your user Profile',
+        }
       },
       {
         path: 'change-password',
@@ -252,7 +261,7 @@ export const routes: Routes = [
           import('./views/user-profile/change-password/change-password.component').then(
             (m) => m.ChangePasswordComponent
           ),
-        title: 'Change Password | Cheap bus ticket Kenya',
+        title: 'Change Password | East Africa\'s largest Booking Platform',
         data: {
           description: 'Update your account password',
         },
@@ -263,7 +272,7 @@ export const routes: Routes = [
           import('./views/user-profile/user-list/user-list.component').then(
             (m) => m.UserListComponent
           ),
-        title: 'User List | Cheap bus ticket Kenya',
+        title: 'User List | East Africa\'s largest Booking Platform',
         data: {
           description: 'View user list',
         },
@@ -273,7 +282,7 @@ export const routes: Routes = [
   {
     path: '**',
     component: PageNotFoundComponent,
-    title: 'Page Not Found | Cheap bus ticket Kenya',
+    title: 'Page Not Found | East Africa\'s largest Booking Platform',
     data: {
       description: 'The requested page could not be found',
     },

@@ -31,31 +31,34 @@
           </div>
       </div>
 
-      <!-- Business Details -->
-      <div class="col-12 col-md-6">
-        <p class="fw-bold fs-5">{{ 'accountDetails.sections.businessDetails' | translate }}</p>
-        <div class="info-section">
-          <p><span class="fw-bold text-muted">{{ 'accountDetails.labels.businessName' | translate }}:</span> {{ userDetails.businessName }}</p>
-          <p><span class="fw-bold text-muted">{{ 'accountDetails.labels.area' | translate }}:</span> {{ userDetails.area }}</p>
-          <p><span class="fw-bold text-muted">{{ 'accountDetails.labels.county' | translate }}:</span> {{ userDetails.county }}</p>
-          <p><span class="fw-bold text-muted">{{ 'accountDetails.labels.city' | translate }}:</span> {{ userDetails.city }}</p>
-          <p><span class="fw-bold text-muted">{{ 'accountDetails.labels.road' | translate }}:</span> {{ userDetails.road }}</p>
-        </div>
-        <div class="col-12 col-lg-6">
-          <div class="documents-section">
-            <div class="document-card">
-              <div class="document-placeholder">
-                <img
-                  style="width:100%; height:100%"
-                  src="assets/ID.png" alt="Identity Photo">
+        @if(isAgent){
+          <!-- Business Details -->
+          <div class="col-12 col-md-6">
+            <p class="fw-bold fs-5">{{ 'accountDetails.sections.businessDetails' | translate }}</p>
+            <div class="info-section">
+              <p><span class="fw-bold text-muted">{{ 'accountDetails.labels.businessName' | translate }}:</span> {{ userDetails.businessName }}</p>
+              <p><span class="fw-bold text-muted">{{ 'accountDetails.labels.area' | translate }}:</span> {{ userDetails.area }}</p>
+              <p><span class="fw-bold text-muted">{{ 'accountDetails.labels.county' | translate }}:</span> {{ userDetails.county }}</p>
+              <p><span class="fw-bold text-muted">{{ 'accountDetails.labels.city' | translate }}:</span> {{ userDetails.city }}</p>
+              <p><span class="fw-bold text-muted">{{ 'accountDetails.labels.road' | translate }}:</span> {{ userDetails.road }}</p>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="documents-section">
+                <div class="document-card">
+                  <div class="document-placeholder">
+                    <img
+                      style="width:100%; height:100%"
+                      src="assets/ID.png" alt="Identity Photo">
+                  </div>
+                </div>
               </div>
             </div>
+            <!--        <div class="documents-section">-->
+            <!--          <img src="" alt="{{ 'accountDetails.documents.businessPhotoAlt' | translate }}">-->
+            <!--        </div>-->
           </div>
-        </div>
-<!--        <div class="documents-section">-->
-<!--          <img src="" alt="{{ 'accountDetails.documents.businessPhotoAlt' | translate }}">-->
-<!--        </div>-->
-      </div>
+        }
+
 
       <!-- Contact Details -->
       <div class="col-12 col-md-6">

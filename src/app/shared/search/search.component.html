@@ -2,7 +2,7 @@
   <div class="row">
     <!-- Trip Type Toggle -->
     <div class="col-12 col-md-6 col-lg-3">
-      <div class="pb-2 d-flex flex-row gap-4 px-2 py-2">
+      <div class="pb-2 d-flex flex-row gap-4  py-2">
         <div class="form-check">
           <input
             (change)="setTripType('onward')"
@@ -11,7 +11,7 @@
             id="onward"
             name="tripType"
             type="radio">
-          <label class="form-check-label fs-5 mt-2 ms-2" for="onward" style="font-size: 1rem;">
+          <label class="form-check-label fs-5 mt-2" for="onward" style="font-size: 1rem;">
             {{ 'search.tripType.oneWay' | translate }}
           </label>
         </div>
@@ -23,51 +23,54 @@
             id="roundTrip"
             name="tripType"
             type="radio">
-          <label class="form-check-label fs-5 mt-2 ms-2" for="roundTrip" style="font-size: 1rem;">
+          <label class="form-check-label fs-5 mt-2" for="roundTrip" style="font-size: 1rem;">
             {{ 'search.tripType.roundTrip' | translate }}
           </label>
         </div>
       </div>
     </div>
 
-    <!-- Validation Messages -->
-    <div class="col-12 col-md-6 col-lg-3 d-flex flex-column flex-md-row justify-content-start gap-3 px-3 py-2">
-      @if (searchForm.get('destinationCity')?.touched && (searchForm.get('destinationCity')!.hasError('required'))) {
-        <small class="text-danger bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
-          {{ 'search.validation.destinationRequired' | translate }}
-        </small>
-      }
+    @if(searchForm.invalid){
+      <!-- Validation Messages -->
+      <div class="col-12 col-md-6 col-lg-3 d-flex flex-column flex-md-row justify-content-start gap-3 px-3 py-2">
+        @if (searchForm.get('destinationCity')?.touched && (searchForm.get('destinationCity')!.hasError('required'))) {
+          <small class="text-danger bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
+            {{ 'search.validation.destinationRequired' | translate }}
+          </small>
+        }
 
-      @if(searchForm.get('fromCity')?.touched && searchForm.get('fromCity')!.hasError('required')){
-        <small class="text-danger bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
-          {{ 'search.validation.fromRequired' | translate }}
-        </small>
-      }
+        @if(searchForm.get('fromCity')?.touched && searchForm.get('fromCity')!.hasError('required')){
+          <small class="text-danger bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
+            {{ 'search.validation.fromRequired' | translate }}
+          </small>
+        }
 
-      @if(searchForm.get('date')?.touched && searchForm.get('date')!.hasError('required')){
-        <small class="text-danger bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
-          {{ 'search.validation.dateRequired' | translate }}
-        </small>
-      }
+        @if(searchForm.get('date')?.touched && searchForm.get('date')!.hasError('required')){
+          <small class="text-danger bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
+            {{ 'search.validation.dateRequired' | translate }}
+          </small>
+        }
 
-      @if(searchForm.get('date')?.touched && searchForm.get('date')!.hasError('pastDate')){
-        <small class="text-danger bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
-          {{ 'search.validation.futureDate' | translate }}
-        </small>
-      }
+        @if(searchForm.get('date')?.touched && searchForm.get('date')!.hasError('pastDate')){
+          <small class="text-danger bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
+            {{ 'search.validation.futureDate' | translate }}
+          </small>
+        }
 
-      @if(searchForm.get('return_date')?.touched && searchForm.get('return_date')!.hasError("pastDate")){
-        <small class="text-danger bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
-          {{ 'search.validation.futureReturnDate' | translate }}
-        </small>
-      }
+        @if(searchForm.get('return_date')?.touched && searchForm.get('return_date')!.hasError("pastDate")){
+          <small class="text-danger bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
+            {{ 'search.validation.futureReturnDate' | translate }}
+          </small>
+        }
 
-      @if(searchForm.hasError('returnDateAfterTravel') && searchForm.get('return_date')?.touched){
-        <small class="text-danger bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
-          {{ 'search.validation.returnAfterTravel' | translate }}
-        </small>
-      }
-    </div>
+        @if(searchForm.hasError('returnDateAfterTravel') && searchForm.get('return_date')?.touched){
+          <small class="text-danger bg-danger-subtle rounded-3 px-2 p-1 fst-italic">
+            {{ 'search.validation.returnAfterTravel' | translate }}
+          </small>
+        }
+      </div>
+    }
+
 
     <!-- Info Bubble -->
     @if(message()){
@@ -99,7 +102,7 @@
               [placeholder]="'search.placeholders.from' | translate"
               pTooltip="{{ 'search.tooltips.from' | translate }}"
               formControlName="fromCity"
-              class="form-control p-2 border-0"
+              class="form-control py-2 px-0 border-0"
               id="fromCity"
               type="text"/>
           </div>
@@ -124,7 +127,7 @@
               [placeholder]="'search.placeholders.to' | translate"
               pTooltip="{{ 'search.tooltips.to' | translate }}"
               formControlName="destinationCity"
-              class="form-control p-2 border-0"
+              class="form-control py-2 px-0 border-0"
               id="toCity"
               type="text"/>
           </div>

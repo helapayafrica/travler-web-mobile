@@ -69,7 +69,7 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
   isLargeView = true;
   isTabletView = false;
   seatStyles = SeatStyles; // Make styles available to component
-  busLayoutHeight = 320; // Default height
+  busLayoutHeight = 300; // Default height
   centerOffsetX = 0; // Used to center seats
   centerOffsetY = 0; // Used to center seats
   boardingForm!: FormGroup;

@@ -310,7 +310,7 @@ input[type="radio"]:checked {
   .rounded-input input,
   .rounded-input-one-way input,
   :host ::ng-deep .p-inputtext {
-    padding: 0.5rem 0.4rem !important; /* Further reduced */
+    //padding: 0.5rem 0.4rem !important; /* Further reduced */
     font-size: 0.9rem !important;
   }
 

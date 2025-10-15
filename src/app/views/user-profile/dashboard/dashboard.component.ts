@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {BackendService} from '../../../services/backend';
 import {TranslatePipe} from '@ngx-translate/core';
-import {NgbDate, NgbDatepicker, NgbDateStruct, NgbInputDatepicker} from '@ng-bootstrap/ng-bootstrap';
+
 
 
 interface Booking {
