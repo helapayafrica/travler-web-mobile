@@ -20,7 +20,6 @@ import {BottomNav} from './sections/bottom-nav/bottom-nav';
   standalone: true,
   imports: [
     PartnersComponent,
-    TestimonialsComponent,
     CouponsComponent,
     AppsComponent,
     HeroSectionComponent,

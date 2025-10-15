@@ -52,7 +52,6 @@ export class ResultsComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data']) {
       console.log('Data changed - length:', this.data?.length);
-      // Force update by triggering change detection
       this.cdr.detectChanges();
     }
 

@@ -13,72 +13,49 @@ export class AmenitiesPipe implements PipeTransform {
     let svg: string;
 
     switch (value.toLowerCase()) {
-      // WiFi - Clear wireless internet symbol
+      //  Ac, DVD, Wifi, phone  caring, GPS, Water, newspaper, Tea
+      // AC - Air Condotioner
       case '1':
-        svg = `<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.07 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/>
-        </svg>`;
+        svg = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-air-vent-icon lucide-air-vent"><path d="M18 17.5a2.5 2.5 0 1 1-4 2.03V12"/><path d="M6 12H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 8h12"/><path d="M6.6 15.572A2 2 0 1 0 10 17v-5"/></svg>`;
         break;
 
-      // Entertainment/TV - Television screen for onboard entertainment
+    // Dvd Player
       case '2':
-        svg = `<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5l-1 1v1h8v-1l-1-1h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 12H3V5h18v10z"/>
-          <polygon points="10,8.5 10,15.5 16,12"/>
-        </svg>`;
+        svg = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-disc3-icon lucide-disc-3"><circle cx="12" cy="12" r="10"/><path d="M6 12c0-1.7.7-3.2 1.8-4.2"/><circle cx="12" cy="12" r="2"/><path d="M18 12c0 1.7-.7 3.2-1.8 4.2"/></svg>`;
         break;
 
-      // Air Conditioning - Snowflake for cool air/AC
+      //Wi-Fi
       case '3':
-        svg = `<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M22 11h-4.17l3.24-3.24-1.41-1.42L15.83 10H13V7.17l3.24-3.24-1.42-1.41L12 5.83V2h-2v3.83L7.17 2.59 5.76 4.01 9 7.17V10H6.17L2.93 6.76 1.51 8.17 4.75 11H1v2h3.75l-3.24 3.24 1.42 1.42L6.17 14H9v2.83l-3.24 3.24 1.41 1.42L10 18.17V22h2v-3.83l2.83 2.83 1.42-1.42L13 16.83V14h2.83l3.24 3.24 1.42-1.42L17.25 13H22v-2z"/>
-        </svg>`;
+        svg = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wifi-icon lucide-wifi"><path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/></svg>`;
         break;
 
-      // USB Charging - USB plug symbol for device charging
+      // Phone Charging
       case '4':
-        svg = `<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M15 7v4h1v2h-3V5h2l-3-4-3 4h2v8H8v-2h1V7H4v10h16V7h-5z"/>
-          <rect x="9" y="12" width="6" height="2"/>
-          <rect x="10" y="14" width="4" height="1"/>
-        </svg>`;
+        svg = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plug-zap-icon lucide-plug-zap"><path d="M6.3 20.3a2.4 2.4 0 0 0 3.4 0L12 18l-6-6-2.3 2.3a2.4 2.4 0 0 0 0 3.4Z"/><path d="m2 22 3-3"/><path d="M7.5 13.5 10 11"/><path d="M10.5 16.5 13 14"/><path d="m18 3-4 4h6l-4 4"/></svg>`;
         break;
 
-      // Toilet/Restroom - Clear restroom symbol
+      // GpsTracking
       case '5':
-        svg = `<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M5.5 22v-7.5H4V9c0-1.1.9-2 2-2h3c1.1 0 2 .9 2 2v5.5H9.5V22h-4zM18 22v-6h1.33L17.5 9.5c-.19-.83-.94-1.5-1.81-1.5s-1.63.67-1.81 1.5L12.67 16H14v6h4z"/>
-          <circle cx="7.5" cy="4.5" r="2"/>
-          <circle cx="15.5" cy="4.5" r="2"/>
-        </svg>`;
+        svg = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-locate-fixed-icon lucide-locate-fixed"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg>`;
         break;
 
-      // Water/Refreshments - Water bottle for drinks/refreshments
+      // Water
       case '6':
-        svg = `<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M9 2v1h2V2c0-.55-.45-1-1-1s-1 .45-1 1zm4 0v1h2V2c0-.55-.45-1-1-1s-1 .45-1 1zM6 5v2h12V5c0-.55-.45-1-1-1H7c-.55 0-1 .45-1 1zm1 4v10c0 1.66 1.34 3 3 3h4c1.66 0 3-1.34 3-3V9H7zm8 8H9v-1h6v1zm0-2H9v-1h6v1zm0-2H9v-1h6v1z"/>
-        </svg>`;
+        svg = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-glass-water-icon lucide-glass-water"><path d="M5.116 4.104A1 1 0 0 1 6.11 3h11.78a1 1 0 0 1 .994 1.105L17.19 20.21A2 2 0 0 1 15.2 22H8.8a2 2 0 0 1-2-1.79z"/><path d="M6 12a5 5 0 0 1 6 0 5 5 0 0 0 6 0"/></svg>`;
         break;
 
-      // Reading Light - Lamp/light bulb for individual reading lights
+      // News Paper
       case '7':
-        svg = `<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 12.16 7 10.63 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/>
+        svg = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" height="16" width="16">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0z" />
         </svg>`;
         break;
 
-      // Blanket/Pillow - Comfort items
+
+
+      //Tea
       case '8':
-        svg = `<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M21 9V7l-3 2 3 2zm-4 4v4H3v-4h14zm2-6.5L17 8l2 1.5L17 11l2 1.5L17 14l2-1.5zM19 3H5C3.9 3 3 3.9 3 5v4h16V5c0-1.1-.9-2-2-2zm0 4H5V5h14v2z"/>
-        </svg>`;
-        break;
-
-      // Snacks/Food service
-      case '9':
-        svg = `<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M8.1 13.34l2.83-2.83L3.91 3.5c-1.56 1.56-1.56 4.09 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.20-1.10-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z"/>
-        </svg>`;
+        svg = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-coffee-icon lucide-coffee"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/></svg>`;
         break;
 
       default:

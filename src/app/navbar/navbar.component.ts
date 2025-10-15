@@ -1,4 +1,4 @@
-import {Component, HostListener, inject} from '@angular/core';
+import {Component, HostListener, inject, signal} from '@angular/core';
 import {RouterLink, RouterModule} from '@angular/router';
 import {DrawerComponent} from './drawer/drawer.component';
 import {CommonModule, NgClass} from '@angular/common';
@@ -42,10 +42,9 @@ export class NavbarComponent {
   }
 
 
-  language  = ''
+  language  = signal('')
   ngOnInit() {
-    this.language = this.languageService.language()
-
+    this.language = this.languageService.getLanguageString()
     this.onScroll();
   }
   @HostListener('window:scroll', ['$event'])
@@ -60,6 +59,8 @@ logout(){
 }
 
 toggleLanguage(){
+  console.log(" the Language thinghy")
   this.languageService.toggleLanguage()
+  console.log(this.language)
 }
 }
