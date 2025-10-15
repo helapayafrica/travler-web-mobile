@@ -879,5 +879,21 @@
     "travelDate": "When would you like to travel?",
     "returnDate": "Round trip – specify return time.",
     "default": "Welcome aboard Travellers"
+  },
+
+  "aboutPage": {
+    "title": "About Us",
+    "appName": "Travler",
+    "description": "is a software app developed to make an impact in the transport sector by primarily targeting travelers. It serves as an alternative transport solution offering access to high-quality bus rides, fixed routes, schedules, and fares all in one app.",
+    "easyIntro": "is easy",
+    "steps": {
+      "download": "Download and open the app.",
+      "enterPoints": "Enter the pickup and drop-off points.",
+      "chooseRoute": "Pick the most convenient route and start traveling.",
+      "bookRide": "Book your ride and save time and money."
+    },
+    "features": "It also offers combined comfort, quality, safe travel, and highly responsive customer service.",
+    "callToAction": "NEED A SAFE, COMFORTABLE, AND AFFORDABLE BUS TRANSPORT SERVICE?",
+    "conclusion": "Then Travler is the APP for you."
   }
 }

@@ -886,6 +886,21 @@
     "travelDate": "Unataka kusafiri lini?",
     "returnDate": "Safari ya kurudi na kurudi – bainisha wakati wa kurudi.",
     "default": "Karibu kwenye Wasafiri"
-  }
+  },
+  "aboutPage": {
+  "title": "Kuhusu Sisi",
+  "appName": "Travler",
+  "description": "ni programu ya simu iliyotengenezwa ili kuleta mabadiliko sekta ya usafiri kwa kulenga hasa wasafiri. Ni suluhisho mbadala la usafiri inayotoa upatikanaji wa safari za bubui za hali ya juu, njia maalum, ratiba, na nauli zote zikiwa kwenye programu moja.",
+  "easyIntro": "ni rahisi",
+  "steps": {
+    "download": "Pakua na ufungue programu.",
+    "enterPoints": "Weka vituo vya kukuchukulia na kukuletea.",
+    "chooseRoute": "Chagua njia ifaayo zaidi na uanze kusafiri.",
+    "bookRide": "Tengeneza safari yako na uokoe muda na pesa."
+  },
+  "features": "Pia inatoa starehe ya pamoja, ubora, usafiri salama, na huduma kwa wateja inayokabiliana haraka na matatizo.",
+  "callToAction": "UNAHITAJI HUDUMA YA USAFIRI WA BUBUI ILIYO SALAMA, YA STAREHE, NA YA BEI NAFUU?",
+  "conclusion": "Basi Travler ndio PROGRAMMA yako."
+}
 
 }
