@@ -15,7 +15,6 @@ import {BookingService} from '../../../services/booking';
     TranslatePipe,
     NgIf,
     ReactiveFormsModule,
-    Select,
     FormsModule,
     RouterLink,
     NgForOf

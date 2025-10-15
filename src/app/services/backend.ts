@@ -2,9 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {map} from 'rxjs/operators';
-// export const endpoint='http://api.ma3app.com/appApi';
-// export const endpoint='http://bossapi.99synergy.com/appApi';
-// export const endpoint = 'https://api.Travler.com/globalApi'
 export const endpoint = '/globalApi'
 
 
@@ -126,7 +123,7 @@ export class BackendService {
 
   getUserWalletData(userId: string, currencyId: number=1){
 
-      // const data = {userId, currencyId, sourcetype:"web"}
+    // const data = {userId, currencyId, sourcetype:"web"}
     // const data = {userId:userId,currencyId,sourcetype:"web"}
     const data = {userId:userId,currencyId,sourcetype:"web"}
 
@@ -152,10 +149,10 @@ export class BackendService {
 
   // rescehdule
   // FIXME:   change to match backend
-   rescheduleTicket(data: any): Observable<any> {
+  rescheduleTicket(data: any): Observable<any> {
     return this.http.post(endpoint + '/Ticket/RescheduleTicket', data).pipe(
       map(this.extractData));
-    }
+  }
 
   resetPassword(data: any) {
     return this.http.post(endpoint + '/AppUser/ChangeForgotPassword', data).pipe(
@@ -164,7 +161,7 @@ export class BackendService {
 
   }
 
-   today = new Date().toISOString().split('T')[0]; // Format: YYYY-MM-DD
+  today = new Date().toISOString().split('T')[0]; // Format: YYYY-MM-DD
 
   getCommissionReport(
     page?:string,
