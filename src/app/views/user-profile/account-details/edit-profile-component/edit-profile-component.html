@@ -1,0 +1,172 @@
+<div class="container">
+  <h4>Edit Profile</h4>
+
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="mt-2 col-6">
+        <div class="form-group">
+          <label class="form-label">First Name</label>
+          <input type="text" class="form-control" formControlName="firstName"
+                 [class.is-invalid]="submitted && f['firstName'].errors">
+          <div class="invalid-feedback" *ngIf="submitted && f['firstName'].errors">
+            <div *ngIf="f['firstName'].errors['required']">First name is required</div>
+            <div *ngIf="f['firstName'].errors['minlength']">Must be at least 2 characters</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-2 col-6">
+        <div class="form-group">
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-control" formControlName="lastName"
+                 [class.is-invalid]="submitted && f['lastName'].errors">
+          <div class="invalid-feedback" *ngIf="submitted && f['lastName'].errors">
+            <div *ngIf="f['lastName'].errors['required']">Last name is required</div>
+            <div *ngIf="f['lastName'].errors['minlength']">Must be at least 2 characters</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-2 col-12">
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" formControlName="email"
+                 [class.is-invalid]="submitted && f['email'].errors">
+          <div class="invalid-feedback" *ngIf="submitted && f['email'].errors">
+            <div *ngIf="f['email'].errors['required']">Email is required</div>
+            <div *ngIf="f['email'].errors['email']">Invalid email format</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-2 col-6">
+        <div class="form-group">
+          <label class="form-label">Gender</label>
+          <select class="form-select" formControlName="gender"
+                  [class.is-invalid]="submitted && f['gender'].errors">
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+          <div class="invalid-feedback" *ngIf="submitted && f['gender'].errors">
+            <div *ngIf="f['gender'].errors['required']">Gender is required</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-2 col-6">
+        <div class="form-group">
+          <label class="form-label">Identity Number</label>
+          <input type="text" class="form-control" formControlName="identityNumber"
+                 [class.is-invalid]="submitted && f['identityNumber'].errors">
+          <div class="invalid-feedback" *ngIf="submitted && f['identityNumber'].errors">
+            <div *ngIf="f['identityNumber'].errors['required']">Identity number is required</div>
+            <div *ngIf="f['identityNumber'].errors['pattern']">Only numbers allowed</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-2 col-4">
+        <div class="form-group">
+          <label class="form-label">Code</label>
+          <select class="form-select" formControlName="code">
+            <option>+254</option>
+            <option>+255</option>
+            <option>+256</option>
+            <option>+257</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mt-2 col-8">
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <input type="tel" class="form-control" formControlName="phoneNumber"
+                 [class.is-invalid]="submitted && f['phoneNumber'].errors">
+          <div class="invalid-feedback" *ngIf="submitted && f['phoneNumber'].errors">
+            <div *ngIf="f['phoneNumber'].errors['required']">Phone number is required</div>
+            <div *ngIf="f['phoneNumber'].errors['pattern']">Invalid phone number (9-10 digits)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+ @if(isAgent){
+   <div class="col-12 mt-4">
+     <h4>Business Information</h4>
+     <div class="row">
+       <div class="mt-2 col-12">
+         <div class="form-group">
+           <label class="form-label">Business Name</label>
+           <input type="text" class="form-control" formControlName="businessName"
+                  [class.is-invalid]="submitted && f['businessName'].errors">
+           <div class="invalid-feedback" *ngIf="submitted && f['businessName'].errors">
+             <div *ngIf="f['businessName'].errors['required']">Business name is required</div>
+           </div>
+         </div>
+       </div>
+
+       <div class="mt-2 col-6">
+         <div class="form-group">
+           <label class="form-label">Area</label>
+           <input type="text" class="form-control" formControlName="area"
+                  [class.is-invalid]="submitted && f['area'].errors">
+           <div class="invalid-feedback" *ngIf="submitted && f['area'].errors">
+             <div *ngIf="f['area'].errors['required']">Area is required</div>
+           </div>
+         </div>
+       </div>
+
+       <div class="mt-2 col-6">
+         <div class="form-group">
+           <label class="form-label">Road</label>
+           <input type="text" class="form-control" formControlName="road">
+         </div>
+       </div>
+
+       <div class="mt-2 col-6">
+         <div class="form-group">
+           <label class="form-label">City</label>
+           <input type="text" class="form-control" formControlName="city"
+                  [class.is-invalid]="submitted && f['city'].errors">
+           <div class="invalid-feedback" *ngIf="submitted && f['city'].errors">
+             <div *ngIf="f['city'].errors['required']">City is required</div>
+           </div>
+         </div>
+       </div>
+
+       <div class="mt-2 col-6">
+         <div class="form-group">
+           <label class="form-label">County</label>
+           <p-autocomplete [(ngModel)]="selectedCounties" [suggestions]="filteredCounties" (completeMethod)="filterCounty($event)" optionLabel="name"></p-autocomplete>
+
+
+<!--           <input type="text" class="form-control" formControlName="county"-->
+<!--                  [class.is-invalid]="submitted && f['county'].errors">-->
+           <div class="invalid-feedback" *ngIf="submitted && f['county'].errors">
+             <div *ngIf="f['county'].errors['required']">County is required</div>
+           </div>
+         </div>
+       </div>
+
+       <div class="mt-2 col-12">
+         <div class="form-group">
+           <label class="form-label">Location (Google Based Location)</label>
+           <input type="text" class="form-control" formControlName="location">
+         </div>
+       </div>
+     </div>
+   </div>
+ }
+
+    <!-- todo/ Add the photos upload-->
+
+    <div class="col-12 mt-3">
+      <div class="w-100">
+        <button type="submit" class="btn btn-primary w-100">
+          Edit profile
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
