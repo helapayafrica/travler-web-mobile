@@ -8,11 +8,12 @@ import {FormsModule} from '@angular/forms';
 import {BackendService} from '../../../../services/backend';
 import {BookingService} from '../../../../services/booking';
 import {TranslatePipe} from '@ngx-translate/core';
+import {CapitalizePipe} from '../../../../utils/Pipes/capitalize-pipe';
 
 @Component({
   selector: 'app-search-refine-filters',
   standalone: true,
-  imports: [NgxSliderModule, Button, TabPanel, Drawer, Tabs, TabList, Tab, FormsModule, TabPanels, NgForOf, TranslatePipe],
+  imports: [NgxSliderModule, Button, TabPanel, Drawer, Tabs, TabList, Tab, FormsModule, TabPanels, NgForOf, TranslatePipe, CapitalizePipe],
   templateUrl: './refine-filters.component.html',
   styleUrl: './refine-filters.component.scss'
 })

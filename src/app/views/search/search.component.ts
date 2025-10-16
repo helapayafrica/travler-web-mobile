@@ -72,6 +72,11 @@ export class SearchComponent implements OnInit {
   }
 
   async getPayload() {
+    console.log('[GERRRING PAYLOAD]');
+    const payload = await this.bookingService.getPayload()
+    
+    console.log(payload);
+    
     return await this.bookingService.getPayload();
   }
 
@@ -147,8 +152,10 @@ export class SearchComponent implements OnInit {
     return `${sourceName} to ${destinationName}`;
   }
 
-  getFilterChanges(filters: any) {
-    console.log("Filters are changed!", filters);
+  async getFilterChanges(filters: any) {
+   await this.getPayload();
+    console.log("Current payload before merge:", this.payload);
+  // console.log("travel_date before merge:", this.payload?.travel_date);
     const newPayload = {
       ...this.payload,
       boarding_points: filters.boardingPoints,
@@ -157,6 +164,7 @@ export class SearchComponent implements OnInit {
       time_range: filters.time_range,
       company_id: filters.companyNames,
     };
+    console.log("New payload:", newPayload);
     this.fetchBuses(newPayload);
   }
 

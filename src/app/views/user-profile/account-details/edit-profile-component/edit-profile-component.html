@@ -56,6 +56,21 @@
 
       <div class="mt-2 col-6">
         <div class="form-group">
+          <label class="form-label">Age</label>
+          <input type="number" class="form-control" formControlName="age"
+                 min="1" max="120"
+                 [class.is-invalid]="submitted && f['age'].errors">
+          <div class="invalid-feedback" *ngIf="submitted && f['age'].errors">
+            <div *ngIf="f['age'].errors['required']">Age is required</div>
+            <div *ngIf="f['age'].errors['min']">Age must be at least 1</div>
+            <div *ngIf="f['age'].errors['max']">Age cannot exceed 120</div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="mt-2 col-6">
+        <div class="form-group">
           <label class="form-label">Identity Number</label>
           <input type="text" class="form-control" formControlName="identityNumber"
                  [class.is-invalid]="submitted && f['identityNumber'].errors">
@@ -91,75 +106,134 @@
       </div>
     </div>
 
- @if(isAgent){
-   <div class="col-12 mt-4">
-     <h4>Business Information</h4>
-     <div class="row">
-       <div class="mt-2 col-12">
-         <div class="form-group">
-           <label class="form-label">Business Name</label>
-           <input type="text" class="form-control" formControlName="businessName"
-                  [class.is-invalid]="submitted && f['businessName'].errors">
-           <div class="invalid-feedback" *ngIf="submitted && f['businessName'].errors">
-             <div *ngIf="f['businessName'].errors['required']">Business name is required</div>
-           </div>
-         </div>
-       </div>
+    @if(isAgent){
+      <div class="col-12 mt-4">
+        <h4>Business Information</h4>
+        <div class="row">
+          <div class="mt-2 col-12">
+            <div class="form-group">
+              <label class="form-label">Business Name</label>
+              <input type="text" class="form-control" formControlName="businessName"
+                     [class.is-invalid]="submitted && f['businessName'].errors">
+              <div class="invalid-feedback" *ngIf="submitted && f['businessName'].errors">
+                <div *ngIf="f['businessName'].errors['required']">Business name is required</div>
+              </div>
+            </div>
+          </div>
 
-       <div class="mt-2 col-6">
-         <div class="form-group">
-           <label class="form-label">Area</label>
-           <input type="text" class="form-control" formControlName="area"
-                  [class.is-invalid]="submitted && f['area'].errors">
-           <div class="invalid-feedback" *ngIf="submitted && f['area'].errors">
-             <div *ngIf="f['area'].errors['required']">Area is required</div>
-           </div>
-         </div>
-       </div>
+          <div class="mt-2 col-6">
+            <div class="form-group">
+              <label class="form-label">Area</label>
+              <input type="text" class="form-control" formControlName="area"
+                     [class.is-invalid]="submitted && f['area'].errors">
+              <div class="invalid-feedback" *ngIf="submitted && f['area'].errors">
+                <div *ngIf="f['area'].errors['required']">Area is required</div>
+              </div>
+            </div>
+          </div>
 
-       <div class="mt-2 col-6">
-         <div class="form-group">
-           <label class="form-label">Road</label>
-           <input type="text" class="form-control" formControlName="road">
-         </div>
-       </div>
+          <div class="mt-2 col-6">
+            <div class="form-group">
+              <label class="form-label">Road</label>
+              <input type="text" class="form-control" formControlName="road">
+            </div>
+          </div>
 
-       <div class="mt-2 col-6">
-         <div class="form-group">
-           <label class="form-label">City</label>
-           <input type="text" class="form-control" formControlName="city"
-                  [class.is-invalid]="submitted && f['city'].errors">
-           <div class="invalid-feedback" *ngIf="submitted && f['city'].errors">
-             <div *ngIf="f['city'].errors['required']">City is required</div>
-           </div>
-         </div>
-       </div>
+          <!-- County Autocomplete -->
+          <div class="mt-2 col-6">
+            <div class="form-group">
+              <label class="form-label">County</label>
+              <p-autoComplete
+                formControlName="county"
+                [suggestions]="filteredCounties"
+                (completeMethod)="filterCounty($event)"
+                [dropdown]="true"
+                placeholder="Select county"
+                dataKey="value"
+                optionLabel="data"
+              >
+                <ng-template let-c pTemplate="selectedItem">{{ c.data }}</ng-template>
+                <ng-template let-c pTemplate="item">{{ c.data }}</ng-template>
+              </p-autoComplete>
 
-       <div class="mt-2 col-6">
-         <div class="form-group">
-           <label class="form-label">County</label>
-           <p-autocomplete [(ngModel)]="selectedCounties" [suggestions]="filteredCounties" (completeMethod)="filterCounty($event)" optionLabel="name"></p-autocomplete>
+              <div class="invalid-feedback" *ngIf="submitted && f['county'].errors">
+                <div *ngIf="f['county'].errors['required']">County is required</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- City Autocomplete -->
+          <div class="mt-2 col-6">
+            <div class="form-group">
+              <label class="form-label">City</label>
+              <p-autoComplete
+                formControlName="city"
+                [suggestions]="filteredCities"
+                (completeMethod)="filterCity($event)"
+                [dropdown]="true"
+                placeholder="Select city"
+                dataKey="id"
+                optionLabel="city_name"
+              >
+                <ng-template let-c pTemplate="selectedItem">{{ c.city_name }}</ng-template>
+                <ng-template let-c pTemplate="item">{{ c.city_name }}</ng-template>
+              </p-autoComplete>
+
+              <div class="invalid-feedback" *ngIf="submitted && f['city'].errors">
+                <div *ngIf="f['city'].errors['required']">City is required</div>
+              </div>
+            </div>
+          </div>
 
 
-<!--           <input type="text" class="form-control" formControlName="county"-->
-<!--                  [class.is-invalid]="submitted && f['county'].errors">-->
-           <div class="invalid-feedback" *ngIf="submitted && f['county'].errors">
-             <div *ngIf="f['county'].errors['required']">County is required</div>
-           </div>
-         </div>
-       </div>
+          <div class="mt-2 col-12">
+            <div class="form-group">
+              <label class="form-label">Location (Google Based Location)</label>
+              <input type="text" class="form-control" formControlName="location">
+            </div>
+          </div>
+        </div>
+      </div>
 
-       <div class="mt-2 col-12">
-         <div class="form-group">
-           <label class="form-label">Location (Google Based Location)</label>
-           <input type="text" class="form-control" formControlName="location">
-         </div>
-       </div>
-     </div>
-   </div>
- }
 
-    <!-- todo/ Add the photos upload-->
+      <div class="col-12 mt-4">
+        <h5>Upload Required Photos</h5>
+        <div class="row">
+
+          <!-- ID Photo -->
+          <div class="mt-2 col-12">
+            <div class="form-group">
+              <label class="form-label">ID Photo</label>
+              <input type="file" class="form-control" accept="image/*"
+                     (change)="onFileSelect($event, 'id_photo')">
+              <small class="text-muted" *ngIf="idPhoto">{{ idPhoto.name }}</small>
+            </div>
+          </div>
+
+          <!-- Business Photo -->
+          <div class="mt-2 col-12">
+            <div class="form-group">
+              <label class="form-label">Business Photo</label>
+              <input type="file" class="form-control" accept="image/*"
+                     (change)="onFileSelect($event, 'business_photo')">
+              <small class="text-muted" *ngIf="businessPhoto">{{ businessPhoto.name }}</small>
+            </div>
+          </div>
+
+          <!-- Signature -->
+          <div class="mt-2 col-12">
+            <div class="form-group">
+              <label class="form-label">Signature</label>
+              <input type="file" class="form-control" accept="image/*"
+                     (change)="onFileSelect($event, 'signature')">
+              <small class="text-muted" *ngIf="signature">{{ signature.name }}</small>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    }
 
     <div class="col-12 mt-3">
       <div class="w-100">
