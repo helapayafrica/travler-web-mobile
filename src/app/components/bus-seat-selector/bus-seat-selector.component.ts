@@ -81,15 +81,13 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
     private busSeatService: BusSeatService,
     private fb: FormBuilder,
     public bookingService: BookingService,
-    public loginModalService: LoginModalService
+    public loginModalService: LoginModalService,
   ) {
     this.checkMobileView();
     this.bookingService.selectedTab$.subscribe((res) => {
       this.selectedTab = res;
     });
   }
-
-
 
   ngOnInit() {
     this.boardingForm = this.fb.group({
@@ -189,53 +187,126 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
   //     this.busSeatService.updateSelectedSeats(updatedSelection);
   //   }
   // }
-async toggleSeat(seat: SeatData): Promise<void> {
-  const loggedIn = this.bookingService.getConfig('loggedInStatus');
-  const maxSeats = loggedIn ? 6 : 2;
+  // async toggleSeat(seat: SeatData): Promise<void> {
+  //   const loggedIn = this.bookingService.getConfig('loggedInStatus');
+  //   const maxSeats = loggedIn ? 6 : 2;
 
-  // Check if seat is already selected
-  const isAlreadySelected = this.isSelected(seat)
+  //   // Check if seat is already selected
+  //   const isAlreadySelected = this.isSelected(seat)
 
-  // If deselecting, always allow it
-  if (isAlreadySelected) {
+  //   // If deselecting, always allow it
+  //   if (isAlreadySelected) {
+  //     const updatedSelection = this.busSeatService.toggleSeat(seat, this.selectedSeats);
+  //     this.busSeatService.updateSelectedSeats(updatedSelection);
+  //     return;
+  //   }
+
+  //   // Now check limits only for NEW selections
+  //   if (this.selectedSeats.length >= maxSeats) {
+  //     if (!loggedIn) {
+  //       const result = await Swal.fire({
+  //         title: 'Login Required',
+  //         text: 'You can only select up to 2 seats without logging in. Login to book more seats.',
+  //         icon: 'info',
+  //         showCancelButton: true,
+  //         confirmButtonText: 'Login',
+  //         cancelButtonText: 'Cancel',
+  //         confirmButtonColor: '#3085d6',
+  //         cancelButtonColor: '#d33',
+  //       });
+
+  //       if (result.isConfirmed) {
+  //         this.loginModalService.openModal(this.router.url);
+  //       }
+  //     } else {
+  //       await Swal.fire({
+  //         title: 'Limit Reached',
+  //         text: `You can select up to ${maxSeats} seats per booking.`,
+  //         icon: 'warning',
+  //         confirmButtonText: 'OK',
+  //         confirmButtonColor: '#3085d6',
+  //       });
+  //     }
+  //     return;
+  //   }
+
+  //   // Proceed with new selection
+  //   const updatedSelection = this.busSeatService.toggleSeat(seat, this.selectedSeats);
+  //   this.busSeatService.updateSelectedSeats(updatedSelection);
+  // }
+
+  async toggleSeat(seat: SeatData): Promise<void> {
+    const loggedIn = this.bookingService.getConfig('loggedInStatus');
+    let maxSeats = loggedIn ? 6 : 2;
+
+    // ✅ Step 1: handle deselection first (always allowed)
+    const isAlreadySelected = this.isSelected(seat);
+    if (isAlreadySelected) {
+      const updatedSelection = this.busSeatService.toggleSeat(seat, this.selectedSeats);
+      this.busSeatService.updateSelectedSeats(updatedSelection);
+      return;
+    }
+
+    // ✅ Step 2: apply special return limit if two-way
+    if (this.type === 'twoway' && this.selectedTab === 'return') {
+      const booking: any = await this.bookingService.getConfig('booking');
+      const onwardPassengerLength = booking?.ticketDetail?.onwardticket?.passenger?.length || 0;
+      console.log("Booking Details for onward trip:");
+      console.log(booking);
+
+      console.log("TOggle seat part");
+      console.log(onwardPassengerLength);
+
+
+      // Return limit = onward passenger count
+      maxSeats = onwardPassengerLength;
+
+      if (this.selectedSeats.length >= maxSeats) {
+        await Swal.fire({
+          title: 'Limit Reached',
+          text: `You can select up to ${maxSeats} seats for your return trip as per onward booking.`,
+          icon: 'warning',
+          confirmButtonText: 'OK',
+          confirmButtonColor: '#3085d6',
+        });
+        return;
+      }
+    }
+
+    // ✅ Step 3: handle general seat limit
+    if (this.selectedSeats.length >= maxSeats) {
+      if (!loggedIn) {
+        const result = await Swal.fire({
+          title: 'Login Required',
+          text: 'You can only select up to 2 seats without logging in. Login to book more seats.',
+          icon: 'info',
+          showCancelButton: true,
+          confirmButtonText: 'Login',
+          cancelButtonText: 'Cancel',
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+        });
+
+        if (result.isConfirmed) {
+          this.loginModalService.openModal(this.router.url);
+        }
+      } else {
+        await Swal.fire({
+          title: 'Limit Reached',
+          text: `You can select up to ${maxSeats} seats per booking.`,
+          icon: 'warning',
+          confirmButtonText: 'OK',
+          confirmButtonColor: '#3085d6',
+        });
+      }
+      return;
+    }
+
+    // ✅ Step 4: proceed with selection
     const updatedSelection = this.busSeatService.toggleSeat(seat, this.selectedSeats);
     this.busSeatService.updateSelectedSeats(updatedSelection);
-    return;
   }
 
-  // Now check limits only for NEW selections
-  if (this.selectedSeats.length >= maxSeats) {
-    if (!loggedIn) {
-      const result = await Swal.fire({
-        title: 'Login Required',
-        text: 'You can only select up to 2 seats without logging in. Login to book more seats.',
-        icon: 'info',
-        showCancelButton: true,
-        confirmButtonText: 'Login',
-        cancelButtonText: 'Cancel',
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-      });
-
-      if (result.isConfirmed) {
-        this.loginModalService.openModal(this.router.url);
-      }
-    } else {
-      await Swal.fire({
-        title: 'Limit Reached',
-        text: `You can select up to ${maxSeats} seats per booking.`,
-        icon: 'warning',
-        confirmButtonText: 'OK',
-        confirmButtonColor: '#3085d6',
-      });
-    }
-    return;
-  }
-
-  // Proceed with new selection
-  const updatedSelection = this.busSeatService.toggleSeat(seat, this.selectedSeats);
-  this.busSeatService.updateSelectedSeats(updatedSelection);
-}
   getSelectedSeatsString(): string {
     return this.selectedSeats
       .map((seat) => seat.seat_name)
@@ -244,10 +315,13 @@ async toggleSeat(seat: SeatData): Promise<void> {
   }
 
   getSeatTypesSummary(): string {
-    const types = this.selectedSeats.reduce((acc, seat) => {
-      acc[seat.seat_type] = (acc[seat.seat_type] || 0) + 1;
-      return acc;
-    }, {} as Record<string, number>);
+    const types = this.selectedSeats.reduce(
+      (acc, seat) => {
+        acc[seat.seat_type] = (acc[seat.seat_type] || 0) + 1;
+        return acc;
+      },
+      {} as Record<string, number>,
+    );
 
     return Object.entries(types)
       .map(([type, count]) => `${count} ${type.charAt(0).toUpperCase() + type.slice(1)}`)
@@ -296,19 +370,18 @@ async toggleSeat(seat: SeatData): Promise<void> {
   //     this.loginModalService.openModal(this.router.url);
   //   }
   // }
-  authService  = inject(AuthService)
+  authService = inject(AuthService);
   async proceedToCheckout(): Promise<void> {
-    const user = await this.authService.getCurrentUser()
-    const loggedInStatus  = this.bookingService.getConfig('loggedInStatus');
+    const user = await this.authService.getCurrentUser();
+    const loggedInStatus = this.bookingService.getConfig('loggedInStatus');
     if (this.type === 'onward') {
       this.bookingService.setConfig('pickup', this.boardingForm.value);
       await this.bookingService.saveOutward();
-      if(user && loggedInStatus == true) {
+      if (user && loggedInStatus == true) {
         await this.router.navigateByUrl('/checkout');
       } else {
         this.loginModalService.openModal('/checkout');
       }
-
     } else {
       this.bookingService.setConfig('pickup', this.boardingForm.value);
       await this.bookingService.saveReturn();
@@ -559,6 +632,6 @@ async toggleSeat(seat: SeatData): Promise<void> {
   }
 
   proceedToReschedule() {
-  //   TODO: Do all Pnecessary rescheduling login here
+    //   TODO: Do all Pnecessary rescheduling login here
   }
 }

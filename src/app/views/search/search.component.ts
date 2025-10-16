@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, NgZone, OnInit} from '@angular/core';
 import {SearchComponent as SharedSearchComponent} from '../../shared/search/search.component';
 import {ResultsComponent} from './sections/results/results.component';
 import {BackendService} from '../../services/backend';
@@ -11,6 +11,7 @@ import {NgxSliderModule} from '@angular-slider/ngx-slider';
 import {FormsModule} from '@angular/forms';
 import {RefineFiltersComponent} from './sections/refine-filters/refine-filters.component';
 import {TranslatePipe} from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-search',
@@ -31,10 +32,10 @@ import {TranslatePipe} from '@ngx-translate/core';
     FormsModule,
     TabPanels,
     RefineFiltersComponent,
-    TranslatePipe
+    TranslatePipe,
   ],
   templateUrl: './search.component.html',
-  styleUrl: './search.component.scss'
+  styleUrl: './search.component.scss',
 })
 export class SearchComponent implements OnInit {
   buses: any[] = []; // Initialize as empty array
@@ -45,7 +46,9 @@ export class SearchComponent implements OnInit {
   constructor(
     public backendService: BackendService,
     public bookingService: BookingService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private router: Router,
+    private zone: NgZone,
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -68,48 +71,49 @@ export class SearchComponent implements OnInit {
 
     const text = this.getTextForBreadCrumb();
     const routerLink = '/search';
-    this.items = [{text, routerLink}];
+    this.items = [{ text, routerLink }];
   }
 
   async getPayload() {
     console.log('[GERRRING PAYLOAD]');
-    const payload = await this.bookingService.getPayload()
-    
+    const payload = await this.bookingService.getPayload();
+
     console.log(payload);
-    
+
     return await this.bookingService.getPayload();
   }
-
   fetchBuses(payload: any) {
     this.isLoading = true;
-    this.buses = []; // Clear previous data before new search
 
     this.backendService.getTrips(payload).subscribe({
-      next: (res) => {
-        console.log('API Response:', res);
-        console.log('Buses array:', res.data);
-        console.log('Buses length:', res.data?.length);
+  next: (res) => {
+    this.zone.run(() => {
+      console.log('API done, updating buses');
+      this.buses = [...(res?.data || [])];
+      this.isLoading = false;
+      this.hasSearched = true;
 
-        // Ensure buses is always an array, even if response is null/undefined
-        this.buses = [...(res?.data || [])];
-        this.isLoading = false;
-        this.hasSearched = true;
-        this.cdr.detectChanges();
+      console.log('[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]');
 
-        console.log('Final buses data:', this.buses);
-      },
-      error: (error) => {
-        console.error('Error fetching buses:', error);
-        this.buses = []; // Set to empty array on error
-        this.isLoading = false;
-        this.hasSearched = true;
-        this.cdr.detectChanges();
-      }
+      console.log('Fetched buses:', this.buses.length);
+
+      this.cdr.detectChanges();
+      setTimeout(() => this.cdr.detectChanges(), 0);
     });
+  },
+  error: (err) => {
+    this.zone.run(() => {
+      this.buses = [];
+      this.isLoading = false;
+      this.cdr.detectChanges();
+    });
+  },
+});
+
   }
 
   //BreadCrumb
-  home = {label: 'Home'};
+  home = { label: 'Home' };
   items: any = [];
   isFormOpen = false;
 
@@ -128,22 +132,22 @@ export class SearchComponent implements OnInit {
     step: 100,
     translate: (value: number): string => {
       return `KES ${value}`;
-    }
+    },
   };
 
   durations = [
-    {label: '3 hours', value: '3h', icon: 'bi bi-clock'},
-    {label: '3-5 hours', value: '3-5h', icon: 'bi bi-hourglass-split'},
-    {label: '5-7 hours', value: '5-7h', icon: 'bi bi-stopwatch'},
-    {label: '7+ hours', value: '7+h', icon: 'bi bi-alarm'}
+    { label: '3 hours', value: '3h', icon: 'bi bi-clock' },
+    { label: '3-5 hours', value: '3-5h', icon: 'bi bi-hourglass-split' },
+    { label: '5-7 hours', value: '5-7h', icon: 'bi bi-stopwatch' },
+    { label: '7+ hours', value: '7+h', icon: 'bi bi-alarm' },
   ];
   selectedDuration = '3h';
 
   services = [
-    {label: 'Wi-Fi', checked: false, icon: 'bi bi-wifi'},
-    {label: 'TV', checked: false, icon: 'bi bi-tv'},
-    {label: 'Bed', checked: false, icon: 'bi bi-moon'},
-    {label: 'Meals', checked: false, icon: 'bi bi-egg-fried'}
+    { label: 'Wi-Fi', checked: false, icon: 'bi bi-wifi' },
+    { label: 'TV', checked: false, icon: 'bi bi-tv' },
+    { label: 'Bed', checked: false, icon: 'bi bi-moon' },
+    { label: 'Meals', checked: false, icon: 'bi bi-egg-fried' },
   ];
 
   getTextForBreadCrumb() {
@@ -153,9 +157,9 @@ export class SearchComponent implements OnInit {
   }
 
   async getFilterChanges(filters: any) {
-   await this.getPayload();
-    console.log("Current payload before merge:", this.payload);
-  // console.log("travel_date before merge:", this.payload?.travel_date);
+    await this.getPayload();
+    console.log('Current payload before merge:', this.payload);
+    // console.log("travel_date before merge:", this.payload?.travel_date);
     const newPayload = {
       ...this.payload,
       boarding_points: filters.boardingPoints,
@@ -164,8 +168,9 @@ export class SearchComponent implements OnInit {
       time_range: filters.time_range,
       company_id: filters.companyNames,
     };
-    console.log("New payload:", newPayload);
+    console.log('New payload:', newPayload);
     this.fetchBuses(newPayload);
+    this.cdr.detectChanges();
   }
 
   // Helper method to check if we have data to display
