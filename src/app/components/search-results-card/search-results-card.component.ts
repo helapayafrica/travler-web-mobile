@@ -264,7 +264,7 @@ export class SearchResultsCardComponent implements OnChanges {
               this.emittedSeatData.seatData = this.seat_data;
               this.emittedSeatData.type = this.type;
 
-              console.log('[Seat data loaded]', this.emittedSeatData);
+              // console.log('[Seat data loaded]', this.emittedSeatData);
 
               this.viewSeatOpen.emit({ ...this.emittedSeatData });
               this.seat_data.stages = droppingPoints;

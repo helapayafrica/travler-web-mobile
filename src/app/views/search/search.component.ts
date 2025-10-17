@@ -52,14 +52,12 @@ export class SearchComponent implements OnInit {
   ) {}
 
   async ngOnInit(): Promise<void> {
-    console.log('BEFORE getPayload');
+
     this.payload = await this.getPayload();
-    console.log('AFTER getPayload - payload:', this.payload);
-    console.log('Payload keys:', Object.keys(this.payload || {}));
+
 
     // Ensure payload is properly structured before making API call
     if (this.payload && Object.keys(this.payload).length > 0) {
-      console.log('Fetching buses with payload');
       this.hasSearched = true;
       this.fetchBuses(this.payload);
     } else {
@@ -75,10 +73,6 @@ export class SearchComponent implements OnInit {
   }
 
   async getPayload() {
-    console.log('[GERRRING PAYLOAD]');
-    const payload = await this.bookingService.getPayload();
-
-    console.log(payload);
 
     return await this.bookingService.getPayload();
   }
@@ -88,15 +82,9 @@ export class SearchComponent implements OnInit {
     this.backendService.getTrips(payload).subscribe({
   next: (res) => {
     this.zone.run(() => {
-      console.log('API done, updating buses');
       this.buses = [...(res?.data || [])];
       this.isLoading = false;
       this.hasSearched = true;
-
-      console.log('[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]');
-
-      console.log('Fetched buses:', this.buses.length);
-
       this.cdr.detectChanges();
       setTimeout(() => this.cdr.detectChanges(), 0);
     });
@@ -158,8 +146,6 @@ export class SearchComponent implements OnInit {
 
   async getFilterChanges(filters: any) {
     await this.getPayload();
-    console.log('Current payload before merge:', this.payload);
-    // console.log("travel_date before merge:", this.payload?.travel_date);
     const newPayload = {
       ...this.payload,
       boarding_points: filters.boardingPoints,

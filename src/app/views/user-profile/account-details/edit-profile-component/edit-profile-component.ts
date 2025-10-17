@@ -1,10 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AutoComplete, AutoCompleteCompleteEvent, AutoCompleteModule } from 'primeng/autocomplete';
 import { BookingService } from '../../../../services/booking';
 import { BackendService } from '../../../../services/backend';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-profile-component',
@@ -20,6 +21,7 @@ export class EditProfileComponent implements OnInit {
 
   service = inject(BookingService);
   backendService = inject(BackendService);
+  router = inject(Router);
 
   userDetails: any = {};
   counties: any[] = [];
@@ -259,8 +261,26 @@ export class EditProfileComponent implements OnInit {
     for (const pair of formData.entries()) console.log(pair[0], pair[1]);
 
     this.backendService.updateProfile(formData).subscribe({
-      next: (response: any) => console.log('Profile updated successfully', response),
-      error: (error) => console.error('Error updating profile', error),
+      next: () => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Profile Updated',
+          text: 'Your profile has been updated successfully!',
+          timer: 2000,
+          showConfirmButton: false,
+          willClose: () => {
+            // Redirect after alert closes
+            this.router.navigate(['/user-profile/dashboard']);
+          },
+        });
+      },
+      error: (error) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Update Failed',
+          text: 'Something went wrong while updating your profile.',
+        });
+      },
     });
   }
 

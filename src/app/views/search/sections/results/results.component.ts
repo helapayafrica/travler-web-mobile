@@ -61,8 +61,8 @@ export class ResultsComponent implements OnChanges, OnInit {
   @Input() isLoading: boolean = false;
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
-    console.log('ResultsComponent ngOnChanges triggered', changes);
+    // console.log('[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
+    // console.log('ResultsComponent ngOnChanges triggered', changes);
   }
 
   async getTripType() {

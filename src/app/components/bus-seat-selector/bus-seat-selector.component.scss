@@ -214,7 +214,10 @@
       ;
     }
 
-    .seat, .driver-section, .door-section {
+    //.seat, .driver-section, .door-section {
+    //  transform: rotate(-90deg) !important;
+    //}
+    .seat, .driver-section{
       transform: rotate(-90deg) !important;
     }
 
@@ -283,9 +286,9 @@
     width: 100%;
   }
 
-  .seat, .driver-section, .door-section {
-    transform: none !important;
-  }
+  //.seat, .driver-section, .door-section {
+  //  transform: none !important;
+  //}
  }
 
  // Large desktop screens

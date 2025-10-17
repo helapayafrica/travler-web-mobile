@@ -15,10 +15,6 @@ export class LanguageService {
     this.translate.setDefaultLang('en');
     this.getLanguage();
 
-
-    // Debug here instead
-    console.log("LanguageService initialized");
-    console.log("Current language:", this.language());
   }
 
   getLanguage() {
@@ -39,7 +35,6 @@ export class LanguageService {
     this.language.set(lang);
     this.bookingService.setConfig('lang', lang);
     this.translate.use(lang);
-    console.log("Language changed to:", lang); // Debug
   }
 
   toggleLanguage() {
@@ -48,8 +43,6 @@ export class LanguageService {
   }
 
   getLanguageString(){
-    console.log("LanguageService  getLanguageString");
-    // console.log(this.language())
     return this.language;
   }
 }

@@ -160,13 +160,10 @@ export class BookingService{
     }
   }
   async getPayload(){
-    console.log("GETTING PAYLOAD")
+
     this.payload.source_city_id=await this.getConfig('source_id');
     this.payload.destination_city_id=await this.getConfig('destination_id');
     this.payload.travel_date=await this.getConfig('travel_date');
-    localStorage.setItem('[GET PAYLOAD]',JSON.stringify(this.payload))
-    console.log("travel date", this.payload.travel_date)
-    console.log("[GET TRAVEL DATE]", await this.getConfig('travel_date'))
     return this.payload
   }
 
