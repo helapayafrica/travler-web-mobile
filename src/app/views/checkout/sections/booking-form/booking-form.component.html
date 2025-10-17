@@ -114,6 +114,7 @@
             [class.is-invalid]="hasError('nationality', index)"
             [typeaheadOptionField]="'value'"
             [typeahead]="nationalities"
+            [id]="'nationality' + index"
             class="form-control"
             [name]="'nationality' + item.seat_name"
             placeholder="{{ 'booking.passengerForm.fields.nationality' | translate }}"

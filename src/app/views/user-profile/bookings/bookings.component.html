@@ -45,45 +45,50 @@
             </div>
 
             <!-- Compact Info Table -->
-            <div class="info-table">
-              <div class="info-row">
-                <div class="info-label"><i class="fas fa-route"></i> {{ 'myTripsPage.labels.route' | translate }}</div>
-                <div class="info-value">{{ booking.pickup_city }} → {{ booking.drop_city }}</div>
-              </div>
+           <div class="info-strip">
+  <div class="info-chip">
+    <i class="fas fa-route"></i>
+    <span>{{ booking.pickup_city }} → {{ booking.drop_city }}</span>
+  </div>
 
-              <div class="info-row">
-                <div class="info-label"><i class="fas fa-calendar"></i> {{ 'myTripsPage.labels.date' | translate }}</div>
-                <div class="info-value">{{ booking.booking_date | date:'MMM dd' }} • {{ booking.boarding_time }}</div>
-              </div>
+  <div class="info-chip">
+    <i class="fas fa-calendar"></i>
+    <span>{{ booking.booking_date | date:'MMM dd' }} • {{ booking.boarding_time }}</span>
+  </div>
 
-              <div class="info-row">
-                <div class="info-label"><i class="fas fa-chair"></i> {{ 'myTripsPage.labels.seat' | translate }}</div>
-                <div class="info-value">
-                  <span class="seat-badge">{{ booking.seat_name }}</span>
-                  <span class="bus-typpe">{{ booking.bus_type | titlecase }}</span>
-                </div>
-              </div>
+  <div class="info-chip">
+    <i class="fas fa-chair"></i>
+    <span>{{ booking.seat_name }}</span>
+    <span class="bus-type">{{ booking.bus_type | titlecase }}</span>
+  </div>
 
-              <div class="info-row">
-                <div class="info-label"><i class="fas fa-money-bill"></i> {{ 'myTripsPage.labels.amount' | translate }}</div>
-                <div class="info-value amount">{{ booking.currency_code }} {{ booking.total_amount }}</div>
-              </div>
+  <div class="info-chip">
+    <i class="fas fa-money-bill"></i>
+    <span class="amount">{{ booking.currency_code }} {{ booking.total_amount }}</span>
+  </div>
 
-              <div class="info-row">
-                <div class="info-label"><i class="fas fa-building"></i> {{ 'myTripsPage.labels.company' | translate }}</div>
-                <div class="info-value">
-                  <div class="company-info">
-                    <span class="company-name">{{ booking.company_name }}</span>
-                    <a href="tel:{{ booking.company_phone }}" class="phone-link"><i class="fas fa-phone"></i></a>
-                  </div>
-                </div>
-              </div>
+  <div class="info-chip">
+    <i class="fas fa-building"></i>
+    <span>{{ booking.company_name }}</span>
+    <a href="tel:{{ booking.company_phone }}" class="phone-link">
+      <i class="fas fa-phone"></i>
+    </a>
+  </div>
 
-              <div class="info-row" *ngIf="booking.boarding_point">
-                <div class="info-label"><i class="fas fa-map-pin"></i> {{ 'myTripsPage.labels.boarding' | translate }}</div>
-                <div class="info-value boarding-point">{{ booking.boarding_point }}</div>
-              </div>
-            </div>
+  <div class="info-chip" *ngIf="booking.boarding_point">
+    <i class="fas fa-map-pin"></i>
+    <span>{{ booking.boarding_point }}</span>
+  </div>
+
+  <div class="trip-actions" *ngIf="booking.status === 'upcoming'">
+  <button class="btn-reschedule">
+    <i class="fas fa-clock-rotate-left"></i>
+    {{ 'myTripsPage.actions.reschedule' | translate }}
+  </button>
+</div>
+
+</div>
+
 
 <!--            <div class="action-row">-->
 <!--              <button type="button" class="btn-action btn-primary">-->

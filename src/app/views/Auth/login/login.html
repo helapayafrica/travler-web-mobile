@@ -16,7 +16,7 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <div class="row">
     <!-- Code -->
-    <div class="mt-2 col-4">
+    <!-- <div class="mt-2 col-4">
       <div class="d-flex flex-column gap-1">
         <label for="code">{{ 'login.labels.code' | translate }}</label>
         <p-select [options]="codes"
@@ -32,7 +32,13 @@
           {{ 'login.validation.codeRequired' | translate }}
         </small>
       </div>
-    </div>
+    </div> -->
+        <div class="mt-2 col-4">
+            <label for="code">{{ 'login.labels.code' | translate }}</label>
+              <select class="form-select"  formControlName="country_code">
+                <option [value]="item.code" *ngFor="let item of country_codes">{{item.code}}</option>
+              </select>
+            </div>
 
     <!-- Phone Number -->
     <div class="mt-2 col-8">

@@ -22,7 +22,7 @@ interface Booking {
   templateUrl: './bookings.component.html',
   styleUrls: ['./bookings.component.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, TranslatePipe]
+  imports: [CommonModule, FormsModule, TranslatePipe],
 })
 export class BookingsComponent implements OnInit {
   totalItems: number = 10;
@@ -30,22 +30,21 @@ export class BookingsComponent implements OnInit {
   status: string = 'confirmed';
   currency: string = 'KES';
   searchQuery: string = '';
-  user: string = ''
-  state :'upcoming' | 'completed' = 'upcoming'
-  activeTab = 'upcoming'
+  user: string = '';
+  state: 'upcoming' | 'completed' = 'upcoming';
+  activeTab = 'upcoming';
 
   bookings: Booking[] = [];
-   data: any[] = []
+  data: any[] = [];
 
-  service = inject(BackendService)
+  service = inject(BackendService);
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit(): void {
     // You would fetch data from a service in a real app
     // For now, leaving it empty to match the screenshot
-    this.getTripData(this.state)
+    this.getTripData(this.state);
   }
 
   search(): void {
@@ -53,21 +52,25 @@ export class BookingsComponent implements OnInit {
     // console.log('Searching for:', this.searchQuery);
   }
 
-
-  getTripData(state:'upcoming' | 'completed'){
-     this.activeTab= state
+  getTripData(state: 'upcoming' | 'completed') {
+    this.activeTab = state;
     this.service.getBookingHistory(state).subscribe({
-      next: (value : any) => {
-        if(value.data){
-          this.data = value.data
+      next: (value: any) => {
+        if (value.data) {
+          this.data = value.data;
         }
       },
-      error:(err) => {
-        console.log(err)
+      error: (err) => {
+        console.log(err);
       },
       complete: () => {
-        console.log('Successfully retrieved data')
-      }
-    })
+        console.log('Successfully retrieved data');
+      },
+    });
+  }
+
+  rescheduleBooking(booking: any) {
+    // Your reschedule logic here
+    console.log('Reschedule booking:', booking);
   }
 }
