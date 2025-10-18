@@ -176,10 +176,153 @@ export class PaymentFormComponent implements OnInit {
 
   }
 
+  // async makePayment() {
+  //   let formData = this.paymentForm.value
+  //   // console.log(formData)
+  //   let ref_no = await this.bookingService.getConfig('booking_reference')
+  //   let data = {
+  //     "bookingRef": ref_no,
+  //     "queryoption": 2,
+  //     "queryvalue": formData.countryCode + formData.mobileNumber,
+  //     "requestType": "ticket",
+  //     "additionalInfo": {
+  //       "onward": {"sponsorTrip": false, "discountId": 0},
+  //       "return": {"sponsorTrip": false, "discountId": 0}
+  //     },
+  //     "isWalletApply": false,
+  //     "sourcetype": "web"
+  //   }
+  //
+  //   this.checkWallet().subscribe(isValid => {
+  //     const newData = {
+  //       ...data,
+  //       isWalletApply: isValid
+  //     }
+  //
+  //
+  //     this.service.makePayment(newData).subscribe((res) => {
+  //
+  //       const invoiceRef : any =newData.bookingRef
+  //
+  //       this.paymentSocketService.isConnected$
+  //         .pipe(
+  //           filter(connected => connected),
+  //           take(1),
+  //           tap(() => {
+  //               // this.paymentSocketService.joinPaymentRoom(invoiceRef);
+  //             // Show waiting message
+  //             Swal.fire({
+  //               title: 'Waiting for Payment',
+  //               icon: 'info',
+  //               allowOutsideClick: false,
+  //               showConfirmButton: false,
+  //               didOpen: () => {
+  //                 Swal.showLoading();
+  //               }
+  //             });
+  //             this.paymentSocketService.joinPaymentRoom(invoiceRef);
+  //   }),
+  //   switchMap(() =>
+  //     merge(
+  //       this.paymentSocketService.paymentConfirmation$.pipe(
+  //         filter(conf => conf !== null),
+  //         map(conf => ({ type: 'payment', data: conf }))
+  //       ),
+  //       this.paymentSocketService.roomTimeout$.pipe(
+  //         filter(timeout => timeout !== null),
+  //         map(timeout => ({ type: 'timeout', data: timeout }))
+  //       )
+  //     ).pipe(first())
+  //   )
+  // )
+  // .subscribe({
+  //   next: (result) => {
+  //     Swal.close(); // Close loading dialog
+  //
+  //     if (result.type === 'payment') {
+  //       // console.log('Payment confirmed:', result.data);
+  //
+  //       setTimeout(() => {
+  //         Swal.fire({
+  //           title: 'Payment Successful!',
+  //           text: `Payment of KES ${result.data.data.TransAmount} received`,
+  //           icon: 'success',
+  //           confirmButtonText: 'OK'
+  //         });
+  //         // Handle success
+  //         this.router.navigate(['/spin-to-win']);
+  //
+  //       }, 3000)
+  //
+  //
+  //     } else if (result.type === 'timeout') {
+  //       console.log('Payment timeout:', result.data);
+  //
+  //       Swal.fire({
+  //         title: 'Payment Timeout',
+  //         text: 'Payment window has expired. Please try again.',
+  //         icon: 'error',
+  //         confirmButtonText: 'Retry'
+  //       }).then((result) => {
+  //         if (result.isConfirmed) {
+  //           // 👇 handle confirm click here
+  //           this.makePayment()
+  //           // this.retryPayment(); // example
+  //         }
+  //       });
+  //
+  //       // Handle timeout
+  //     }
+  //
+  //     this.paymentSocketService.leavePaymentRoom(invoiceRef);
+  //   },
+  //   error: (err) => {
+  //     Swal.close();
+  //     Swal.fire({
+  //       title: 'Error',
+  //       text: 'Something went wrong. Please try again.',
+  //       icon: 'error',
+  //       confirmButtonText: 'OK'
+  //     });
+  //   }
+  // });
+  //
+  //
+  //
+  //       // console.log(res)
+  //       this.startTimer()
+  //       if (res.isSuccess) {
+  //         Swal.fire({
+  //           icon: 'success',
+  //           title: 'Payment Initiated',
+  //           text: res.msg,
+  //           timer: 3000, // Auto-close after 3 seconds
+  //           showConfirmButton: false
+  //         });
+  //         setTimeout(() => {
+  //           // this.router.navigate(['/confirm-payment'])
+  //         }, 3000)
+  //
+  //       } else {
+  //         Swal.fire({
+  //           icon: 'error',
+  //           title: 'Payment Failed',
+  //           text: res.msg,
+  //           timer: 5000, // Auto-close after 3 seconds
+  //           cancelButtonText: 'Cancel',
+  //           showCancelButton: true,
+  //         });
+  //       }
+  //     });
+  //
+  //   })
+  //
+  // }
+  //
+
   async makePayment() {
-    let formData = this.paymentForm.value
-    // console.log(formData)
-    let ref_no = await this.bookingService.getConfig('booking_reference')
+    let formData = this.paymentForm.value;
+    let ref_no = await this.bookingService.getConfig('booking_reference');
     let data = {
       "bookingRef": ref_no,
       "queryoption": 2,
@@ -191,132 +334,114 @@ export class PaymentFormComponent implements OnInit {
       },
       "isWalletApply": false,
       "sourcetype": "web"
-    }
+    };
 
     this.checkWallet().subscribe(isValid => {
       const newData = {
         ...data,
         isWalletApply: isValid
-      }
-
+      };
 
       this.service.makePayment(newData).subscribe((res) => {
+        const invoiceRef: any = newData.bookingRef;
 
-        const invoiceRef : any =newData.bookingRef
+        this.startTimer();
 
-        this.paymentSocketService.isConnected$
-          .pipe(
-            filter(connected => connected),
-            take(1),
-            tap(() => {
-                // this.paymentSocketService.joinPaymentRoom(invoiceRef);
-              // Show waiting message
-              Swal.fire({
-                title: 'Waiting for Payment',
-                icon: 'info',
-                allowOutsideClick: false,
-                showConfirmButton: false,
-                didOpen: () => {
-                  Swal.showLoading();
-                }
-              });
-              this.paymentSocketService.joinPaymentRoom(invoiceRef);
-    }),
-    switchMap(() =>
-      merge(
-        this.paymentSocketService.paymentConfirmation$.pipe(
-          filter(conf => conf !== null),
-          map(conf => ({ type: 'payment', data: conf }))
-        ),
-        this.paymentSocketService.roomTimeout$.pipe(
-          filter(timeout => timeout !== null),
-          map(timeout => ({ type: 'timeout', data: timeout }))
-        )
-      ).pipe(first())
-    )
-  )
-  .subscribe({
-    next: (result) => {
-      Swal.close(); // Close loading dialog
-
-      if (result.type === 'payment') {
-        // console.log('Payment confirmed:', result.data);
-
-        setTimeout(() => {
-          Swal.fire({
-            title: 'Payment Successful!',
-            text: `Payment of KES ${result.data.data.TransAmount} received`,
-            icon: 'success',
-            confirmButtonText: 'OK'
-          });
-          // Handle success
-          this.router.navigate(['/spin-to-win']);
-
-        }, 3000)
-
-
-      } else if (result.type === 'timeout') {
-        console.log('Payment timeout:', result.data);
-
-        Swal.fire({
-          title: 'Payment Timeout',
-          text: 'Payment window has expired. Please try again.',
-          icon: 'error',
-          confirmButtonText: 'Retry'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            // 👇 handle confirm click here
-            this.makePayment()
-            // this.retryPayment(); // example
-          }
-        });
-
-        // Handle timeout
-      }
-
-      this.paymentSocketService.leavePaymentRoom(invoiceRef);
-    },
-    error: (err) => {
-      Swal.close();
-      Swal.fire({
-        title: 'Error',
-        text: 'Something went wrong. Please try again.',
-        icon: 'error',
-        confirmButtonText: 'OK'
-      });
-    }
-  });
-
-
-
-        // console.log(res)
-        this.startTimer()
         if (res.isSuccess) {
+          // 1. Show payment initiated
           Swal.fire({
             icon: 'success',
             title: 'Payment Initiated',
             text: res.msg,
-            timer: 3000, // Auto-close after 3 seconds
+            timer: 3000,
             showConfirmButton: false
           });
+
+          // 2. After 3 seconds, show processing message
           setTimeout(() => {
-            // this.router.navigate(['/confirm-payment'])
-          }, 3000)
+            this.paymentSocketService.isConnected$
+              .pipe(
+                filter(connected => connected),
+                take(1),
+                tap(() => {
+                  Swal.fire({
+                    title: 'Processing Payment',
+                    text: 'Please complete the payment on your phone...',
+                    icon: 'info',
+                    allowOutsideClick: false,
+                    showConfirmButton: false,
+                    didOpen: () => {
+                      Swal.showLoading();
+                    }
+                  });
+                  this.paymentSocketService.joinPaymentRoom(invoiceRef);
+                }),
+                switchMap(() =>
+                  merge(
+                    this.paymentSocketService.paymentConfirmation$.pipe(
+                      filter(conf => conf !== null),
+                      map(conf => ({ type: 'payment', data: conf }))
+                    ),
+                    this.paymentSocketService.roomTimeout$.pipe(
+                      filter(timeout => timeout !== null),
+                      map(timeout => ({ type: 'timeout', data: timeout }))
+                    )
+                  ).pipe(first())
+                )
+              )
+              .subscribe({
+                next: (result) => {
+                  Swal.close();
+
+                  // 3. Show success or timeout
+                  if (result.type === 'payment') {
+                    Swal.fire({
+                      title: 'Payment Successful!',
+                      text: `Payment of KES ${result.data.data.TransAmount} received`,
+                      icon: 'success',
+                      confirmButtonText: 'OK'
+                    }).then(() => {
+                      // this.router.navigate(['/spin-to-win']);
+                      // navigate to feedback
+                      this.router.navigate(['/feedback']);
+                    });
+                  } else if (result.type === 'timeout') {
+                    Swal.fire({
+                      title: 'Payment Timeout',
+                      text: 'Payment window has expired. Please try again.',
+                      icon: 'error',
+                      confirmButtonText: 'Retry'
+                    }).then((result) => {
+                      if (result.isConfirmed) {
+                        this.makePayment();
+                      }
+                    });
+                  }
+
+                  this.paymentSocketService.leavePaymentRoom(invoiceRef);
+                },
+                error: (err) => {
+                  Swal.close();
+                  Swal.fire({
+                    title: 'Error',
+                    text: 'Something went wrong. Please try again.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                  });
+                }
+              });
+          }, 3000);
 
         } else {
           Swal.fire({
             icon: 'error',
             title: 'Payment Failed',
             text: res.msg,
-            timer: 5000, // Auto-close after 3 seconds
-            cancelButtonText: 'Cancel',
-            showCancelButton: true,
+            confirmButtonText: 'OK'
           });
         }
       });
-
-    })
-
+    });
   }
 
 
