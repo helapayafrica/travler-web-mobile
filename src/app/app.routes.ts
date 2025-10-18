@@ -1,10 +1,7 @@
 import {Routes} from '@angular/router';
 import {HomeComponent} from './views/home/home.component';
 import {PageNotFoundComponent} from './views/page-not-found/page-not-found.component';
-import {Feedback} from './views/feedback/feedback';
-import {SpinTheWheel} from './views/spin-the-wheel/spin-the-wheel';
 import {authGuard} from './utils/auth-guard';
-import {PaymentConfirmationComponent} from './views/payment-confirmation-component/payment-confirmation-component';
 import {TripFeedbackForm} from './views/trip-feedback-form/trip-feedback-form';
 import {PaymentVerification} from './views/payment-verification/payment-verification';
 import {ForgotPassword} from './views/Auth/forgot-password/forgot-password';
@@ -47,7 +44,7 @@ export const routes: Routes = [
     loadComponent: () => import('./views/Auth/forgot-password/forgot-password').then((m)=> ForgotPassword),
     title :'Forgot Password | East Africa\'s largest Booking Platform',
     data: {
-      description:  'Forgort Password'
+      description:  'Forgot Password'
     }
 
   },{

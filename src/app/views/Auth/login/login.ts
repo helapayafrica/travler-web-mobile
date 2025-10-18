@@ -6,12 +6,8 @@ import {AuthService} from '../../../services/auth';
 import {BackendService} from '../../../services/backend';
 import {BookingService} from '../../../services/booking';
 import {LoginModalService} from '../../../services/login-modal';
-import {Button} from 'primeng/button';
 import {Checkbox} from 'primeng/checkbox';
-import {DatePicker} from 'primeng/datepicker';
-import {InputText} from 'primeng/inputtext';
 import {Password} from 'primeng/password';
-import {Select} from 'primeng/select';
 import {ToastrService} from 'ngx-toastr';
 import {TranslatePipe} from '@ngx-translate/core';
 
@@ -19,7 +15,7 @@ import {TranslatePipe} from '@ngx-translate/core';
   selector: 'app-view-auth-login',
   standalone: true,
   imports: [CommonModule, RouterLink,
-    ReactiveFormsModule, Password, Select, Checkbox, TranslatePipe],
+    ReactiveFormsModule, Password, Checkbox, TranslatePipe],
   templateUrl: './login.html',
   styleUrl: './login.scss'
 })
@@ -28,7 +24,7 @@ export class LoginComponent implements OnInit {
   isSubmitting = false;
   showPassword = false;
   toastr = inject(ToastrService)
-  hide_password = true; // Toggle password visibility
+
 
   country_codes = [
     { code: '254', country: 'Kenya' },
@@ -60,7 +56,7 @@ export class LoginComponent implements OnInit {
   initForm(): void {
     this.loginForm = this.fb.group({
       country_code: ['254', Validators.required], // Default Kenya
-      phone_number: ['', [Validators.required, Validators.pattern(/^\d{7,15}$/)]], // 7-15 digit phone number
+      phone_number: ['', [Validators.required, Validators.pattern(/^\d{7,15}$/)]], // 7-15-digit phone number
       password: ['', [Validators.required, Validators.minLength(6)]],
       rememberMe: [false]
     });
