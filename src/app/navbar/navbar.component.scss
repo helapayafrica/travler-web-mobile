@@ -90,10 +90,10 @@ align-items: center;
 }
 
 .nav-position{
-  position: absolute;
+  //position: absolute;
   min-width: 100%;
   //min-width:100vh;
-  top: 20px;
+  //top: 20px;
   //right: 10px;
   z-index: 600;
 }
@@ -112,4 +112,7 @@ align-items: center;
   align-items: center;
   align-content: center;
   text-align : center
+}
+.bg-custom {
+  background: var(--primary-color-100);
 }
