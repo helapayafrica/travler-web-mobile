@@ -111,62 +111,22 @@
           <input
             [(ngModel)]="item.nationality"
             (blur)="onFieldBlur('nationality', item.nationality, index)"
+            (ngModelChange)="onFieldBlur('nationality', $event, index)"
             [class.is-invalid]="hasError('nationality', index)"
-            [typeaheadOptionField]="'value'"
-            [typeahead]="nationalities"
-            [id]="'nationality' + index"
             class="form-control"
-            [name]="'nationality' + item.seat_name"
-            placeholder="{{ 'booking.passengerForm.fields.nationality' | translate }}"
+            [name]="'nationality' + index"
+            placeholder="Nationality"
+            [typeahead]="nationalities"
+            [typeaheadOptionField]="'value'"
             [dropup]="true"
             required
             type="text">
+
           <div *ngIf="hasError('nationality', index)" class="invalid-feedback d-block">
             {{ formErrors['nationality' + index] }}
           </div>
+
         </div>
-
-<!--        Code and Phone Number-->
-<!--        <div class="col-12 mt-2 ">-->
-<!--          <div class="row mb-2 gx-0">-->
-<!--            <div class="col-4">-->
-<!--              <label class="form-label" [for]="'mobileId' + index">{{ 'booking.passengerForm.fields.phoneCode' | translate }}</label>-->
-<!--              <select-->
-<!--                [(ngModel)]="item.mobileId"-->
-<!--                (blur)="onFieldBlur('mobileId', item.mobileId, index)"-->
-<!--                [class.is-invalid]="hasError('mobileId', index)"-->
-<!--                class="form-select"-->
-<!--                [name]="'mobileId' + item.seat_name"-->
-<!--                required>-->
-<!--                <option value="">Code</option>-->
-<!--                <option *ngFor="let code of country_codes" [value]="code.code">+{{ code.code }}</option>-->
-<!--              </select>-->
-<!--              <div *ngIf="hasError('mobileId', index)" class="invalid-feedback d-block">-->
-<!--                {{ formErrors['mobileId' + index] }}-->
-<!--              </div>-->
-<!--            </div>-->
-
-<!--            <div class="col-8">-->
-<!--              <label class="form-label" [for]="'phone' + index">{{ 'booking.passengerForm.fields.phoneNumber' | translate }}</label>-->
-<!--              <div class="input-group">-->
-<!--                <span class="input-group-text"><i class="bi bi-telephone-plus"></i></span>-->
-<!--                <input-->
-<!--                  [(ngModel)]="item.mobile"-->
-<!--                  (blur)="onFieldBlur('mobile', item.mobile, index)"-->
-<!--                  [class.is-invalid]="hasError('mobile', index)"-->
-<!--                  class="form-control"-->
-<!--                  [id]=" 'mobile' + index"-->
-<!--                  [name]="'phone' + item.seat_name"-->
-<!--                  placeholder="700000000"-->
-<!--                  required-->
-<!--                  type="number">-->
-<!--              </div>-->
-<!--              <div *ngIf="hasError('mobile', index)" class="invalid-feedback d-block">-->
-<!--                {{ formErrors['mobile' + index] }}-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
         <div class="col-12 mt-2">
           <label class="form-label" [for]="'phone' + index">{{ 'booking.passengerForm.fields.phoneNumber' | translate }}</label>
           <div class="input-group">
