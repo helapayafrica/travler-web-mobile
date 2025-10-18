@@ -69,34 +69,53 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
+      return;
     }
 
     this.isSubmitting = true;
-    const username = this.loginForm.value.phone_number.replace(/^0+/, '').trim()
+    const username = this.loginForm.value.phone_number.replace(/^0+/, '').trim();
 
-    let data:any={"username":username,"password":this.loginForm.value.password.trim(),"gcm_token":"","country_code":this.loginForm.value.country_code,"sourcetype":"web"}
+    const data: any = {
+      username,
+      password: this.loginForm.value.password.trim(),
+      gcm_token: '',
+      country_code: this.loginForm.value.country_code,
+      sourcetype: 'web'
+    };
 
-    this.service.login(data).subscribe((res)=>{
-      console.log(res)
-      if(res.isSuccess){
+    this.service.login(data).subscribe({
+      next: (res) => {
         this.isSubmitting = false;
-        this.toastr.success('Logged in successfully.');
-        this.authService.login(res.data);
-        this.router.navigateByUrl('/');
-      }else {
-        // this.toastr.error(res.errors.password?.[0] || res.errors.username?.[0] || 'Invalid credentials', 'Login Failed');
+        if (res.isSuccess) {
+          this.toastr.success('Logged in successfully.');
+          this.authService.login(res.data);
+          this.router.navigateByUrl('/');
+        } else {
+          this.toastr.error(
+            res.errors.password?.[0] ||
+            res.errors.email?.[0] ||
+            'Invalid credentials',
+            'Login Failed'
+          );
+        }
+      },
+      error: (err) => {
+        this.isSubmitting = false;
+        console.error('Login error:', err);
+
+        // Graceful UI feedback for unexpected errors
         this.toastr.error(
-          res.errors.password?.[0] || res.errors.email?.[0] || 'Invalid credentials',
-          'Login Failed'
-          // ,
-          // { positionClass: '' }   // bottom center
+          err?.error?.message || 'Something went wrong. Please try again.',
+          'Server Error'
         );
 
-        this.isSubmitting = false;
+        // Optional: auto logout or reload if token expired
+        // this.authService.logout();
+        // window.location.reload();
       }
-
-    })
+    });
   }
+
 
 
   signUp() {

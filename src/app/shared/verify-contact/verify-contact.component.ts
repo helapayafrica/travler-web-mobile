@@ -54,89 +54,95 @@ export class VerifyContactComponent implements OnInit {
 
   async verifyOtp() {
     console.log('OTP Entered:', this.otpControl.value);
-    let payload:any = await this.bookingService.getConfig('verification');
-    payload.otp_number=this.otpControl.value
-    console.log(payload);
-    this.loading=true
 
-    this.service.verifyOtp(payload).subscribe((res)=>{
-      this.loading=false;
-      if(res.isSuccess){
-        // Swal.fire({
-        //   icon: 'success',
-        //   title: 'Created',
-        //   text:'Your account has been created',
-        //   timer: 3000, // Auto-close after 3 seconds
-        //   width: '350px',
-        //   customClass: {
-        //     popup: 'tiny-swal',
-        //     icon: 'tiny-icon'
-        //   }
-        // });
-        const verification_key = res.data.verification_key
-        const registeringUserData = this.bookingService.getConfig('registeringUser')
-        if(registeringUserData){
-          const payload = {
-            ...registeringUserData,
-            verification_key: verification_key ? verification_key : ""
-          }
-          this.backendService.signup(payload).subscribe({
-            next:(response)=>{
-              if (response.isSuccess){
-                Swal.fire({
-                  icon: 'success',
-                  title: 'Created',
-                  text:'Your account has been created',
-                  timer: 3000, // Auto-close after 3 seconds
-                  width: '350px',
-                  customClass: {
-                    popup: 'tiny-swal',
-                    icon: 'tiny-icon'
-                  }
-                });
-                this.router.navigate(['/']);
+    let registeringUserData: any = await this.bookingService.getConfig('registeringUser');
 
-              }else{
-                Swal.fire({
-                  icon: 'error',
-                  title: 'Request Failed',
-                  text:"Registration Failed, Please Try again",
-                  width: '350px',
-                  showCancelButton:true,
-                  customClass: {
-                    popup: 'tiny-swal',
-                    icon: 'tiny-icon'
-                  }
-                });
+    console.log('[Registering User Data: From Local Storage]');
+    console.log(registeringUserData);
 
-                this.router.navigate(['/sign-up']);
-              }
-            },
-            error: (error) => {
-              console.log(error)
+    this.loading = true;
+
+    const verifyPayload = {
+      otp_number: this.otpControl.value,
+      gcm_token: "",
+      phone: registeringUserData.phone,
+      verification_key: registeringUserData.verification_key,
+      country_code: registeringUserData.country_code,
+      device_number: registeringUserData.device_number,
+      sourcetype: "web"
+    };
+
+    this.service.verifyOtp(verifyPayload).subscribe((res) => {
+      this.loading = false;
+
+      if (res.isSuccess) {
+        const verification_key = res.data.verification_key;
+
+        const signupPayload = {
+          name: registeringUserData.name,
+          phone: registeringUserData.phone,
+          country_code: registeringUserData.country_code,
+          password:  registeringUserData.password,
+          coupons: "",
+          currency: "",
+          gcm_token: "",
+          verification_key: verification_key
+        };
+
+        console.log('[Signup Payload]', signupPayload);
+
+        this.backendService.signup(signupPayload).subscribe({
+          next: (response) => {
+            if (response.isSuccess) {
               Swal.fire({
-                icon: 'error',
-                title: 'Request Failed',
-                text:"Registration Failed, Please Try again",
+                icon: 'success',
+                title: 'Created',
+                text: 'Your account has been created',
+                timer: 3000,
                 width: '350px',
-                showCancelButton:true,
                 customClass: {
                   popup: 'tiny-swal',
                   icon: 'tiny-icon'
                 }
               });
-
+              this.router.navigate(['/']);
+            } else {
+              Swal.fire({
+                icon: 'error',
+                title: 'Request Failed',
+                text: "Registration Failed, Please Try again",
+                width: '350px',
+                showCancelButton: true,
+                customClass: {
+                  popup: 'tiny-swal',
+                  icon: 'tiny-icon'
+                }
+              });
               this.router.navigate(['/sign-up']);
             }
-          })
-        }
-
-      }else{
+          },
+          error: (error) => {
+            console.log(error);
+            Swal.fire({
+              icon: 'error',
+              title: 'Request Failed',
+              text: "Registration Failed, Please Try again",
+              width: '350px',
+              showCancelButton: true,
+              customClass: {
+                popup: 'tiny-swal',
+                icon: 'tiny-icon'
+              }
+            });
+            this.router.navigate(['/sign-up']);
+          }
+        });
+      } else {
         Swal.fire({
           icon: 'error',
           title: 'Verification',
-          text:res.errors.otp[0],
-          timer: 3000, // Auto-close after 3 seconds
+          text: res.errors.otp[0],
+          timer: 3000,
           width: '350px',
           customClass: {
             popup: 'tiny-swal',
@@ -144,12 +150,7 @@ export class VerifyContactComponent implements OnInit {
           }
         });
       }
-    })
-    // let payload={"otp_number":this.otpControl.value,"device_number":Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),"gcm_token":"","phone":"742700488","verification_key":80228619,"country_code":"254","sourcetype":"web"}
-
-    // 🔹 Call API to verify OTP here
-    // this.authService.verifyOtp(this.otpControl.value).subscribe(response => { ... });
-
+    });
   }
 
 }

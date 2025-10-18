@@ -121,9 +121,6 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(): void {
-
-    // console.log(this.signupForm.value)
-
     if (this.signupForm.invalid) {
       Object.keys(this.signupForm.controls).forEach(key => {
         const control = this.signupForm.get(key);
@@ -132,55 +129,83 @@ export class SignupComponent implements OnInit {
       return;
     }
 
+    let data = this.signupForm.value;
+    console.log('[Form Data]', data);
 
-    let data = this.signupForm.value
+    this.loading = true;
+    this.isSubmitting = true;
 
-    console.log('[Form Data]',data)
-    this.loading=true;
-    this.payload.device_number= Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-    this.payload.phone=data.phone_number
-    // this.payload.gender=data.gender.value
-    // this.payload.country_code=data.country_code.value
-    console.log(this.payload)
-    this.service.sendOtp(this.payload).subscribe((res)=>{
-      this.loading=false;
-      if(res.isSuccess){
-        this.modalService.openModal('verificationModal');
-        let info={"otp_number":"","device_number":Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),"gcm_token":"","phone":data.phone_number,"verification_key":res.verification_key,"country_code":data.country_code,"sourcetype":"web"}
-        this.bookingService.setConfig('verification',info);
-        const registeringUser = {
-          name : this.payload.name,
-          phone: this.payload.phone,
-          country_code: this.payload.country_code,
-          coupon_code: this.payload.coupon_code,
-          verification_key: "",
-          currency_code: "",
-          gcm_token: ""
+    this.payload.device_number = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    this.payload.phone = data.phone_number
+
+    console.log(this.payload);
+
+    this.service.sendOtp(this.payload).subscribe({
+      next: (res) => {
+        this.loading = false;
+        this.isSubmitting = false;
+
+        if (res.isSuccess) {
+          this.modalService.openModal('verificationModal');
+          // let info = {
+          //   "otp_number": "",
+          //   "device_number": Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),
+          //   "gcm_token": "",
+          //   "phone": String(data.phone_number),
+          //   "verification_key": res.verification_key,
+          //   "country_code": data.country_code.value,
+          //   "name": data.name,
+          //   "sourcetype": "web"
+          // };
+          console.log('[Send Otp Response]')
+          console.log(res)
+          // this.bookingService.setConfig('verification', info);
+
+          const registeringUser = {
+            name: this.signupForm.value.name,
+            phone: this.payload.phone,
+            password: this.signupForm.value.password,
+            country_code: this.payload.country_code,
+            device_number: this.payload.device_number,
+            coupon_code: this.payload.coupon_code,
+            verification_key:  Number(res.verification_key),
+            currency_code: "",
+            gcm_token: "",
+            sourcetype: "web"
+          };
+          console.log('[Registering User data being saved in local storage]')
+          console.log(registeringUser);
+          this.bookingService.setConfig('registeringUser', registeringUser);
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Request Failed',
+            text: res.message,
+            width: '350px',
+            showCancelButton: true,
+            customClass: {
+              popup: 'tiny-swal',
+              icon: 'tiny-icon'
+            }
+          });
         }
-        this.bookingService.setConfig('registeringUser', registeringUser)
+      },
+      error: (err) => {
+        this.loading = false;
+        this.isSubmitting = false;
 
-        this.loading=false;
-      }else{
         Swal.fire({
           icon: 'error',
-          title: 'Request Failed',
-          text:res.message,
+          title: 'Error',
+          text: 'Something went wrong. Please try again.',
           width: '350px',
-          showCancelButton:true,
           customClass: {
             popup: 'tiny-swal',
             icon: 'tiny-icon'
           }
         });
-
-        this.loading=false;
       }
-
-    })
-
-    this.isSubmitting = true;
-
-
+    });
   }
 }
 
