@@ -28,7 +28,10 @@ export class ForgotPassword implements OnInit {
     this.form = new FormGroup({
       country_code : new FormControl('', Validators.required),
       phone : new FormControl('', Validators.required)
+    })
 
+    this.form.patchValue({
+      country_code: [this.codes[0].value]
     })
   }
 

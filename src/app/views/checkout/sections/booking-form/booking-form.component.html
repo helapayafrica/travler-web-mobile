@@ -63,9 +63,8 @@
             [id]="'gender' + index"
             [name]="'gender' + item.seat_name"
             required>
-            <option value="" selected disabled>Select Gender</option>
-            <option value="F">Female</option>
-            <option value="M">Male</option>
+            <option  selected value="F">Female</option>
+            <option  value="M">Male</option>
           </select>
           <div *ngIf="hasError('gender', index)" class="invalid-feedback d-block">
             {{ formErrors['gender' + index] }}
@@ -136,7 +135,7 @@
               [class.is-invalid]="hasError('mobileId', index) || hasError('mobile', index)"
               class="form-select"
               [name]="'mobileId' + item.seat_name"
-              style="max-width: 120px;"
+              style="max-width: 100px;"
               required>
               <option value="" disabled selected>Code</option>
               <option *ngFor="let code of country_codes" [value]="code.code">+{{ code.code }}</option>

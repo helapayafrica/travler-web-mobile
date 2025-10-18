@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import { ngxLoadingAnimationTypes, NgxLoadingModule } from 'ngx-loading';
 import {BackendService} from '../../services/backend';
 import {BookingService} from '../../services/booking';
+import {ModalService} from '../../services/modal';
 
 @Component({
   selector: 'app-verify-contact',
@@ -19,6 +20,7 @@ import {BookingService} from '../../services/booking';
 export class VerifyContactComponent implements OnInit {
   otpControl = new FormControl('');
   backendService = inject(BackendService);
+  modalService = inject(ModalService);
   loadingConfig = {
     animationType: ngxLoadingAnimationTypes.chasingDots,
     backdropBorderRadius: '10px',
@@ -104,8 +106,11 @@ export class VerifyContactComponent implements OnInit {
                   popup: 'tiny-swal',
                   icon: 'tiny-icon'
                 }
-              });
-              this.router.navigate(['/']);
+              }).then(() => {
+                this.modalService.closeModal();
+                this.router.navigate(['/login']);
+
+              })
             } else {
               Swal.fire({
                 icon: 'error',

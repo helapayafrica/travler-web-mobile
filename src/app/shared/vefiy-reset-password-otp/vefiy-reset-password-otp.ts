@@ -7,6 +7,7 @@ import {BookingService} from '../../services/booking';
 import {Router} from '@angular/router';
 import Swal from 'sweetalert2';
 import * as bootstrap from 'bootstrap';
+import {ModalService} from '../../services/modal';
 
 
 @Component({
@@ -43,8 +44,9 @@ export class VefiyResetPasswordOtp implements OnInit {
   };
   loading = false;
   fb = inject(FormBuilder);
+  modalService = inject(ModalService);
 
-  constructor(public service: BackendService, public bookingService: BookingService, public router: Router) {
+  constructor(public service: BackendService, public bookingService: BookingService, public router: Router,modalService:ModalService) {
 
   }
 
@@ -88,11 +90,7 @@ export class VefiyResetPasswordOtp implements OnInit {
             icon: 'tiny-icon'
           }
         }).then(() => {
-          const modalElement = document.getElementById('verificationModal');
-          if (modalElement) {
-            const modalInstance = bootstrap.Modal.getInstance(modalElement);
-            modalInstance?.hide();
-          }
+           this.modalService.closeModal();
           this.router.navigate(['/reset-password']);
         });
       } else {
