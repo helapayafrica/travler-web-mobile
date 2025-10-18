@@ -6,6 +6,8 @@ import {BackendService} from '../../services/backend';
 import {BookingService} from '../../services/booking';
 import {Router} from '@angular/router';
 import Swal from 'sweetalert2';
+import * as bootstrap from 'bootstrap';
+
 
 @Component({
   selector: 'app-vefiy-reset-password-otp',
@@ -24,7 +26,7 @@ export class VefiyResetPasswordOtp implements OnInit {
     backdropBorderRadius: '10px',
     primaryColour: 'blue',
     secondaryColour: 'red',
-    fullScreenBackdrop:true,
+    fullScreenBackdrop: true,
     tertiaryColour: '#ffffff'
   };
 
@@ -39,11 +41,13 @@ export class VefiyResetPasswordOtp implements OnInit {
       border: '1px solid red'
     }
   };
-  loading=false;
+  loading = false;
   fb = inject(FormBuilder);
-  constructor(public service:BackendService,public bookingService:BookingService,public router:Router){
+
+  constructor(public service: BackendService, public bookingService: BookingService, public router: Router) {
 
   }
+
   ngOnInit(): void {
     this.otpControl.valueChanges.subscribe((otp) => {
       console.log(this.otpConfig.length)
@@ -56,7 +60,7 @@ export class VefiyResetPasswordOtp implements OnInit {
   async verifyOtp() {
     console.log("Reaching here")
     console.log('OTP Entered:', this.otpControl.value);
-    let payload:any = await this.bookingService.getConfig('forgotPasswordDetails');
+    let payload: any = await this.bookingService.getConfig('forgotPasswordDetails');
     // OTP Payload
     // {"otp_number":"183850","device_number":"yhvloxss3tmf9amvarbzr","gcm_token":"",
     // "phone":"768488012","verification_key":63273168,"country_code":"254","sourcetype":"web"}
@@ -65,34 +69,37 @@ export class VefiyResetPasswordOtp implements OnInit {
     payload = {
       ...payload,
       otp_number: this.otpControl.value,
-      sourcetype:"web",
-      gcm_token:"",
+      sourcetype: "web",
+      gcm_token: "",
     }
     console.log(payload);
-    this.loading=true
-    this.service.verifyOtp(payload).subscribe((res)=>{
-      this.loading=false;
-      if(res.isSuccess){
+    this.loading = true
+    this.service.verifyOtp(payload).subscribe((res) => {
+      this.loading = false;
+      if (res.isSuccess) {
         Swal.fire({
           icon: 'success',
           title: 'Confirmed',
-          text:'OTP Confirmed',
+          text: 'OTP Confirmed',
           timer: 3000, // Auto-close after 3 seconds
           width: '350px',
           customClass: {
             popup: 'tiny-swal',
             icon: 'tiny-icon'
           }
+        }).then(() => {
+          const modalElement = document.getElementById('verificationModal');
+          if (modalElement) {
+            const modalInstance = bootstrap.Modal.getInstance(modalElement);
+            modalInstance?.hide();
+          }
+          this.router.navigate(['/reset-password']);
         });
-        //todo Add guard for reset-password page
-        const resetOtp = true
-
-        this.router.navigate(['/reset-password'])
-      }else{
+      } else {
         Swal.fire({
           icon: 'error',
           title: 'Verification',
-          text:res.errors.otp[0],
+          text: res.errors.otp[0],
           timer: 3000, // Auto-close after 3 seconds
           width: '350px',
           customClass: {
@@ -102,10 +109,6 @@ export class VefiyResetPasswordOtp implements OnInit {
         });
       }
     })
-    // let payload={"otp_number":this.otpControl.value,"device_number":Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),"gcm_token":"","phone":"742700488","verification_key":80228619,"country_code":"254","sourcetype":"web"}
-
-    // 🔹 Call API to verify OTP here
-    // this.authService.verifyOtp(this.otpControl.value).subscribe(response => { ... });
 
   }
 

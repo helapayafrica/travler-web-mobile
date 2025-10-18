@@ -73,8 +73,6 @@ export class ForgotPassword implements OnInit {
               date : new Date()
             }
             this.bookingService.setConfig('forgotPasswordDetails', newData)
-
-
             this.modalService.openModal('forgotPasswordVerificationModal')
           }else{
             Swal.fire({

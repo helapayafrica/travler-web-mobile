@@ -66,7 +66,7 @@ export class ResetPassword {
           if (res.isSuccess == true) {
             Swal.fire({
               icon: 'success',
-              title: 'Reset succecc',
+              title: 'Reset success password',
               text:'Your password has been reset',
               timer: 3000, // Auto-close after 3 seconds
               width: '350px',
