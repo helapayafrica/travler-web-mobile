@@ -15,7 +15,6 @@
     <div class="card-body">
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <div class="row">
-    <!-- Code -->
     <!-- <div class="mt-2 col-4">
       <div class="d-flex flex-column gap-1">
         <label for="code">{{ 'login.labels.code' | translate }}</label>
@@ -33,24 +32,46 @@
         </small>
       </div>
     </div> -->
-        <div class="mt-2 col-4">
-            <label for="code">{{ 'login.labels.code' | translate }}</label>
-              <select class="form-select"  formControlName="country_code">
-                <option [value]="item.code" *ngFor="let item of country_codes">{{item.code}}</option>
-              </select>
-            </div>
+<!--        <div class="mt-2 col-4">-->
+<!--            <label for="code">{{ 'login.labels.code' | translate }}</label>-->
+<!--              <select class="form-select"  formControlName="country_code">-->
+<!--                <option [value]="item.code" *ngFor="let item of country_codes">{{item.code}}</option>-->
+<!--              </select>-->
+<!--            </div>-->
 
-    <!-- Phone Number -->
-    <div class="mt-2 col-8">
+<!--    &lt;!&ndash; Phone Number &ndash;&gt;-->
+<!--    <div class="mt-2 col-8">-->
+<!--      <div class="d-flex flex-column gap-1">-->
+<!--        <label for="phone">{{ 'login.labels.phoneNumber' | translate }}</label>-->
+<!--        <input formControlName="phone_number"-->
+<!--               id="phone"-->
+<!--               type="tel"-->
+<!--               class="w-100 form-control p-2"-->
+<!--               inputmode="tel"-->
+<!--               placeholder="{{ 'login.placeholders.phoneNumber' | translate }}"-->
+<!--               pattern="^\+?[0-9\s\-]{7,15}$">-->
+<!--        <small *ngIf="loginForm.get('phone_number')?.touched && loginForm.get('phone_number')?.errors?.['required']"-->
+<!--               class="text-danger">-->
+<!--          {{ 'login.validation.phoneRequired' | translate }}-->
+<!--        </small>-->
+<!--      </div>-->
+<!--    </div>-->
+
+    <div class="mt-2 col-12">
       <div class="d-flex flex-column gap-1">
         <label for="phone">{{ 'login.labels.phoneNumber' | translate }}</label>
-        <input formControlName="phone_number"
-               id="phone"
-               type="tel"
-               class="w-100 form-control p-2"
-               inputmode="tel"
-               placeholder="{{ 'login.placeholders.phoneNumber' | translate }}"
-               pattern="^\+?[0-9\s\-]{7,15}$">
+        <div class="input-group">
+          <select class="form-select" formControlName="country_code" style="max-width: 120px;">
+            <option [value]="item.code" *ngFor="let item of country_codes">{{item.code}}</option>
+          </select>
+          <input formControlName="phone_number"
+                 id="phone"
+                 type="tel"
+                 class="form-control p-2"
+                 inputmode="tel"
+                 placeholder="{{ 'login.placeholders.phoneNumber' | translate }}"
+                 pattern="^\+?[0-9\s\-]{7,15}$">
+        </div>
         <small *ngIf="loginForm.get('phone_number')?.touched && loginForm.get('phone_number')?.errors?.['required']"
                class="text-danger">
           {{ 'login.validation.phoneRequired' | translate }}
