@@ -1,8 +1,8 @@
 <!-- Tab Navigation -->
 <div class="container-fluid mt-3">
   <div class="row">
-    <div class="col-12">
-      <div class="card">
+    <div class="col-12 p-0">
+      <div class="card p-0">
         <div class="card-header p-0">
           <nav class="nav nav-tabs card-header-tabs" role="tablist">
             <button
@@ -24,9 +24,9 @@
           </nav>
         </div>
 
-        <div class="card-body p-2">
+        <div class="card-body px-0">
           <!-- Mobile Compact Table -->
-          <div *ngFor="let booking of data; let i = index" class="booking-row mb-3">
+          <div *ngFor="let booking of data; let i = index" class="booking-row ">
             <div class="row-header">
               <div class="passenger-info">
                 <span class="passenger-name">{{ booking.name }}</span>
