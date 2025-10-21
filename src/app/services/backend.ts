@@ -64,7 +64,7 @@ export class BackendService {
 
 
   signup(data: any): Observable<any> {
-    return this.http.post(endpoint + '/AppUser/RegisterUsers', data).pipe(
+    return this.http.post(endpoint + '/AppUser/signup', data).pipe(
       map(this.extractData));
   }
   changePassword(data: any): Observable<any> {
