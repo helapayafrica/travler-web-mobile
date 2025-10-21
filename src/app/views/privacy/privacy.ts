@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import {TranslatePipe} from '@ngx-translate/core';
-import {NgForOf} from '@angular/common';
+import {CommonModule, NgForOf} from '@angular/common';
 
 @Component({
   selector: 'app-privacy',
   imports: [
-    TranslatePipe,
+    CommonModule,
+    TranslatePipe
   ],
   templateUrl: './privacy.html',
   styleUrl: './privacy.scss'

@@ -1,22 +1,113 @@
 <div class="section-container">
   <div class="p-3">
     <h1>{{ 'terms.title' | translate }}</h1>
-    <ol>
-      <li>{{ 'terms.conditions.1' | translate }}</li>
-      <li>{{ 'terms.conditions.2' | translate }}</li>
-      <li>{{ 'terms.conditions.3' | translate }}</li>
-      <li>{{ 'terms.conditions.4' | translate }}</li>
-      <li>{{ 'terms.conditions.5' | translate }}</li>
-      <li>{{ 'terms.conditions.6' | translate }}</li>
-      <li>{{ 'terms.conditions.7' | translate }}</li>
-      <li>{{ 'terms.conditions.8' | translate }}</li>
-      <li>{{ 'terms.conditions.9' | translate }}</li>
-      <li>{{ 'terms.conditions.10' | translate }}</li>
-      <li>{{ 'terms.conditions.11' | translate }}</li>
-      <li>{{ 'terms.conditions.12' | translate }}</li>
-      <li>{{ 'terms.conditions.13' | translate }}</li>
-      <li>{{ 'terms.conditions.14' | translate }}</li>
-      <li>{{ 'terms.conditions.15' | translate }}</li>
-    </ol>
+    <p class="last-updated">{{ 'terms.lastUpdated' | translate }}</p>
+
+    <!-- Section 1: Introduction -->
+    <div class="section-item">
+      <h2>{{ 'terms.sections.1.title' | translate }}</h2>
+      <p *ngFor="let paragraph of ['terms.sections.1.content.0', 'terms.sections.1.content.1']"
+         [innerHTML]="paragraph | translate"></p>
+    </div>
+
+    <!-- Section 2: Definitions -->
+    <div class="section-item">
+      <h2>{{ 'terms.sections.2.title' | translate }}</h2>
+      <ul>
+        <li *ngFor="let item of [0,1,2,3]"
+            [innerHTML]="'terms.sections.2.content.' + item | translate"></li>
+      </ul>
+    </div>
+
+    <!-- Section 3: Eligibility -->
+    <div class="section-item">
+      <h2>{{ 'terms.sections.3.title' | translate }}</h2>
+      <p [innerHTML]="'terms.sections.3.content' | translate"></p>
+    </div>
+
+    <!-- Section 4: Use of Platform -->
+    <div class="section-item">
+      <h2>{{ 'terms.sections.4.title' | translate }}</h2>
+      <p [innerHTML]="'terms.sections.4.content.0' | translate"></p>
+      <p><strong>You must not:</strong></p>
+      <ul>
+        <li *ngFor="let item of [0,1,2]"
+            [innerHTML]="'terms.sections.4.sublist.' + item | translate"></li>
+      </ul>
+    </div>
+
+    <!-- Section 5: Booking and Payment -->
+    <div class="section-item">
+      <h2>{{ 'terms.sections.5.title' | translate }}</h2>
+      <div class="sublist-item" *ngFor="let item of [0,1,2]"
+           [innerHTML]="'terms.sections.5.content.' + item | translate"></div>
+    </div>
+
+    <!-- Section 6: Refunds and Cancellations -->
+    <div class="section-item">
+      <h2>{{ 'terms.sections.6.title' | translate }}</h2>
+      <p *ngFor="let paragraph of [0,1]"
+         [innerHTML]="'terms.sections.6.content.' + paragraph | translate"></p>
+    </div>
+
+    <!-- Section 7: Intellectual Property -->
+    <div class="section-item">
+      <h2>{{ 'terms.sections.7.title' | translate }}</h2>
+      <p *ngFor="let paragraph of [0,1]"
+         [innerHTML]="'terms.sections.7.content.' + paragraph | translate"></p>
+    </div>
+
+    <!-- Section 8: Acceptable Use Policy -->
+    <div class="section-item">
+      <h2>{{ 'terms.sections.8.title' | translate }}</h2>
+      <p [innerHTML]="'terms.sections.8.content.0' | translate"></p>
+      <ul>
+        <li *ngFor="let item of [0,1,2,3]"
+            [innerHTML]="'terms.sections.8.sublist.' + item | translate"></li>
+      </ul>
+      <p [innerHTML]="'terms.sections.8.additionalContent' | translate"></p>
+    </div>
+
+    <!-- Section 9: Limitation of Liability -->
+    <div class="section-item">
+      <h2>{{ 'terms.sections.9.title' | translate }}</h2>
+      <p *ngFor="let paragraph of [0,1]"
+         [innerHTML]="'terms.sections.9.content.' + paragraph | translate"></p>
+    </div>
+
+    <!-- Section 10: Indemnification -->
+    <div class="section-item">
+      <h2>{{ 'terms.sections.10.title' | translate }}</h2>
+      <p [innerHTML]="'terms.sections.10.content' | translate"></p>
+    </div>
+
+    <!-- Section 11: Termination -->
+    <div class="section-item">
+      <h2>{{ 'terms.sections.11.title' | translate }}</h2>
+      <p [innerHTML]="'terms.sections.11.content' | translate"></p>
+    </div>
+
+    <!-- Section 12: Governing Law -->
+    <div class="section-item">
+      <h2>{{ 'terms.sections.12.title' | translate }}</h2>
+      <p [innerHTML]="'terms.sections.12.content' | translate"></p>
+    </div>
+
+    <!-- Section 13: Amendments -->
+    <div class="section-item">
+      <h2>{{ 'terms.sections.13.title' | translate }}</h2>
+      <p [innerHTML]="'terms.sections.13.content' | translate"></p>
+    </div>
+
+    <!-- Section 14: Contact Information -->
+    <div class="section-item">
+      <h2>{{ 'terms.sections.14.title' | translate }}</h2>
+      <p [innerHTML]="'terms.sections.14.content.0' | translate"></p>
+      <div class="contact-info">
+        <div *ngFor="let line of [0,1,2,3]"
+             [innerHTML]="'terms.sections.14.contactInfo.' + line | translate"
+             class="contact-line"></div>
+      </div>
+    </div>
   </div>
 </div>

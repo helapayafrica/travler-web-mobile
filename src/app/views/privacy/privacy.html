@@ -1,82 +1,88 @@
-<div class="privacy-container">
-  <div class="privacy-policy">
-
+<div class="section-container">
+  <div class="p-3">
     <h1>{{ 'privacyPolicy.title' | translate }}</h1>
+    <p class="last-updated">{{ 'privacyPolicy.lastUpdated' | translate }}</p>
 
-    <p>{{ 'privacyPolicy.intro1' | translate }}</p>
-    <p>{{ 'privacyPolicy.intro2' | translate }}</p>
+    <!-- Section 1: Introduction -->
+    <div class="section-item">
+      <h2>{{ 'privacyPolicy.sections.1.title' | translate }}</h2>
+      <p *ngFor="let paragraph of [0,1,2]"
+         [innerHTML]="'privacyPolicy.sections.1.content.' + paragraph | translate"></p>
+    </div>
 
-    <ul>
-      <li>{{ 'privacyPolicy.principles.item1' | translate }}</li>
-      <li>{{ 'privacyPolicy.principles.item2' | translate }}</li>
-    </ul>
-
-    <section>
-      <h2>{{ 'privacyPolicy.notice.title' | translate }}</h2>
-      <p>{{ 'privacyPolicy.notice.text' | translate }}</p>
+    <!-- Section 2: Information We Collect -->
+    <div class="section-item">
+      <h2>{{ 'privacyPolicy.sections.2.title' | translate }}</h2>
+      <p [innerHTML]="'privacyPolicy.sections.2.content.0' | translate"></p>
       <ul>
-        <li>{{ 'privacyPolicy.notice.purposes.item1' | translate }}</li>
-        <li>{{ 'privacyPolicy.notice.purposes.item2' | translate }}</li>
-        <li>{{ 'privacyPolicy.notice.purposes.item3' | translate }}</li>
-        <li>{{ 'privacyPolicy.notice.purposes.item4' | translate }}</li>
+        <li *ngFor="let item of [0,1,2,3]"
+            [innerHTML]="'privacyPolicy.sections.2.sublist.' + item | translate"></li>
       </ul>
-    </section>
+    </div>
 
-    <section>
-      <h2>{{ 'privacyPolicy.consent.title' | translate }}</h2>
-      <p>{{ 'privacyPolicy.consent.text1' | translate }}</p>
-      <p>{{ 'privacyPolicy.consent.text2' | translate }}</p>
-      <p>{{ 'privacyPolicy.consent.text3' | translate }}</p>
-    </section>
-
-    <section>
-      <h2>{{ 'privacyPolicy.access.title' | translate }}</h2>
-      <p>{{ 'privacyPolicy.access.text' | translate }}</p>
+    <!-- Section 3: Purpose of Collecting Personal Data -->
+    <div class="section-item">
+      <h2>{{ 'privacyPolicy.sections.3.title' | translate }}</h2>
+      <p [innerHTML]="'privacyPolicy.sections.3.content.0' | translate"></p>
       <ul>
-        <li>{{ 'privacyPolicy.access.actions.item1' | translate }}</li>
-        <li>{{ 'privacyPolicy.access.actions.item2' | translate }}</li>
-        <li>{{ 'privacyPolicy.access.actions.item3' | translate }}</li>
-        <li>{{ 'privacyPolicy.access.actions.item4' | translate }}</li>
+        <li *ngFor="let item of [0,1,2,3,4,5]"
+            [innerHTML]="'privacyPolicy.sections.3.sublist.' + item | translate"></li>
       </ul>
-    </section>
+    </div>
 
-    <section>
-      <h2>{{ 'privacyPolicy.security.title' | translate }}</h2>
-      <p>{{ 'privacyPolicy.security.paragraph1' | translate }}</p>
-      <p>{{ 'privacyPolicy.security.paragraph2' | translate }}</p>
-      <p>{{ 'privacyPolicy.security.paragraph3' | translate }}</p>
-      <p>{{ 'privacyPolicy.security.paragraph4' | translate }}</p>
-      <p>{{ 'privacyPolicy.security.paragraph5' | translate }}</p>
-    </section>
+    <!-- Section 4: Data Sharing and Third-Party Disclosure -->
+    <div class="section-item">
+      <h2>{{ 'privacyPolicy.sections.4.title' | translate }}</h2>
+      <p *ngFor="let paragraph of [0,1]"
+         [innerHTML]="'privacyPolicy.sections.4.content.' + paragraph | translate"></p>
+      <ul>
+        <li *ngFor="let item of [0,1,2]"
+            [innerHTML]="'privacyPolicy.sections.4.sublist.' + item | translate"></li>
+      </ul>
+      <p [innerHTML]="'privacyPolicy.sections.4.additionalContent' | translate"></p>
+    </div>
 
-    <section>
-      <h2>{{ 'privacyPolicy.noticeToParents.title' | translate }}</h2>
-      <p>{{ 'privacyPolicy.noticeToParents.text1' | translate }}</p>
-      <p>{{ 'privacyPolicy.noticeToParents.text2' | translate }}</p>
-    </section>
+    <!-- Section 5: Data Security and Retention -->
+    <div class="section-item">
+      <h2>{{ 'privacyPolicy.sections.5.title' | translate }}</h2>
+      <p *ngFor="let paragraph of [0,1]"
+         [innerHTML]="'privacyPolicy.sections.5.content.' + paragraph | translate"></p>
+    </div>
 
-    <section>
-      <h2>{{ 'privacyPolicy.enforcement.title' | translate }}</h2>
-      <p [innerHTML]="'privacyPolicy.enforcement.contact' | translate"></p>
-    </section>
+    <!-- Section 6: Your Privacy Rights -->
+    <div class="section-item">
+      <h2>{{ 'privacyPolicy.sections.6.title' | translate }}</h2>
+      <p [innerHTML]="'privacyPolicy.sections.6.content.0' | translate"></p>
+      <ul>
+        <li *ngFor="let item of [0,1,2,3,4]"
+            [innerHTML]="'privacyPolicy.sections.6.sublist.' + item | translate"></li>
+      </ul>
+      <p [innerHTML]="'privacyPolicy.sections.6.additionalContent' | translate"></p>
+    </div>
 
-    <section>
-      <h2>{{ 'privacyPolicy.electronicRegistration.title' | translate }}</h2>
-      <p>{{ 'privacyPolicy.electronicRegistration.text' | translate }}</p>
-    </section>
+    <!-- Section 7: Cookies and Website Analytics -->
+    <div class="section-item">
+      <h2>{{ 'privacyPolicy.sections.7.title' | translate }}</h2>
+      <p *ngFor="let paragraph of [0,1]"
+         [innerHTML]="'privacyPolicy.sections.7.content.' + paragraph | translate"></p>
+    </div>
 
-    <section>
-      <h2>{{ 'privacyPolicy.customerProfiles.title' | translate }}</h2>
-      <p>{{ 'privacyPolicy.customerProfiles.text' | translate }}</p>
-      <p>{{ 'privacyPolicy.customerProfiles.cookieInfo' | translate }}</p>
-    </section>
+    <!-- Section 8: Updates to This Privacy Policy -->
+    <div class="section-item">
+      <h2>{{ 'privacyPolicy.sections.8.title' | translate }}</h2>
+      <p *ngFor="let paragraph of [0,1]"
+         [innerHTML]="'privacyPolicy.sections.8.content.' + paragraph | translate"></p>
+    </div>
 
-    <section>
-      <h2>{{ 'privacyPolicy.informationUsage.title' | translate }}</h2>
-      <p>{{ 'privacyPolicy.informationUsage.text1' | translate }}</p>
-      <p>{{ 'privacyPolicy.informationUsage.text2' | translate }}</p>
-      <p>{{ 'privacyPolicy.informationUsage.text3' | translate }}</p>
-    </section>
-
+    <!-- Section 9: Contact Information -->
+    <div class="section-item">
+      <h2>{{ 'privacyPolicy.sections.9.title' | translate }}</h2>
+      <p [innerHTML]="'privacyPolicy.sections.9.content.0' | translate"></p>
+      <div class="contact-info">
+        <div *ngFor="let line of [0,1,2,3]"
+             [innerHTML]="'privacyPolicy.sections.9.contactInfo.' + line | translate"
+             class="contact-line"></div>
+      </div>
+    </div>
   </div>
 </div>

@@ -22,5 +22,28 @@ li {
   padding: 0.5rem;
 }
 .section-container{
-  padding-top: 8rem;
+  //padding-top: 8rem;
+}
+
+.section-item {
+  margin-bottom: 2rem;
+}
+
+.section-item h2 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.sublist-item {
+  margin-bottom: 0.5rem;
+}
+
+.contact-line {
+  margin-bottom: 0.5rem;
+}
+
+.last-updated {
+  font-style: italic;
+  color: #666;
+  margin-bottom: 2rem;
 }

@@ -20,7 +20,7 @@ import {TranslatePipe} from '@ngx-translate/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BookingFormComponent implements OnInit {
-  email = "info@Travler.com"
+  email = "support@travler.africa"
   isSuccess = false;
   nationalities: any = [];
   country_codes = [

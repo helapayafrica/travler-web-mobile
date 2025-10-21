@@ -37,10 +37,11 @@
       "ticket": "Print Ticket",
       "contact": "Get In Touch",
       "faqs": "FAQs",
-      "terms": "Terms"
+      "terms": "Terms",
+      "privacy": "Privacy Policy"
     },
     "contact": {
-      "email": "info@iabiri.com"
+      "email": "support@travler.africa"
     }
   },
 
@@ -263,26 +264,123 @@
     }
   },
 
+
+
   "terms": {
-    "title": "TICKET CONDITIONS",
-    "conditions": {
-      "1": "This ticket is valid for the time and date of travel only.",
-      "2": "The ticket cannot be altered, resold, transferred or refunded.",
-      "3": "If for any reason the holder fails to report before departure time, the company accepts no responsibility for such passenger.",
-      "4": "The ticket is treated as used if the holder fails to utilize it as indicated thereon.",
-      "5": "The ticket holder must report at the booking office 30 minutes before the time specified on the ticket.",
-      "6": "Drinking any alcohol, chewing miraa or smoking in the coach is prohibited.",
-      "7": "Luggage carried at owner's risk. The company cannot be held responsible for damage, losses or delay. Passengers are to take care of their own luggage.",
-      "8": "20kgs of luggage is allowed free. Additional will be accepted on charge if space permits.",
-      "9": "The management reserves the right to change the coach without prior notice or refund.",
-      "10": "If in case a passenger breaks his journey en-route no refund shall be made.",
-      "11": "A passenger is allowed free one baby only. Age limit 5 years.",
-      "12": "Passengers are requested to ensure correctness of the booking office as mistakes cannot be rectified later.",
-      "13": "Strictly no luggage should be passed through the window.",
-      "14": "The passenger should ensure that the amount paid is clearly indicated on the ticket as per one's destination.",
-      "15": "Time and date of booking should appear clearly on the ticket."
+    "title": "TRAVLER WEBSITE TERMS OF USE AND ACCEPTABLE USE POLICY",
+    "lastUpdated": "Last Updated: October 2025",
+    "sections": {
+      "1": {
+        "title": "1. Introduction",
+        "content": [
+          "Welcome to <strong>Travler</strong>, a product of <strong>Voltic Kenya Limited</strong>. These Terms of Use govern your access to and use of our website <strong>www.travler.africa</strong>, mobile application, and related services (collectively, \"the Platform\").",
+          "By accessing or using Travler, you agree to comply with these Terms. Please read them carefully before using our services."
+        ]
+      },
+      "2": {
+        "title": "2. Definitions",
+        "type": "list",
+        "content": [
+          "<strong>\"Travler\"</strong> means Voltic Kenya Limited, the company operating the Travler platform.",
+          "<strong>\"User\"</strong> or <strong>\"You\"</strong> refers to any person who accesses, browses, or uses the Travler platform.",
+          "<strong>\"Operator\"</strong> refers to any bus company or service provider whose tickets are available for booking on the Travler platform.",
+          "<strong>\"Platform\"</strong> means the Travler website, mobile app, and all associated digital services."
+        ]
+      },
+      "3": {
+        "title": "3. Eligibility",
+        "content": "By using Travler, you confirm that you are at least 18 years of age and have legal capacity to enter into binding agreements."
+      },
+      "4": {
+        "title": "4. Use of the Platform",
+        "content": [
+          "You agree to use Travler only for lawful purposes, specifically for browsing, comparing, and purchasing bus tickets for personal or authorized use.",
+          "You must not:"
+        ],
+        "type": "list",
+        "sublist": [
+          "Use the platform for fraudulent, deceptive, or illegal activity.",
+          "Interfere with the operation or security of the platform.",
+          "Attempt to copy, modify, or reverse-engineer Travler's systems or software."
+        ]
+      },
+      "5": {
+        "title": "5. Booking and Payment",
+        "type": "sublist",
+        "content": [
+          "<strong>a.</strong> All ticket bookings made through Travler are subject to availability and operator confirmation.",
+          "<strong>b.</strong> Payment for tickets is processed through secure third-party gateways (e.g., mobile money, debit/credit cards).",
+          "<strong>c.</strong> Travler is not liable for delays, cancellations, or service quality of the bus operators but will facilitate necessary support in resolving disputes."
+        ]
+      },
+      "6": {
+        "title": "6. Refunds and Cancellations",
+        "content": [
+          "Refund and cancellation policies vary by operator. Users are encouraged to review individual operator terms during booking.",
+          "Travler will assist with refund requests in accordance with the operator's policy but is not obligated to override operator terms."
+        ]
+      },
+      "7": {
+        "title": "7. Intellectual Property Rights",
+        "content": [
+          "All content, trademarks, and materials displayed on Travler (including logos, designs, graphics, and software) are owned by or licensed to <strong>Voltic Kenya Limited</strong>.",
+          "No user may reproduce, copy, or distribute any Travler content without prior written consent."
+        ]
+      },
+      "8": {
+        "title": "8. Acceptable Use Policy",
+        "content": [
+          "When using Travler, you agree not to:"
+        ],
+        "type": "list",
+        "sublist": [
+          "Upload or share offensive, misleading, or harmful content.",
+          "Engage in activities that may disrupt or damage Travler's systems.",
+          "Use automated systems (bots, scrapers) to access or collect platform data.",
+          "Impersonate another person or misrepresent your affiliation with any entity."
+        ],
+        "additionalContent": "Violation of this policy may result in suspension or termination of access to the platform."
+      },
+      "9": {
+        "title": "9. Limitation of Liability",
+        "content": [
+          "Travler provides its services \"as is\" and makes no warranties regarding accuracy, reliability, or availability.",
+          "<strong>Voltic Kenya Limited</strong> shall not be liable for any indirect, incidental, or consequential damages resulting from the use or inability to use the platform."
+        ]
+      },
+      "10": {
+        "title": "10. Indemnification",
+        "content": "You agree to indemnify and hold harmless <strong>Voltic Kenya Limited</strong> and its affiliates from any claims, losses, or damages arising from your misuse of the platform or violation of these Terms."
+      },
+      "11": {
+        "title": "11. Termination",
+        "content": "Travler reserves the right to suspend or terminate your account at any time if you breach these Terms or engage in prohibited activities."
+      },
+      "12": {
+        "title": "12. Governing Law and Jurisdiction",
+        "content": "These Terms shall be governed by the laws of the <strong>Republic of Kenya</strong>. Any disputes shall be subject to the exclusive jurisdiction of Kenyan courts."
+      },
+      "13": {
+        "title": "13. Amendments",
+        "content": "Travler may update these Terms periodically. Changes will be communicated through the website or mobile app and will take effect immediately upon publication."
+      },
+      "14": {
+        "title": "14. Contact Information",
+        "content": [
+          "For inquiries, feedback, or complaints, contact:"
+        ],
+        "type": "contact",
+        "contactInfo": [
+          "<strong>Travler (by Voltic Kenya Limited)</strong>",
+          "Website: <a href='https://www.travler.africa'>www.travler.africa</a>",
+          "Phone: <strong>0709 215 000 / 0785 700 700</strong>",
+          "Email: <strong>support@travler.africa</strong>"
+        ]
+      }
     }
-  },
+  }
+,
+
 
   "ticket": {
     "title": "Print Ticket",
@@ -544,73 +642,108 @@
     }
   },
 
+
   "privacyPolicy": {
-    "title": "PRIVACY POLICY",
-    "intro1": "The Internet is an amazing tool. It has the power to change the way we live, and we're starting to see that potential today. With only a few mouse-clicks, you can follow the news, look up facts, buy goods and services, and communicate with others from around the world. It's important to iabiri to help our customers retain their privacy when they take advantage of all the Internet has to offer.",
-    "intro2": "We believe your business is no one else's. Your privacy is important to you and to us. So we'll protect the information you share with us. To protect your privacy, iabiri follows different principles in accordance with worldwide practices for customer privacy and data protection.",
-    "principles": {
-      "item1": "We won't sell or give away your name, mail address, phone number, email address or any other information to anyone.",
-      "item2": "We'll use state-of-the-art security measures to protect your information from unauthorized users."
-    },
-    "notice": {
-      "title": "NOTICE",
-      "text": "We will ask you when we need information that personally identifies you (personal information) or allows us to contact you. Generally, this information is requested when you create a Registration ID on the site or when you download free software, enter a contest, order email newsletters or join a limited-access premium site. We use your Personal Information for four primary purposes:",
-      "purposes": {
-        "item1": "To make the site easier for you to use by not having to enter information more than once.",
-        "item2": "To help you quickly find software, services or information.",
-        "item3": "To help us create content most relevant to you.",
-        "item4": "To alert you to product upgrades, special offers, updated information and other new services from iabiri."
+    "title": "TRAVLER PRIVACY POLICY",
+    "lastUpdated": "Last Updated: October 2025",
+    "sections": {
+      "1": {
+        "title": "1. Introduction",
+        "content": {
+          "0": "Welcome to Travler, Kenya's trusted platform for online bus ticket bookings, operated by Voltic Kenya Limited.",
+          "1": "This Privacy Policy explains how we collect, use, share, and protect your personal data when you visit www.travler.africa or use our mobile app. Travler is committed to maintaining the highest standards of privacy and transparency in compliance with the Kenya Data Protection Act (2019).",
+          "2": "By using Travler, you consent to the practices described in this policy."
+        }
+      },
+      "2": {
+        "title": "2. Information We Collect",
+        "content": {
+          "0": "Travler collects data to improve user experience, ensure smooth ticketing, and enhance service reliability. The types of data we collect include:"
+        },
+        "sublist": {
+          "0": "<strong>Personal Information:</strong> Your name, contact number, email, and identification details for verification and ticketing.",
+          "1": "<strong>Payment Information:</strong> Mobile money (e.g., M-Pesa), bank, or card payment details to process secure transactions.",
+          "2": "<strong>Travel History & Preferences:</strong> Routes, dates, and operator choices to improve future recommendations.",
+          "3": "<strong>Device & Usage Data:</strong> IP address, browser type, operating system, and site interaction patterns for analytics and platform optimization."
+        }
+      },
+      "3": {
+        "title": "3. Purpose of Collecting Personal Data",
+        "content": {
+          "0": "Your personal information enables us to deliver a smooth, personalized, and secure booking experience. Specifically, we use it to:"
+        },
+        "sublist": {
+          "0": "Process and confirm ticket bookings and payments",
+          "1": "Facilitate boarding and check-in with bus operators",
+          "2": "Provide customer service and resolve issues quickly",
+          "3": "Improve website performance and personalize recommendations",
+          "4": "Send updates, notifications, and occasional promotional offers",
+          "5": "Detect fraud, ensure security, and meet legal obligations"
+        }
+      },
+      "4": {
+        "title": "4. Data Sharing and Third-Party Disclosure",
+        "content": {
+          "0": "Travler values your privacy and only shares data when necessary to complete your travel booking.",
+          "1": "We may share limited data with:"
+        },
+        "sublist": {
+          "0": "<strong>Bus Operators:</strong> To issue tickets, verify passenger manifests, and facilitate boarding.",
+          "1": "<strong>Payment Providers:</strong> To process and confirm payments securely.",
+          "2": "<strong>Regulators or Law Enforcement:</strong> When legally required under Kenyan law."
+        },
+        "additionalContent": "All third parties are bound by strict confidentiality and must comply with the Kenya Data Protection Act (2019)."
+      },
+      "5": {
+        "title": "5. Data Security and Retention",
+        "content": {
+          "0": "Travler uses industry-standard security measures to safeguard your information, including encryption, access controls, and secure hosting environments.",
+          "1": "We retain your data only as long as necessary for service delivery, legal, or regulatory requirements. After this period, your data is anonymized or securely deleted in accordance with best practices."
+        }
+      },
+      "6": {
+        "title": "6. Your Privacy Rights",
+        "content": {
+          "0": "As a user, you have full control over your personal data. Under Kenyan law, you can:"
+        },
+        "sublist": {
+          "0": "Request access to your personal data",
+          "1": "Correct or update inaccurate information",
+          "2": "Request deletion of your data (subject to legal retention limits)",
+          "3": "Withdraw consent for promotional communications",
+          "4": "File a complaint with the Office of the Data Protection Commissioner (ODPC)"
+        },
+        "additionalContent": "For any privacy-related request, reach us through the contacts below."
+      },
+      "7": {
+        "title": "7. Cookies and Website Analytics",
+        "content": {
+          "0": "Travler uses cookies and analytics tools to enhance site performance, improve user experience, and measure engagement.",
+          "1": "You can manage or disable cookies in your browser settings, though this may affect certain functionalities on our platform."
+        }
+      },
+      "8": {
+        "title": "8. Updates to This Privacy Policy",
+        "content": {
+          "0": "We may periodically update this policy to reflect new legal or operational requirements. Any updates will be published on our website with the revised \"Last Updated\" date.",
+          "1": "We encourage users to review this page regularly to stay informed of how we protect your data."
+        }
+      },
+      "9": {
+        "title": "9. Contact Information",
+        "content": {
+          "0": "For any inquiries, privacy requests, or complaints, contact:"
+        },
+        "contactInfo": {
+          "0": "<strong>Travler (by Voltic Kenya Limited)</strong>",
+          "1": "Website: <a href='https://www.travler.africa'>www.travler.africa</a>",
+          "2": "Phone: <strong>0709 215 000 / 0785 700 700</strong>",
+          "3": "Email: <strong>support@travler.africa</strong>"
+        }
       }
-    },
-    "consent": {
-      "title": "CONSENT",
-      "text1": "If you choose not to register or provide personal information, you can still use most of www.iabiri.com. But you will not be able to access areas that require registration.",
-      "text2": "If you decide to register, you will be able to select the kinds of information you want to receive from us by subscribing to various services, like our electronic newsletters. If you do not want us to communicate with you about other offers regarding iabiri products, programs, events, or services by email, postal mail, or telephone, you may select the option stating that you do not wish to receive marketing messages.",
-      "text3": "iabiri occasionally allows other companies to offer our registered customers information about their products and services, using postal mail only. If you do not want to receive these offers, you may select the option stating that you do not wish to receive marketing materials from third parties."
-    },
-    "access": {
-      "title": "ACCESS",
-      "text": "We will provide you with the means to ensure that your personal information is correct and current. You may review and update this information at any time at the Visitor Center. There, you can:",
-      "actions": {
-        "item1": "View and edit personal information you have already given us.",
-        "item2": "Tell us whether you want us to send you marketing information, or whether you want third parties to send you their offers by postal mail.",
-        "item3": "Sign up for electronic newsletters about our services and products.",
-        "item4": "Register. Once you register, you won't need to do it again. Wherever you go on www.iabiri.com, your information stays with you."
-      }
-    },
-    "security": {
-      "title": "SECURITY",
-      "paragraph1": "iabiri has taken strong measures to protect the security of your personal information and to ensure that your choices for its intended use are honored. We take strong precautions to protect your data from loss, misuse, unauthorized access or disclosure, alteration, or destruction.",
-      "paragraph2": "We guarantee your e-commerce transactions to be 100% safe and secure. When you place orders or access your personal account information, you're utilizing secure server software SSL, which encrypts your personal information before it's sent over the Internet. SSL is one of the safest encryption technologies available.",
-      "paragraph3": "iabiri strictly protects the security of your personal information and honors your choices for its intended use. We carefully protect your data from loss, misuse, unauthorized access or disclosure, alteration, or destruction.",
-      "paragraph4": "Your personal information is never shared outside the company without your permission, except under conditions explained above. Inside the company, data is stored in password-controlled servers with limited access. Your information may be stored and processed in Kenya or any other country where iabiri, its subsidiaries, affiliates or agents are located.",
-      "paragraph5": "You also have a significant role in protecting your information. No one can see or edit your personal information without knowing your user name and password, so do not share these with others."
-    },
-    "noticeToParents": {
-      "title": "NOTICE TO PARENTS",
-      "text1": "Parents or guardians: we want to help you guard your children's privacy. We encourage you to talk to your children about safe and responsible use of their Personal Information while using the Internet.",
-      "text2": "The iabiri site does not publish content that is targeted to children. However, if you are concerned about your children providing iabiri any personal information without your consent, iabiri offers a Kids account. It allows parents to give parental consent for the collection, use and sharing of children's (ages 12 and under) personal information online."
-    },
-    "enforcement": {
-      "title": "ENFORCEMENT",
-      "contact": "If for some reason you believe iabiri has not adhered to these principles, please notify us by email at <strong><a href='mailto:info@iabiri.com'>info@iabiri.com</a></strong>, and we will do our best to determine and correct the problem promptly. Be certain the words Privacy Policy are in the Subject line."
-    },
-    "electronicRegistration": {
-      "title": "ELECTRONIC PRODUCT REGISTRATION",
-      "text": "When you buy and install a new product, we may ask you to register your purchase electronically. When you do, we merge your registration information with any information you've already left with us (we call that information your personal profile). If you haven't previously registered with us, we create a personal profile for you from your product registration information. If you ever want to review or update that information, you can visit the Profile Center, click on Update Profile, and edit any of the Personal Information in your profile. If you haven't already created a Registration ID, we will ask you to do so. This ensures that only you can access your information."
-    },
-    "customerProfiles": {
-      "title": "CUSTOMER PROFILES",
-      "text": "As mentioned above, every registered customer has a unique personal profile. Each profile is assigned a unique personal identification number, which helps us ensure that only you can access your profile.",
-      "cookieInfo": "When you register, we create your profile, assign a personal identification number, then send this personal identification number back to your hard drive in the form of a cookie, which is a very small bit of code. This code is uniquely yours. It is your passport to seamless travel across www.iabiri.com, allowing you to download free software, order free newsletters, and visit premium sites without having to fill out registration forms with information you've already provided. Even if you switch computers, you won't have to re-register — just use your Registration ID to identify yourself."
-    },
-    "informationUsage": {
-      "title": "WHAT WE DO WITH THE INFORMATION YOU SHARE",
-      "text1": "When you join us, you provide us with your contact information, including Names, Phone Numbers, Age, Sex, ID Number and email address. We use this information to send you updates about your order, questionnaires to measure your satisfaction with our service and announcements about new and exciting services that we offer. When you order from us, we ask for your credit card number and billing address. We use this information only to bill you for the product(s) you order at that time. For your convenience, we do save billing information in case you want to order from us again, but we don't use this information again without your permission.",
-      "text2": "We occasionally hire other companies to provide limited services on our behalf, including packaging, mailing and delivering purchases, answering customer questions about products or services, sending postal mail and processing event registration. We will only provide those companies the information they need to deliver the service, and they are prohibited from using that information for any other purpose.",
-      "text3": "iabiri will disclose your personal information, without notice, only if required to do so by law or in the good faith belief that such action is necessary to: (a) conform to the edicts of the law or comply with legal process served on iabiri or the site; (b) to protect and defend the rights or property of iabiri and its family of Websites, and, (c) to act in urgent circumstances to protect the personal safety of users of iabiri, its Websites, or the public."
     }
-  },
+  }
+,
 
   "rescheduleBooking": {
     "title": "Reschedule Booking",

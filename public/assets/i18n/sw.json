@@ -40,7 +40,7 @@
       "terms": "Sheria na Masharti"
     },
     "contact": {
-      "email": "info@iabiri.com"
+      "email": "support@travler.africa"
     }
   },
 
@@ -262,27 +262,120 @@
       "sendButton": "Tuma Ujumbe"
     }
   },
-
   "terms": {
-    "title": "SHERIA ZA TIKETI",
-    "conditions": {
-      "1": "Tiketi hii ni halali kwa muda na tarehe ya safari tu.",
-      "2": "Tiketi haiwezi kubadilishwa, kuuzwa tena, kuhamishwa au kurudishwa.",
-      "3": "Ikiwa kwa sababu yoyote mmiliki atashindwa kufika kabla ya wakati wa kuondoka, kampuni haikubali jukumu kwa abiria kama huyo.",
-      "4": "Tiketi inachukuliwa kama iliyotumika ikiwa mmiliki atashindwa kuitumia kama ilivyoonyeshwa.",
-      "5": "Mmiliki wa tiketi lazima afike kwenye ofisi ya uagizaji dakika 30 kabla ya wakati maalum ulioonyeshwa kwenye tiketi.",
-      "6": "Kunyai pombe yoyote, kutafuna miraa au kuvuta sigara kwenye basi ni marufuku.",
-      "7": "Mizigo hubebwa hatarini kwa mmiliki. Kampuni haiwezi kuchukuliwa kuwa na hatia kwa uharibifu, hasara au ucheleweshaji. Abiria wanapaswa kujitunza mizigo yao.",
-      "8": "Mizigo ya kilo 20 inaruhusiwa bure. Zaidi itakubaliwa kwa malipo ikiwa nafasi itaruhusu.",
-      "9": "Usimamizi una haki ya kubadilisha basi bila taarifa ya awali au rejesho.",
-      "10": "Ikiwa kwa bahati mbaya abiria atavunja safari yake njiani hakuna rejesho litafanyika.",
-      "11": "Abiria anaruhusiwa mtoto mmoja tu bure. Kikomo cha umri miaka 5.",
-      "12": "Abiria wanaombwa kuhakikisha usahihi wa ofisi ya uagizaji kwani makosa hayawezi kurekebishwa baadaye.",
-      "13": "Kwa makini hakuna mzigo unapaswa kupitishwa kwenye dirisha.",
-      "14": "Abiria anapaswa kuhakikisha kuwa kiasi kilicholipwa kimeonyeshwa wazi kwenye tiketi kulingana na marudio ya mtu.",
-      "15": "Muda na tarehe ya uagizaji yanapaswa kuonekana wazi kwenye tiketi."
+    "title": "SERA YA MATUMIZI YA TOVUTI YA TRAVLER NA SERA YA MATUMIZI YANAYOKUBALIKA",
+    "lastUpdated": "Imesasishwa Mwisho: Oktoba 2025",
+    "sections": {
+      "1": {
+        "title": "1. Utangulizi",
+        "content": [
+          "Karibu kwenye <strong>Travler</strong>, bidhaa ya <strong>Voltic Kenya Limited</strong>. Masharti haya ya Matumizi yanasimamia upatikanaji wako na matumizi ya tovuti yetu <strong>www.travler.africa</strong>, programu ya rununu, na huduma zinazohusiana (pamoja, \"Jukwaa\").",
+          "Kwa kufikia au kutumia Travler, unakubali kufuata Masharti haya. Tafadhali yasome kwa makini kabla ya kutumia huduma zetu."
+        ]
+      },
+      "2": {
+        "title": "2. Ufafanuzi",
+        "type": "list",
+        "content": [
+          "<strong>\"Travler\"</strong> inamaanisha Voltic Kenya Limited, kampuni inayoendesha jukwaa la Travler.",
+          "<strong>\"Mtumiaji\"</strong> au <strong>\"Wewe\"</strong> inarejelea mtu yeyote anayefikia, kutazama, au kutumia jukwaa la Travler.",
+          "<strong>\"Mwendeshaji\"</strong> inarejelea kampuni yoyote ya basi au mtoa huduma ambayo tiketi zake zinapatikana kwa ajili ya kukodiwa kwenye jukwaa la Travler.",
+          "<strong>\"Jukwaa\"</strong> inamaanisha tovuti ya Travler, programu ya rununu, na huduma zote za kidijitali zinazohusiana."
+        ]
+      },
+      "3": {
+        "title": "3. Kustahiki",
+        "content": "Kwa kutumia Travler, unathibitisha kuwa una umri wa angalau miaka 18 na una uwezo wa kisheria wa kuingia na makubaliano ya kisheria."
+      },
+      "4": {
+        "title": "4. Matumizi ya Jukwaa",
+        "content": [
+          "Unakubali kutumia Travler kwa madhumuni ya kisheria tu, hasa kwa ajili ya kutazama, kulinganisha, na kununua tiketi za basi kwa matumizi binafsi au yaliyoidhinishwa.",
+          "Hupaswi:"
+        ],
+        "type": "list",
+        "sublist": [
+          "Tumia jukwaa kwa shughuli za udanganyifu, za kudanganya, au zisizo halali.",
+          "Kuingilia kati wa uendeshaji au usalama wa jukwaa.",
+          "Kujaribu kunakili, kurekebisha, au kuchambua mifumo au programu ya Travler."
+        ]
+      },
+      "5": {
+        "title": "5. Kukodi na Malipo",
+        "type": "sublist",
+        "content": [
+          "<strong>a.</strong> Ukodishaji wote wa tiketi unaofanywa kupitia Travler unategemea upatikanaji na uthibitishaji wa mwendeshaji.",
+          "<strong>b.</strong> Malipo ya tiketi husafirishwa kupitia njia salama za watu wengine (k.m., pesa za rununu, kadi za mkopo/debit).",
+          "<strong>c.</strong> Travler haiwajibiki kwa ucheleweshaji, kughairiwa, au ubora wa huduma wa waendeshaji wa basi lakini itasaidia msaada unaohitajika katika kutatua migogoro."
+        ]
+      },
+      "6": {
+        "title": "6. Rudi na Kughairi",
+        "content": [
+          "Sera za kurudishwa pesa na kughairi hutofautiana kulingana na mwendeshaji. Watumiaji wanahimizwa kukagua masharti ya kila mwendeshaji wakati wa kukodi.",
+          "Travler itasaidia na maombi ya kurudishwa pesa kulingana na sera ya mwendeshaji lakini haijahitajika kubadilisha masharti ya mwendeshaji."
+        ]
+      },
+      "7": {
+        "title": "7. Haki za Miliki",
+        "content": [
+          "Yaliyomo yote, alama za biashara, na nyenzo zilizoonyeshwa kwenye Travler (zikiwemo nembo, miundo, picha, na programu) zinamilikiwa au kukodishwa leseni kwa <strong>Voltic Kenya Limited</strong>.",
+          "Hakuna mtumiaji anaweza kuzalisha tena, kunakili, au kusambaza yaliyomo yoyote ya Travler bila idhini ya maandishi ya awali."
+        ]
+      },
+      "8": {
+        "title": "8. Sera ya Matumizi Yanayokubalika",
+        "content": [
+          "Unapotumia Travler, unakubali kutofanya:"
+        ],
+        "type": "list",
+        "sublist": [
+          "Pakia au shiriki yaliyomo yenye kukasirisha, yenye kudanganya, au yenye kudhuru.",
+          "Shiriki katika shughuli zinazoweza kusumbua au kuharibu mifumo ya Travler.",
+          "Tumia mifumo ya otomatiki (boti, vikochororo) kufikia au kukusanya data ya jukwaa.",
+          "Jidai kuwa mtu mwingine au uwakilishe uhusiano wako na chombo chochote."
+        ],
+        "additionalContent": "Ukiukaji wa sera hii unaweza kusababisha kusimamishwa au kukatishwa kwa upatikanaji wa jukwaa."
+      },
+      "9": {
+        "title": "9. Kikomo cha Uwajibikaji",
+        "content": [
+          "Travler inatoa huduma zake \"kama zilivyo\" na haitoi dhamana yoyote kuhusu usahihi, kuaminika, au upatikanaji.",
+          "<strong>Voltic Kenya Limited</strong> haitawajibika kwa uharibifu wowote usio wa moja kwa moja, wa bahati nasibu, au wa matokeo yanayotokana na matumizi au kutoweza kutumia jukwaa."
+        ]
+      },
+      "10": {
+        "title": "10. Fidia",
+        "content": "Unakubali kulipa fidia na kulinda <strong>Voltic Kenya Limited</strong> na washirika wake kutokana na madai yoyote, hasara, au uharibifu unaotokana na matumizi yako mabaya ya jukwaa au ukiukaji wa Masharti haya."
+      },
+      "11": {
+        "title": "11. Kukomesha",
+        "content": "Travler inahifadhi haki ya kusimamisha au kukomesha akaunti yako wakati wowote ikiwa unakiuka Masharti haya au kushiriki katika shughuli zilizopigwa marufuku."
+      },
+      "12": {
+        "title": "12. Sheria Inayotawala na Mamlaka",
+        "content": "Masharti haya yatatwaliwa na sheria za <strong>Jamhuri ya Kenya</strong>. Migogoro yoyote itakuwa chini ya mamlaka ya kipekee ya mahakama za Kenya."
+      },
+      "13": {
+        "title": "13. Marekebisho",
+        "content": "Travler inaweza kusasisha Masharti haya mara kwa mara. Mabadiliko yatajumishiwa kupitia tovuti au programu ya rununu na yataanza kutumika mara moja baada ya kuchapishwa."
+      },
+      "14": {
+        "title": "14. Maelezo ya Mawasiliano",
+        "content": [
+          "Kwa maswali, maoni, au malalamiko, wasiliana na:"
+        ],
+        "type": "contact",
+        "contactInfo": [
+          "<strong>Travler (kwa Voltic Kenya Limited)</strong>",
+          "Tovuti: <a href='https://www.travler.africa'>www.travler.africa</a>",
+          "Simu: <strong>0709 215 000 / 0785 700 700</strong>",
+          "Barua pepe: <strong>support@travler.africa</strong>"
+        ]
+      }
     }
-  },
+  }
+,
 
   "ticket": {
     "title": "Print Tiketi",
@@ -547,72 +640,106 @@
   },
 
   "privacyPolicy": {
-    "title": "SERA YA FARAGHA",
-    "intro1": "Mtandao ni zana ya kushangaza. Ina uwezo wa kubadilisha jinsi tunavyoishi, na tunaanza kuona uwezo huo leo. Kwa vibonye vichache tu vya kipanya, unaweza kufuata habari, kutafuta ukweli, kununua bidhaa na huduma, na kuwasiliana na wengine kutoka duniani kote. Ni muhimu kwa iabiri kusaidia wateja wetu kudumia faragha yao wanapofaidika na yote mtandao unayotoa.",
-    "intro2": "Tunaamini biashara yako sio ya mwingine yeyote. Faragha yako ni muhimu kwako na kwetu. Kwa hivyo tutalinda taarifa unazoshiriki nasi. Ili kulinda faragha yako, iabiri inafuata kanuni tofauti kulingana na desturi za kimataifa za faragha ya mteja na ulinzi wa data.",
-    "principles": {
-      "item1": "Hatuuza wala tutoi jina lako, anwani ya posta, nambari ya simu, anwani ya barua pepe au taarifa nyingine yoyote kwa mtu yeyote.",
-      "item2": "Tutatumia hatua za kisasa za usalama kulinda taarifa zako kutoka kwa watumiaji wasioidhinishwa."
-    },
-    "notice": {
-      "title": "TAARIFA",
-      "text": "Tutauliza wakati tunahitaji taarifa ambazo zinakutambulisha wewe mwenyewe (taarifa za kibinafsi) au zinaruhusu tuwasiliane nawe. Kwa ujumla, taarifa hii huombwa wakati unaunda Kitambulisho cha Usajili kwenye tovuti au wakati unapakua programu bure, kuingia kwenye shindano, kuagiza jarida la barua pepe au kujiunga na tovuti ya premium yenye ufikiaji mdogo. Tunatumia Taarifa Zako Binafsi kwa madhumuni makuu manne:",
-      "purposes": {
-        "item1": "Kufanya tovuti iwe rahisi kwako kutumia kwa kutoweka kuingiza taarifa zaidi ya mara moja.",
-        "item2": "Kukusaidia upate programu, huduma au taarifa haraka.",
-        "item3": "Kutusaidia kuunda yaliyomo yanayohusika zaidi nawe.",
-        "item4": "Kukualika kwa usasishaji wa bidhaa, ofa maalum, taarifa zilizosasishwa na huduma zingine mpya kutoka kwa iabiri."
+    "title": "SERA YA FARAGHA YA TRAVLER",
+    "lastUpdated": "Imesasishwa Mwisho: Oktoba 2025",
+    "sections": {
+      "1": {
+        "title": "1. Utangulizi",
+        "content": {
+          "0": "Karibu kwenye Travler, jukwaa la kuaminika la Kenya la kukodi tiketi za basi mtandaoni, linaloendeshwa na Voltic Kenya Limited.",
+          "1": "Sera hii ya Faragha inaelezea jinsi tunavyokusanya, kutumia, kushiriki, na kulinda data yako binafsi unapotembelea www.travler.africa au kutumia programu yetu ya rununu. Travler imejikita kudumisha viwango vya juu zaidi vya faragha na uwazi kulingana na Kif cha Kulinda Data cha Kenya (2019).",
+          "2": "Kwa kutumia Travler, unakubali mazoea yaliyoelezewa kwenye sera hii."
+        }
+      },
+      "2": {
+        "title": "2. Taarifa Tunazokusanya",
+        "content": {
+          "0": "Travler inakusanya data ili kuboresha uzoefu wa mtumiaji, kuhakikisha upatikanaji laini wa tiketi, na kuboresha uaminifu wa huduma. Aina za data tunazokusanya ni pamoja na:"
+        },
+        "sublist": {
+          "0": "<strong>Taarifa Binafsi:</strong> Jina lako, nambari ya mawasiliano, barua pepe, na maelezo ya kitambulisho kwa ajili ya uthibitishaji na utoaji tiketi.",
+          "1": "<strong>Taarifa za Malipo:</strong> Maelezo ya malipo ya pesa za rununu (k.m., M-Pesa), benki, au kadi kwa ajili ya kusafirisha malipo salama.",
+          "2": "<strong>Historia ya Kusafiri & Mapendeleo:</strong> Njia, tarehe, na uchaguzi wa waendeshaji ili kuboresha mapendekezo ya baadaye.",
+          "3": "<strong>Data ya Kifaa na Matumizi:</strong> Anwani ya IP, aina ya kivinjari, mfumo wa uendeshaji, na mifumo ya mwingiliano wa tovuti kwa ajili ya uchambuzi na uboreshaji wa jukwaa."
+        }
+      },
+      "3": {
+        "title": "3. Kusudi la Kukusanya Data Binafsi",
+        "content": {
+          "0": "Taarifa yako binafsi inatuwezesha kutoa uzoefu laini, wa kibinafsi, na salama wa kukodi. Hasa, tunaitumia kwa:"
+        },
+        "sublist": {
+          "0": "Kusindika na kuthibitisha ukodishaji wa tiketi na malipo",
+          "1": "Kurahisisha kupanda na kujiandikisha na waendeshaji wa basi",
+          "2": "Kutoa huduma kwa wateja na kutatua matatizo haraka",
+          "3": "Kuboresha utendaji wa tovuti na kubinafsisha mapendekezo",
+          "4": "Kutuma visasisho, arifa, na ofa za kukuza mara kwa mara",
+          "5": "Kugundua ulaghai, kuhakikisha usalama, na kukutana na majukumu ya kisheria"
+        }
+      },
+      "4": {
+        "title": "4. Ugawaji wa Data na Ufichuzi kwa Watu Wengine",
+        "content": {
+          "0": "Travler inathamini faragha yako na inashiriki data tu wakati inahitajika kukamilisha ukodishaji wako wa usafiri.",
+          "1": "Tunaweza kushiriki data kidogo na:"
+        },
+        "sublist": {
+          "0": "<strong>Waendeshaji wa Basi:</strong> Ili kutoa tiketi, kuthibitisha orodha ya abiria, na kurahisisha kupanda.",
+          "1": "<strong>Watoa Huduma za Malipo:</strong> Ili kusindika na kuthibitisha malipo kwa usalama.",
+          "2": "<strong>Wasimamizi au Polisi:</strong> Wakati unahitajika kisheria kulingana na sheria za Kenya."
+        },
+        "additionalContent": "Watu wote wengine wamefungwa kwa usiri mkali na lazima watii Kif cha Kulinda Data cha Kenya (2019)."
+      },
+      "5": {
+        "title": "5. Usalama wa Data na Uhifadhi",
+        "content": {
+          "0": "Travler inatumia hatua za usalama za kiwango cha sekta ili kulinda taarifa zako, zikiwemo usimbaji fiche, udhibiti wa upatikanaji, na mazingira salama ya uandikishaji.",
+          "1": "Tunadumisha data yako kwa muda mrefu tu kama inavyohitajika kwa utoaji wa huduma, sheria, au mahitaji ya udhibiti. Baada ya kipindi hiki, data yako inafanywa isiweze kutambulika au kufutwa kwa usalama kulingana na mazoea bora."
+        }
+      },
+      "6": {
+        "title": "6. Haki Zako za Faragha",
+        "content": {
+          "0": "Kama mtumiaji, una udhibiti kamili wa data yako binafsi. Chini ya sheria za Kenya, unaweza:"
+        },
+        "sublist": {
+          "0": "Kuomba upatikanaji wa data yako binafsi",
+          "1": "Kusahihisha au kusasisha taarifa zisizo sahihi",
+          "2": "Kuomba kufutwa kwa data yako (kikomo cha kisheria cha kuhifadhi)",
+          "3": "Kukataa idhini ya mawasiliano ya kukuza",
+          "4": "Kuwasilisha malalamiko kwa Ofisi ya Kamishna wa Ulinda Data (ODPC)"
+        },
+        "additionalContent": "Kwa ombi lolote linalohusiana na faragha, wasiliana nasi kupitia anuani hapa chini."
+      },
+      "7": {
+        "title": "7. Kuki na Uchambuzi wa Tovuti",
+        "content": {
+          "0": "Travler inatumia kuki na zana za uchambuzi ili kuboresha utendaji wa tovuti, kuboresha uzoefu wa mtumiaji, na kupima ushiriki.",
+          "1": "Unaweza kudhibiti au kulemaza kuki katika mipangilio yako ya kivinjari, ingawa hii inaweza kuathiri utendaji fulani kwenye jukwaa letu."
+        }
+      },
+      "8": {
+        "title": "8. Sasisho kwa Sera hii ya Faragha",
+        "content": {
+          "0": "Tunaweza kusasisha sera hii mara kwa mara ili kuakisi mahitaji mapya ya kisheria au kiutendaji. Sasisho zozote zitachapishwa kwenye tovuti yetu na tarehe ya \"Imesasishwa Mwisho\" iliyosasishwa.",
+          "1": "Tunawahimiza watumiaji kukagua ukurasa huu mara kwa mara ili kukaa na taarifa jinsi tunavyolinda data yako."
+        }
+      },
+      "9": {
+        "title": "9. Maelezo ya Mawasiliano",
+        "content": {
+          "0": "Kwa maswali yoyote, maombi ya faragha, au malalamiko, wasiliana na:"
+        },
+        "contactInfo": {
+          "0": "<strong>Travler (kwa Voltic Kenya Limited)</strong>",
+          "1": "Tovuti: <a href='https://www.travler.africa'>www.travler.africa</a>",
+          "2": "Simu: <strong>0709 215 000 / 0785 700 700</strong>",
+          "3": "Barua pepe: <strong>support@travler.africa</strong>"
+        }
       }
-    },
-    "consent": {
-      "title": "IDHINI",
-      "text1": "Ikiwa uchagua kutojisajili au kutoa taarifa za kibinafsi, bado unaweza kutumia sehemu kubwa ya www.iabiri.com. Lakini hutaweza kufikia maeneo yanayohitaji usajili.",
-      "text2": "Ikiwa utaamua kujisajili, utaweza kuchagua aina za taarifa unazotaka kupokea kutoka kwetu kwa kujisajili kwa huduma mbalimbali, kama vile jarida letu la barua pepe. Ikiwa hutaki tuwasiliane nawe kuhusu ofa zingine kuhusu bidhaa za iabiri, programu, matukio, au huduma kwa barua pepe, barua pepe, au simu, unaweza kuchagua chaguo linalosema kuwa hutaki kupokea ujumbe wa uuzaji.",
-      "text3": "iabiri mara kwa mara huruhusu kampuni zingine kuwapa wateja wetu waliosajiliwa taarifa kuhusu bidhaa na huduma zao, kwa kutumia barua pepe tu. Ikiwa hutaki kupokea ofa hizi, unaweza kuchagua chaguo linalosema kuwa hutaki kupokea nyenzo za uuzaji kutoka kwa wahusika wengine."
-    },
-    "access": {
-      "title": "UFIKIAJI",
-      "text": "Tutakupa njia za kuhakikisha kuwa taarifa zako za kibinafsi ni sahihi na za sasa. Unaweza kupitia na kusasisha taarifa hii wakati wowote kwenye Kituo cha Wageni. Huko, unaweza:",
-      "actions": {
-        "item1": "Tazama na hariri taarifa za kibinafsi ambazo tayari umetupa.",
-        "item2": "Tuambie ikiwa unataka tutumie taarifa za uuzaji, au ikiwa unataka wahusika wengine watumie ofa zao kwa barua pepe.",
-        "item3": "Jisajili kwa jarida la barua pepe kuhusu huduma na bidhaa zetu.",
-        "item4": "Jisajili. Mara tu utakapojisajili, hutahitaji kuufanya tena. Popote unapoenda kwenye www.iabiri.com, taarifa zako zinakaa nawe."
-      }
-    },
-    "security": {
-      "title": "USALAMA",
-      "paragraph1": "iabiri imechukua hatua madhubuti za kulinda usalama wa taarifa zako za kibinafsi na kuhakikisha kuwa chaguzi zako kwa matumizi yake yanakuheshimiwa. Tunachukua tahadhari kubwa za kulinda data yako kutoka kwa hasara, matumizi mabaya, ufikiaji usioidhinishwa au ufichuzi, mabadiliko, au uharibifu.",
-      "paragraph2": "Tunahakikisha manunuzi yako ya kibiashara kuwa salama 100%. Unapoagiza au kufikia taarifa za akaunti yako binafsi, unatumia programu salama ya seva SSL, ambayo inaficha taarifa zako za kibinafsi kabla ya kutumwa kupitia Mtandao. SSL ni moja wapo ya teknolojia salama zaidi za usimbu fiche zinazopatikana.",
-      "paragraph3": "iabiri inalinda kwa ukali usalama wa taarifa zako za kibinafsi na inaheshimu chaguzi zako kwa matumizi yake. Tunazilinda kwa uangalifu data zako kutoka kwa hasara, matumizi mabaya, ufikiaji usioidhinishwa au ufichuzi, mabadiliko, au uharibifu.",
-      "paragraph4": "Taarifa zako za kibinafsi hazishirikiwi nje ya kampuni bila idhini yako, isipokuwa chini ya hali zilizoainishwa hapo juu. Ndani ya kampuni, data huhifadhiwa kwenye seva zilizodhibitiwa na nenosiri na ufikiaji mdogo. Taarifa zako zinaweza kuhifadhiwa na kushughulikiwa nchini Kenya au nchi nyingine yoyote ambayo iabiri, kampuni zake tanzu, washirika au mawakala wapo.",
-      "paragraph5": "Pia una jukumu muhimu katika kulinda taarifa zako. Hakuna mtu anaweza kuona au kuhariri taarifa zako za kibinafsi bila kujua jina lako la mtumiaji na nenosiri, kwa hivyo usishiriki hizi na wengine."
-    },
-    "noticeToParents": {
-      "title": "TAARIFA KWA WAZAZI",
-      "text1": "Wazazi au walezi: tunataka kukusaidia kulinda faragha ya watoto wako. Tunakuhimiza kuongea na watoto wako kuhusu matumizi salama na ya kuwajibika ya Taarifa Zao Binafsi wakati wanatumia Mtandao.",
-      "text2": "Tovuti ya iabiri haichapishi yaliyomo yanayolengwa kwa watoto. Hata hivyo, ikiwa una wasiwasi kuhusu watoto wako wakitoa iabiri taarifa yoyote ya kibinafsi bila idhini yako, iabiri inatoa akaunti ya Watoto. Inaruhusu wazazi kutoa idhini ya wazazi kwa ukusanyaji, matumizi na kushiriki taarifa za kibinafsi za watoto (wenye umri wa miaka 12 na chini) mtandaoni."
-    },
-    "enforcement": {
-      "title": "UTEKelezaji",
-      "contact": "Ikiwa kwa sababu fulani unaamini iabiri haijafuata kanuni hizi, tafadhali tutaarishe kwa barua pepe kwa <strong><a href='mailto:info@iabiri.com'>info@iabiri.com</a></strong>, na tutafanya uhalisi wetu wa kuamua na kurekebisha tatizo haraka. Hakikisha maneno Sera ya Faragha yako kwenye mstari wa Somo."
-    },
-    "electronicRegistration": {
-      "title": "USAJILI WA BIDHAA ZA KIelektroniki",
-      "text": "Unaponunua na kusanikisha bidhaa mpya, tunaweza kukuuliza usajili ununuzi wako kielektroniki. Unapofanya hivyo, tunachaunganisha taarifa zako za usajili na taarifa yoyote ambayo tayari umeacha nasi (tunaiita taarifa hiyo wasifu wako binafsi). Ikiwa hujajisajili na sisi hapo awali, tunaunda wasifu wako binafsi kutoka kwa taarifa zako za usajili wa bidhaa. Ikiwa umewahi kupitia au kusasisha taarifa hiyo, unaweza kutembelea Kituo cha Wasifu, bofya kwenye Sasisha Wasifu, na kuhariri Taarifa Yoyote ya Kibinafsi kwenye wasifu wako. Ikiwa hujaanzisha Kitambulisho cha Usajili, tutakuuliza ufanye hivyo. Hii inahakikisha kuwa wewe tu unaweza kufikia taarifa zako."
-    },
-    "customerProfiles": {
-      "title": "WASIFU WA WATEJA",
-      "text": "Kama ilivyotajwa hapo juu, kila mteja aliyesajiliwa ana wasifu wa kipekee binafsi. Kila wasifu unapewa nambari ya kipekee ya utambulisho, ambayo inatusaidia kuhakikisha kuwa wewe tu unaweza kufikia wasifu wako.",
-      "cookieInfo": "Unapojisajili, tunaunda wasifu wako, tunakabidhi nambari ya kipekee ya utambulisho, kisha hutuma nambari hii ya kipekee ya utambulisho nyuma kwenye kifaa chako kihardishi kwa mfumo wa kuki, ambayo ni kipande kidogo sana cha msimbo. Msimbo huu ni wako wa kipekee. Ni pasipoti yako kwa usafiri bila mpasuko kwenye www.iabiri.com, ikikuruhusu kupakua programu bure, kuagiza jarida la barua pepe, na kutembelea tovuti za hali ya juu bila kujazisha fomu za usajili na taarifa ambazo tayari umetoa. Hata ukibadilisha kompyuta, hutalazimika kujisajili tena — tumia tu Kitambulisho chako cha Usajili kujitambulisha."
-    },
-    "informationUsage": {
-      "title": "TUNAFANYA NINI NA TAARIFA UNACHOSHIRIKI",
-      "text1": "Unapojiunga nasi, unatupatia maelezo yako ya mawasiliano, ikiwemo Majina, Nambari za Simu, Umri, Jinsia, Nambari ya Kitambulisho na anwani ya barua pepe. Tunatumia taarifa hii kukutumia visasisho kuhusu agizo lako, dodoso za kupima kuridhika kwako na huduma yetu na matangazo kuhusu huduma mpya na ya kusisimua tunayotoa. Unapoagiza kutoka kwetu, tunauliza nambari yako ya kadi ya mkopo na anwani ya bili. Tunatumia taarifa hii tu kukulipia bidhaa unazoagiza wakati huo. Kwa urahisi wako, tunahifadhi taarifa za bili ikiwa utataka kuagiza kutoka kwetu tena, lakini hatutumii tena taarifa hii bila idhini yako.",
-      "text2": "Mara kwa mara tunaajiri kampuni zingine kutoa huduma ndogo kwa niaba yetu, ikiwemo kufunga, kutuma na kutoa ununuzi, kujibu maswali ya wateja kuhusu bidhaa au huduma, kutuma barua pepe na kusajili matukio. Tutatoa tu kampuni hizo taarifa wanazohitaji kutoa huduma, na haziruhusiwi kutumia taarifa hizo kwa madhumuni mengine yoyote.",
-      "text3": "iabiri itafichua taarifa zako za kibinafsi, bila taarifa, ikiwa tu inahitajika kufanya hivyo na sheria au kwa imani nzuri kwamba hatua kama hiyo ni muhimu: (a) kufuata maagizo ya sheria au kufuata mchakato wa kisheria uliotolewa kwa iabiri au tovuti; (b) kulinda na kutetea haki za mali ya iabiri na familia yake ya Nje, na, (c) kutenda katika hali za dharura kulinda usalama wa kibinafsi wa watumiaji wa iabiri, Nje zake, au umma."
     }
-  },
+  }
+,
 
   "rescheduleBooking": {
     "title": "Badilisha Ratiba ya Uagizaji",
