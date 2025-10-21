@@ -49,7 +49,8 @@ export class BookingFormComponent implements OnInit {
   constructor(public bookingService: BookingService, public service: BackendService, public router: Router, private cdr: ChangeDetectorRef) {
     this.getBooking();
     this.getNationality();
-    this.insuredSeats = JSON.parse(localStorage.getItem('insuredSeats') || '[]');
+    // this.insuredSeats = JSON.parse(localStorage.getItem('insuredSeats') || '[]');
+    this.insuredSeats = this.bookingService.getConfig('insuredSeats') || [];
   }
 
   isObjectEmpty(obj: any): boolean {

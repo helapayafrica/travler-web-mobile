@@ -2,6 +2,8 @@ import {inject, Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {Router} from '@angular/router';
 import {CryptoService} from './core/crypto-service';
+import * as pako from 'pako';
+
 
 @Injectable({
   providedIn: 'root'
@@ -73,33 +75,40 @@ export class BookingService{
 
   setConfig(key: string, value: any): void {
     try {
-      // const encryptedValue = this.crypto.encrypt(value);
-      // const serializedValue = JSON.stringify(encryptedValue);
-      const serializedValue = JSON.stringify(value);
-      // this.storage.setItem(key, serializedValue);
-      this.storage.setItem(key, serializedValue);
+      const jsonString = JSON.stringify(value);
+      const compressed = pako.deflate(jsonString);
+      const base64 = btoa(String.fromCharCode(...compressed));
+
+      // Add a prefix to identify compressed data
+      this.storage.setItem(key, 'compressed:' + base64);
 
     } catch (error) {
       console.error('Error saving to storage', error);
     }
   }
 
-
   getConfig<T>(key: string): T | null {
     try {
-      const serializedValue = this.storage.getItem(key);
-      // if (serializedValue){
-      //   const parsedValue = JSON.parse(serializedValue);
-      //   const decryptedValue = this.crypto.decrypt(parsedValue);
-      //   return decryptedValue ? decryptedValue as T : null
-      // }
-      return serializedValue ? (JSON.parse(serializedValue) as T) : null;
+      const storedValue = this.storage.getItem(key);
+      if (!storedValue) return null;
+
+      // Check if it's compressed data
+      if (storedValue.startsWith('compressed:')) {
+        // New compressed format
+        const base64 = storedValue.replace('compressed:', '');
+        const compressed = Uint8Array.from(atob(base64), c => c.charCodeAt(0));
+        const jsonString = pako.inflate(compressed, { to: 'string' });
+        return JSON.parse(jsonString) as T;
+      } else {
+        // Old uncompressed format (backward compatible)
+        return JSON.parse(storedValue) as T;
+      }
+
     } catch (error) {
       console.error('Error reading from storage', error);
       return null;
     }
   }
-
 
   removeConfig(key: string): void {
     try {

@@ -113,7 +113,10 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
       this.seatData = this.payload.data;
       this.priceList = this.payload.priceList;
       // console.log(this.priceList)
-      this.bookingService.setConfig('priceList', this.priceList);
+      // this.bookingService.setConfig('priceList', this.priceList);
+      if (this.priceList) {
+        this.bookingService.setConfig('priceList', this.priceList);
+      }
       this.stages = this.payload.stages;
       this.isLoading = false;
       // this.getTimer()
@@ -328,28 +331,44 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
       .join(' • ');
   }
 
+  // calculateTotalPrice(): string {
+  //   // console.log('Calculating total price for selected seats:');
+  //   // console.log(this.priceList);
+  //
+  //   if (!this.priceList || !this.selectedSeats?.length) {
+  //     return '0';
+  //   }
+  //
+  //   const total = this.selectedSeats.reduce((sum, seat) => {
+  //     let price = 0;
+  //     switch (seat.seat_type) {
+  //       case 'normal':
+  //         price = parseFloat(this.priceList.normal[0].price);
+  //         break;
+  //       case 'vip':
+  //         price = parseFloat(this.priceList.vip[0].price);
+  //         break;
+  //       case 'bclass':
+  //         price = parseFloat(this.priceList.bclass[0].price);
+  //         break;
+  //     }
+  //     return sum + price;
+  //   }, 0);
+  //
+  //   return total.toLocaleString();
+  // }
   calculateTotalPrice(): string {
-    // console.log('Calculating total price for selected seats:');
-    // console.log(this.priceList);
-
     if (!this.priceList || !this.selectedSeats?.length) {
       return '0';
     }
 
     const total = this.selectedSeats.reduce((sum, seat) => {
-      let price = 0;
-      switch (seat.seat_type) {
-        case 'normal':
-          price = parseFloat(this.priceList.normal[0].price);
-          break;
-        case 'vip':
-          price = parseFloat(this.priceList.vip[0].price);
-          break;
-        case 'bclass':
-          price = parseFloat(this.priceList.bclass[0].price);
-          break;
-      }
-      return sum + price;
+      const priceStr =
+        seat.seat_type === 'normal' ? this.priceList.normal?.[0]?.price :
+          seat.seat_type === 'vip' ? this.priceList.vip?.[0]?.price :
+            seat.seat_type === 'bclass' ? this.priceList.bclass?.[0]?.price : '0';
+
+      return sum + (parseFloat(priceStr) || 0);
     }, 0);
 
     return total.toLocaleString();
