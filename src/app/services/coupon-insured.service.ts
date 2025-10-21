@@ -1,12 +1,15 @@
-import {Injectable, signal, computed} from '@angular/core';
+import {Injectable, signal, computed, inject} from '@angular/core';
+import {BookingService} from './booking';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CouponInsuredService {
 
+  bookingService  =inject(BookingService)
+
   // Original signals
-  insuredSeats = signal<any[]>(this.getStored());
+  insuredSeats = signal<{ seat_name: string }[]>(this.getStored());
   isCancellationProtection = signal<boolean>(this.getCancellationProtection());
 
   // New signals for base total and passenger data
@@ -122,7 +125,8 @@ export class CouponInsuredService {
     } else {
       seats = seats.filter(s => s.seat_name !== seat_name);
     }
-    localStorage.setItem('insuredSeats', JSON.stringify(seats));
+    // localStorage.setItem('insuredSeats', JSON.stringify(seats));
+    this.bookingService.setConfig('insuredSeats', seats)
     this.insuredSeats.set(seats);
     this.insuredSeats.set([...seats]);
   }
@@ -157,29 +161,38 @@ export class CouponInsuredService {
     );
   }
 
-  private getStored(){
-    return JSON.parse(localStorage.getItem('insuredSeats') || '[]');
+  private getStored() : any[]{
+    // return JSON.parse(localStorage.getItem('insuredSeats') || '[]');
+    return this.bookingService.getConfig('insuredSeats') || []
+
   }
 
   update(seats: any[]){
     this.insuredSeats.set(seats);
-    localStorage.setItem('insuredSeats', JSON.stringify(seats));
+    // localStorage.setItem('insuredSeats', JSON.stringify(seats));
+    this.bookingService.setConfig('insuredSeats', seats)
+
   }
 
   load() {
-    const saved = JSON.parse(localStorage.getItem('insuredSeats') || '[]');
+    // const saved = JSON.parse(localStorage.getItem('insuredSeats') || '[]');
+    const saved : any[] = this.bookingService.getConfig('insuredSeats') || []
     this.insuredSeats.set(saved);
+
   }
 
   private getCancellationProtection(): boolean {
-    const raw = localStorage.getItem('cancellationProtection');
-    return raw ? JSON.parse(raw) : false;
+    // const raw = localStorage.getItem('cancellationProtection');
+    const raw: boolean | null = this.bookingService.getConfig('cancellationProtection');
+    return raw ? raw : false;
   }
 
   updateCancellationProtection(value: boolean) {
     this.isCancellationProtection.set(value);
     // console.log('value changed to: ', value, '');
-    localStorage.setItem('cancellationProtection', JSON.stringify(value));
+    // localStorage.setItem('cancellationProtection', JSON.stringify(value));
+    this.bookingService.setConfig('cancellationProtection', value)
+
   }
 
   loadCancellationProtection() {
@@ -188,8 +201,12 @@ export class CouponInsuredService {
   }
 
   clearCancellationProtectionAndInsuredSeats(){
-    localStorage.setItem('insuredSeats', JSON.stringify([]));
-    localStorage.setItem('cancellationProtection', JSON.stringify(false));
+    // localStorage.setItem('insuredSeats', JSON.stringify([]));
+    this.bookingService.setConfig('insuredSeats', [])
+
+    // localStorage.setItem('cancellationProtection', JSON.stringify(false));
+    this.bookingService.setConfig('cancellationProtection', false)
+
     this.insuredSeats.set([]);
     this.isCancellationProtection.set(false);
   }
@@ -198,7 +215,9 @@ export class CouponInsuredService {
   protectAllSeats(seatNames: string[]) {
     const seats = seatNames.map(seat_name => ({ seat_name }));
     this.insuredSeats.set(seats);
-    localStorage.setItem('insuredSeats', JSON.stringify(seats));
+    // localStorage.setItem('insuredSeats', JSON.stringify(seats));
+    this.bookingService.setConfig('insuredSeats', seats)
+
   }
 
   // New method to protect all passengers (both onward and return seats)
@@ -216,6 +235,7 @@ export class CouponInsuredService {
 
   removeAllProtection() {
     this.insuredSeats.set([]);
-    localStorage.setItem('insuredSeats', JSON.stringify([]));
+    // localStorage.setItem('insuredSeats', JSON.stringify([]));
+    this.bookingService.setConfig('insuredSeats', [])
   }
 }
