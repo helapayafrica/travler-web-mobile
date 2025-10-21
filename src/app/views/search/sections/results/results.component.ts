@@ -35,16 +35,21 @@ export class ResultsComponent implements OnChanges, OnInit {
   type: any = '';
   payload: any = {};
   return_buses = [];
+  travelDate: any;
 
   constructor(
     public bookingService: BookingService,
     public backendService: BackendService,
     private cdr: ChangeDetectorRef,
   ) {}
-  ngOnInit(): void {
-    this.getTripType();
+  async  ngOnInit(): Promise<void> {
+    await this.getTripType();
     this.getTab();
-    this.getReturnPayload();
+    await this.getReturnPayload();
+    this.travelDate = this.bookingService.getConfig('travel_date');
+    this.cdr.detectChanges();
+
+
 
     // 👇 Normalize state after reload
     setTimeout(() => {
@@ -64,6 +69,7 @@ export class ResultsComponent implements OnChanges, OnInit {
     // console.log('[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
     // console.log('ResultsComponent ngOnChanges triggered', changes);
   }
+
 
   async getTripType() {
     this.type = await this.bookingService.getConfig('trip_type');
@@ -138,7 +144,6 @@ export class ResultsComponent implements OnChanges, OnInit {
   seat_data: any = {};
   emmitedType: any = '';
   busdata: any = {};
-
   getCollapseSeatState($event: EmmitedSeatData) {
     this.collapseState = $event.collapseState;
     this.seat_data = $event.seatData;

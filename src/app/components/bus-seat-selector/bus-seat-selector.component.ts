@@ -240,7 +240,7 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
 
   async toggleSeat(seat: SeatData): Promise<void> {
     const loggedIn = this.bookingService.getConfig('loggedInStatus');
-    let maxSeats = loggedIn ? 6 : 2;
+    let maxSeats = loggedIn ? 6 : 1;
 
     // ✅ Step 1: handle deselection first (always allowed)
     const isAlreadySelected = this.isSelected(seat);

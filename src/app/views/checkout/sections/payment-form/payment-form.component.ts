@@ -419,6 +419,8 @@ export class PaymentFormComponent implements OnInit {
                       confirmButtonText: 'Retry'
                     }).then((result) => {
                       if (result.isConfirmed) {
+                        this.paymentSocketService.leavePaymentRoom(invoiceRef);
+                        this.paymentSocketService.disconnect()
                         this.makePayment();
                       }
                     });
