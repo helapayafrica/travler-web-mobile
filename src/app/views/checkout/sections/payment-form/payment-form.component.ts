@@ -100,18 +100,23 @@ export class PaymentFormComponent implements OnInit {
       clearInterval(this.interval); // ✅ Prevent multiple intervals
     }
     this.isTimeExpired = false;
-    localStorage.setItem('timerStart', Date.now().toString()); // ✅ Store start time
+    // localStorage.setItem('timerStart', Date.now().toString()); // ✅ Store start time
+    this.bookingService.setConfig('timerStart', Date.now().toString())
 
     this.interval = setInterval(() => {
-      const startTime = Number(localStorage.getItem('timerStart'));
+      // const startTime = Number(localStorage.getItem('timerStart'));
+      const startTime = Number(this.bookingService.getConfig('timerStart'))
       const elapsedSeconds = Math.floor((Date.now() - startTime) / 1000);
       this.timeLeft = Math.max(0, this.totalDuration - elapsedSeconds);
-      localStorage.setItem('timeLeft', this.timeLeft.toString()); // ✅ Save updated time
+      // localStorage.setItem('timeLeft', this.timeLeft.toString()); // ✅ Save updated time
+      this.bookingService.setConfig('timeLeft', this.timeLeft.toString())
       if (this.timeLeft === 0) {
         clearInterval(this.interval);
         this.isTimeExpired = true;
-        localStorage.removeItem('timeLeft'); // ✅ Remove stored timer
-        localStorage.removeItem('timerStart');
+        // localStorage.removeItem('timeLeft'); // ✅ Remove stored timer
+        // localStorage.removeItem('timerStart');
+        this.bookingService.removeConfig('timeLeft')
+        this.bookingService.removeConfig('timerStart')
         this.onTimeExpired();
       }
     }, 1000);
@@ -124,7 +129,8 @@ export class PaymentFormComponent implements OnInit {
   }
 
   restoreTimer() {
-    const savedTime = localStorage.getItem('timeLeft');
+    // const savedTime = localStorage.getItem('timeLeft');
+    const savedTime = this.bookingService.getConfig('timeLeft')
     if (savedTime) {
       this.timeLeft = Number(savedTime);
       if (this.timeLeft > 0) {
