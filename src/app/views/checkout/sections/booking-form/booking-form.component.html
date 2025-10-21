@@ -150,7 +150,7 @@
               [name]="'phone' + item.seat_name"
               placeholder="e.g 712345678"
               required
-              type="tel">
+              type="text">
           </div>
           <div *ngIf="hasError('mobileId', index)" class="invalid-feedback d-block">
             {{ formErrors['mobileId' + index] }}
