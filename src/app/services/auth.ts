@@ -55,7 +55,7 @@ export class AuthService {
   login(user: any) {
     // localStorage.setItem(this.loggedInKey, 'true');
     this.bookingsService.setConfig(this.loggedInKey,'true');
-    // localStorage.setItem(this.userKey, JSON.stringify(user));
+    // localStorage.setItem(this.userKey, JSON.stringify(user))
     this.bookingsService.setConfig(this.userKey,user);
 
     console.log(user)
