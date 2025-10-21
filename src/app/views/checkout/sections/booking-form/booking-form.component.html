@@ -211,29 +211,30 @@
     </form>
   </div>
 
-  <div class="container">
-    <!-- Cancellation Fee -->
-    <div class="col-12 col-md-8 col-lg-6 mb-3">
-      <div class="d-flex justify-content-between align-items-center rounded-2 bg-custom shadow-sm py-1 px-3">
-        <div class="p-2">
-          <div class="d-flex flex-column">
-            <p class="mb-0 fw-bold">{{ 'booking.passengerForm.cancellation.title' | translate }}</p>
-            <p class="mb-0 text-dark">{{ 'booking.passengerForm.cancellation.fee' | translate }}</p>
-          </div>
-        </div>
-        <div class="form-check form-switch">
-          <input
-            (change)="updateCancellationProtection($event)"
-            [ngModel]="protectionInsuranceService.isCancellationProtection()"
-            class="form-check-input custom-switch"
-            id="cancellationSwitch"
-            name="cancellationSwitch"
-            type="checkbox"
-          >
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- Cancellation Protect -->
+
+<!--  <div class="container">-->
+<!--    <div class="col-12 col-md-8 col-lg-6 mb-3">-->
+<!--      <div class="d-flex justify-content-between align-items-center rounded-2 bg-custom shadow-sm py-1 px-3">-->
+<!--        <div class="p-2">-->
+<!--          <div class="d-flex flex-column">-->
+<!--            <p class="mb-0 fw-bold">{{ 'booking.passengerForm.cancellation.title' | translate }}</p>-->
+<!--            <p class="mb-0 text-dark">{{ 'booking.passengerForm.cancellation.fee' | translate }}</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="form-check form-switch">-->
+<!--          <input-->
+<!--            (change)="updateCancellationProtection($event)"-->
+<!--            [ngModel]="protectionInsuranceService.isCancellationProtection()"-->
+<!--            class="form-check-input custom-switch"-->
+<!--            id="cancellationSwitch"-->
+<!--            name="cancellationSwitch"-->
+<!--            type="checkbox"-->
+<!--          >-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
 
   <div *ngIf="!isSuccess" class="card-footer border-0 text-end">
     <button
