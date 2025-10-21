@@ -49,7 +49,7 @@ export class BookingService{
     this.referenceNumber = new BehaviorSubject<string | null>(initialRef);
     this.referenceNumber$ = this.referenceNumber.asObservable();
 
-    const savedTab = localStorage.getItem(this.selectedTabKey) || 'onward';
+    const savedTab : any = this.getConfig(this.selectedTabKey) || 'onward';
 
     // Initialize BehaviorSubject **inside the constructor**
     this.selectedTabSubject = new BehaviorSubject<string>(savedTab);
@@ -60,8 +60,7 @@ export class BookingService{
   setSelectedTab(tab: string): void {
     this.selectedTabSubject.next(tab);
     // console.log(tab, typeof tab)
-    // localStorage.setItem(this.selectedTabKey, tab as string);
-    localStorage.setItem(this.selectedTabKey, JSON.stringify(tab));
+    this.setConfig(this.selectedTabKey, JSON.stringify(tab));
   }
 
 
@@ -389,13 +388,13 @@ export class BookingService{
 
   setInsuranceSeats(seats: string[]) {
     this.insuranceSeats = seats;
-    localStorage.setItem('insuredSeats', JSON.stringify(seats));
+    this.setConfig('insuredSeats', seats);
   }
 
   getInsuranceSeats(): string[] {
     return this.insuranceSeats.length
       ? this.insuranceSeats
-      : JSON.parse(localStorage.getItem('insuredSeats') || '[]');
+      : this.getConfig<string[]>('insuredSeats') || [];
   }
 
 
