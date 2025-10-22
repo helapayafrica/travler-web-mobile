@@ -1,27 +1,27 @@
 import {
   Component,
-  ElementRef, EventEmitter,
+  ElementRef,
+  EventEmitter,
   HostListener,
   inject,
   Input,
-  OnChanges, OnDestroy,
-  OnInit, Output,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
   SimpleChanges,
   ViewChild
 } from '@angular/core';
-import {CommonModule, NgForOf, NgIf} from '@angular/common';
-import {catchError} from 'rxjs/operators';
-import {of} from 'rxjs';
+import {CommonModule} from '@angular/common';
 import {BusSeatService} from './bus-seat.service';
-import {HttpClientModule} from '@angular/common/http';
-import {seatAnimations, tooltipAnimations, fadeInAnimation} from './bus-seat.animations';
+import {fadeInAnimation, seatAnimations, tooltipAnimations} from './bus-seat.animations';
 import {SeatStyles} from './seat-styles';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {ResultsComponent} from '../../views/search/sections/results/results.component';
 import {LoginModalService} from '../../services/login-modal';
 import {BookingService} from '../../services/booking';
 import {Select} from 'primeng/select';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Router} from '@angular/router';
 import {TranslatePipe} from '@ngx-translate/core';
 import {AuthService} from '../../services/auth';
 import Swal from 'sweetalert2';
@@ -75,7 +75,75 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
   boardingForm!: FormGroup;
   stages: any = {};
   selectedTab: any = '';
+  // }
+  authService = inject(AuthService);
+  @ViewChild('busContainer', {static: false}) busContainer!: ElementRef;
+  scaleFactor = 1;
+  cardScaleFactor = 1;
+  containerWidth = 0;
+  containerHeight = 0;
+  maxY = 400;
+  timeRemainingFormatted = '';
+  resultComponent = inject(ResultsComponent);
+  protected readonly parseInt = parseInt;
   private router = inject(Router);
+
+  //
+  // toggleSeat(seat: SeatData): void {
+  //   // che if logged in max seats is 6 if not logged in mmxa is 2
+  //   if (!seat.selection_status) {
+  //     const updatedSelection = this.busSeatService.toggleSeat(seat, this.selectedSeats);
+  //     this.busSeatService.updateSelectedSeats(updatedSelection);
+  //   }
+  // }
+  // async toggleSeat(seat: SeatData): Promise<void> {
+  //   const loggedIn = this.bookingService.getConfig('loggedInStatus');
+  //   const maxSeats = loggedIn ? 6 : 2;
+
+  //   // Check if seat is already selected
+  //   const isAlreadySelected = this.isSelected(seat)
+
+  //   // If deselecting, always allow it
+  //   if (isAlreadySelected) {
+  //     const updatedSelection = this.busSeatService.toggleSeat(seat, this.selectedSeats);
+  //     this.busSeatService.updateSelectedSeats(updatedSelection);
+  //     return;
+  //   }
+
+  //   // Now check limits only for NEW selections
+  //   if (this.selectedSeats.length >= maxSeats) {
+  //     if (!loggedIn) {
+  //       const result = await Swal.fire({
+  //         title: 'Login Required',
+  //         text: 'You can only select up to 2 seats without logging in. Login to book more seats.',
+  //         icon: 'info',
+  //         showCancelButton: true,
+  //         confirmButtonText: 'Login',
+  //         cancelButtonText: 'Cancel',
+  //         confirmButtonColor: '#3085d6',
+  //         cancelButtonColor: '#d33',
+  //       });
+
+  //       if (result.isConfirmed) {
+  //         this.loginModalService.openModal(this.router.url);
+  //       }
+  //     } else {
+  //       await Swal.fire({
+  //         title: 'Limit Reached',
+  //         text: `You can select up to ${maxSeats} seats per booking.`,
+  //         icon: 'warning',
+  //         confirmButtonText: 'OK',
+  //         confirmButtonColor: '#3085d6',
+  //       });
+  //     }
+  //     return;
+  //   }
+
+  //   // Proceed with new selection
+  //   const updatedSelection = this.busSeatService.toggleSeat(seat, this.selectedSeats);
+  //   this.busSeatService.updateSelectedSeats(updatedSelection);
+  // }
+  private timerInterval: any;
 
   constructor(
     private busSeatService: BusSeatService,
@@ -108,6 +176,32 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
     this.startTimer();
   }
 
+  // calculateTotalPrice(): string {
+  //   // console.log('Calculating total price for selected seats:');
+  //   // console.log(this.priceList);
+  //
+  //   if (!this.priceList || !this.selectedSeats?.length) {
+  //     return '0';
+  //   }
+  //
+  //   const total = this.selectedSeats.reduce((sum, seat) => {
+  //     let price = 0;
+  //     switch (seat.seat_type) {
+  //       case 'normal':
+  //         price = parseFloat(this.priceList.normal[0].price);
+  //         break;
+  //       case 'vip':
+  //         price = parseFloat(this.priceList.vip[0].price);
+  //         break;
+  //       case 'bclass':
+  //         price = parseFloat(this.priceList.bclass[0].price);
+  //         break;
+  //     }
+  //     return sum + price;
+  //   }, 0);
+  //
+  //   return total.toLocaleString();
+
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['payload']) {
       this.seatData = this.payload.data;
@@ -124,6 +218,21 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
       setTimeout(() => this.calculateCenterOffset(), 100);
     }
   }
+
+  // async proceedToCheckout(): Promise<void> {
+  //   this.close.emit(true);
+  //   if (this.type === 'onward') {
+  //     this.bookingService.setConfig('pickup', this.boardingForm.value);
+  //     await this.bookingService.saveOutward();
+  //     const loggedinStatus = this.bookingService.getConfig('loggedInStatus');
+  //     const userData = this.bookingService.getConfig('userData');
+  //     console.log(loggedinStatus &&  userData)
+  //   } else if (this.type === 'return') {
+  //   } else {
+  //     this.bookingService.setConfig('pickup', this.boardingForm.value);
+  //     await this.bookingService.saveReturn();
+  //     this.loginModalService.openModal(this.router.url);
+  //   }
 
   submitForm() {
     if (this.boardingForm.valid) {
@@ -182,61 +291,6 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
   isSelected(seat: SeatData): boolean {
     return this.selectedSeats.some((s) => s.seat_id === seat.seat_id);
   }
-  //
-  // toggleSeat(seat: SeatData): void {
-  //   // che if logged in max seats is 6 if not logged in mmxa is 2
-  //   if (!seat.selection_status) {
-  //     const updatedSelection = this.busSeatService.toggleSeat(seat, this.selectedSeats);
-  //     this.busSeatService.updateSelectedSeats(updatedSelection);
-  //   }
-  // }
-  // async toggleSeat(seat: SeatData): Promise<void> {
-  //   const loggedIn = this.bookingService.getConfig('loggedInStatus');
-  //   const maxSeats = loggedIn ? 6 : 2;
-
-  //   // Check if seat is already selected
-  //   const isAlreadySelected = this.isSelected(seat)
-
-  //   // If deselecting, always allow it
-  //   if (isAlreadySelected) {
-  //     const updatedSelection = this.busSeatService.toggleSeat(seat, this.selectedSeats);
-  //     this.busSeatService.updateSelectedSeats(updatedSelection);
-  //     return;
-  //   }
-
-  //   // Now check limits only for NEW selections
-  //   if (this.selectedSeats.length >= maxSeats) {
-  //     if (!loggedIn) {
-  //       const result = await Swal.fire({
-  //         title: 'Login Required',
-  //         text: 'You can only select up to 2 seats without logging in. Login to book more seats.',
-  //         icon: 'info',
-  //         showCancelButton: true,
-  //         confirmButtonText: 'Login',
-  //         cancelButtonText: 'Cancel',
-  //         confirmButtonColor: '#3085d6',
-  //         cancelButtonColor: '#d33',
-  //       });
-
-  //       if (result.isConfirmed) {
-  //         this.loginModalService.openModal(this.router.url);
-  //       }
-  //     } else {
-  //       await Swal.fire({
-  //         title: 'Limit Reached',
-  //         text: `You can select up to ${maxSeats} seats per booking.`,
-  //         icon: 'warning',
-  //         confirmButtonText: 'OK',
-  //         confirmButtonColor: '#3085d6',
-  //       });
-  //     }
-  //     return;
-  //   }
-
-  //   // Proceed with new selection
-  //   const updatedSelection = this.busSeatService.toggleSeat(seat, this.selectedSeats);
-  //   this.busSeatService.updateSelectedSeats(updatedSelection);
-  // }
 
   async toggleSeat(seat: SeatData): Promise<void> {
     const loggedIn = this.bookingService.getConfig('loggedInStatus');
@@ -281,7 +335,7 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
       if (!loggedIn) {
         const result = await Swal.fire({
           title: 'Login Required',
-          text: 'You can only select up to 2 seats without logging in. Login to book more seats.',
+          text: 'You can only select up to 1 seat without logging in. Login to book more seats.',
           icon: 'info',
           showCancelButton: true,
           confirmButtonText: 'Login',
@@ -313,7 +367,7 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
   getSelectedSeatsString(): string {
     return this.selectedSeats
       .map((seat) => seat.seat_name)
-      .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
+      .sort((a, b) => a.localeCompare(b, undefined, {numeric: true}))
       .join(', ');
   }
 
@@ -331,31 +385,6 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
       .join(' • ');
   }
 
-  // calculateTotalPrice(): string {
-  //   // console.log('Calculating total price for selected seats:');
-  //   // console.log(this.priceList);
-  //
-  //   if (!this.priceList || !this.selectedSeats?.length) {
-  //     return '0';
-  //   }
-  //
-  //   const total = this.selectedSeats.reduce((sum, seat) => {
-  //     let price = 0;
-  //     switch (seat.seat_type) {
-  //       case 'normal':
-  //         price = parseFloat(this.priceList.normal[0].price);
-  //         break;
-  //       case 'vip':
-  //         price = parseFloat(this.priceList.vip[0].price);
-  //         break;
-  //       case 'bclass':
-  //         price = parseFloat(this.priceList.bclass[0].price);
-  //         break;
-  //     }
-  //     return sum + price;
-  //   }, 0);
-  //
-  //   return total.toLocaleString();
   // }
   calculateTotalPrice(): string {
     if (!this.priceList || !this.selectedSeats?.length) {
@@ -374,29 +403,15 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
     return total.toLocaleString();
   }
 
-  // async proceedToCheckout(): Promise<void> {
-  //   this.close.emit(true);
-  //   if (this.type === 'onward') {
-  //     this.bookingService.setConfig('pickup', this.boardingForm.value);
-  //     await this.bookingService.saveOutward();
-  //     const loggedinStatus = this.bookingService.getConfig('loggedInStatus');
-  //     const userData = this.bookingService.getConfig('userData');
-  //     console.log(loggedinStatus &&  userData)
-  //   } else if (this.type === 'return') {
-  //   } else {
-  //     this.bookingService.setConfig('pickup', this.boardingForm.value);
-  //     await this.bookingService.saveReturn();
-  //     this.loginModalService.openModal(this.router.url);
-  //   }
-  // }
-  authService = inject(AuthService);
   async proceedToCheckout(): Promise<void> {
-    const user = await this.authService.getCurrentUser();
-    const loggedInStatus = this.bookingService.getConfig('loggedInStatus');
+    const user = await this.bookingService.getConfig('userData');
+    const loggedInStatusStr = this.bookingService.getConfig('loggedInStatus');
+    const loggedInStatus = loggedInStatusStr === 'true';
+    console.log(user, loggedInStatus)
     if (this.type === 'onward') {
       this.bookingService.setConfig('pickup', this.boardingForm.value);
       await this.bookingService.saveOutward();
-      if (user && loggedInStatus == true) {
+      if (user && loggedInStatus) {
         await this.router.navigateByUrl('/checkout');
       } else {
         this.loginModalService.openModal('/checkout');
@@ -458,13 +473,6 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
     return 'available';
   }
 
-  @ViewChild('busContainer', { static: false }) busContainer!: ElementRef;
-  scaleFactor = 1;
-  cardScaleFactor = 1;
-  containerWidth = 0;
-  containerHeight = 0;
-
-  maxY = 400;
   // updated
   calculateCenterOffset() {
     if (!this.seatData || this.seatData.length === 0 || !this.busContainer) return;
@@ -545,11 +553,6 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
       return value + this.centerOffsetY;
     }
   }
-
-  protected readonly parseInt = parseInt;
-
-  private timerInterval: any;
-  timeRemainingFormatted = '';
 
   // bookingService = inject(BookingService)
   getTimer() {
@@ -642,8 +645,6 @@ export class BusSeatSelectorComponent implements OnInit, OnChanges, OnDestroy {
       this.getTimer(); // run every second or minute
     }, 60000); // change to 60000 if you only need minute updates
   }
-
-  resultComponent = inject(ResultsComponent);
 
   closeIsOpenView() {
     // console.log('[cLOSED]')

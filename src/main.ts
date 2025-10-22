@@ -1,10 +1,10 @@
-import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { App } from './app/app';
+import {bootstrapApplication} from '@angular/platform-browser';
+import {appConfig} from './app/app.config';
+import {App} from './app/app';
 import {importProvidersFrom, isDevMode} from '@angular/core';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {provideHttpClient, withInterceptors} from '@angular/common/http';
-import {httpInterceptor} from './app/services/interceptor';
+import {httpInterceptor} from './app/services/core/interceptors/interceptor';
 import {BrowserAnimationsModule, provideAnimations} from '@angular/platform-browser/animations';
 import {provideToastr} from 'ngx-toastr';
 
@@ -26,7 +26,6 @@ const updatedAppConfig = {
     }).providers || [])
   ]
 };
-
 
 
 bootstrapApplication(App, updatedAppConfig)

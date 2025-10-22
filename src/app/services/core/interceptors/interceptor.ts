@@ -1,10 +1,10 @@
-import {HttpInterceptorFn, HttpErrorResponse, HttpEvent} from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { inject } from '@angular/core';
-import { Config } from './config';
-import { BookingService } from './booking';
-import {AuthService} from './auth'; // import your service
+import {HttpErrorResponse, HttpEvent, HttpInterceptorFn} from '@angular/common/http';
+import {Observable, throwError} from 'rxjs';
+import {catchError} from 'rxjs/operators';
+import {inject} from '@angular/core';
+import {Config} from '../../config';
+import {BookingService} from '../../booking';
+import {AuthService} from '../../auth'; // import your service
 
 export const httpInterceptor: HttpInterceptorFn = (
   req,
@@ -16,7 +16,7 @@ export const httpInterceptor: HttpInterceptorFn = (
 
   const userData: any = bookingService.getConfig('userData');
   const token = userData?.api_token || '4F5D3QC5-C94A-CFD5-87C1-4E2903311DF0';
-  req = req.clone({ headers: req.headers.set('Authorization', token) });
+  req = req.clone({headers: req.headers.set('Authorization', token)});
 
   return next(req).pipe(
     catchError((error: HttpErrorResponse) => {

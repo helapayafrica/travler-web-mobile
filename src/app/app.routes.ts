@@ -18,7 +18,7 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    title: 'Home | East Africa\'s largest Booking Platform',
+    title: 'Home | Your Travel Plug',
     data: {
       description: 'Welcome to Traveler - Your trusted platform for travel bookings',
     },
@@ -26,7 +26,7 @@ export const routes: Routes = [
   {
     path: 'sign-up',
     loadComponent: () => import('./views/Auth/sign-up/sign-up').then((m) => m.SignupComponent),
-    title: 'Sign Up | East Africa\'s largest Booking Platform',
+    title: 'Sign Up | Your Travel Plug',
     data: {
       description: 'Create your Traveler account to start booking travel services',
     },
@@ -34,32 +34,32 @@ export const routes: Routes = [
   {
     path: 'login',
     loadComponent: () => import('./views/Auth/login/login').then((m) => m.LoginComponent),
-    title: 'Login | East Africa\'s largest Booking Platform',
+    title: 'Login | Your Travel Plug',
     data: {
       description: 'Sign in to your Traveler account',
     },
   },
   {
     path: "forgot-password",
-    loadComponent: () => import('./views/Auth/forgot-password/forgot-password').then((m)=> ForgotPassword),
-    title :'Forgot Password | East Africa\'s largest Booking Platform',
+    loadComponent: () => import('./views/Auth/forgot-password/forgot-password').then((m) => ForgotPassword),
+    title: 'Forgot Password | Your Travel Plug',
     data: {
-      description:  'Forgot Password'
+      description: 'Forgot Password'
     }
 
-  },{
-      path :"reset-password",
-      canActivate: [resetPasswordGuard],
-      loadComponent: () => import('./views/Auth/reset-password/reset-password').then((m) => ResetPassword),
-      title :'Reset Password | East Africa\'s largest Booking Platform',
-      data: {
-        description:  'Reset Password'
-      }
+  }, {
+    path: "reset-password",
+    canActivate: [resetPasswordGuard],
+    loadComponent: () => import('./views/Auth/reset-password/reset-password').then((m) => ResetPassword),
+    title: 'Reset Password | Your Travel Plug',
+    data: {
+      description: 'Reset Password'
+    }
   },
   {
     path: 'search',
     loadComponent: () => import('./views/search/search.component').then((m) => m.SearchComponent),
-    title: 'Search | East Africa\'s largest Booking Platform',
+    title: 'Search | Your Travel Plug',
     data: {
       description: 'Search for travel options and services',
     },
@@ -68,7 +68,7 @@ export const routes: Routes = [
     path: 'faqs',
     loadComponent: () =>
       import('./views/home/sections/faqs/faqs.component').then((m) => m.FAQSComponent),
-    title: 'FAQs | East Africa\'s largest Booking Platform',
+    title: 'FAQs | Your Travel Plug',
     data: {
       description: 'Frequently Asked Questions about Traveler services',
     },
@@ -77,7 +77,7 @@ export const routes: Routes = [
     path: 'checkout',
     loadComponent: () =>
       import('./views/checkout/checkout.component').then((m) => m.CheckoutComponent),
-    title: 'Checkout | East Africa\'s largest Booking Platform',
+    title: 'Checkout | Your Travel Plug',
     data: {
       description: 'Complete your booking payment',
     },
@@ -88,7 +88,7 @@ export const routes: Routes = [
       import('./views/checkout/sections/payment-form/payment-form.component').then(
         (m) => m.PaymentFormComponent
       ),
-    title: 'Payment | East Africa\'s largest Booking Platform',
+    title: 'Payment | Your Travel Plug',
     data: {
       description: 'Secure payment processing',
     },
@@ -97,7 +97,7 @@ export const routes: Routes = [
     path: 'contact',
     loadComponent: () =>
       import('./views/contactus/contactus.component').then((m) => m.ContactusComponent),
-    title: 'Contact Us | East Africa\'s largest Booking Platform',
+    title: 'Contact Us | Your Travel Plug',
     data: {
       description: 'Get in touch with our support team',
     },
@@ -105,7 +105,7 @@ export const routes: Routes = [
   {
     path: 'terms',
     loadComponent: () => import('./views/terms/terms').then((m) => m.Terms),
-    title: 'Terms | East Africa\'s largest Booking Platform',
+    title: 'Terms | Your Travel Plug',
     data: {
       description: 'Terms and conditions for using Traveler services',
     },
@@ -113,7 +113,7 @@ export const routes: Routes = [
   {
     path: 'privacy',
     loadComponent: () => import('./views/privacy/privacy').then((m) => m.Privacy),
-    title: 'Privacy | East Africa\'s largest Booking Platform',
+    title: 'Privacy | Your Travel Plug',
     data: {
       description: 'Privacy policy for Traveler services',
     },
@@ -122,7 +122,7 @@ export const routes: Routes = [
     path: 'about',
     loadComponent: () =>
       import('./views/aboutus/aboutus.component').then((m) => m.AboutusComponent),
-    title: 'About Us | East Africa\'s largest Booking Platform',
+    title: 'About Us | Your Travel Plug',
     data: {
       description: 'Learn more about Traveler and our services',
     },
@@ -130,7 +130,7 @@ export const routes: Routes = [
   {
     path: 'ticket',
     loadComponent: () => import('./views/ticket/ticket.component').then((m) => m.TicketComponent),
-    title: 'Ticket | East Africa\'s largest Booking Platform',
+    title: 'Ticket | Your Travel Plug',
     data: {
       description: 'View your travel ticket details',
     },
@@ -138,7 +138,7 @@ export const routes: Routes = [
   {
     path: 'reschedule',
     loadComponent: () => import('./views/reschedule/reschedule').then((m) => m.Reschedule),
-    title: 'Reschedule | East Africa\'s largest Booking Platform',
+    title: 'Reschedule | Your Travel Plug',
     data: {
       description: 'View your travel ticket details',
     },
@@ -147,7 +147,7 @@ export const routes: Routes = [
     path: 'support',
     loadComponent: () =>
       import('./views/support/support.component').then((m) => m.SupportComponent),
-    title: 'Support | East Africa\'s largest Booking Platform',
+    title: 'Support | Your Travel Plug',
     data: {
       description: 'Customer support and help center',
     },
@@ -156,7 +156,7 @@ export const routes: Routes = [
     path: 'spin-to-win',
     loadComponent: () =>
       import('./views/spin-the-wheel/spin-the-wheel').then((m) => m.SpinTheWheel),
-    title: 'Spin | East Africa\'s largest Booking Platform',
+    title: 'Spin | Your Travel Plug',
     data: {
       description: 'Customer support and help center',
     },
@@ -164,7 +164,7 @@ export const routes: Routes = [
   {
     path: 'feedback',
     loadComponent: () => import('./views/feedback/feedback').then((m) => m.Feedback),
-    title: 'Feedback | East Africa\'s largest Booking Platform',
+    title: 'Feedback | Your Travel Plug',
     data: {
       description: 'Customer support and help center',
     },
@@ -172,7 +172,7 @@ export const routes: Routes = [
   {
     path: 'trip-feedback',
     component: TripFeedbackForm,
-    title: 'Trip Feedback | East Africa\'s largest Booking Platform',
+    title: 'Trip Feedback | Your Travel Plug',
     data: {
       description: 'Customer support and help center',
     },
@@ -180,7 +180,7 @@ export const routes: Routes = [
   {
     path: 'confirm-payment',
     component: PaymentVerification,
-    title: 'Confirm Payment | East Africa\'s largest Booking Platform',
+    title: 'Confirm Payment | Your Travel Plug',
     data: {
       description: 'Customer support and help center',
     },
@@ -192,7 +192,7 @@ export const routes: Routes = [
       import('./views/user-profile/user-profile-layout.component').then(
         (m) => m.UserProfileLayoutComponent
       ),
-    title: 'Profile | East Africa\'s largest Booking Platform',
+    title: 'Profile | Your Travel Plug',
     data: {
       description: 'Manage your Traveler account',
     },
@@ -204,12 +204,12 @@ export const routes: Routes = [
       },
       {
         path: 'dashboard',
-        canActivate:[agentGuard],
+        canActivate: [agentGuard],
         loadComponent: () =>
           import('./views/user-profile/dashboard/dashboard.component').then(
             (m) => m.DashboardComponent
           ),
-        title: 'Dashboard | East Africa\'s largest Booking Platform',
+        title: 'Dashboard | Your Travel Plug',
         data: {
           description: 'Your Traveler account dashboard',
         },
@@ -220,7 +220,7 @@ export const routes: Routes = [
           import('./views/user-profile/bookings/bookings.component').then(
             (m) => m.BookingsComponent
           ),
-        title: 'My Bookings | East Africa\'s largest Booking Platform',
+        title: 'My Bookings | Your Travel Plug',
         data: {
           description: 'View and manage your bookings',
         },
@@ -229,7 +229,7 @@ export const routes: Routes = [
         path: 'wallet',
         loadComponent: () =>
           import('./views/user-profile/wallet/wallet.component').then((m) => m.WalletComponent),
-        title: 'Wallet | East Africa\'s largest Booking Platform',
+        title: 'Wallet | Your Travel Plug',
         data: {
           description: 'Manage your Traveler wallet',
         },
@@ -240,14 +240,14 @@ export const routes: Routes = [
           import('./views/user-profile/account-details/account-details.component').then(
             (m) => m.AccountDetailsComponent
           ),
-        title: 'Account Details | East Africa\'s largest Booking Platform',
+        title: 'Account Details | Your Travel Plug',
         data: {
           description: 'Manage your account information',
         },
-      },{
-      path :'edit-profile',
+      }, {
+        path: 'edit-profile',
         loadComponent: () => import('./views/user-profile/account-details/edit-profile-component/edit-profile-component').then((m) => m.EditProfileComponent),
-        title: 'Edit Profile | East Africa\'s largest Booking Platform',
+        title: 'Edit Profile | Your Travel Plug',
         data: {
           description: 'Edit  your user Profile',
         }
@@ -258,7 +258,7 @@ export const routes: Routes = [
           import('./views/user-profile/change-password/change-password.component').then(
             (m) => m.ChangePasswordComponent
           ),
-        title: 'Change Password | East Africa\'s largest Booking Platform',
+        title: 'Change Password | Your Travel Plug',
         data: {
           description: 'Update your account password',
         },
@@ -269,7 +269,7 @@ export const routes: Routes = [
           import('./views/user-profile/user-list/user-list.component').then(
             (m) => m.UserListComponent
           ),
-        title: 'User List | East Africa\'s largest Booking Platform',
+        title: 'User List | Your Travel Plug',
         data: {
           description: 'View user list',
         },
@@ -279,7 +279,7 @@ export const routes: Routes = [
   {
     path: '**',
     component: PageNotFoundComponent,
-    title: 'Page Not Found | East Africa\'s largest Booking Platform',
+    title: 'Page Not Found | Your Travel Plug',
     data: {
       description: 'The requested page could not be found',
     },
