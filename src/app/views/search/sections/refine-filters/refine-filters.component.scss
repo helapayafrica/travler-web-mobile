@@ -1,35 +1,19 @@
-.filter-item-card {
-}
 
-input[type="radio"]{
-
+input[type="radio"] {
   width: 1.2rem;
   height: 1.2rem;
   accent-color: var(--primary-color-500);
 }
 
-input[type="checkbox"] {
-  width: 1.2rem;
-  height: 1.2rem;
-  accent-color: var(--primary-color-500);
-}
-*{
-  font-size: var(--font-size);
-}
-.scroll-tabs {
-  display: flex;          /* lay tabs in a row */
-  overflow-x: auto;       /* enable horizontal scroll */
-  white-space: nowrap;    /* keep tabs on one line */
-  -webkit-overflow-scrolling: touch; /* smooth on mobile */
-}
-
-/* optional: hide scrollbar if you like */
-.scroll-tabs::-webkit-scrollbar {
-  display: none;
-}
-
-:host ::ng-deep .custom-btn{
-  background:var(--primary-color-100);
-  border: 1px solid var(--primary-color-500);
+::ng-deep .p-tablist .p-tab:hover {
   color: var(--primary-color-500);
 }
+
+::ng-deep .p-tablist .p-tab.p-tab-active {
+  color: var(--primary-color);
+  border-color: var(--primary-color-600);
+  font-weight: 600;
+}
+
+
+

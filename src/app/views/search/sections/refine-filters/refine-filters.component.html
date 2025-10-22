@@ -1,152 +1,3 @@
-<!--<div>-->
-<!--  <div class="d-flex justify-content-between mb-3">-->
-<!--    <h3 class="mb-0">Filters</h3>-->
-<!--  </div>-->
-<!--  <div class="vstack gap-3">-->
-<!--    <div class="container card filter-item-card p-3">-->
-<!--      <h5 class=" fs-6 fw-bold mb-2 text-muted">Price Range</h5>-->
-
-<!--      <ngx-slider-->
-<!--        [(value)]="minValue"-->
-<!--        [(highValue)]="maxValue"-->
-<!--        [options]="options"-->
-<!--        (userChangeEnd)="onPriceChange()"-->
-<!--      >-->
-<!--      </ngx-slider>-->
-
-<!--      <div class="d-flex justify-content-between mt-1">-->
-<!--        <span class>{{ minValue | currency:'KES ' }}</span>-->
-<!--        <span class>{{ maxValue | currency:'KES ' }}</span>-->
-<!--      </div>-->
-<!--    </div>-->
-
-
-<!--    <div class="card filter-item-card">-->
-<!--      <div class="card-body">-->
-<!--        <h5 class=" fs-6 fw-bold mb-2 text-muted">Duration</h5>-->
-
-
-<!--        &lt;!&ndash; 3 hours &ndash;&gt;-->
-<!--        <label for="durationRadio1" class="form-check d-flex align-items-center justify-content-between border-bottom py-2 w-100 mb-0">-->
-<!--          <div class="d-flex align-items-center">-->
-<!--            <i class="bi bi-clock fs-4 me-3"></i>-->
-<!--            <span class="fw-semibold mb-0">3 hours</span>-->
-<!--          </div>-->
-<!--          <input class="form-check-input-lg"-->
-<!--                 type="radio"-->
-<!--                 name="durationRadios"-->
-<!--                 id="durationRadio1"-->
-<!--                 value="option1"-->
-<!--                 (change)="onDurationChange($event)">-->
-<!--            </label>-->
-
-<!--        &lt;!&ndash; 3-5 hours &ndash;&gt;-->
-<!--        <label for="durationRadio2" class="form-check d-flex align-items-center justify-content-between border-bottom py-2 w-100 mb-0">-->
-<!--          <div class="d-flex align-items-center">-->
-<!--            <i class="bi bi-hourglass-split fs-4 me-3"></i>-->
-<!--            <span class="fw-semibold mb-0">3-5 hours</span>-->
-<!--          </div>-->
-<!--          <input class="form-check-input-lg"-->
-<!--                 type="radio"-->
-<!--                 name="durationRadios"-->
-<!--                 id="durationRadio2"-->
-<!--                 value="option2"-->
-<!--                 (change)="onDurationChange($event)">-->
-<!--            </label>-->
-
-<!--        &lt;!&ndash; 5-7 hours &ndash;&gt;-->
-<!--        <label for="durationRadio3" class="form-check d-flex align-items-center justify-content-between border-bottom py-2 w-100 mb-0">-->
-<!--          <div class="d-flex align-items-center">-->
-<!--            <i class="bi bi-stopwatch fs-4 me-3"></i>-->
-<!--            <span class="fw-semibold mb-0">5-7 hours</span>-->
-<!--          </div>-->
-<!--          <input class="form-check-input-lg"-->
-<!--                 type="radio"-->
-<!--                 name="durationRadios"-->
-<!--                 id="durationRadio3"-->
-<!--                 value="option3"-->
-<!--                 (change)="onDurationChange($event)">-->
-<!--          </label>-->
-
-<!--        &lt;!&ndash; 7+ hours &ndash;&gt;-->
-<!--        <label for="durationRadio4" class="form-check d-flex align-items-center justify-content-between py-2 w-100 mb-0">-->
-<!--          <div class="d-flex align-items-center">-->
-<!--            <i class="bi bi-alarm fs-4 me-3"></i>-->
-<!--            <span class="fw-semibold mb-0">7+ hours</span>-->
-<!--          </div>-->
-<!--          <input class="form-check-input-lg"-->
-<!--                 type="radio"-->
-<!--                 name="durationRadios"-->
-<!--                 id="durationRadio4"-->
-<!--                 value="option4"-->
-<!--                 (change)="onDurationChange($event)">-->
-<!--        </label>-->
-
-<!--      </div>-->
-<!--    </div>-->
-
-<!--    <div class="card filter-item-card">-->
-<!--      <div class="card-body">-->
-<!--        <h5 class=" fs-6 fw-bold mb-2 text-muted">Services</h5>-->
-<!--        &lt;!&ndash; Wi-Fi &ndash;&gt;-->
-<!--        <label for="wifi" class="form-check d-flex align-items-center justify-content-between border-bottom py-2 w-100 mb-0">-->
-<!--          <div class="d-flex align-items-center">-->
-<!--            <i class="bi bi-wifi fs-4 me-3"></i>-->
-<!--            <span class="fw-semibold fs-6 mb-0">Wi-Fi</span>-->
-<!--          </div>-->
-<!--          <input class="form-check-input-lg"-->
-<!--                 type="checkbox"-->
-<!--                 id="wifi"-->
-<!--                 (change)="onServiceChange('wifi', $event)">-->
-<!--        </label>-->
-
-<!--        &lt;!&ndash; TV &ndash;&gt;-->
-<!--        <label for="servicesCheckbox2" class="form-check d-flex align-items-center justify-content-between border-bottom py-2 w-100 mb-0">-->
-<!--          <div class="d-flex align-items-center">-->
-<!--            <i class="bi bi-tv fs-4 me-3"></i>-->
-<!--            <span class="fw-semibold fs-6 mb-0">TV</span>-->
-<!--          </div>-->
-<!--          <input class="form-check-input-lg"-->
-<!--                 type="checkbox"-->
-<!--                 id="servicesCheckbox2"-->
-<!--                 (change)="onServiceChange('tv', $event)">-->
-<!--        </label>-->
-
-<!--        &lt;!&ndash; Bed &ndash;&gt;-->
-<!--        <label for="servicesCheckbox3" class="form-check d-flex align-items-center justify-content-between border-bottom py-2 w-100 mb-0">-->
-<!--          <div class="d-flex align-items-center">-->
-<!--            <i class="bi bi-moon fs-4 me-3"></i>-->
-<!--            <span class="fw-semibold fs-6 mb-0">Bed</span>-->
-<!--          </div>-->
-<!--          <input class="form-check-input-lg"-->
-<!--                 type="checkbox"-->
-<!--                 id="servicesCheckbox3"-->
-<!--                 (change)="onServiceChange('bed', $event)">-->
-<!--        </label>-->
-
-<!--        &lt;!&ndash; Meals &ndash;&gt;-->
-<!--        <label for="servicesCheckbox4" class="form-check d-flex align-items-center justify-content-between border-bottom py-2 w-100 mb-0">-->
-<!--          <div class="d-flex align-items-center">-->
-<!--            <i class="bi bi-egg-fried fs-4 me-3"></i>-->
-<!--            <span class="fw-semibold fs-6 mb-0">Meals</span>-->
-<!--          </div>-->
-<!--          <input class="form-check-input-lg"-->
-<!--                 type="checkbox"-->
-<!--                 id="servicesCheckbox4"-->
-<!--                 (change)="onServiceChange('meals', $event)">-->
-<!--        </label>-->
-
-
-<!--      </div>-->
-<!--    </div>-->
-
-<!--    <button class="btn btn-outline-primary w-100"-->
-<!--            (click)="clearAllFilters()">-->
-<!--      Clear all-->
-<!--    </button>-->
-<!--  </div>-->
-<!--</div>-->
-
 <p-button
   (click)="filterVisible=true"
   icon="bi bi-sliders2"
@@ -176,11 +27,11 @@
       <p-tabpanel value="0">
         <h5 class="fs-6 fw-bold mb-2 text-muted">{{ 'filterSort.labels.busCompanies' | translate }}</h5>
         <div class="mb-3">
-          <input type="text"
+          <input (input)="filterCompanies()"
+                 [(ngModel)]="companySearchTerm"
                  class="form-control form-control-sm"
                  placeholder="{{ 'filterSort.placeholders.searchCompanies' | translate }}"
-                 [(ngModel)]="companySearchTerm"
-                 (input)="filterCompanies()">
+                 type="text">
         </div>
         <div class="d-flex flex-column gap-2">
           <label *ngFor="let bus of filteredBusNames;" class="block gap-2 fw-normal fst-normal">
@@ -197,11 +48,11 @@
       <p-tabpanel value="1">
         <h5 class="fs-6 fw-bold mb-2 text-muted">{{ 'filterSort.labels.boardingPoints' | translate }}</h5>
         <div class="mb-3">
-          <input type="text"
+          <input (input)="filterBoardingPoints()"
+                 [(ngModel)]="boardingPointSearchTerm"
                  class="form-control form-control-sm"
                  placeholder="{{ 'filterSort.placeholders.searchBoardingPoints' | translate }}"
-                 [(ngModel)]="boardingPointSearchTerm"
-                 (input)="filterBoardingPoints()">
+                 type="text">
         </div>
         <div class="d-flex flex-column gap-2">
           <label *ngFor="let point of filteredBoardingPoints;" class="block gap-2 fw-normal fs-6">
@@ -218,11 +69,11 @@
       <p-tabpanel value="2">
         <h5 class="fs-6 fw-bold mb-2 text-muted">{{ 'filterSort.labels.droppingPoints' | translate }}</h5>
         <div class="mb-3">
-          <input type="text"
+          <input (input)="filterDroppingPoints()"
+                 [(ngModel)]="droppingPointSearchTerm"
                  class="form-control form-control-sm"
                  placeholder="{{ 'filterSort.placeholders.searchDroppingPoints' | translate }}"
-                 [(ngModel)]="droppingPointSearchTerm"
-                 (input)="filterDroppingPoints()">
+                 type="text">
         </div>
         <div class="d-flex flex-column gap-2">
           <label *ngFor="let point of filteredDroppingPoints;"
@@ -242,11 +93,11 @@
       <p-tabpanel value="3">
         <h5 class="fs-6 fw-bold mb-2 text-muted">{{ 'filterSort.labels.departureTime' | translate }}</h5>
         <div class="mb-3">
-          <input type="text"
+          <input (input)="filterDepartureTime()"
+                 [(ngModel)]="departureTimeSearchTerm"
                  class="form-control form-control-sm"
                  placeholder="{{ 'filterSort.placeholders.searchTimeRanges' | translate }}"
-                 [(ngModel)]="departureTimeSearchTerm"
-                 (input)="filterDepartureTime()">
+                 type="text">
         </div>
         <div class="d-flex flex-column gap-2">
           <label *ngFor="let time of filteredTimeRanges"
@@ -266,11 +117,11 @@
       <p-tabpanel value="4">
         <h5 class="fs-6 fw-bold mb-2 text-muted">{{ 'filterSort.labels.amenities' | translate }}</h5>
         <div class="mb-3">
-          <input type="text"
+          <input (input)="filterAmenities()"
+                 [(ngModel)]="amenitiesSearchTerm"
                  class="form-control form-control-sm"
                  placeholder="{{ 'filterSort.placeholders.searchAmenities' | translate }}"
-                 [(ngModel)]="amenitiesSearchTerm"
-                 (input)="filterAmenities()">
+                 type="text">
         </div>
         <div class="d-flex flex-column gap-2">
           <label *ngFor="let point of filteredAmenities;"
@@ -292,8 +143,8 @@
   <!-- Footer buttons -->
   <div class="row p-3">
     <div class="col-6">
-      <p-button label="{{ 'filterSort.buttons.clear' | translate }}"
-                (click)="clearAllFilters()"
+      <p-button (click)="clearAllFilters()"
+                label="{{ 'filterSort.buttons.clear' | translate }}"
                 size="large"
                 styleClass="p-button-outlined p-button-secondary p-button-rounded w-100">
       </p-button>
