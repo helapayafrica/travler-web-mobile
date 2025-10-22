@@ -1,0 +1,1017 @@
+{
+  "navbar": {
+    "home": "Nyumbani",
+    "about": "Kuhusu Travler",
+    "ticket": "Print Tiketi",
+    "api": "API",
+    "contact": "Wasiliana Nasi",
+    "blogs": "Blogu",
+    "support": "Msaada",
+    "myAccount": "Akaunti Yangu",
+    "dashboard": "Dashibodi",
+    "bookings": "Matiketi",
+    "wallet": "Mkoba",
+    "account": "Akaunti Yangu",
+    "changePassword": "Badilisha Nenosiri",
+    "usersList": "Orodha ya Watumiaji",
+    "logout": "Toka"
+  },
+  "offcanvas": {
+    "bookTicket": "Tiketi",
+    "signUp": "Jisajili",
+    "signIn": "Ingia",
+    "dashboard": "Dashibodi",
+    "bookings": "Matiketi",
+    "wallet": "Mkoba",
+    "account": "Akaunti Yangu",
+    "changePassword": "Badilisha Nenosiri",
+    "usersList": "Orodha ya Watumiaji",
+    "logout": "Toka"
+  },
+  "footer": {
+    "downloadApp": "Pakua Programu",
+    "links": {
+      "about": "Kuhusu Travler",
+      "ticket": "Print Tiketi",
+      "contact": "Wasiliana Nasi",
+      "faqs": "Maswali Yanayoulizwa Mara Kwa Mara",
+      "terms": "Sheria na Masharti"
+    },
+    "contact": {
+      "email": "support@travler.africa"
+    }
+  },
+  "loading": {
+    "spinner": "Inapakua...",
+    "searchingBuses": "Inatafuta mabasi yanayopatikana...",
+    "mayTakeTime": "Hii inaweza kuchukua muda",
+    "seatsSpinner": "Inapakua viti...",
+    "seats": "Inapakua viti vinavyopatikana...",
+    "seatsWait": "Tafadhali subiri tunapopata taarifa za viti"
+  },
+  "empty": {
+    "noBuses": "Hakuna mabasi yanayopatikana",
+    "noResults": "Hatukuweza kupata mabasi yoyote kwa njia na tarehe uliyochagua.",
+    "tryAgain": "Jaribu kubadilisha vigezo vyako vya utafutaji au angalia tena baadaye."
+  },
+  "badge": {
+    "highway": "Barabara Kuu"
+  },
+  "bus": {
+    "availableSeats": "Viti Vinavyopatikana"
+  },
+  "drawer": {
+    "seatSelection": "Uchaguzi wa Kiti"
+  },
+  "error": {
+    "loadSeatsTitle": "Imeshindwa kupakua viti",
+    "loadSeatsMessage": "Hitilafu fulani imetokea wakati wa kupakua taarifa za viti.",
+    "tryAgain": "Jaribu Tena"
+  },
+  "button": {
+    "close": "Funga",
+    "viewSeats": "Angalia Viti"
+  },
+  "search": {
+    "tripType": {
+      "oneWay": "Safari Moja",
+      "roundTrip": "Safari ya Kwenda na Kurudi"
+    },
+    "labels": {
+      "from": "Kutoka",
+      "to": "Kwenda",
+      "travelDate": "Tarehe ya safari",
+      "returnDate": "Tarehe ya kurudi"
+    },
+    "placeholders": {
+      "from": "Kutoka",
+      "to": "Kwenda",
+      "travelDate": "Chagua tarehe",
+      "returnDate": "Chagua tarehe ya kurudi"
+    },
+    "tooltips": {
+      "from": "Weka Jiji la Kupanda",
+      "to": "Weka jiji lako la kuelekea",
+      "travelDate": "Chagua tarehe yako ya kusafiri",
+      "returnDate": "Chagua tarehe yako ya kurudi"
+    },
+    "quick": {
+      "today": "Leo",
+      "tomorrow": "Kesho"
+    },
+    "actions": {
+      "submit": "Tafuta Basi"
+    },
+    "validation": {
+      "fromRequired": "Jiji la kuanzia linahitajika. *",
+      "destinationRequired": "Jiji la kuelekea linahitajika. *",
+      "dateRequired": "*Tarehe inahitajika.",
+      "futureDate": "*Tafadhali chagua tarehe ya baadaye.",
+      "futureReturnDate": "*Tafadhali chagua tarehe ya kurudi ya baadaye.",
+      "returnAfterTravel": "Tarehe ya kurudi haiwezi kuwa kabla ya tarehe ya safari."
+    }
+  },
+  "drawer.sortFilterTitle": "Panga na Chuja mabasi",
+  "tabs.priceRange": "Kiwango cha Bei",
+  "tabs.duration": "Muda",
+  "tabs.services": "Huduma",
+  "priceRange.title": "Kiwango cha Bei",
+  "duration.title": "Muda",
+  "services.title": "Huduma",
+  "actions.clear": "Futa",
+  "actions.save": "Hifadhi",
+  "bottomNav": {
+    "home": "Nyumbani",
+    "printTicket": "Print Tiketi",
+    "help": "Msaada",
+    "account": "Akaunti",
+    "login": "Ingia",
+    "signUp": "Jisajili",
+    "booking": "Matiketi",
+    "wallet": "Mkoba",
+    "changePassword": "Badilisha Nenosiri",
+    "logout": "Toka"
+  },
+  "coupons": {
+    "offersForYou": "Ofa kwako."
+  },
+  "testimonials": {
+    "heading": "Wateja Wasema Nini",
+    "customer": "Mteja"
+  },
+  "partners": {
+    "heading": "Washirika Wetu wa Usafiri",
+    "benefits": {
+      "title": "Faida za Kukata Tiketi za Basi Mtandaoni",
+      "paragraph1": "Kukata tiketi za basi mtandaoni ni rahisi, haraka, na haina usumbufu. <strong class='fw-semibold'>Travler</strong> inatoa programu na tovuti rahisi kutumia. <strong class='fw-semibold'>Travler</strong> imetatua changamoto nyingi ambazo watu hukumbana nazo wanapokatia tiketi katika vituo halisi au kupitia mawakala wa usafiri.",
+      "paragraph2": "Pakua <strong class='fw-semibold'>Programu ya Travler</strong> ili ufurahie faida za kukata tiketi za basi mtandaoni.",
+      "intro": "Hii ni orodha ya faida zote za kukata tiketi za basi mtandaoni kupitia <strong class='fw-semibold'>Travler</strong>:",
+      "list": {
+        "item1": "Epuka kusimama kwenye foleni ndefu katika vituo vya tiketi za basi.",
+        "item2": "Hakuna tena usumbufu wa kumtafuta wakala wa usafiri.",
+        "item3": "Chagua kutoka kwa washirika wengi wa mabasi.",
+        "item4": "Angalia upatikanaji wa tiketi za basi mtandaoni.",
+        "item5": "Pata muda wa safari za basi, bei ya tiketi, na maelezo ya sehemu za kupanda na kushuka mtandaoni.",
+        "item6": "Faidika na punguzo na ofa za pesa taslimu kutoka kwa washirika wa malipo.",
+        "item7": "Huduma kwa wateja saa 24 kila siku.",
+        "item8": "Kila muamala ni rahisi, salama, na thabiti."
+      }
+    }
+  },
+  "faqs": {
+    "title": "Maswali Yanayoulizwa Mara kwa Mara Kuhusu Kuhifadhi Tiketi za Basi",
+    "nav": {
+      "general": "Ya Kawaida",
+      "tickets": "Uhifadhi",
+      "payment": "Malipo"
+    },
+    "general": {
+      "q1": {
+        "question": "Je, naweza kusafiri na watoto?",
+        "answer": "Abiria anaruhusiwa mtoto mmoja tu bila malipo. Kikomo cha umri ni miaka 5. Watoto zaidi ya miaka 5 wanatakiwa kulipia viti vyao."
+      },
+      "q2": {
+        "question": "Ni mzigo kiasi gani unaruhusiwa?",
+        "answer": "Kilo 20 za mizigo zinakubaliwa bila malipo. Zaidi ya hapo zitakubaliwa kwa malipo endapo kutakuwa na nafasi."
+      }
+    },
+    "tickets": {
+      "q1": {
+        "question": "Ninawezaje kuhifadhi tiketi yangu kwenye TRAVLER?",
+        "step1": "Hatua ya 1: Tafuta Mabasi",
+        "step1.desc": "Weka maelezo yako ya safari (Kutoka, Kwenda, Tarehe) kisha bonyeza Tafuta.",
+        "step1.note": "Kumbuka: \"Samahani, hakuna kiti kilichopo\" inamaanisha mabasi yamejaa.",
+        "step2": "Hatua ya 2: Chagua Kiti Chako",
+        "step2.desc": "Bonyeza \"Angalia Viti\" kisha uchague kiti au viti unavyopendelea.",
+        "step3": "Hatua ya 3: Chagua Sehemu",
+        "step3.desc": "Chagua Sehemu ya Kupanda na Kushuka kutoka kwa chaguo zilizopo.",
+        "step4": "Hatua ya 4: Weka Maelezo",
+        "step4.desc": "Endelea kama mgeni na ujaze taarifa zako binafsi.",
+        "step5": "Hatua ya 5: Kamilisha Malipo",
+        "step5.opt1": "Tumia njia ya malipo ya mikono, au",
+        "step5.opt2": "Bonyeza kitufe cha Malipo → ingiza PIN kwenye dirisha la simu."
+      },
+      "q2": {
+        "question": "Je, naweza kubadilisha tarehe ya safari yangu baada ya kuhifadhi tiketi?",
+        "answer": "Ndiyo, chaguo la kufuta au kupanga upya lipo kulingana na sera ya kampuni ya basi.",
+        "step1": "1. Ingia kwenye programu yako",
+        "step2": "2. Nenda kwenye historia ya safari",
+        "step3": "3. Chagua safari na bonyeza kupanga upya",
+        "step4": "4. Endelea kuweka mabadiliko unayotaka"
+      },
+      "q3": {
+        "question": "Ninawezaje kuhifadhi kwa kutumia msimbo wa vocha?",
+        "step1": "1. Ingia kwenye akaunti yako.",
+        "step2": "2. Bonyeza kitufe cha wasifu chini ya skrini.",
+        "step3": "3. Chagua pochi, bonyeza Tumia Vocha, na weka msimbo wako.",
+        "step4": "4. Kiasi kitaongezwa kwenye akaunti yako kwa mafanikio.",
+        "step5": "5. Hifadhi kama kawaida na chagua Lipa Kutoka Pochi katika hatua ya mwisho."
+      }
+    },
+    "payment": {
+      "q1": {
+        "question": "Ni njia gani tofauti za malipo zinazopatikana kwa kuhifadhi tiketi za basi?",
+        "answer": "Njia za malipo zinazopatikana kwenye TRAVLER ni Mpesa kwa Kshs, Airtel Money kwa UGX, na Tigo & Vodacom kwa TSHS."
+      }
+    }
+  },
+  "support": {
+    "heading": "Msaada wa Wateja wa Travler",
+    "tagline": "Msaada wa Wateja Masaa 24",
+    "subheading": "Tuko hapa kukusaidia wakati wowote",
+    "intro": "Kwa maswali, sifa au malalamiko, unaweza kutufikia kupitia njia zifuatazo za msaada:",
+    "callUs": "Tupe Simu",
+    "emailUs": "Tutumie Barua Pepe",
+    "liveChat": "Gumzo Moja kwa Moja",
+    "liveChatDescription": "Inapatikana moja kwa moja kwenye tovuti yetu na programu ya rununu",
+    "availability": "Upatikanaji",
+    "availabilityDescription": "Masaa 24, ikijumuishwa wikendi na siku za mapumziko"
+  },
+  "contactus": {
+    "altGraphic": "Mchoro wa mstari wa marudio ya safari",
+    "hero": {
+      "title1": "Safiri Kwa Akili Zaidi &",
+      "title2": "okoa zaidi",
+      "title3": "kwa Travler",
+      "description": "Gundua njia zenye akili zaidi, makubaliano yasiyoshindika, na uzoefu mwepesi wa uagizaji — yote kwa sehemu moja. Safiri vyema, kwa bei nafuu."
+    },
+    "sectionTitle": "Wasiliana Nasi",
+    "contactDetails": "Maelezo ya Mawasiliano",
+    "officeTitle": "Travler - Makao Makuu:",
+    "officeAddressLine1": "Sakafu ya 9, Majumba ya Parkside,",
+    "officeAddressLine2": "Barabara ya Mombasa, Nairobi Kenya",
+    "phoneTitle": "Travler - Makao Makuu:",
+    "form": {
+      "firstName": {
+        "label": "Jina la Kwanza",
+        "placeholder": "Weka jina la kwanza"
+      },
+      "lastName": {
+        "label": "Jina la Mwisho",
+        "placeholder": "Weka jina la mwisho"
+      },
+      "email": {
+        "label": "Anwani ya Barua Pepe",
+        "placeholder": "Weka anwani ya barua pepe"
+      },
+      "mobile": {
+        "label": "Nambari ya Simu",
+        "placeholder": "Weka nambari ya simu"
+      },
+      "subject": {
+        "label": "Somo",
+        "placeholder": "Weka somo la hoja / ujumbe wako"
+      },
+      "message": {
+        "label": "Ujumbe",
+        "placeholder": "Ujumbe wako"
+      },
+      "sendButton": "Tuma Ujumbe"
+    }
+  },
+  "terms": {
+    "title": "SERA YA MATUMIZI YA TOVUTI YA TRAVLER NA SERA YA MATUMIZI YANAYOKUBALIKA",
+    "lastUpdated": "Imesasishwa Mwisho: Oktoba 2025",
+    "sections": {
+      "1": {
+        "title": "1. Utangulizi",
+        "content": [
+          "Karibu kwenye <strong>Travler</strong>, bidhaa ya <strong>Voltic Kenya Limited</strong>. Masharti haya ya Matumizi yanasimamia upatikanaji wako na matumizi ya tovuti yetu <strong>www.travler.africa</strong>, programu ya rununu, na huduma zinazohusiana (pamoja, \"Jukwaa\").",
+          "Kwa kufikia au kutumia Travler, unakubali kufuata Masharti haya. Tafadhali yasome kwa makini kabla ya kutumia huduma zetu."
+        ]
+      },
+      "2": {
+        "title": "2. Ufafanuzi",
+        "type": "list",
+        "content": [
+          "<strong>\"Travler\"</strong> inamaanisha Voltic Kenya Limited, kampuni inayoendesha jukwaa la Travler.",
+          "<strong>\"Mtumiaji\"</strong> au <strong>\"Wewe\"</strong> inarejelea mtu yeyote anayefikia, kutazama, au kutumia jukwaa la Travler.",
+          "<strong>\"Mwendeshaji\"</strong> inarejelea kampuni yoyote ya basi au mtoa huduma ambayo tiketi zake zinapatikana kwa ajili ya kukodiwa kwenye jukwaa la Travler.",
+          "<strong>\"Jukwaa\"</strong> inamaanisha tovuti ya Travler, programu ya rununu, na huduma zote za kidijitali zinazohusiana."
+        ]
+      },
+      "3": {
+        "title": "3. Kustahiki",
+        "content": "Kwa kutumia Travler, unathibitisha kuwa una umri wa angalau miaka 18 na una uwezo wa kisheria wa kuingia na makubaliano ya kisheria."
+      },
+      "4": {
+        "title": "4. Matumizi ya Jukwaa",
+        "content": [
+          "Unakubali kutumia Travler kwa madhumuni ya kisheria tu, hasa kwa ajili ya kutazama, kulinganisha, na kununua tiketi za basi kwa matumizi binafsi au yaliyoidhinishwa.",
+          "Hupaswi:"
+        ],
+        "type": "list",
+        "sublist": [
+          "Tumia jukwaa kwa shughuli za udanganyifu, za kudanganya, au zisizo halali.",
+          "Kuingilia kati wa uendeshaji au usalama wa jukwaa.",
+          "Kujaribu kunakili, kurekebisha, au kuchambua mifumo au programu ya Travler."
+        ]
+      },
+      "5": {
+        "title": "5. Kukodi na Malipo",
+        "type": "sublist",
+        "content": [
+          "<strong>a.</strong> Ukodishaji wote wa tiketi unaofanywa kupitia Travler unategemea upatikanaji na uthibitishaji wa mwendeshaji.",
+          "<strong>b.</strong> Malipo ya tiketi husafirishwa kupitia njia salama za watu wengine (k.m., pesa za rununu, kadi za mkopo/debit).",
+          "<strong>c.</strong> Travler haiwajibiki kwa ucheleweshaji, kughairiwa, au ubora wa huduma wa waendeshaji wa basi lakini itasaidia msaada unaohitajika katika kutatua migogoro."
+        ]
+      },
+      "6": {
+        "title": "6. Rudi na Kughairi",
+        "content": [
+          "Sera za kurudishwa pesa na kughairi hutofautiana kulingana na mwendeshaji. Watumiaji wanahimizwa kukagua masharti ya kila mwendeshaji wakati wa kukodi.",
+          "Travler itasaidia na maombi ya kurudishwa pesa kulingana na sera ya mwendeshaji lakini haijahitajika kubadilisha masharti ya mwendeshaji."
+        ]
+      },
+      "7": {
+        "title": "7. Haki za Miliki",
+        "content": [
+          "Yaliyomo yote, alama za biashara, na nyenzo zilizoonyeshwa kwenye Travler (zikiwemo nembo, miundo, picha, na programu) zinamilikiwa au kukodishwa leseni kwa <strong>Voltic Kenya Limited</strong>.",
+          "Hakuna mtumiaji anaweza kuzalisha tena, kunakili, au kusambaza yaliyomo yoyote ya Travler bila idhini ya maandishi ya awali."
+        ]
+      },
+      "8": {
+        "title": "8. Sera ya Matumizi Yanayokubalika",
+        "content": [
+          "Unapotumia Travler, unakubali kutofanya:"
+        ],
+        "type": "list",
+        "sublist": [
+          "Pakia au shiriki yaliyomo yenye kukasirisha, yenye kudanganya, au yenye kudhuru.",
+          "Shiriki katika shughuli zinazoweza kusumbua au kuharibu mifumo ya Travler.",
+          "Tumia mifumo ya otomatiki (boti, vikochororo) kufikia au kukusanya data ya jukwaa.",
+          "Jidai kuwa mtu mwingine au uwakilishe uhusiano wako na chombo chochote."
+        ],
+        "additionalContent": "Ukiukaji wa sera hii unaweza kusababisha kusimamishwa au kukatishwa kwa upatikanaji wa jukwaa."
+      },
+      "9": {
+        "title": "9. Kikomo cha Uwajibikaji",
+        "content": [
+          "Travler inatoa huduma zake \"kama zilivyo\" na haitoi dhamana yoyote kuhusu usahihi, kuaminika, au upatikanaji.",
+          "<strong>Voltic Kenya Limited</strong> haitawajibika kwa uharibifu wowote usio wa moja kwa moja, wa bahati nasibu, au wa matokeo yanayotokana na matumizi au kutoweza kutumia jukwaa."
+        ]
+      },
+      "10": {
+        "title": "10. Fidia",
+        "content": "Unakubali kulipa fidia na kulinda <strong>Voltic Kenya Limited</strong> na washirika wake kutokana na madai yoyote, hasara, au uharibifu unaotokana na matumizi yako mabaya ya jukwaa au ukiukaji wa Masharti haya."
+      },
+      "11": {
+        "title": "11. Kukomesha",
+        "content": "Travler inahifadhi haki ya kusimamisha au kukomesha akaunti yako wakati wowote ikiwa unakiuka Masharti haya au kushiriki katika shughuli zilizopigwa marufuku."
+      },
+      "12": {
+        "title": "12. Sheria Inayotawala na Mamlaka",
+        "content": "Masharti haya yatatwaliwa na sheria za <strong>Jamhuri ya Kenya</strong>. Migogoro yoyote itakuwa chini ya mamlaka ya kipekee ya mahakama za Kenya."
+      },
+      "13": {
+        "title": "13. Marekebisho",
+        "content": "Travler inaweza kusasisha Masharti haya mara kwa mara. Mabadiliko yatajumishiwa kupitia tovuti au programu ya rununu na yataanza kutumika mara moja baada ya kuchapishwa."
+      },
+      "14": {
+        "title": "14. Maelezo ya Mawasiliano",
+        "content": [
+          "Kwa maswali, maoni, au malalamiko, wasiliana na:"
+        ],
+        "type": "contact",
+        "contactInfo": [
+          "<strong>Travler (kwa Voltic Kenya Limited)</strong>",
+          "Tovuti: <a href='https://www.travler.africa'>www.travler.africa</a>",
+          "Simu: <strong>0709 215 000 / 0785 700 700</strong>",
+          "Barua pepe: <strong>support@travler.africa</strong>"
+        ]
+      }
+    }
+  },
+  "ticket": {
+    "title": "Print Tiketi",
+    "form": {
+      "ticketNumber": {
+        "label": "Nambari ya Tiketi",
+        "placeholder": "e.g  DEV123456789",
+        "error": "Tafadhali weka nambari halali ya tiketi"
+      },
+      "mobileNumber": {
+        "label": "Nambari ya Simu",
+        "placeholder": "e.g.  0785700700",
+        "error": "Tafadhali weka nambari halali ya simu"
+      },
+      "submit": "Print Tiketi"
+    }
+  },
+  "busSeatSelector": {
+    "selectSeats": "Chagua Viti Vyako",
+    "selected": "Imechaguliwa",
+    "orientationMessage": "Mpangilio wima kwa rununu",
+    "door": "Mlango",
+    "legend": {
+      "vip": "VIP",
+      "normal": "Kawaida",
+      "business": "Biashara",
+      "booked": "Imeagizwa"
+    },
+    "summary": {
+      "title": "Viti Vilivyochaguliwa",
+      "seats": "Viti",
+      "noSeats": "Hakuna viti vilivyochaguliwa",
+      "totalAmount": "Jumla ya Kiasi"
+    },
+    "form": {
+      "boarding": {
+        "label": "Kituo cha Kupanda",
+        "placeholder": "Chagua kituo cha kupanda"
+      },
+      "dropping": {
+        "label": "Kituo cha Kushuka",
+        "placeholder": "Chagua kituo cha kushuka"
+      }
+    },
+    "buttons": {
+      "checkout": "Endelea kwenye Malipo",
+      "return": "Endelea kwenye Kurudi",
+      "reschedule": "Endelea kwenye Kubadilisha Ratiba",
+      "completeForm": "Kamilisha Fomu ili Kuendelea",
+      "selectSeat": "Chagua angalau kiti kimoja"
+    }
+  },
+  "booking": {
+    "passengerForm": {
+      "title": "Maelezo Binafsi",
+      "help": "Unahitaji msaada? Tupe simu",
+      "contact": "Barua Pepe: {{email}} | Simu: +254709215215",
+      "cancellation": {
+        "title": "Ulinzi wa Kufuta",
+        "fee": "KSH 50 kwa abiria"
+      },
+      "fields": {
+        "name": "Jina",
+        "age": "Umri",
+        "gender": "Jinsia",
+        "idNo": "Nambari ya Kitambulisho/Pasipoti",
+        "email": "Barua Pepe",
+        "nationality": "Uraia",
+        "phoneCode": "Msimbo",
+        "phoneNumber": "Nambari ya Simu"
+      },
+      "primaryPassenger": "Abiria Mkuu",
+      "coPassenger": "Abiria Mwenzio",
+      "travelInsurance": {
+        "title": "Bima ya Safari",
+        "subtitle": "Linda safari yako kwa bima kamili ya safari",
+        "none": "Sitaki bima",
+        "benefits": "Faida",
+        "dialog": {
+          "close": "Funga"
+        }
+      },
+      "button": {
+        "proceed": "Endelea Kulipa"
+      }
+    }
+  },
+  "busInfo": {
+    "onwardTrip": "Safari ya Kwenda",
+    "returnTrip": "Safari ya Kurudi",
+    "departure": "Kuondoka",
+    "arrival": "Kufika",
+    "boardingPoint": "Kituo cha Kupanda",
+    "droppingPoint": "Kituo cha Kushuka",
+    "selectedSeats": "Viti Vilivyochaguliwa",
+    "fareBreakup": "MUUNGANISHO WA NAULI",
+    "onwardJourney": "Safari ya Kwenda",
+    "returnJourney": "Safari ya Kurudi",
+    "onwardFare": "Nauli ya Kwenda",
+    "returnFare": "Nauli ya Kurudi",
+    "additionalFees": "Ada Za Ziada",
+    "insurance": "Bima",
+    "cancellationProtect": "Ulinzi wa Kufuta",
+    "platformFees": "Ada ya Jukwaa",
+    "discount": "Punguzo",
+    "totalPayable": "Jumla ya Kulipwa"
+  },
+  "paymentForm": {
+    "ticketCheckout": "MALIPO YA TIKETI",
+    "viewBusInfo": "Angalia Maelezo ya Basi",
+    "paymentDetails": "Maelezo ya Malipo",
+    "remainingTime": "Muda Uliosalia",
+    "selectPaymentMethod": "Chagua Njia ya Malipo",
+    "mpesa": "Mpesa",
+    "airtelMoney": "Airtel Money",
+    "phoneNumber": "Nambari ya Simu",
+    "voucher": "bofya ili kutumia vocha",
+    "voucherPlaceholder": "Msimbo wa vocha",
+    "apply": "Tumia",
+    "note": "Kumbuka: Mara tu viti vinapochaguliwa na kulipwa, tiketi hazirudishwi.",
+    "consent": "Kwa kuendelea, nakubali Travler ikusanye na kuhifadhi taarifa zangu kulingana na",
+    "privacyPolicy": "Sera ya Faragha",
+    "termsConditions": "Sheria na Masharti",
+    "paySecurely": "Lipa Kwa Salama Na"
+  },
+  "filterSort": {
+    "buttonLabel": "Chuja & Panga",
+    "drawerHeader": "Panga na Chuja mabasi",
+    "tabs": {
+      "company": "Jina la Kampuni",
+      "boardingPoint": "Kituo cha Kupanda",
+      "droppingPoint": "Kituo cha Kushuka",
+      "departureTime": "Wakati wa Kuondoka",
+      "amenities": "Vifaa"
+    },
+    "placeholders": {
+      "searchCompanies": "Tafuta kampuni...",
+      "searchBoardingPoints": "Tafuta Kituo cha Kupanda...",
+      "searchDroppingPoints": "Tafuta Vituo vya Kushuka...",
+      "searchTimeRanges": "Tafuta Mipaka ya Muda...",
+      "searchAmenities": "Tafuta Vifaa..."
+    },
+    "labels": {
+      "busCompanies": "Kampuni za Mabasi",
+      "boardingPoints": "Vituo vya Kupanda",
+      "droppingPoints": "Vituo vya Kushuka",
+      "departureTime": "Wakati wa kuondoka",
+      "amenities": "Vifaa"
+    },
+    "buttons": {
+      "clear": "Futa",
+      "save": "Hifadhi"
+    }
+  },
+  "loginModal": {
+    "title": "INGIA",
+    "labels": {
+      "code": "MSIMBO",
+      "phoneNumber": "NAMBARI YA SIMU",
+      "password": "NENOSIRI",
+      "rememberMe": "Nikumbuke"
+    },
+    "placeholders": {
+      "phoneNumber": "700000000"
+    },
+    "validation": {
+      "phoneNumberRequired": "Weka nambari halali ya simu",
+      "phoneNumberInvalid": "Tafadhali weka nambari halali ya simu",
+      "passwordRequired": "Nenosiri linahitajika",
+      "passwordMinLength": "Nenosiri lazima liwe na angalau herufi 6"
+    },
+    "buttons": {
+      "signIn": "INGIA",
+      "asGuest": "KAMA MGENI"
+    },
+    "links": {
+      "forgotPassword": "Umesahau nenosiri?",
+      "signUp": "Jisajili"
+    },
+    "orContinue": "AU ENDELEA"
+  },
+  "signup": {
+    "title": "Jisajili",
+    "labels": {
+      "name": "Jina",
+      "code": "Msimbo",
+      "phoneNumber": "Simu",
+      "email": "Barua Pepe",
+      "gender": "Jinsia",
+      "dateOfBirth": "Tarehe ya Kuzaliwa",
+      "promoCode": "Msimbo wa Promoshini",
+      "password": "Nenosiri",
+      "confirmPassword": "Thibitisha Nenosiri",
+      "terms": "Nakubaliana na sheria na masharti",
+      "havePromoCode": "Una msimbo wa promoshini?"
+    },
+    "placeholders": {
+      "name": "Weka jina lako",
+      "phoneNumber": "Weka nambari yako ya simu",
+      "email": "Weka barua pepe yako",
+      "gender": "Chagua Jinsia",
+      "dateOfBirth": "Chagua tarehe yako ya kuzaliwa",
+      "promoCode": "Weka msimbo wa kuponi",
+      "password": "Weka nenosiri",
+      "confirmPassword": "Thibitisha nenosiri",
+      "code": "Chagua Msimbo"
+    },
+    "validation": {
+      "nameRequired": "Jina linahitajika",
+      "codeRequired": "Msimbo unahitajika",
+      "phoneRequired": "Nambari ya simu inahitajika",
+      "emailRequired": "Barua pepe inahitajika",
+      "emailInvalid": "Umbo batili la barua pepe",
+      "dobRequired": "Tarehe ya kuzaliwa inahitajika",
+      "dobUnderage": "Lazima uwe na umri wa angalau miaka 13 ili kujisajili",
+      "passwordRequired": "Nenosiri linahitajika",
+      "passwordMinLength": "Nenosiri lazima liwe na angalau herufi 5",
+      "confirmPasswordRequired": "Uthibitisho wa nenosiri unahitajika",
+      "passwordsMustMatch": "Nenosiri lazima zifanane",
+      "termsRequired": "Lazima ukubaliane na sheria na masharti"
+    },
+    "buttons": {
+      "signUp": "Jisajili",
+      "creatingAccount": "Inaunda Akaunti..."
+    },
+    "links": {
+      "signIn": "Ingia"
+    }
+  },
+  "login": {
+    "title": "Ingia",
+    "labels": {
+      "code": "Msimbo",
+      "phoneNumber": "Nambari ya Simu",
+      "password": "Nenosiri",
+      "rememberMe": "Nikumbuke",
+      "forgotPassword": "Umesahau nenosiri?",
+      "signUpLink": "Huna akaunti? Jisajili"
+    },
+    "placeholders": {
+      "code": "Chagua Msimbo",
+      "phoneNumber": "mfano. 700 123456",
+      "password": "Weka nenosiri"
+    },
+    "validation": {
+      "codeRequired": "Msimbo unahitajika",
+      "phoneRequired": "Nambari ya simu inahitajika",
+      "passwordRequired": "Nenosiri linahitajika",
+      "passwordMinLength": "Nenosiri lazima liwe na angalau herufi 6"
+    },
+    "buttons": {
+      "signIn": "Ingia",
+      "loggingIn": "Inaingia..."
+    }
+  },
+  "privacyPolicy": {
+    "title": "SERA YA FARAGHA YA TRAVLER",
+    "lastUpdated": "Imesasishwa Mwisho: Oktoba 2025",
+    "sections": {
+      "1": {
+        "title": "1. Utangulizi",
+        "content": {
+          "0": "Karibu kwenye Travler, jukwaa la kuaminika la Kenya la kukodi tiketi za basi mtandaoni, linaloendeshwa na Voltic Kenya Limited.",
+          "1": "Sera hii ya Faragha inaelezea jinsi tunavyokusanya, kutumia, kushiriki, na kulinda data yako binafsi unapotembelea www.travler.africa au kutumia programu yetu ya rununu. Travler imejikita kudumisha viwango vya juu zaidi vya faragha na uwazi kulingana na Kif cha Kulinda Data cha Kenya (2019).",
+          "2": "Kwa kutumia Travler, unakubali mazoea yaliyoelezewa kwenye sera hii."
+        }
+      },
+      "2": {
+        "title": "2. Taarifa Tunazokusanya",
+        "content": {
+          "0": "Travler inakusanya data ili kuboresha uzoefu wa mtumiaji, kuhakikisha upatikanaji laini wa tiketi, na kuboresha uaminifu wa huduma. Aina za data tunazokusanya ni pamoja na:"
+        },
+        "sublist": {
+          "0": "<strong>Taarifa Binafsi:</strong> Jina lako, nambari ya mawasiliano, barua pepe, na maelezo ya kitambulisho kwa ajili ya uthibitishaji na utoaji tiketi.",
+          "1": "<strong>Taarifa za Malipo:</strong> Maelezo ya malipo ya pesa za rununu (k.m., M-Pesa), benki, au kadi kwa ajili ya kusafirisha malipo salama.",
+          "2": "<strong>Historia ya Kusafiri & Mapendeleo:</strong> Njia, tarehe, na uchaguzi wa waendeshaji ili kuboresha mapendekezo ya baadaye.",
+          "3": "<strong>Data ya Kifaa na Matumizi:</strong> Anwani ya IP, aina ya kivinjari, mfumo wa uendeshaji, na mifumo ya mwingiliano wa tovuti kwa ajili ya uchambuzi na uboreshaji wa jukwaa."
+        }
+      },
+      "3": {
+        "title": "3. Kusudi la Kukusanya Data Binafsi",
+        "content": {
+          "0": "Taarifa yako binafsi inatuwezesha kutoa uzoefu laini, wa kibinafsi, na salama wa kukodi. Hasa, tunaitumia kwa:"
+        },
+        "sublist": {
+          "0": "Kusindika na kuthibitisha ukodishaji wa tiketi na malipo",
+          "1": "Kurahisisha kupanda na kujiandikisha na waendeshaji wa basi",
+          "2": "Kutoa huduma kwa wateja na kutatua matatizo haraka",
+          "3": "Kuboresha utendaji wa tovuti na kubinafsisha mapendekezo",
+          "4": "Kutuma visasisho, arifa, na ofa za kukuza mara kwa mara",
+          "5": "Kugundua ulaghai, kuhakikisha usalama, na kukutana na majukumu ya kisheria"
+        }
+      },
+      "4": {
+        "title": "4. Ugawaji wa Data na Ufichuzi kwa Watu Wengine",
+        "content": {
+          "0": "Travler inathamini faragha yako na inashiriki data tu wakati inahitajika kukamilisha ukodishaji wako wa usafiri.",
+          "1": "Tunaweza kushiriki data kidogo na:"
+        },
+        "sublist": {
+          "0": "<strong>Waendeshaji wa Basi:</strong> Ili kutoa tiketi, kuthibitisha orodha ya abiria, na kurahisisha kupanda.",
+          "1": "<strong>Watoa Huduma za Malipo:</strong> Ili kusindika na kuthibitisha malipo kwa usalama.",
+          "2": "<strong>Wasimamizi au Polisi:</strong> Wakati unahitajika kisheria kulingana na sheria za Kenya."
+        },
+        "additionalContent": "Watu wote wengine wamefungwa kwa usiri mkali na lazima watii Kif cha Kulinda Data cha Kenya (2019)."
+      },
+      "5": {
+        "title": "5. Usalama wa Data na Uhifadhi",
+        "content": {
+          "0": "Travler inatumia hatua za usalama za kiwango cha sekta ili kulinda taarifa zako, zikiwemo usimbaji fiche, udhibiti wa upatikanaji, na mazingira salama ya uandikishaji.",
+          "1": "Tunadumisha data yako kwa muda mrefu tu kama inavyohitajika kwa utoaji wa huduma, sheria, au mahitaji ya udhibiti. Baada ya kipindi hiki, data yako inafanywa isiweze kutambulika au kufutwa kwa usalama kulingana na mazoea bora."
+        }
+      },
+      "6": {
+        "title": "6. Haki Zako za Faragha",
+        "content": {
+          "0": "Kama mtumiaji, una udhibiti kamili wa data yako binafsi. Chini ya sheria za Kenya, unaweza:"
+        },
+        "sublist": {
+          "0": "Kuomba upatikanaji wa data yako binafsi",
+          "1": "Kusahihisha au kusasisha taarifa zisizo sahihi",
+          "2": "Kuomba kufutwa kwa data yako (kikomo cha kisheria cha kuhifadhi)",
+          "3": "Kukataa idhini ya mawasiliano ya kukuza",
+          "4": "Kuwasilisha malalamiko kwa Ofisi ya Kamishna wa Ulinda Data (ODPC)"
+        },
+        "additionalContent": "Kwa ombi lolote linalohusiana na faragha, wasiliana nasi kupitia anuani hapa chini."
+      },
+      "7": {
+        "title": "7. Kuki na Uchambuzi wa Tovuti",
+        "content": {
+          "0": "Travler inatumia kuki na zana za uchambuzi ili kuboresha utendaji wa tovuti, kuboresha uzoefu wa mtumiaji, na kupima ushiriki.",
+          "1": "Unaweza kudhibiti au kulemaza kuki katika mipangilio yako ya kivinjari, ingawa hii inaweza kuathiri utendaji fulani kwenye jukwaa letu."
+        }
+      },
+      "8": {
+        "title": "8. Sasisho kwa Sera hii ya Faragha",
+        "content": {
+          "0": "Tunaweza kusasisha sera hii mara kwa mara ili kuakisi mahitaji mapya ya kisheria au kiutendaji. Sasisho zozote zitachapishwa kwenye tovuti yetu na tarehe ya \"Imesasishwa Mwisho\" iliyosasishwa.",
+          "1": "Tunawahimiza watumiaji kukagua ukurasa huu mara kwa mara ili kukaa na taarifa jinsi tunavyolinda data yako."
+        }
+      },
+      "9": {
+        "title": "9. Maelezo ya Mawasiliano",
+        "content": {
+          "0": "Kwa maswali yoyote, maombi ya faragha, au malalamiko, wasiliana na:"
+        },
+        "contactInfo": {
+          "0": "<strong>Travler (kwa Voltic Kenya Limited)</strong>",
+          "1": "Tovuti: <a href='https://www.travler.africa'>www.travler.africa</a>",
+          "2": "Simu: <strong>0709 215 000 / 0785 700 700</strong>",
+          "3": "Barua pepe: <strong>support@travler.africa</strong>"
+        }
+      }
+    }
+  },
+  "rescheduleBooking": {
+    "title": "Badilisha Ratiba ya Uagizaji",
+    "note": {
+      "title": "Kumbuka:",
+      "infoText": "Unaweza kubadilisha ratiba ya safari yako ikiwa tu iko",
+      "timeCondition": "masaa 8+ mbali",
+      "details": "Mabadiliko ya muda tu—maeneo yanabaki sawa."
+    },
+    "selectDateText": "Chagua tarehe mpya ya uagizaji wako",
+    "form": {
+      "ticketLabel": "Nambari ya Tiketi:",
+      "ticketPlaceholder": "Weka Nambari ya Tiketi",
+      "newDateLabel": "Tarehe Mpya:",
+      "submitButton": "Thibitisha Kubadilisha Ratiba"
+    }
+  },
+  "wheelOfFortune": {
+    "title": "🎡 Piga kwa Nafasi ya Kushinda! 🎉",
+    "buttons": {
+      "spin": "Piga",
+      "spinning": "Inazunguka...",
+      "reset": "Weka Upya"
+    },
+    "results": {
+      "winner": "🎉 Mshindi: {{text}} 🎉"
+    },
+    "canvasFallback": "Haitumiki, tumia kivinjari kingine."
+  },
+  "thankYouPage": {
+    "title": "Asante Kwa Ununuzi Wako!",
+    "bookingConfirmed": "Uagizaji wako umehakikishiwa kwa mafanikio!",
+    "viewPaymentDetails": "Angalia Maelezo ya Malipo",
+    "rateExperience": "Kadiria Uzoefu Wako",
+    "rateQuestion": "Unawezaje kukadiria huduma yetu?",
+    "additionalComments": "Maoni Ya Ziada",
+    "feedbackPlaceholder": "Tuambie kuhusu uzoefu wako (hiari)",
+    "feedbackHelp": "Maoni yako yanatusaidia kuboresha huduma yetu.",
+    "submitFeedback": "Wasilisha Maoni",
+    "pleasantJourney": "Tunakutakia safari ya kupendeza!",
+    "spinToWin": "Piga ili kushinda",
+    "backToHome": "Rudi Nyumbani"
+  },
+  "tripFeedbackPage": {
+    "title": "Asante Kwa Safari Yako!",
+    "journeyCompleted": "Safari yako imekamilika kwa mafanikio!",
+    "viewTripDetails": "Angalia Maelezo ya Safari",
+    "rateExperience": "Kadiria Uzoefu Wako",
+    "rateQuestion": "Tusaidie kuboresha huduma yetu kwa kukadiria safari yako",
+    "overallRating": "Uhakiki Wa Jumla",
+    "serviceRating": "Uhakiki Wa Huduma",
+    "busQuality": "Ubora Wa Basi",
+    "punctuality": "Uhakika Wa Muda",
+    "staffBehaviour": "Tabia Ya Wafanyikazi",
+    "writeReview": "Andika Ukaguzi Wako",
+    "reviewPlaceholder": "Ukaguzi Wako Kuhusu Safari (Herufi 50)",
+    "feedbackHelp": "Maoni yako yanatusaidia kuboresha huduma yetu.",
+    "submit": "Wasilisha",
+    "thankYouMessage": "Asante kwa kuchagua huduma yetu!",
+    "backToHome": "Rudi Nyumbani"
+  },
+  "paymentVerificationPage": {
+    "title": "Inachakata Malipo",
+    "states": {
+      "idle": {
+        "title": "Inaanzisha...",
+        "description": "Inaandaa uthibitishaji wa malipo..."
+      },
+      "processing": {
+        "title": "Inachakata Malipo",
+        "description": "Tafadhali subiri tunapothibitisha malipo yako..."
+      },
+      "success": {
+        "title": "Malipo Yamefanikiwa!",
+        "description": "Malipo yako yameshughulikiwa kwa mafanikio"
+      },
+      "failed": {
+        "title": "Malipo Yameshindwa",
+        "description": "Hatukuweza kushughulikia malipo yako. Tafadhali jaribu tena.",
+        "retry": "Jaribu Tena",
+        "goBack": "Rudi Nyuma"
+      }
+    }
+  },
+  "userProfilePage": {
+    "dashboard": "Dashibodi",
+    "myTrips": "Safari Zangu",
+    "wallet": "Mkoba",
+    "myAccount": "Akaunti Yangu",
+    "userList": "Orodha ya Watumiaji",
+    "profilePictureAlt": "Picha ya Wasifu",
+    "cameraIconAlt": "Fungua Kidirisha cha Kamera"
+  },
+  "dashboard": {
+    "totalItemsLabel": "Jumla ya Vitu",
+    "dateRangeLabel": "Mpaka wa Tarehe",
+    "currencyLabel": "Sarafu",
+    "userSelectLabel": "Tafuta kwa mtumiaji",
+    "userSelectPlaceholder": "Tafuta kwa mtumiaji",
+    "table": {
+      "companyName": "Jina la Kampuni",
+      "ticketNo": "Nambari ya Tiketi",
+      "totalSale": "Jumla ya Mauzo",
+      "commission": "Tume",
+      "selfCommission": "Tume Binafsi",
+      "walletBalance": "Salio la Mkoba",
+      "noData": "Data haipatikani."
+    },
+    "pagination": {
+      "previous": "Iliyopita",
+      "next": "Ijayo"
+    }
+  },
+  "myTripsPage": {
+    "tabs": {
+      "upcoming": "Ijayo",
+      "completed": "Imekamilika"
+    },
+    "status": {
+      "confirmed": "Imethibitishwa",
+      "pending": "Inasubiri",
+      "cancelled": "Imefutwa",
+      "completed": "Imekamilika"
+    },
+    "labels": {
+      "route": "Njia",
+      "date": "Tarehe",
+      "seat": "Kiti",
+      "bus": "Basi",
+      "amount": "Kiasi",
+      "company": "Kampuni",
+      "boarding": "Kupanda"
+    },
+    "actions": {
+      "view": "Tazama",
+      "download": "Pakua",
+      "cancel": "Futa"
+    },
+    "noData": {
+      "title": "Hakuna maagizo ya {{tab}}",
+      "subtitle": "Hakuna maagizo ya {{tab}} ya kuonyesha."
+    }
+  },
+  "walletPage": {
+    "balance": {
+      "title": "Salio Lako la Mkoba"
+    },
+    "voucher": {
+      "label": "Tumia Vocha",
+      "placeholder": "Weka msimbo wa vocha",
+      "button": "Tumia Vocha"
+    },
+    "table": {
+      "headers": {
+        "amount": "Kiasi",
+        "status": "Hali",
+        "comment": "Maoni"
+      },
+      "emptyState": "Historia ya mkoba haipatikani!"
+    }
+  },
+  "accountDetails": {
+    "buttons": {
+      "editProfile": "Hariri Wasifu",
+      "changePassword": "Badilisha Nenosiri"
+    },
+    "sections": {
+      "personalDetails": "Maelezo Binafsi",
+      "businessDetails": "Maelezo ya Biashara",
+      "contactDetails": "Maelezo ya Mawasiliano"
+    },
+    "labels": {
+      "name": "Jina",
+      "identity": "Utambulisho",
+      "age": "Umri",
+      "gender": "Jinsia",
+      "businessName": "Jina la Biashara",
+      "area": "Eneo",
+      "county": "Kaunti",
+      "city": "Jiji",
+      "road": "Barabara",
+      "email": "Barua Pepe",
+      "phone": "Nambari ya Simu",
+      "address": "Anwani"
+    },
+    "documents": {
+      "identityPhotoAlt": "Picha ya Kitambulisho",
+      "businessPhotoAlt": "Picha ya Biashara"
+    }
+  },
+  "changePassword": {
+    "title": "Badilisha Nenosiri",
+    "labels": {
+      "oldPassword": "Nenosiri la Zamani",
+      "newPassword": "Nenosiri Jipya",
+      "confirmPassword": "Thibitisha Nenosiri"
+    },
+    "placeholders": {
+      "oldPassword": "Weka nenosiri lako la zamani",
+      "newPassword": "Weka nenosiri jipya",
+      "confirmPassword": "Thibitisha nenosiri jipya"
+    },
+    "errors": {
+      "oldPasswordRequired": "Nenosiri la zamani linahitajika",
+      "newPasswordRequired": "Nenosiri jipya linahitajika",
+      "newPasswordMinLength": "Nenosiri lazima liwe na angalau herufi 8",
+      "confirmPasswordRequired": "Tafadhali thibitisha nenosiri lako",
+      "passwordMismatch": "Nenosiri hazifanani"
+    },
+    "buttons": {
+      "submit": "Wasilisha"
+    }
+  },
+  "userList": {
+    "title": "Orodha ya Watumiaji",
+    "buttons": {
+      "addUser": "Ongeza Mtumiaji",
+      "search": "Tafuta",
+      "view": "Tazama",
+      "edit": "Hariri",
+      "delete": "Futa"
+    },
+    "labels": {
+      "totalItems": "Jumla ya Vitu",
+      "searchPlaceholder": "Tafuta watumiaji..."
+    },
+    "tableHeaders": {
+      "index": "#",
+      "name": "Jina",
+      "email": "Barua Pepe",
+      "phone": "Simu",
+      "role": "Wadhifa",
+      "status": "Hali",
+      "actions": "Vitendo"
+    },
+    "status": {
+      "active": "Inatumika",
+      "inactive": "Haitumiki"
+    },
+    "messages": {
+      "noUsers": "Hakuna watumiaji waliopatikana."
+    },
+    "pagination": {
+      "previous": "Iliyopita",
+      "next": "Ijayo"
+    }
+  },
+  "notFound": {
+    "errorCode": "404",
+    "title": "Njia Haipatikani",
+    "subtitle": "Inaonekana marudio haya hayako kwenye ramani yetu. Tukupatie mwelekeo!",
+    "buttons": {
+      "goBack": "← Rudi Nyuma",
+      "home": "🏠 Nyumbani"
+    }
+  },
+  "messages": {
+    "whereTo": "Unaenda Wapi?",
+    "fromCity": "Habari! Utaanza safari yako wapi?",
+    "toCity": "Vizuri! Na ungependa kwenda wapi?",
+    "travelDate": "Unataka kusafiri lini?",
+    "returnDate": "Safari ya kurudi na kurudi – bainisha wakati wa kurudi.",
+    "default": "Karibu kwenye Wasafiri"
+  },
+  "aboutPage": {
+    "title": "Kuhusu Sisi",
+    "appName": "Travler",
+    "description": "ni programu ya simu iliyotengenezwa ili kuleta mabadiliko sekta ya usafiri kwa kulenga hasa wasafiri. Ni suluhisho mbadala la usafiri inayotoa upatikanaji wa safari za bubui za hali ya juu, njia maalum, ratiba, na nauli zote zikiwa kwenye programu moja.",
+    "easyIntro": "ni rahisi",
+    "steps": {
+      "download": "Pakua na ufungue programu.",
+      "enterPoints": "Weka vituo vya kukuchukulia na kukuletea.",
+      "chooseRoute": "Chagua njia ifaayo zaidi na uanze kusafiri.",
+      "bookRide": "Tengeneza safari yako na uokoe muda na pesa."
+    },
+    "features": "Pia inatoa starehe ya pamoja, ubora, usafiri salama, na huduma kwa wateja inayokabiliana haraka na matatizo.",
+    "callToAction": "UNAHITAJI HUDUMA YA USAFIRI WA BUBUI ILIYO SALAMA, YA STAREHE, NA YA BEI NAFUU?",
+    "conclusion": "Basi Travler ndio PROGRAMMA yako."
+  }
+}

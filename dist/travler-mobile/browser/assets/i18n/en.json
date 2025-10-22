@@ -1,0 +1,1018 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About Travler",
+    "ticket": "Print Ticket",
+    "api": "API",
+    "contact": "Contact Us",
+    "blogs": "Blogs",
+    "support": "Support",
+    "myAccount": "My Account",
+    "dashboard": "Dashboard",
+    "bookings": "Bookings",
+    "wallet": "Wallet",
+    "account": "My Account",
+    "changePassword": "Change Password",
+    "usersList": "Users List",
+    "logout": "Logout"
+  },
+  "offcanvas": {
+    "bookTicket": "Book Ticket",
+    "signUp": "Sign Up",
+    "signIn": "Sign In",
+    "dashboard": "Dashboard",
+    "bookings": "Bookings",
+    "wallet": "Wallet",
+    "account": "My Account",
+    "changePassword": "Change Password",
+    "usersList": "Users List",
+    "logout": "Logout"
+  },
+  "footer": {
+    "downloadApp": "Download App",
+    "links": {
+      "about": "About Travler",
+      "ticket": "Print Ticket",
+      "contact": "Get In Touch",
+      "faqs": "FAQs",
+      "terms": "Terms",
+      "privacy": "Privacy Policy"
+    },
+    "contact": {
+      "email": "support@travler.africa"
+    }
+  },
+  "loading": {
+    "spinner": "Loading...",
+    "searchingBuses": "Searching for available buses...",
+    "mayTakeTime": "This may take a few moments",
+    "seatsSpinner": "Loading seats...",
+    "seats": "Loading available seats...",
+    "seatsWait": "Please wait while we fetch seat information"
+  },
+  "empty": {
+    "noBuses": "No buses available",
+    "noResults": "We couldn't find any buses for your selected route and date.",
+    "tryAgain": "Try adjusting your search criteria or check back later."
+  },
+  "badge": {
+    "highway": "Highway"
+  },
+  "bus": {
+    "availableSeats": "Available Seats"
+  },
+  "drawer": {
+    "seatSelection": "Seat Selection"
+  },
+  "error": {
+    "loadSeatsTitle": "Failed to load seats",
+    "loadSeatsMessage": "Something went wrong while loading seat information.",
+    "tryAgain": "Try Again"
+  },
+  "button": {
+    "close": "Close",
+    "viewSeats": "View Seats"
+  },
+  "search": {
+    "tripType": {
+      "oneWay": "One Way",
+      "roundTrip": "Round Trip"
+    },
+    "labels": {
+      "from": "From",
+      "to": "To",
+      "travelDate": "Date of journey",
+      "returnDate": "Date to return"
+    },
+    "placeholders": {
+      "from": "From",
+      "to": "To",
+      "travelDate": "Select date",
+      "returnDate": "Select return date"
+    },
+    "tooltips": {
+      "from": "Enter the Boarding City",
+      "to": "Enter your destination city",
+      "travelDate": "Choose your travel date",
+      "returnDate": "Choose your return date"
+    },
+    "quick": {
+      "today": "Today",
+      "tomorrow": "Tomorrow"
+    },
+    "actions": {
+      "submit": "Search Bus"
+    },
+    "validation": {
+      "fromRequired": "From city is required. *",
+      "destinationRequired": "To city is required. *",
+      "dateRequired": "*Date is required.",
+      "futureDate": "*Please select a future date.",
+      "futureReturnDate": "*Please select a future return date.",
+      "returnAfterTravel": "Return date cannot be earlier than travel date."
+    }
+  },
+  "drawer.sortFilterTitle": "Sort and Filter buses",
+  "tabs.priceRange": "Price Range",
+  "tabs.duration": "Duration",
+  "tabs.services": "Services",
+  "priceRange.title": "Price Range",
+  "duration.title": "Duration",
+  "services.title": "Services",
+  "actions.clear": "Clear",
+  "actions.save": "Save",
+  "bottomNav": {
+    "home": "Home",
+    "printTicket": "Print Ticket",
+    "help": "Help",
+    "account": "Account",
+    "login": "Log in",
+    "signUp": "Sign Up",
+    "booking": "Booking",
+    "wallet": "Wallet",
+    "changePassword": "Change Password",
+    "logout": "Logout"
+  },
+  "coupons": {
+    "offersForYou": "Offers for you."
+  },
+  "testimonials": {
+    "heading": "What Customers Say",
+    "customer": "Customer"
+  },
+  "partners": {
+    "heading": "Our Travel Partners",
+    "benefits": {
+      "title": "Benefits of Booking Bus Tickets Online",
+      "paragraph1": "Online bus ticket booking is easy, fast, and hassle-free. <strong>Travler</strong> offers user-friendly app and website navigation. <strong>Travler</strong> has resolved many issues that people encounter while booking tickets at offline counters or through travel agents.",
+      "paragraph2": "Download the <strong>Travler App</strong> to experience the benefits of bus ticket booking online.",
+      "intro": "Here is a list of all the benefits of booking bus tickets online on <strong>Travler</strong>:",
+      "list": {
+        "item1": "Avoid standing in long queues at offline bus ticket counters.",
+        "item2": "No more hassle of approaching travel agents.",
+        "item3": "Choose from multiple bus partners.",
+        "item4": "Check bus ticket availability online.",
+        "item5": "Get bus timings, ticket price, boarding & dropping point details online.",
+        "item6": "Access to payment partner discounts and cashback offers.",
+        "item7": "24/7 customer support.",
+        "item8": "Each and every transaction is simple, safe and secure."
+      }
+    }
+  },
+  "faqs": {
+    "title": "FAQs related to Bus Tickets Booking",
+    "nav": {
+      "general": "General",
+      "tickets": "Booking",
+      "payment": "Payment"
+    },
+    "general": {
+      "q1": {
+        "question": "Can i travel with children?",
+        "answer": "A passenger is allowed only one baby for free. The age limit is 5 years. Children above 5 years are required to pay for their seats"
+      },
+      "q2": {
+        "question": "How much luggage is required?",
+        "answer": "20kgs of luggage is allowed free. Additional will be accepted on a charge if space permits"
+      }
+    },
+    "tickets": {
+      "q1": {
+        "question": "How do I book my ticket on TRAVLER?",
+        "step1": "Step 1: Search for Buses",
+        "step1.desc": "Enter your travel details (From, To, Date) and click Search.",
+        "step1.note": "Note: \"Sorry, no seat available\" means the buses are fully booked.",
+        "step2": "Step 2: Select Your Seat",
+        "step2.desc": "Click \"View Seats\" and proceed choose your preferred seat(s).",
+        "step3": "Step 3: Choose Locations",
+        "step3.desc": "Select your Pick Point and Drop Point from available options.",
+        "step4": "Step 4: Enter Details",
+        "step4.desc": "Continue as Guest and fill in your personal information.",
+        "step5": "Step 5: Complete Payment",
+        "step5.opt1": "Use manual payment procedure, or",
+        "step5.opt2": "Click Payment button → enter PIN in phone pop-up"
+      },
+      "q2": {
+        "question": "Can I change the date of my journey after I have booked a bus ticket",
+        "answer": "Yes, cancellation and rescheduling options are available based on the bus operator’s policy.",
+        "step1": "1. Log in to your app",
+        "step2": "2. Go to trip history",
+        "step3": "3. Select the trip and click  reschedule",
+        "step4": "4. Proceed to input your desired changes"
+      },
+      "q3": {
+        "question": "How do i book using a voucher code",
+        "step1": "1. Log in to your account.",
+        "step2": "2. Click the profile button at the bottom of the screen.",
+        "step3": "3. Select wallet, click Redeem Voucher, and enter your code.",
+        "step4": "4. Amount is successfully loaded into your account.",
+        "step5": "5.  Book using the usual booking process and select Pay from Wallet at the last step."
+      }
+    },
+    "payment": {
+      "q1": {
+        "question": "What are the different payment options available for bus ticket booking?",
+        "answer": "The payment methods available on TRAVLER are Mpesa for Kshs, Airtel Money for UGX, and Tigo & Vodacom for TSHS"
+      }
+    }
+  },
+  "support": {
+    "heading": "Travler Customer Support",
+    "tagline": "24/7 Customer Support",
+    "subheading": "We are here to help you anytime",
+    "intro": "For enquiries, compliments or complaints, you can reach us through the following support channels:",
+    "callUs": "Call Us",
+    "emailUs": "Email Us",
+    "liveChat": "Live Chat",
+    "liveChatDescription": "Available directly on our website and mobile app",
+    "availability": "Availability",
+    "availabilityDescription": "24/7, including weekends & public holidays"
+  },
+  "contactus": {
+    "altGraphic": "Travel destination line graphic",
+    "hero": {
+      "title1": "Travel Smarter &",
+      "title2": "save more",
+      "title3": "with Travler",
+      "description": "Discover smarter routes, unbeatable deals, and a seamless booking experience — all in one place. Travel better, for less."
+    },
+    "sectionTitle": "Get In Touch",
+    "contactDetails": "Contact Details",
+    "officeTitle": "Travler - Head Office:",
+    "officeAddressLine1": "9th Floor, Parkside Towers,",
+    "officeAddressLine2": "Mombasa Road, Nairobi Kenya",
+    "phoneTitle": "Travler - Head Office:",
+    "form": {
+      "firstName": {
+        "label": "First Name",
+        "placeholder": "Enter first name"
+      },
+      "lastName": {
+        "label": "Last Name",
+        "placeholder": "Enter last name"
+      },
+      "email": {
+        "label": "Email Address",
+        "placeholder": "Enter email address"
+      },
+      "mobile": {
+        "label": "Mobile Number",
+        "placeholder": "Enter mobile number"
+      },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "Enter subject of enquiry / your message"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Your message"
+      },
+      "sendButton": "Send Message"
+    }
+  },
+  "terms": {
+    "title": "TRAVLER WEBSITE TERMS OF USE AND ACCEPTABLE USE POLICY",
+    "lastUpdated": "Last Updated: October 2025",
+    "sections": {
+      "1": {
+        "title": "1. Introduction",
+        "content": [
+          "Welcome to <strong>Travler</strong>, a product of <strong>Voltic Kenya Limited</strong>. These Terms of Use govern your access to and use of our website <strong>www.travler.africa</strong>, mobile application, and related services (collectively, \"the Platform\").",
+          "By accessing or using Travler, you agree to comply with these Terms. Please read them carefully before using our services."
+        ]
+      },
+      "2": {
+        "title": "2. Definitions",
+        "type": "list",
+        "content": [
+          "<strong>\"Travler\"</strong> means Voltic Kenya Limited, the company operating the Travler platform.",
+          "<strong>\"User\"</strong> or <strong>\"You\"</strong> refers to any person who accesses, browses, or uses the Travler platform.",
+          "<strong>\"Operator\"</strong> refers to any bus company or service provider whose tickets are available for booking on the Travler platform.",
+          "<strong>\"Platform\"</strong> means the Travler website, mobile app, and all associated digital services."
+        ]
+      },
+      "3": {
+        "title": "3. Eligibility",
+        "content": "By using Travler, you confirm that you are at least 18 years of age and have legal capacity to enter into binding agreements."
+      },
+      "4": {
+        "title": "4. Use of the Platform",
+        "content": [
+          "You agree to use Travler only for lawful purposes, specifically for browsing, comparing, and purchasing bus tickets for personal or authorized use.",
+          "You must not:"
+        ],
+        "type": "list",
+        "sublist": [
+          "Use the platform for fraudulent, deceptive, or illegal activity.",
+          "Interfere with the operation or security of the platform.",
+          "Attempt to copy, modify, or reverse-engineer Travler's systems or software."
+        ]
+      },
+      "5": {
+        "title": "5. Booking and Payment",
+        "type": "sublist",
+        "content": [
+          "<strong>a.</strong> All ticket bookings made through Travler are subject to availability and operator confirmation.",
+          "<strong>b.</strong> Payment for tickets is processed through secure third-party gateways (e.g., mobile money, debit/credit cards).",
+          "<strong>c.</strong> Travler is not liable for delays, cancellations, or service quality of the bus operators but will facilitate necessary support in resolving disputes."
+        ]
+      },
+      "6": {
+        "title": "6. Refunds and Cancellations",
+        "content": [
+          "Refund and cancellation policies vary by operator. Users are encouraged to review individual operator terms during booking.",
+          "Travler will assist with refund requests in accordance with the operator's policy but is not obligated to override operator terms."
+        ]
+      },
+      "7": {
+        "title": "7. Intellectual Property Rights",
+        "content": [
+          "All content, trademarks, and materials displayed on Travler (including logos, designs, graphics, and software) are owned by or licensed to <strong>Voltic Kenya Limited</strong>.",
+          "No user may reproduce, copy, or distribute any Travler content without prior written consent."
+        ]
+      },
+      "8": {
+        "title": "8. Acceptable Use Policy",
+        "content": [
+          "When using Travler, you agree not to:"
+        ],
+        "type": "list",
+        "sublist": [
+          "Upload or share offensive, misleading, or harmful content.",
+          "Engage in activities that may disrupt or damage Travler's systems.",
+          "Use automated systems (bots, scrapers) to access or collect platform data.",
+          "Impersonate another person or misrepresent your affiliation with any entity."
+        ],
+        "additionalContent": "Violation of this policy may result in suspension or termination of access to the platform."
+      },
+      "9": {
+        "title": "9. Limitation of Liability",
+        "content": [
+          "Travler provides its services \"as is\" and makes no warranties regarding accuracy, reliability, or availability.",
+          "<strong>Voltic Kenya Limited</strong> shall not be liable for any indirect, incidental, or consequential damages resulting from the use or inability to use the platform."
+        ]
+      },
+      "10": {
+        "title": "10. Indemnification",
+        "content": "You agree to indemnify and hold harmless <strong>Voltic Kenya Limited</strong> and its affiliates from any claims, losses, or damages arising from your misuse of the platform or violation of these Terms."
+      },
+      "11": {
+        "title": "11. Termination",
+        "content": "Travler reserves the right to suspend or terminate your account at any time if you breach these Terms or engage in prohibited activities."
+      },
+      "12": {
+        "title": "12. Governing Law and Jurisdiction",
+        "content": "These Terms shall be governed by the laws of the <strong>Republic of Kenya</strong>. Any disputes shall be subject to the exclusive jurisdiction of Kenyan courts."
+      },
+      "13": {
+        "title": "13. Amendments",
+        "content": "Travler may update these Terms periodically. Changes will be communicated through the website or mobile app and will take effect immediately upon publication."
+      },
+      "14": {
+        "title": "14. Contact Information",
+        "content": [
+          "For inquiries, feedback, or complaints, contact:"
+        ],
+        "type": "contact",
+        "contactInfo": [
+          "<strong>Travler (by Voltic Kenya Limited)</strong>",
+          "Website: <a href='https://www.travler.africa'>www.travler.africa</a>",
+          "Phone: <strong>0709 215 000 / 0785 700 700</strong>",
+          "Email: <strong>support@travler.africa</strong>"
+        ]
+      }
+    }
+  },
+  "ticket": {
+    "title": "Print Ticket",
+    "form": {
+      "ticketNumber": {
+        "label": "Ticket Number",
+        "placeholder": "e.g  XYZ123456789",
+        "error": "Please enter a valid ticket number"
+      },
+      "mobileNumber": {
+        "label": "Mobile Number",
+        "placeholder": "e.g  0785700700",
+        "error": "Please enter a valid mobile number"
+      },
+      "submit": "Print Ticket"
+    }
+  },
+  "busSeatSelector": {
+    "selectSeats": "Select Your Seats",
+    "selected": "Selected",
+    "orientationMessage": "Vertical layout for mobile",
+    "door": "Door",
+    "legend": {
+      "vip": "VIP",
+      "normal": "Normal",
+      "business": "Business",
+      "booked": "Booked"
+    },
+    "summary": {
+      "title": "Selected Seats",
+      "seats": "Seats",
+      "noSeats": "No seats selected",
+      "totalAmount": "Total Amount"
+    },
+    "form": {
+      "boarding": {
+        "label": "Boarding Point",
+        "placeholder": "Select a boarding point"
+      },
+      "dropping": {
+        "label": "Dropping Point",
+        "placeholder": "Select a dropping point"
+      }
+    },
+    "buttons": {
+      "checkout": "Proceed to Checkout",
+      "return": "Proceed to Return",
+      "reschedule": "Proceed to Reschedule",
+      "completeForm": "Complete Form to Proceed",
+      "selectSeat": "Select at least one seat"
+    }
+  },
+  "booking": {
+    "passengerForm": {
+      "title": "Personal Information",
+      "help": "Do you need help? Call us",
+      "contact": "Email: {{email}} | Phone: +254709215215",
+      "cancellation": {
+        "title": "Cancellation Protection",
+        "fee": "KSH 50 per passenger"
+      },
+      "fields": {
+        "name": "Name",
+        "age": "Age",
+        "gender": "Gender",
+        "idNo": "ID/Passport Number",
+        "email": "Email",
+        "nationality": "Nationality",
+        "phoneCode": "Code",
+        "phoneNumber": "Phone Number"
+      },
+      "primaryPassenger": "Primary Passenger",
+      "coPassenger": "Co Passenger",
+      "travelInsurance": {
+        "title": "Travel Insurance",
+        "subtitle": "Protect your journey with comprehensive travel insurance",
+        "none": "I don't want insurance",
+        "benefits": "Benefits",
+        "dialog": {
+          "close": "Close"
+        }
+      },
+      "button": {
+        "proceed": "Proceed to Pay"
+      }
+    }
+  },
+  "busInfo": {
+    "onwardTrip": "Onward Trip",
+    "returnTrip": "Return Trip",
+    "departure": "Departure",
+    "arrival": "Arrival",
+    "boardingPoint": "Boarding Point",
+    "droppingPoint": "Dropping Point",
+    "selectedSeats": "Selected Seats",
+    "fareBreakup": "FARE BREAKUP",
+    "onwardJourney": "Onward Journey",
+    "returnJourney": "Return Journey",
+    "onwardFare": "Onward Fare",
+    "returnFare": "Return Fare",
+    "additionalFees": "Additional Fees",
+    "insurance": "Insurance",
+    "cancellationProtect": "Cancellation Protect",
+    "platformFees": "Platform Fees",
+    "discount": "Discount",
+    "totalPayable": "Total Payable"
+  },
+  "paymentForm": {
+    "ticketCheckout": "TICKET CHECKOUT",
+    "viewBusInfo": "View Bus Info",
+    "paymentDetails": "Payment Details",
+    "remainingTime": "Remaining",
+    "selectPaymentMethod": "Select Payment Method",
+    "mpesa": "Mpesa",
+    "airtelMoney": "Airtel Money",
+    "phoneNumber": "Phone Number",
+    "voucher": "click to apply voucher",
+    "voucherPlaceholder": "Voucher code",
+    "apply": "Apply",
+    "note": "Note: Once seats are selected and paid for, tickets are non-refundable.",
+    "consent": "By proceeding, I consent to Travler collecting and storing my information in accordance with the",
+    "privacyPolicy": "Privacy Policy",
+    "termsConditions": "Terms & Conditions",
+    "paySecurely": "Pay Securely with"
+  },
+  "filterSort": {
+    "buttonLabel": "Filter & Sort",
+    "drawerHeader": "Sort and Filter buses",
+    "tabs": {
+      "company": "Company Name",
+      "boardingPoint": "Boarding Point",
+      "droppingPoint": "Dropping Point",
+      "departureTime": "Departure Time",
+      "amenities": "Amenities"
+    },
+    "placeholders": {
+      "searchCompanies": "Search companies...",
+      "searchBoardingPoints": "Search Boarding Point...",
+      "searchDroppingPoints": "Search Dropping Points...",
+      "searchTimeRanges": "Search Time Ranges...",
+      "searchAmenities": "Search Amenities..."
+    },
+    "labels": {
+      "busCompanies": "Bus Companies",
+      "boardingPoints": "Boarding Points",
+      "droppingPoints": "Dropping Points",
+      "departureTime": "Departure time",
+      "amenities": "Amenities"
+    },
+    "buttons": {
+      "clear": "Clear",
+      "save": "Save"
+    }
+  },
+  "loginModal": {
+    "title": "SIGN IN",
+    "labels": {
+      "code": "CODE",
+      "phoneNumber": "PHONE NUMBER",
+      "password": "PASSWORD",
+      "rememberMe": "Remember me"
+    },
+    "placeholders": {
+      "phoneNumber": "700000000"
+    },
+    "validation": {
+      "phoneNumberRequired": "Enter a valid Phone number",
+      "phoneNumberInvalid": "Please enter a valid Phone number",
+      "passwordRequired": "Password is required",
+      "passwordMinLength": "Password must be at least 6 characters"
+    },
+    "buttons": {
+      "signIn": "SIGN IN",
+      "asGuest": "AS GUEST"
+    },
+    "links": {
+      "forgotPassword": "Forgot password?",
+      "signUp": "Sign up"
+    },
+    "orContinue": "OR CONTINUE"
+  },
+  "signup": {
+    "title": "Sign up",
+    "labels": {
+      "name": "Name",
+      "code": "Code",
+      "phoneNumber": "Phone",
+      "email": "Email",
+      "gender": "Gender",
+      "dateOfBirth": "Date of Birth",
+      "promoCode": "Promo Code",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "terms": "I agree to the terms and conditions",
+      "havePromoCode": "Do you have promo code?"
+    },
+    "placeholders": {
+      "name": "Enter your name",
+      "phoneNumber": "Enter your phone number",
+      "email": "Enter your email",
+      "gender": "Select Gender",
+      "dateOfBirth": "Select your date of birth",
+      "promoCode": "Enter coupon code",
+      "password": "Enter password",
+      "confirmPassword": "Confirm password",
+      "code": "Select Code"
+    },
+    "validation": {
+      "nameRequired": "Name is required",
+      "codeRequired": "Code is required",
+      "phoneRequired": "Phone number is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email format",
+      "dobRequired": "Date of birth is required",
+      "dobUnderage": "You must be at least 13 years old to register",
+      "passwordRequired": "Password is required",
+      "passwordMinLength": "Password must be at least 5 characters",
+      "confirmPasswordRequired": "Confirm password is required",
+      "passwordsMustMatch": "Passwords must match",
+      "termsRequired": "You must agree to terms and conditions"
+    },
+    "buttons": {
+      "signUp": "Sign Up",
+      "creatingAccount": "Creating Account..."
+    },
+    "links": {
+      "signIn": "Sign in"
+    }
+  },
+  "login": {
+    "title": "Log in",
+    "labels": {
+      "code": "Code",
+      "phoneNumber": "Phone Number",
+      "password": "Password",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot password?",
+      "signUpLink": "Don’t have an account? Sign up"
+    },
+    "placeholders": {
+      "code": "Select Code",
+      "phoneNumber": "e.g. 700 123456",
+      "password": "Enter password"
+    },
+    "validation": {
+      "codeRequired": "Code is required",
+      "phoneRequired": "Phone number is required",
+      "passwordRequired": "Password is required",
+      "passwordMinLength": "Password must be at least 6 characters"
+    },
+    "buttons": {
+      "signIn": "Sign In",
+      "loggingIn": "Logging in..."
+    }
+  },
+  "privacyPolicy": {
+    "title": "TRAVLER PRIVACY POLICY",
+    "lastUpdated": "Last Updated: October 2025",
+    "sections": {
+      "1": {
+        "title": "1. Introduction",
+        "content": {
+          "0": "Welcome to Travler, Kenya's trusted platform for online bus ticket bookings, operated by Voltic Kenya Limited.",
+          "1": "This Privacy Policy explains how we collect, use, share, and protect your personal data when you visit www.travler.africa or use our mobile app. Travler is committed to maintaining the highest standards of privacy and transparency in compliance with the Kenya Data Protection Act (2019).",
+          "2": "By using Travler, you consent to the practices described in this policy."
+        }
+      },
+      "2": {
+        "title": "2. Information We Collect",
+        "content": {
+          "0": "Travler collects data to improve user experience, ensure smooth ticketing, and enhance service reliability. The types of data we collect include:"
+        },
+        "sublist": {
+          "0": "<strong>Personal Information:</strong> Your name, contact number, email, and identification details for verification and ticketing.",
+          "1": "<strong>Payment Information:</strong> Mobile money (e.g., M-Pesa), bank, or card payment details to process secure transactions.",
+          "2": "<strong>Travel History & Preferences:</strong> Routes, dates, and operator choices to improve future recommendations.",
+          "3": "<strong>Device & Usage Data:</strong> IP address, browser type, operating system, and site interaction patterns for analytics and platform optimization."
+        }
+      },
+      "3": {
+        "title": "3. Purpose of Collecting Personal Data",
+        "content": {
+          "0": "Your personal information enables us to deliver a smooth, personalized, and secure booking experience. Specifically, we use it to:"
+        },
+        "sublist": {
+          "0": "Process and confirm ticket bookings and payments",
+          "1": "Facilitate boarding and check-in with bus operators",
+          "2": "Provide customer service and resolve issues quickly",
+          "3": "Improve website performance and personalize recommendations",
+          "4": "Send updates, notifications, and occasional promotional offers",
+          "5": "Detect fraud, ensure security, and meet legal obligations"
+        }
+      },
+      "4": {
+        "title": "4. Data Sharing and Third-Party Disclosure",
+        "content": {
+          "0": "Travler values your privacy and only shares data when necessary to complete your travel booking.",
+          "1": "We may share limited data with:"
+        },
+        "sublist": {
+          "0": "<strong>Bus Operators:</strong> To issue tickets, verify passenger manifests, and facilitate boarding.",
+          "1": "<strong>Payment Providers:</strong> To process and confirm payments securely.",
+          "2": "<strong>Regulators or Law Enforcement:</strong> When legally required under Kenyan law."
+        },
+        "additionalContent": "All third parties are bound by strict confidentiality and must comply with the Kenya Data Protection Act (2019)."
+      },
+      "5": {
+        "title": "5. Data Security and Retention",
+        "content": {
+          "0": "Travler uses industry-standard security measures to safeguard your information, including encryption, access controls, and secure hosting environments.",
+          "1": "We retain your data only as long as necessary for service delivery, legal, or regulatory requirements. After this period, your data is anonymized or securely deleted in accordance with best practices."
+        }
+      },
+      "6": {
+        "title": "6. Your Privacy Rights",
+        "content": {
+          "0": "As a user, you have full control over your personal data. Under Kenyan law, you can:"
+        },
+        "sublist": {
+          "0": "Request access to your personal data",
+          "1": "Correct or update inaccurate information",
+          "2": "Request deletion of your data (subject to legal retention limits)",
+          "3": "Withdraw consent for promotional communications",
+          "4": "File a complaint with the Office of the Data Protection Commissioner (ODPC)"
+        },
+        "additionalContent": "For any privacy-related request, reach us through the contacts below."
+      },
+      "7": {
+        "title": "7. Cookies and Website Analytics",
+        "content": {
+          "0": "Travler uses cookies and analytics tools to enhance site performance, improve user experience, and measure engagement.",
+          "1": "You can manage or disable cookies in your browser settings, though this may affect certain functionalities on our platform."
+        }
+      },
+      "8": {
+        "title": "8. Updates to This Privacy Policy",
+        "content": {
+          "0": "We may periodically update this policy to reflect new legal or operational requirements. Any updates will be published on our website with the revised \"Last Updated\" date.",
+          "1": "We encourage users to review this page regularly to stay informed of how we protect your data."
+        }
+      },
+      "9": {
+        "title": "9. Contact Information",
+        "content": {
+          "0": "For any inquiries, privacy requests, or complaints, contact:"
+        },
+        "contactInfo": {
+          "0": "<strong>Travler (by Voltic Kenya Limited)</strong>",
+          "1": "Website: <a href='https://www.travler.africa'>www.travler.africa</a>",
+          "2": "Phone: <strong>0709 215 000 / 0785 700 700</strong>",
+          "3": "Email: <strong>support@travler.africa</strong>"
+        }
+      }
+    }
+  },
+  "rescheduleBooking": {
+    "title": "Reschedule Booking",
+    "note": {
+      "title": "Note:",
+      "infoText": "You can reschedule your trip only if it's",
+      "timeCondition": "8+ hours away",
+      "details": "Time changes only—locations remain the same."
+    },
+    "selectDateText": "Select a new date for your booking",
+    "form": {
+      "ticketLabel": "Ticket Number:",
+      "ticketPlaceholder": "Enter Ticket No.",
+      "newDateLabel": "New Date:",
+      "submitButton": "Confirm Reschedule"
+    }
+  },
+  "wheelOfFortune": {
+    "title": "🎡 Spin For a Chance to Win! 🎉",
+    "buttons": {
+      "spin": "Spin",
+      "spinning": "Spinning...",
+      "reset": "Reset"
+    },
+    "results": {
+      "winner": "🎉 Winner: {{text}} 🎉"
+    },
+    "canvasFallback": "Canvas not supported, use another browser."
+  },
+  "thankYouPage": {
+    "title": "Thank You for Your Purchase!",
+    "bookingConfirmed": "Your booking has been confirmed successfully!",
+    "viewPaymentDetails": "View Payment Details",
+    "rateExperience": "Rate Your Experience",
+    "rateQuestion": "How would you rate our service?",
+    "additionalComments": "Additional Comments",
+    "feedbackPlaceholder": "Tell us about your experience (optional)",
+    "feedbackHelp": "Your feedback helps us improve our service.",
+    "submitFeedback": "Submit Feedback",
+    "pleasantJourney": "We wish you a pleasant journey!",
+    "spinToWin": "Spin to win",
+    "backToHome": "Back to Home"
+  },
+  "tripFeedbackPage": {
+    "title": "Thank You for Your Trip!",
+    "journeyCompleted": "Your journey has been completed successfully!",
+    "viewTripDetails": "View Trip Details",
+    "rateExperience": "Rate Your Experience",
+    "rateQuestion": "Help us improve our service by rating your trip",
+    "overallRating": "Overall Rating",
+    "serviceRating": "Service Rating",
+    "busQuality": "Bus Quality",
+    "punctuality": "Punctuality",
+    "staffBehaviour": "Staff Behaviour",
+    "writeReview": "Write Your Review",
+    "reviewPlaceholder": "Your Review About Journey (Min 50 characters)",
+    "feedbackHelp": "Your feedback helps us improve our service.",
+    "submit": "Submit",
+    "thankYouMessage": "Thank you for choosing our service!",
+    "backToHome": "Back to Home"
+  },
+  "paymentVerificationPage": {
+    "title": "Payment Processing",
+    "states": {
+      "idle": {
+        "title": "Initializing...",
+        "description": "Preparing payment verification..."
+      },
+      "processing": {
+        "title": "Processing Payment",
+        "description": "Please wait while we confirm your payment..."
+      },
+      "success": {
+        "title": "Payment Successful!",
+        "description": "Your payment has been processed successfully"
+      },
+      "failed": {
+        "title": "Payment Failed",
+        "description": "We couldn't process your payment. Please try again.",
+        "retry": "Try Again",
+        "goBack": "Go Back"
+      }
+    }
+  },
+  "userProfilePage": {
+    "dashboard": "Dashboard",
+    "myTrips": "My Trips",
+    "wallet": "Wallet",
+    "myAccount": "My Account",
+    "userList": "User List",
+    "profilePictureAlt": "Profile Picture",
+    "cameraIconAlt": "Open Camera Modal"
+  },
+  "dashboard": {
+    "totalItemsLabel": "Total Items",
+    "dateRangeLabel": "Date Range",
+    "currencyLabel": "Currency",
+    "userSelectLabel": "Search by user",
+    "userSelectPlaceholder": "Search by user",
+    "table": {
+      "companyName": "Company Name",
+      "ticketNo": "Ticket No",
+      "totalSale": "Total Sale",
+      "commission": "Commission",
+      "selfCommission": "Self Commission",
+      "walletBalance": "Wallet Balance",
+      "noData": "Data not found."
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next"
+    }
+  },
+  "myTripsPage": {
+    "tabs": {
+      "upcoming": "Upcoming",
+      "completed": "Completed"
+    },
+    "status": {
+      "confirmed": "Confirmed",
+      "pending": "Pending",
+      "cancelled": "Cancelled",
+      "completed": "Completed"
+    },
+    "labels": {
+      "route": "Route",
+      "date": "Date",
+      "seat": "Seat",
+      "bus": "Bus",
+      "amount": "Amount",
+      "company": "Company",
+      "boarding": "Boarding"
+    },
+    "actions": {
+      "view": "View",
+      "download": "Download",
+      "cancel": "Cancel"
+    },
+    "noData": {
+      "title": "No {{tab}} bookings",
+      "subtitle": "No {{tab}} bookings to display."
+    }
+  },
+  "walletPage": {
+    "balance": {
+      "title": "Your Wallet Balance"
+    },
+    "voucher": {
+      "label": "Apply Voucher",
+      "placeholder": "Enter voucher code",
+      "button": "Apply Voucher"
+    },
+    "table": {
+      "headers": {
+        "amount": "Amount",
+        "status": "Status",
+        "comment": "Comment"
+      },
+      "emptyState": "Wallet history not found!"
+    }
+  },
+  "accountDetails": {
+    "buttons": {
+      "editProfile": "Edit Profile",
+      "changePassword": "Change Password"
+    },
+    "sections": {
+      "personalDetails": "Personal Details",
+      "businessDetails": "Business Details",
+      "contactDetails": "Contact Details"
+    },
+    "labels": {
+      "name": "Name",
+      "identity": "Identity",
+      "age": "Age",
+      "gender": "Gender",
+      "businessName": "Business Name",
+      "area": "Area",
+      "county": "County",
+      "city": "City",
+      "road": "Road",
+      "email": "Email",
+      "phone": "Phone Number",
+      "address": "Address"
+    },
+    "documents": {
+      "identityPhotoAlt": "Identity Photo",
+      "businessPhotoAlt": "Business Photo"
+    }
+  },
+  "changePassword": {
+    "title": "Change Password",
+    "labels": {
+      "oldPassword": "Old Password",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm Password"
+    },
+    "placeholders": {
+      "oldPassword": "Enter your old password",
+      "newPassword": "Enter new password",
+      "confirmPassword": "Confirm new password"
+    },
+    "errors": {
+      "oldPasswordRequired": "Old password is required",
+      "newPasswordRequired": "New password is required",
+      "newPasswordMinLength": "Password must be at least 8 characters",
+      "confirmPasswordRequired": "Please confirm your password",
+      "passwordMismatch": "Passwords do not match"
+    },
+    "buttons": {
+      "submit": "Submit"
+    }
+  },
+  "userList": {
+    "title": "User List",
+    "buttons": {
+      "addUser": "Add User",
+      "search": "Search",
+      "view": "View",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "labels": {
+      "totalItems": "Total Items",
+      "searchPlaceholder": "Search users..."
+    },
+    "tableHeaders": {
+      "index": "#",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "role": "Role",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "messages": {
+      "noUsers": "No users found."
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next"
+    }
+  },
+  "notFound": {
+    "errorCode": "404",
+    "title": "Route Not Found",
+    "subtitle": "Looks like this destination isn't on our map. Let's get you back on track!",
+    "buttons": {
+      "goBack": "← Go Back",
+      "home": "🏠 Home"
+    }
+  },
+  "messages": {
+    "whereTo": "Where to?",
+    "fromCity": "Hi there! Where will you start your journey?",
+    "toCity": "Great! And where would you like to go?",
+    "travelDate": "When would you like to travel?",
+    "returnDate": "Round trip – specify return time.",
+    "default": "Welcome aboard Travellers"
+  },
+  "aboutPage": {
+    "title": "About Us",
+    "appName": "Travler",
+    "description": "is a software app developed to make an impact in the transport sector by primarily targeting travelers. It serves as an alternative transport solution offering access to high-quality bus rides, fixed routes, schedules, and fares all in one app.",
+    "easyIntro": "is easy",
+    "steps": {
+      "download": "Download and open the app.",
+      "enterPoints": "Enter the pickup and drop-off points.",
+      "chooseRoute": "Pick the most convenient route and start traveling.",
+      "bookRide": "Book your ride and save time and money."
+    },
+    "features": "It also offers combined comfort, quality, safe travel, and highly responsive customer service.",
+    "callToAction": "NEED A SAFE, COMFORTABLE, AND AFFORDABLE BUS TRANSPORT SERVICE?",
+    "conclusion": "Then Travler is the APP for you."
+  }
+}
