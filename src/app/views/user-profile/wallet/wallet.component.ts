@@ -56,11 +56,8 @@ export class WalletComponent implements OnInit {
   getWalletData() {
     const userData: any = this.service.getConfig('userData');
     const userId = userData.userId
-    console.log(userId)
-
     this.backendService.getUserWalletData(userId).subscribe({
       next: (res: any) => {
-        console.log(res)
         if (res.data) {
           this.walletBalance = res.data[0].amount;
         }

@@ -1,22 +1,52 @@
-<div class="container px-3 partners-section">
+<section class="container px-3">
+  <h3 class="fs-5 fw-bold text-start mb-3">
+    Benefits of Booking Bus Tickets Online
+  </h3>
+  <p class="text-start fleet-text">
+    Online bus ticket booking is easy, fast, and hassle-free. <span class="fw-semibold">Travler</span> offers
+    user-friendly app and website navigation.
+    <span class="fw-semibold">Travler</span> has resolved many issues that people encounter while booking tickets at
+    offline counters or through travel
+    agents.
+  </p>
+  <p>Download the <span class="fw-semibold">Travler  App</span> to experience the benefits of bus ticket booking online.
+  </p>
+
+
+  <p class="mb-0">Here is a list of all the benefits of booking bus tickets online on <span
+    class="fw-semibold">Travler</span>:</p>
+
+  <ul>
+    <li> Avoid standing in long queues at offline bus ticket counters.</li>
+    <li> No more hassle of approaching travel agents.</li>
+    <li> Choose from multiple bus partners.</li>
+    <li> Check bus ticket availability online.</li>
+    <li> Get bus timings, ticket price, boarding & dropping point details online.</li>
+    <li> Access to payment partner discounts and cashback offers.</li>
+    <li> 24/7 customer support.</li>
+    <li> Each and every transaction is simple, safe and secure.</li>
+  </ul>
+</section>
+
+<section class="container px-3 partners-section">
   <h3 class="fs-5 fw-bold text-start mb-3">
     {{ 'partners.heading' | translate }}
   </h3>
 
   <div class="row g-2 justify-content-center">
     <div
-      class="col-3 text-center"
       *ngFor="let partner of partners"
+      class="col-3 text-center"
       routerLink="/search"
     >
       <div class="partner-circle shadow-sm mx-auto">
         <img
-          [src]="partner.logo"
           [alt]="partner.name"
+          [src]="partner.logo"
           loading="lazy"
         />
       </div>
       <p class="partner-name mt-1">{{ partner.name }}</p>
     </div>
   </div>
-</div>
+</section>

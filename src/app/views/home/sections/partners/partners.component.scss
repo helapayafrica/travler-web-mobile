@@ -48,3 +48,31 @@
     font-size: 1rem;
   }
 }
+
+ul,
+ol {
+  list-style: none; /* remove default bullets */
+  padding-left: 1rem; /* preserve indentation manually */
+  margin-left: 1.5rem;
+}
+
+ul li {
+  position: relative;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+p {
+  letter-spacing: 0.01rem;
+  font-size: 0.9rem;
+}
+
+ul li::before {
+  content: '✔';
+  position: absolute;
+  top: 3px;
+  left: -1.3rem; /* align it where the bullet would be */
+  color: var(--primary-color);
+  font-size: 0.9rem;
+}
+
