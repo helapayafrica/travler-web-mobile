@@ -17,7 +17,7 @@
 
 .nav-tabs .nav-link:hover {
   color: #495057;
-  background-color: rgba(0,123,255,0.1);
+  background-color: rgba(0, 123, 255, 0.1);
 }
 
 .nav-tabs .nav-link.active {
@@ -38,7 +38,7 @@
 }
 
 .booking-row:hover {
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   transform: translateY(-1px);
 }
 
@@ -48,8 +48,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 1rem;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  border-bottom: 1px solid #dee2e6;
+  //background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  //background: linear-gradient(135deg, var(--primary-color-100) 0%, var(--primary-color-200 mb-3) 100%);
+  //border-bottom: 1px solid #dee2e6;
+  //border: 1px solid var(--primary-color-300);
 }
 
 .passenger-info {
@@ -65,7 +67,7 @@
 }
 
 .booking-ref {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   color: #6c757d;
   background: #e9ecef;
   padding: 0.125rem 0.5rem;
@@ -83,10 +85,25 @@
   letter-spacing: 0.5px;
 }
 
-.status-confirmed { background: #28a745; color: white; }
-.status-pending { background: #ffc107; color: #000; }
-.status-cancelled { background: #dc3545; color: white; }
-.status-completed { background: #17a2b8; color: white; }
+.status-confirmed {
+  background: #28a745;
+  color: white;
+}
+
+.status-pending {
+  background: #ffc107;
+  color: #000;
+}
+
+.status-cancelled {
+  background: #dc3545;
+  color: white;
+}
+
+.status-completed {
+  background: #17a2b8;
+  color: white;
+}
 
 /* Compact Info Table */
 .info-table {
@@ -257,7 +274,7 @@
   }
 
   .booking-ref {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 
   .info-label {
@@ -302,9 +319,9 @@
 
 /* Ticket Header */
 .ticket-header {
-  background: linear-gradient(135deg, #007bff, #0056b3);
-  padding: 1rem 1.25rem;
-  color: #fff;
+  //background: linear-gradient(135deg, #007bff, #0056b3);
+  padding: 0 0.825rem;
+  //color: ;
 }
 
 .route-section {
@@ -345,7 +362,7 @@
 
 .body-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
 }
 
@@ -434,7 +451,9 @@
 /* Responsive */
 @media (max-width: 768px) {
   .ticket-header {
-    padding: 0.85rem 1rem;
+    //padding: 0.85rem 1rem;
+    padding: 0 0.825rem;
+
   }
 
   .city-name {
@@ -474,7 +493,8 @@
 
 @media (max-width: 576px) {
   .city-name {
-    font-size: 1rem;
+    font-size: 1.3rem;
+    color: var(--primary-color-500);
   }
 
   .body-row {

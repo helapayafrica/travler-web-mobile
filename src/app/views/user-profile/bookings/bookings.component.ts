@@ -3,6 +3,8 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {BackendService} from '../../../services/backend';
 import {TranslatePipe} from '@ngx-translate/core';
+import {Button} from 'primeng/button';
+import {Dialog} from 'primeng/dialog';
 
 interface Booking {
   companyName: string;
@@ -22,7 +24,7 @@ interface Booking {
   templateUrl: './bookings.component.html',
   styleUrls: ['./bookings.component.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, TranslatePipe],
+  imports: [CommonModule, FormsModule, TranslatePipe, Button, Dialog],
 })
 export class BookingsComponent implements OnInit {
   totalItems: number = 10;
@@ -38,8 +40,11 @@ export class BookingsComponent implements OnInit {
   data: any[] = [];
 
   service = inject(BackendService);
+  visible: boolean = false
+  selectedBooking: any = {}
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit(): void {
     // You would fetch data from a service in a real app
@@ -72,5 +77,11 @@ export class BookingsComponent implements OnInit {
   rescheduleBooking(booking: any) {
     // Your reschedule logic here
     console.log('Reschedule booking:', booking);
+  }
+
+  showDialog(booking: any) {
+    console.log(booking)
+    this.selectedBooking = booking
+    this.visible = true;
   }
 }
