@@ -16,7 +16,6 @@
     "usersList": "Users List",
     "logout": "Logout"
   },
-
   "offcanvas": {
     "bookTicket": "Book Ticket",
     "signUp": "Sign Up",
@@ -29,7 +28,6 @@
     "usersList": "Users List",
     "logout": "Logout"
   },
-
   "footer": {
     "downloadApp": "Download App",
     "links": {
@@ -44,7 +42,6 @@
       "email": "support@travler.africa"
     }
   },
-
   "loading": {
     "spinner": "Loading...",
     "searchingBuses": "Searching for available buses...",
@@ -76,7 +73,6 @@
     "close": "Close",
     "viewSeats": "View Seats"
   },
-
   "search": {
     "tripType": {
       "oneWay": "One Way",
@@ -125,7 +121,6 @@
   "services.title": "Services",
   "actions.clear": "Clear",
   "actions.save": "Save",
-
   "bottomNav": {
     "home": "Home",
     "printTicket": "Print Ticket",
@@ -146,9 +141,24 @@
     "customer": "Customer"
   },
   "partners": {
-    "heading": "Our Travel Partners"
+    "heading": "Our Travel Partners",
+    "benefits": {
+      "title": "Benefits of Booking Bus Tickets Online",
+      "paragraph1": "Online bus ticket booking is easy, fast, and hassle-free. <strong>Travler</strong> offers user-friendly app and website navigation. <strong>Travler</strong> has resolved many issues that people encounter while booking tickets at offline counters or through travel agents.",
+      "paragraph2": "Download the <strong>Travler App</strong> to experience the benefits of bus ticket booking online.",
+      "intro": "Here is a list of all the benefits of booking bus tickets online on <strong>Travler</strong>:",
+      "list": {
+        "item1": "Avoid standing in long queues at offline bus ticket counters.",
+        "item2": "No more hassle of approaching travel agents.",
+        "item3": "Choose from multiple bus partners.",
+        "item4": "Check bus ticket availability online.",
+        "item5": "Get bus timings, ticket price, boarding & dropping point details online.",
+        "item6": "Access to payment partner discounts and cashback offers.",
+        "item7": "24/7 customer support.",
+        "item8": "Each and every transaction is simple, safe and secure."
+      }
+    }
   },
-
   "faqs": {
     "title": "FAQs related to Bus Tickets Booking",
     "nav": {
@@ -185,19 +195,18 @@
       "q2": {
         "question": "Can I change the date of my journey after I have booked a bus ticket",
         "answer": "Yes, cancellation and rescheduling options are available based on the bus operator’s policy.",
-        "step1" : "1. Log in to your app",
-        "step2" : "2. Go to trip history",
-        "step3" : "3. Select the trip and click  reschedule",
+        "step1": "1. Log in to your app",
+        "step2": "2. Go to trip history",
+        "step3": "3. Select the trip and click  reschedule",
         "step4": "4. Proceed to input your desired changes"
       },
-      "q3" : {
-        "question":"How do i book using a voucher code",
+      "q3": {
+        "question": "How do i book using a voucher code",
         "step1": "1. Log in to your account.",
         "step2": "2. Click the profile button at the bottom of the screen.",
         "step3": "3. Select wallet, click Redeem Voucher, and enter your code.",
         "step4": "4. Amount is successfully loaded into your account.",
         "step5": "5.  Book using the usual booking process and select Pay from Wallet at the last step."
-
       }
     },
     "payment": {
@@ -207,7 +216,6 @@
       }
     }
   },
-
   "support": {
     "heading": "Travler Customer Support",
     "tagline": "24/7 Customer Support",
@@ -220,7 +228,6 @@
     "availability": "Availability",
     "availabilityDescription": "24/7, including weekends & public holidays"
   },
-
   "contactus": {
     "altGraphic": "Travel destination line graphic",
     "hero": {
@@ -263,9 +270,6 @@
       "sendButton": "Send Message"
     }
   },
-
-
-
   "terms": {
     "title": "TRAVLER WEBSITE TERMS OF USE AND ACCEPTABLE USE POLICY",
     "lastUpdated": "Last Updated: October 2025",
@@ -378,27 +382,23 @@
         ]
       }
     }
-  }
-,
-
-
+  },
   "ticket": {
     "title": "Print Ticket",
     "form": {
       "ticketNumber": {
         "label": "Ticket Number",
-        "placeholder": "Enter your ticket number",
+        "placeholder": "e.g  XYZ123456789",
         "error": "Please enter a valid ticket number"
       },
       "mobileNumber": {
         "label": "Mobile Number",
-        "placeholder": "Enter your mobile number",
+        "placeholder": "e.g  0785700700",
         "error": "Please enter a valid mobile number"
       },
       "submit": "Print Ticket"
     }
   },
-
   "busSeatSelector": {
     "selectSeats": "Select Your Seats",
     "selected": "Selected",
@@ -434,7 +434,6 @@
       "selectSeat": "Select at least one seat"
     }
   },
-
   "booking": {
     "passengerForm": {
       "title": "Personal Information",
@@ -490,7 +489,6 @@
     "discount": "Discount",
     "totalPayable": "Total Payable"
   },
-
   "paymentForm": {
     "ticketCheckout": "TICKET CHECKOUT",
     "viewBusInfo": "View Bus Info",
@@ -565,7 +563,6 @@
     },
     "orContinue": "OR CONTINUE"
   },
-
   "signup": {
     "title": "Sign up",
     "labels": {
@@ -614,7 +611,6 @@
       "signIn": "Sign in"
     }
   },
-
   "login": {
     "title": "Log in",
     "labels": {
@@ -641,8 +637,6 @@
       "loggingIn": "Logging in..."
     }
   },
-
-
   "privacyPolicy": {
     "title": "TRAVLER PRIVACY POLICY",
     "lastUpdated": "Last Updated: October 2025",
@@ -742,9 +736,7 @@
         }
       }
     }
-  }
-,
-
+  },
   "rescheduleBooking": {
     "title": "Reschedule Booking",
     "note": {
@@ -761,7 +753,6 @@
       "submitButton": "Confirm Reschedule"
     }
   },
-
   "wheelOfFortune": {
     "title": "🎡 Spin For a Chance to Win! 🎉",
     "buttons": {
@@ -806,7 +797,6 @@
     "thankYouMessage": "Thank you for choosing our service!",
     "backToHome": "Back to Home"
   },
-
   "paymentVerificationPage": {
     "title": "Payment Processing",
     "states": {
@@ -889,7 +879,6 @@
       "subtitle": "No {{tab}} bookings to display."
     }
   },
-
   "walletPage": {
     "balance": {
       "title": "Your Wallet Balance"
@@ -908,7 +897,6 @@
       "emptyState": "Wallet history not found!"
     }
   },
-
   "accountDetails": {
     "buttons": {
       "editProfile": "Edit Profile",
@@ -938,7 +926,6 @@
       "businessPhotoAlt": "Business Photo"
     }
   },
-
   "changePassword": {
     "title": "Change Password",
     "labels": {
@@ -1006,14 +993,13 @@
     }
   },
   "messages": {
-    "whereTo":"Where to?",
+    "whereTo": "Where to?",
     "fromCity": "Hi there! Where will you start your journey?",
     "toCity": "Great! And where would you like to go?",
     "travelDate": "When would you like to travel?",
     "returnDate": "Round trip – specify return time.",
     "default": "Welcome aboard Travellers"
   },
-
   "aboutPage": {
     "title": "About Us",
     "appName": "Travler",

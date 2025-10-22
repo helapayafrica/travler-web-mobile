@@ -41,6 +41,7 @@
     "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1",
     "crypto-js": "^4.2.0",
+    "html2pdf.js": "^0.12.1",
     "install": "^0.13.0",
     "ng-otp-input": "^2.0.9",
     "ngx-bootstrap": "^20.0.1",

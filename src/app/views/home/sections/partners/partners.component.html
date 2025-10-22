@@ -1,32 +1,55 @@
+<!--<section class="container px-3">-->
+<!--  <h3 class="fs-5 fw-bold text-start mb-3">-->
+<!--    Benefits of Booking Bus Tickets Online-->
+<!--  </h3>-->
+<!--  <p class="text-start fleet-text">-->
+<!--    Online bus ticket booking is easy, fast, and hassle-free. <span class="fw-semibold">Travler</span> offers-->
+<!--    user-friendly app and website navigation.-->
+<!--    <span class="fw-semibold">Travler</span> has resolved many issues that people encounter while booking tickets at-->
+<!--    offline counters or through travel-->
+<!--    agents.-->
+<!--  </p>-->
+<!--  <p>Download the <span class="fw-semibold">Travler  App</span> to experience the benefits of bus ticket booking online.-->
+<!--  </p>-->
+
+
+<!--  <p class="mb-0">Here is a list of all the benefits of booking bus tickets online on <span-->
+<!--    class="fw-semibold">Travler</span>:</p>-->
+
+<!--  <ul>-->
+<!--    <li> Avoid standing in long queues at offline bus ticket counters.</li>-->
+<!--    <li> No more hassle of approaching travel agents.</li>-->
+<!--    <li> Choose from multiple bus partners.</li>-->
+<!--    <li> Check bus ticket availability online.</li>-->
+<!--    <li> Get bus timings, ticket price, boarding & dropping point details online.</li>-->
+<!--    <li> Access to payment partner discounts and cashback offers.</li>-->
+<!--    <li> 24/7 customer support.</li>-->
+<!--    <li> Each and every transaction is simple, safe and secure.</li>-->
+<!--  </ul>-->
+<!--</section>-->
 <section class="container px-3">
   <h3 class="fs-5 fw-bold text-start mb-3">
-    Benefits of Booking Bus Tickets Online
+    {{ 'partners.benefits.title' | translate }}
   </h3>
-  <p class="text-start fleet-text">
-    Online bus ticket booking is easy, fast, and hassle-free. <span class="fw-semibold">Travler</span> offers
-    user-friendly app and website navigation.
-    <span class="fw-semibold">Travler</span> has resolved many issues that people encounter while booking tickets at
-    offline counters or through travel
-    agents.
-  </p>
-  <p>Download the <span class="fw-semibold">Travler  App</span> to experience the benefits of bus ticket booking online.
-  </p>
 
+  <p [innerHTML]="'partners.benefits.paragraph1' | translate" class="text-start fleet-text"></p>
 
-  <p class="mb-0">Here is a list of all the benefits of booking bus tickets online on <span
-    class="fw-semibold">Travler</span>:</p>
+  <p [innerHTML]="'partners.benefits.paragraph2' | translate"></p>
+
+  <p [innerHTML]="'partners.benefits.intro' | translate" class="mb-0"></p>
 
   <ul>
-    <li> Avoid standing in long queues at offline bus ticket counters.</li>
-    <li> No more hassle of approaching travel agents.</li>
-    <li> Choose from multiple bus partners.</li>
-    <li> Check bus ticket availability online.</li>
-    <li> Get bus timings, ticket price, boarding & dropping point details online.</li>
-    <li> Access to payment partner discounts and cashback offers.</li>
-    <li> 24/7 customer support.</li>
-    <li> Each and every transaction is simple, safe and secure.</li>
+    <li>{{ 'partners.benefits.list.item1' | translate }}</li>
+    <li>{{ 'partners.benefits.list.item2' | translate }}</li>
+    <li>{{ 'partners.benefits.list.item3' | translate }}</li>
+    <li>{{ 'partners.benefits.list.item4' | translate }}</li>
+    <li>{{ 'partners.benefits.list.item5' | translate }}</li>
+    <li>{{ 'partners.benefits.list.item6' | translate }}</li>
+    <li>{{ 'partners.benefits.list.item7' | translate }}</li>
+    <li>{{ 'partners.benefits.list.item8' | translate }}</li>
   </ul>
 </section>
+
 
 <section class="container px-3 partners-section">
   <h3 class="fs-5 fw-bold text-start mb-3">

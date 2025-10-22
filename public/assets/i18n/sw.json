@@ -16,7 +16,6 @@
     "usersList": "Orodha ya Watumiaji",
     "logout": "Toka"
   },
-
   "offcanvas": {
     "bookTicket": "Tiketi",
     "signUp": "Jisajili",
@@ -29,7 +28,6 @@
     "usersList": "Orodha ya Watumiaji",
     "logout": "Toka"
   },
-
   "footer": {
     "downloadApp": "Pakua Programu",
     "links": {
@@ -43,7 +41,6 @@
       "email": "support@travler.africa"
     }
   },
-
   "loading": {
     "spinner": "Inapakua...",
     "searchingBuses": "Inatafuta mabasi yanayopatikana...",
@@ -75,7 +72,6 @@
     "close": "Funga",
     "viewSeats": "Angalia Viti"
   },
-
   "search": {
     "tripType": {
       "oneWay": "Safari Moja",
@@ -124,7 +120,6 @@
   "services.title": "Huduma",
   "actions.clear": "Futa",
   "actions.save": "Hifadhi",
-
   "bottomNav": {
     "home": "Nyumbani",
     "printTicket": "Print Tiketi",
@@ -145,9 +140,24 @@
     "customer": "Mteja"
   },
   "partners": {
-    "heading": "Washirika Wetu wa Usafiri"
+    "heading": "Washirika Wetu wa Usafiri",
+    "benefits": {
+      "title": "Faida za Kukata Tiketi za Basi Mtandaoni",
+      "paragraph1": "Kukata tiketi za basi mtandaoni ni rahisi, haraka, na haina usumbufu. <strong class='fw-semibold'>Travler</strong> inatoa programu na tovuti rahisi kutumia. <strong class='fw-semibold'>Travler</strong> imetatua changamoto nyingi ambazo watu hukumbana nazo wanapokatia tiketi katika vituo halisi au kupitia mawakala wa usafiri.",
+      "paragraph2": "Pakua <strong class='fw-semibold'>Programu ya Travler</strong> ili ufurahie faida za kukata tiketi za basi mtandaoni.",
+      "intro": "Hii ni orodha ya faida zote za kukata tiketi za basi mtandaoni kupitia <strong class='fw-semibold'>Travler</strong>:",
+      "list": {
+        "item1": "Epuka kusimama kwenye foleni ndefu katika vituo vya tiketi za basi.",
+        "item2": "Hakuna tena usumbufu wa kumtafuta wakala wa usafiri.",
+        "item3": "Chagua kutoka kwa washirika wengi wa mabasi.",
+        "item4": "Angalia upatikanaji wa tiketi za basi mtandaoni.",
+        "item5": "Pata muda wa safari za basi, bei ya tiketi, na maelezo ya sehemu za kupanda na kushuka mtandaoni.",
+        "item6": "Faidika na punguzo na ofa za pesa taslimu kutoka kwa washirika wa malipo.",
+        "item7": "Huduma kwa wateja saa 24 kila siku.",
+        "item8": "Kila muamala ni rahisi, salama, na thabiti."
+      }
+    }
   },
-
   "faqs": {
     "title": "Maswali Yanayoulizwa Mara kwa Mara Kuhusu Kuhifadhi Tiketi za Basi",
     "nav": {
@@ -205,8 +215,6 @@
       }
     }
   },
-
-
   "support": {
     "heading": "Msaada wa Wateja wa Travler",
     "tagline": "Msaada wa Wateja Masaa 24",
@@ -219,7 +227,6 @@
     "availability": "Upatikanaji",
     "availabilityDescription": "Masaa 24, ikijumuishwa wikendi na siku za mapumziko"
   },
-
   "contactus": {
     "altGraphic": "Mchoro wa mstari wa marudio ya safari",
     "hero": {
@@ -374,26 +381,23 @@
         ]
       }
     }
-  }
-,
-
+  },
   "ticket": {
     "title": "Print Tiketi",
     "form": {
       "ticketNumber": {
         "label": "Nambari ya Tiketi",
-        "placeholder": "Weka nambari yako ya tiketi",
+        "placeholder": "e.g  DEV123456789",
         "error": "Tafadhali weka nambari halali ya tiketi"
       },
       "mobileNumber": {
         "label": "Nambari ya Simu",
-        "placeholder": "Weka nambari yako ya simu",
+        "placeholder": "e.g.  0785700700",
         "error": "Tafadhali weka nambari halali ya simu"
       },
       "submit": "Print Tiketi"
     }
   },
-
   "busSeatSelector": {
     "selectSeats": "Chagua Viti Vyako",
     "selected": "Imechaguliwa",
@@ -429,7 +433,6 @@
       "selectSeat": "Chagua angalau kiti kimoja"
     }
   },
-
   "booking": {
     "passengerForm": {
       "title": "Maelezo Binafsi",
@@ -465,7 +468,6 @@
       }
     }
   },
-
   "busInfo": {
     "onwardTrip": "Safari ya Kwenda",
     "returnTrip": "Safari ya Kurudi",
@@ -486,7 +488,6 @@
     "discount": "Punguzo",
     "totalPayable": "Jumla ya Kulipwa"
   },
-
   "paymentForm": {
     "ticketCheckout": "MALIPO YA TIKETI",
     "viewBusInfo": "Angalia Maelezo ya Basi",
@@ -534,7 +535,6 @@
       "save": "Hifadhi"
     }
   },
-
   "loginModal": {
     "title": "INGIA",
     "labels": {
@@ -562,7 +562,6 @@
     },
     "orContinue": "AU ENDELEA"
   },
-
   "signup": {
     "title": "Jisajili",
     "labels": {
@@ -611,7 +610,6 @@
       "signIn": "Ingia"
     }
   },
-
   "login": {
     "title": "Ingia",
     "labels": {
@@ -638,7 +636,6 @@
       "loggingIn": "Inaingia..."
     }
   },
-
   "privacyPolicy": {
     "title": "SERA YA FARAGHA YA TRAVLER",
     "lastUpdated": "Imesasishwa Mwisho: Oktoba 2025",
@@ -738,9 +735,7 @@
         }
       }
     }
-  }
-,
-
+  },
   "rescheduleBooking": {
     "title": "Badilisha Ratiba ya Uagizaji",
     "note": {
@@ -757,7 +752,6 @@
       "submitButton": "Thibitisha Kubadilisha Ratiba"
     }
   },
-
   "wheelOfFortune": {
     "title": "🎡 Piga kwa Nafasi ya Kushinda! 🎉",
     "buttons": {
@@ -770,7 +764,6 @@
     },
     "canvasFallback": "Haitumiki, tumia kivinjari kingine."
   },
-
   "thankYouPage": {
     "title": "Asante Kwa Ununuzi Wako!",
     "bookingConfirmed": "Uagizaji wako umehakikishiwa kwa mafanikio!",
@@ -785,7 +778,6 @@
     "spinToWin": "Piga ili kushinda",
     "backToHome": "Rudi Nyumbani"
   },
-
   "tripFeedbackPage": {
     "title": "Asante Kwa Safari Yako!",
     "journeyCompleted": "Safari yako imekamilika kwa mafanikio!",
@@ -804,7 +796,6 @@
     "thankYouMessage": "Asante kwa kuchagua huduma yetu!",
     "backToHome": "Rudi Nyumbani"
   },
-
   "paymentVerificationPage": {
     "title": "Inachakata Malipo",
     "states": {
@@ -837,7 +828,6 @@
     "profilePictureAlt": "Picha ya Wasifu",
     "cameraIconAlt": "Fungua Kidirisha cha Kamera"
   },
-
   "dashboard": {
     "totalItemsLabel": "Jumla ya Vitu",
     "dateRangeLabel": "Mpaka wa Tarehe",
@@ -888,7 +878,6 @@
       "subtitle": "Hakuna maagizo ya {{tab}} ya kuonyesha."
     }
   },
-
   "walletPage": {
     "balance": {
       "title": "Salio Lako la Mkoba"
@@ -907,7 +896,6 @@
       "emptyState": "Historia ya mkoba haipatikani!"
     }
   },
-
   "accountDetails": {
     "buttons": {
       "editProfile": "Hariri Wasifu",
@@ -937,7 +925,6 @@
       "businessPhotoAlt": "Picha ya Biashara"
     }
   },
-
   "changePassword": {
     "title": "Badilisha Nenosiri",
     "labels": {
@@ -995,7 +982,6 @@
       "next": "Ijayo"
     }
   },
-
   "notFound": {
     "errorCode": "404",
     "title": "Njia Haipatikani",
@@ -1005,7 +991,6 @@
       "home": "🏠 Nyumbani"
     }
   },
-
   "messages": {
     "whereTo": "Unaenda Wapi?",
     "fromCity": "Habari! Utaanza safari yako wapi?",
@@ -1015,19 +1000,18 @@
     "default": "Karibu kwenye Wasafiri"
   },
   "aboutPage": {
-  "title": "Kuhusu Sisi",
-  "appName": "Travler",
-  "description": "ni programu ya simu iliyotengenezwa ili kuleta mabadiliko sekta ya usafiri kwa kulenga hasa wasafiri. Ni suluhisho mbadala la usafiri inayotoa upatikanaji wa safari za bubui za hali ya juu, njia maalum, ratiba, na nauli zote zikiwa kwenye programu moja.",
-  "easyIntro": "ni rahisi",
-  "steps": {
-    "download": "Pakua na ufungue programu.",
-    "enterPoints": "Weka vituo vya kukuchukulia na kukuletea.",
-    "chooseRoute": "Chagua njia ifaayo zaidi na uanze kusafiri.",
-    "bookRide": "Tengeneza safari yako na uokoe muda na pesa."
-  },
-  "features": "Pia inatoa starehe ya pamoja, ubora, usafiri salama, na huduma kwa wateja inayokabiliana haraka na matatizo.",
-  "callToAction": "UNAHITAJI HUDUMA YA USAFIRI WA BUBUI ILIYO SALAMA, YA STAREHE, NA YA BEI NAFUU?",
-  "conclusion": "Basi Travler ndio PROGRAMMA yako."
-}
-
+    "title": "Kuhusu Sisi",
+    "appName": "Travler",
+    "description": "ni programu ya simu iliyotengenezwa ili kuleta mabadiliko sekta ya usafiri kwa kulenga hasa wasafiri. Ni suluhisho mbadala la usafiri inayotoa upatikanaji wa safari za bubui za hali ya juu, njia maalum, ratiba, na nauli zote zikiwa kwenye programu moja.",
+    "easyIntro": "ni rahisi",
+    "steps": {
+      "download": "Pakua na ufungue programu.",
+      "enterPoints": "Weka vituo vya kukuchukulia na kukuletea.",
+      "chooseRoute": "Chagua njia ifaayo zaidi na uanze kusafiri.",
+      "bookRide": "Tengeneza safari yako na uokoe muda na pesa."
+    },
+    "features": "Pia inatoa starehe ya pamoja, ubora, usafiri salama, na huduma kwa wateja inayokabiliana haraka na matatizo.",
+    "callToAction": "UNAHITAJI HUDUMA YA USAFIRI WA BUBUI ILIYO SALAMA, YA STAREHE, NA YA BEI NAFUU?",
+    "conclusion": "Basi Travler ndio PROGRAMMA yako."
+  }
 }
