@@ -1,5 +1,5 @@
-<div class="bus-container" [@busLayout]>
-  <div class="card shadow-none" [style.minHeight.px]="850">
+<div [@busLayout] class="bus-container">
+  <div [style.minHeight.px]="850" class="card shadow-none">
     <div class="card-body">
       <div>
         <div class="d-flex justify-content-between align-items-start">
@@ -12,72 +12,74 @@
       </div>
 
       <h5 class="card-title d-flex justify-content-between align-items-center mb-2">
-        <span style="font-size: 1rem;" class="text-muted">{{ 'busSeatSelector.selectSeats' | translate }}</span>
-        <span class="badge text-success-emphasis">{{ selectedSeats.length }}/6 {{ 'busSeatSelector.selected' | translate }}</span>
+        <span class="text-muted" style="font-size: 1rem;">{{ 'busSeatSelector.selectSeats' | translate }}</span>
+        <span class="badge text-success-emphasis">{{ selectedSeats.length }}
+          /6 {{ 'busSeatSelector.selected' | translate }}</span>
       </h5>
 
       <!-- Bus Layout Container -->
-      <div #busContainer class="bus-layout" [style.maxHeight.px]="busLayoutHeight">
+      <div #busContainer [style.maxHeight.px]="busLayoutHeight" class="bus-layout">
         <div class="bus-outline bg-light"></div>
 
         <!-- Overlay for mobile orientation message -->
-<!--        <div class="orientation-message" *ngIf="isMobileView" [@fadeIn]>-->
-<!--          <i class="bi bi-phone-flip"></i>-->
-<!--          <small>{{ 'busSeatSelector.orientationMessage' | translate }}</small>-->
-<!--        </div>-->
+        <!--        <div class="orientation-message" *ngIf="isMobileView" [@fadeIn]>-->
+        <!--          <i class="bi bi-phone-flip"></i>-->
+        <!--          <small>{{ 'busSeatSelector.orientationMessage' | translate }}</small>-->
+        <!--        </div>-->
 
         <!-- Seats -->
         <ng-container *ngFor="let seat of seatData">
-          <button *ngIf="seat.seat_type !== 'driver' && seat.seat_type !== 'door'"
-                  class="m-1"
-                  [class]="'seat ' + getSeatClass(seat)"
+          <button (click)="toggleSeat(seat)"
+                  *ngIf="seat.seat_type !== 'driver' && seat.seat_type !== 'door'"
                   [@seatState]="getSeatState(seat)"
+                  [attr.aria-label]="'Seat ' + seat.seat_name + ' - ' + seat.seat_type"
                   [class.selected]="isSelected(seat)"
+                  [class]="'seat ' + getSeatClass(seat)"
+                  [disabled]="seat.selection_status || seat.seat_type == 'staff' "
+                  [style.fontSize.px]="14 * cardScaleFactor"
+                  [style.height.px]="parseInt(seat.seat_height) * cardScaleFactor"
                   [style.left.px]="adjustSeatPosition(seat, 'left')"
                   [style.top.px]="adjustSeatPosition(seat, 'top')"
                   [style.width.px]="parseInt(seat.seat_width) * cardScaleFactor"
-                  [style.height.px]="parseInt(seat.seat_height) * cardScaleFactor"
-                  [style.fontSize.px]="14 * cardScaleFactor"
-                  [disabled]="seat.selection_status || seat.seat_type == 'staff' "
-                  (click)="toggleSeat(seat)"
-                  [attr.aria-label]="'Seat ' + seat.seat_name + ' - ' + seat.seat_type">
+                  class="m-1">
             {{ seat.seat_name }}
-            <div class="seat-tooltip" *ngIf="isSelected(seat)" [@tooltip]="'visible'">
+            <div *ngIf="isSelected(seat)" [@tooltip]="'visible'" class="seat-tooltip">
               <i class="bi bi-check"></i>
             </div>
           </button>
 
           <!-- Door -->
           <div *ngIf="seat.seat_type === 'door'"
-               class="door-section bus-name"
+               [style.fontSize.rem]="0.8 * scaleFactor"
+               [style.height.px]="parseInt(seat.seat_height) * cardScaleFactor"
                [style.left.px]="adjustSeatPosition(seat, 'left')"
                [style.top.px]="adjustSeatPosition(seat, 'top')"
                [style.width.px]="parseInt(seat.seat_width) * cardScaleFactor"
-               [style.height.px]="parseInt(seat.seat_height) * cardScaleFactor"
-               [style.fontSize.rem]="0.8 * scaleFactor">
-            <div class="ms-1"
-                 style="line-height: 36px; border: 2px dashed rgb(232, 232, 232); text-align: center; color: rgb(232, 232, 232); text-transform: uppercase;"
-                 [style.width.px]="90 * cardScaleFactor"
+               class="door-section bus-name">
+            <div [style.fontSize.px]="18 * scaleFactor"
                  [style.height.px]="36 * cardScaleFactor"
                  [style.lineHeight.px]="36 * cardScaleFactor"
-                 [style.fontSize.px]="18 * scaleFactor">
-              <span style="font-size: 14px;color: #969696" class="ng-binding">{{ 'busSeatSelector.door' | translate }}</span>
+                 [style.width.px]="90 * cardScaleFactor"
+                 class="ms-1"
+                 style="line-height: 36px; border: 2px dashed rgb(232, 232, 232); text-align: center; color: rgb(232, 232, 232); text-transform: uppercase;">
+              <span class="ng-binding"
+                    style="font-size: 14px;color: #969696">{{ 'busSeatSelector.door' | translate }}</span>
             </div>
           </div>
 
           <!-- Driver -->
-          <div *ngIf="seat.seat_type === 'driver'" class="door-section bus-name"
+          <div *ngIf="seat.seat_type === 'driver'" [style.height.px]="90 * cardScaleFactor"
                [style.left.px]="adjustSeatPosition(seat, 'left')"
                [style.top.px]="adjustSeatPosition(seat, 'top')"
                [style.width.px]="parseInt(seat.seat_width) * cardScaleFactor"
-               [style.height.px]="90 * cardScaleFactor">
+               class="door-section bus-name">
             <!-- driver SVG -->
           </div>
         </ng-container>
       </div>
 
       <!-- Seat Legend -->
-      <div class="seat-legend-container position-absolute bottom-0 start-0 end-0 mb-3" [@legendItem]>
+      <div [@legendItem] class="seat-legend-container position-absolute bottom-0 start-0 end-0 mb-3">
         <div class="d-flex flex-wrap gap-2 gap-md-4 justify-content-center">
           <div class="d-flex align-items-center">
             <div class="seat-legend vip"></div>
@@ -108,7 +110,8 @@
           <h5 class="card-title">{{ 'busSeatSelector.summary.title' | translate }}</h5>
           <ng-container *ngIf="selectedSeats.length > 0; else noSeats">
             <p class="mb-0">
-              <span class="fw-bold">{{ 'busSeatSelector.summary.seats' | translate }}</span>: {{ getSelectedSeatsString() }}
+              <span
+                class="fw-bold">{{ 'busSeatSelector.summary.seats' | translate }}</span>: {{ getSelectedSeatsString() }}
             </p>
             <p class="text-muted small mb-0">
               {{ getSeatTypesSummary() }}
@@ -118,27 +121,25 @@
             <p class="mb-0 text-muted">{{ 'busSeatSelector.summary.noSeats' | translate }}</p>
           </ng-template>
         </div>
-        <div class="price text-start text-md-end">
-          <ng-container *ngIf="selectedSeats.length > 0">
-            <p class="mb-0 fs-5 fw-bold">KES {{ calculateTotalPrice() }}</p>
-            <p class="text-muted small mb-0">{{ 'busSeatSelector.summary.totalAmount' | translate }}</p>
-          </ng-container>
+        <div *ngIf="selectedSeats.length > 0" class="price text-start text-md-end">
+          <p class="mb-0 fs-5 fw-bold">KES {{ calculateTotalPrice() }}</p>
+          <p class="text-muted small mb-0">{{ 'busSeatSelector.summary.totalAmount' | translate }}</p>
         </div>
       </div>
 
       <!-- Boarding/Dropping -->
-      <form class="mt-1" [formGroup]="boardingForm" (ngSubmit)="submitForm()">
+      <form (ngSubmit)="submitForm()" [formGroup]="boardingForm" class="mt-1">
         <div class="row">
           <div class="col-sm-6">
             <div class="w-100 d-flex flex-column">
               <label class="fw-medium" for="boarding">{{ 'busSeatSelector.form.boarding.label' | translate }}</label>
               <p-select
-                inputId="boarding"
                 [options]="stages?.boarding"
-                formControlName="boarding"
-                optionLabel="name"
                 [placeholder]="'busSeatSelector.form.boarding.placeholder' | translate"
                 class="w-full"
+                formControlName="boarding"
+                inputId="boarding"
+                optionLabel="name"
               />
             </div>
           </div>
@@ -147,12 +148,12 @@
             <div class="w-100 d-flex flex-column">
               <label class="fw-medium" for="dropping">{{ 'busSeatSelector.form.dropping.label' | translate }}</label>
               <p-select
-                inputId="dropping"
                 [options]="stages?.dropping"
-                formControlName="dropping"
-                optionLabel="name"
                 [placeholder]="'busSeatSelector.form.dropping.placeholder' | translate"
                 class="w-full"
+                formControlName="dropping"
+                inputId="dropping"
+                optionLabel="name"
               />
             </div>
           </div>
@@ -161,16 +162,16 @@
 
       <!-- Buttons -->
       <div class="mt-3">
-        <button *ngIf="selectedSeats.length > 0 && !boardingForm.invalid && (type === 'onward' || isReturnStep)"
-                class="btn btn-primary w-100 rounded-pill py-2 mt-3"
-                (click)="proceedToCheckout()">
+        <button (click)="proceedToCheckout()"
+                *ngIf="selectedSeats.length > 0 && !boardingForm.invalid && (type === 'onward' || isReturnStep)"
+                class="btn btn-primary w-100 rounded-pill py-2 mt-3">
           {{ 'busSeatSelector.buttons.checkout' | translate }}
           <i class="bi bi-arrow-right ms-2"></i>
         </button>
 
-        <button *ngIf="selectedSeats.length > 0 && !boardingForm.invalid && type === 'twoway' && !isReturnStep"
-                class="btn btn-success w-100 rounded-pill py-2 mt-3"
-                (click)="proceedToReturn()">
+        <button (click)="proceedToReturn()"
+                *ngIf="selectedSeats.length > 0 && !boardingForm.invalid && type === 'twoway' && !isReturnStep"
+                class="btn btn-success w-100 rounded-pill py-2 mt-3">
           {{ 'busSeatSelector.buttons.return' | translate }}
           <i class="bi bi-arrow-repeat ms-2"></i>
         </button>
@@ -188,13 +189,13 @@
           {{ 'busSeatSelector.buttons.selectSeat' | translate }}
           <i class="bi bi-exclamation-circle-fill ms-2"></i>
         </button>
-<!--
-        <button *ngIf="selectedSeats.length > 0 && !boardingForm.invalid && type === 'twoway' && !isReturnStep"
-                class="btn btn-success w-100 rounded-pill py-2 mt-3"
-                (click)="proceedToReschedule()">
-          {{ 'busSeatSelector.buttons.reschedule' | translate }}
-          <i class="bi bi-arrow-repeat ms-2"></i>
-        </button> -->
+        <!--
+                <button *ngIf="selectedSeats.length > 0 && !boardingForm.invalid && type === 'twoway' && !isReturnStep"
+                        class="btn btn-success w-100 rounded-pill py-2 mt-3"
+                        (click)="proceedToReschedule()">
+                  {{ 'busSeatSelector.buttons.reschedule' | translate }}
+                  <i class="bi bi-arrow-repeat ms-2"></i>
+                </button> -->
       </div>
     </div>
   </div>
