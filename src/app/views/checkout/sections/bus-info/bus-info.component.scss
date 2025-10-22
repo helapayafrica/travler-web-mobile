@@ -14,7 +14,7 @@
   //color: white; /* Ensure text is readable */
 }
 
-h6{
+h6 {
   font-weight: 400 !important;
 }
 
@@ -27,7 +27,7 @@ h6{
   background-color: #EFEFEF;
   border: 1px solid #ddd;
   color: black;
-  padding:0.5rem;
+  padding: 0.5rem;
 }
 
 bi-calendar3.departure {
@@ -37,12 +37,18 @@ bi-calendar3.departure {
 bi-calendar3.arrival {
   color: var(--secondary-color-500);
 }
+
 //
 //.text-muted{
 //  color: var(--primary-color-300) !important;
 //}
 
-*{
+* {
   font-size: var(--font-size);
+}
+
+.text-decoration-line-through {
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: -3px !important;
 }
 
